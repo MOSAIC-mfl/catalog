@@ -1,0 +1,36 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-094
+title: Land cover Kef-Siliana region (2022)
+description: Land cover map of the Kef-Siliana region, Tunisia, for 2022, produced by ICARDA from ESRI
+  Sentinel-2 Land Cover Explorer rasters (ArcGIS Living Atlas of the World), 10 m cell size. Classes
+  1 Water; 2 Forest; 4 Flooded vegetation; 5 Crop; 7 Built area; 8 Bare land; 11 Rangeland. Source data
+  coordinate system UTM WGS 84; service coordinate system Web Mercator Auxiliary Sphere WGS 84 (EPSG:3857).
+  Companion to the 2017 map (MFL-2026-093). Published on ICARDA's MEL data portal with data dictionaries;
+  MOSAIC links to it there.
+country: Tunisia
+living_landscape: TUN-NW
+theme: Land cover / land use
+data_type: Raster
+spatial_resolution: 10 m
+temporal_coverage: '2022'
+source: ICARDA
+contact: Layal Atassi (l.atassi@cgiar.org)
+access_level: Open
+license: CC BY-SA 4.0
+processing_status: Processed
+file_names: Land_cover_Kef_Siliana_region_2022.tif; LC_2022.csv
+current_location: MEL data portal (data.mel.cgiar.org)
+migration_status: null
+server_path: null
+date_registered: '2026-10-15'
+last_updated: '2025-10-30'
+update_frequency: Static
+download_url: https://hdl.handle.net/20.500.11766.1/FK2/H4QIFS
+file_size: 143 MB
+bbox:
+  xmin: 8.256625
+  ymin: 35.475588
+  xmax: 9.772774
+  ymax: 36.462446
+citation: 'Shiri, Zahra; Frija, Aymen; Rejeb, Hichem; Ouerghemmi, Hassen; Le, Quang Bao, 2024, "Land
+  cover Kef-Siliana region (2022)", https://hdl.handle.net/20.500.11766.1/FK2/H4QIFS, MELDATA, V13'

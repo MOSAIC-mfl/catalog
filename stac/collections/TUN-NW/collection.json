@@ -7,7 +7,7 @@
   ],
   "id": "TUN-NW",
   "title": "Northwestern Tunisia",
-  "description": "Datasets registered under the 'Northwestern Tunisia' Living Landscape (6 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'Northwestern Tunisia' Living Landscape (11 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -23,7 +23,7 @@
     "temporal": {
       "interval": [
         [
-          "2021-01-01T00:00:00Z",
+          "2017-01-01T00:00:00Z",
           "2024-12-31T23:59:59Z"
         ]
       ]
@@ -32,6 +32,7 @@
   "keywords": [
     "Boundaries / admin units",
     "Degradation / land health",
+    "Ecosystem condition",
     "Land cover / land use",
     "Socio-economic / livelihoods"
   ],
@@ -50,6 +51,7 @@
     "mosaic:theme": [
       "Boundaries / admin units",
       "Degradation / land health",
+      "Ecosystem condition",
       "Land cover / land use",
       "Socio-economic / livelihoods"
     ]
@@ -60,7 +62,7 @@
   "mosaic:living_landscape": "TUN-NW",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 6,
+  "mosaic:item_count": 11,
   "links": [
     {
       "rel": "root",
@@ -112,6 +114,36 @@
       "href": "./items/MFL-2026-035.json",
       "type": "application/json",
       "title": "Agroecological and socioeconomic datasets"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-093.json",
+      "type": "application/json",
+      "title": "Land cover Kef-Siliana region (2017)"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-094.json",
+      "type": "application/json",
+      "title": "Land cover Kef-Siliana region (2022)"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-095.json",
+      "type": "application/json",
+      "title": "Land Cover change in Kef-Siliana region (2017-2022)"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-096.json",
+      "type": "application/json",
+      "title": "Data on landscape metrics at different scales, Kef-Siliana region and sub-spatial units of the Agroecological Living Lab Landscape in Tunisia (2017-2022)"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-097.json",
+      "type": "application/json",
+      "title": "Data on the dynamics of Land Cover at different scales, Kef-Siliana region and sub-spatial units of the Agroecological Living Lab Landscape in Tunisia (2017-2022)"
     }
   ],
   "mosaic:landscape_system": "Dryland Mediterranean",
