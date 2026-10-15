@@ -323,6 +323,80 @@ def _looks_spdx(value: str) -> bool:
     return value in SPDX_LICENSE_IDS or value == "other"
 
 
+# Records whose data belongs to a third party. The registered contact neither
+# produced nor licensed it — they are only who to ask — so their STAC role is
+# 'point-of-contact'. Grouped by rights holder; the sweep behind the list is
+# `MFL SP docs/project docs/MOSAIC internal/stac_contact_roles_sweep_2026-10-15.md`
+# (Lizeth approved it 2026-10-15). The ids are the record id's last segment.
+#
+# This lives here, and not in the record schema, by decision: the judgement is
+# about who holds the rights, which the registry does not record. Add an id here
+# when a new record turns out to re-describe someone else's data.
+THIRD_PARTY_RIGHTS = {
+    # National government (external)
+    "013", "014", "015", "039", "040", "042",
+    # GADM
+    "018", "019", "021", "026", "044",
+    # Open Development Cambodia
+    "059", "060", "061", "062",
+    # Open Development Mekong
+    "058",
+    # COD-AB Tunisia (UN OCHA) — per the 2026-09-22 intake, not ICARDA
+    "030", "031", "032",
+    # MINAM / GEOBOSQUES / SERNANP / INEI (Peruvian government)
+    "072", "073", "074", "076", "077", "078", "079", "080",
+    # Mekong River Commission
+    "050", "051", "052",
+    # MapBiomas Peru
+    "081", "082",
+    # Mission Antyodaya (gov.in)
+    "004", "005",
+    # NASA / USGS, NASA POWER
+    "002", "024", "036",
+    # data.gov.in
+    "008", "009",
+    # soilhealth.dac.gov.in
+    "010",
+    # India Meteorological Department (imdpune.gov.in)
+    "003",
+    # National government, via Zenodo
+    "012",
+    # National government (external), Landsat/Sentinel derived
+    "001",
+    # ARCWeather / Sodexam
+    "046",
+    # ATREE / GEE (2026-09-04 audit)
+    "063",
+    # CHIRPS / AgERA5
+    "067",
+    # ESA / Copernicus
+    "011",
+    # Esri Living Atlas
+    "017",
+    # IFPRI — 045 (contact is AfricaRice), 048 (IFPRI Dataverse)
+    "045", "048",
+    # RAISG
+    "075",
+    # iSDAsoil
+    "066",
+}
+
+
+def _contact_roles(r: dict) -> list[str]:
+    """STAC roles for the record's contact.
+
+    'licensor' names the party that GRANTED the licence, so it is only true when
+    the contact's own institution both produced the data and granted an SPDX
+    licence for it. An SPDX id alone is not enough: MFL-2026-066 is iSDAsoil
+    under CC BY 4.0, but iSDA is the licensor, not the AfricaRice contact.
+    """
+    if r["id"].split("-")[-1] in THIRD_PARTY_RIGHTS:
+        return ["point-of-contact"]
+    if r["license"] and r["license"] in SPDX_LICENSE_IDS:
+        return ["producer", "licensor"]
+    return ["producer"]
+
+
 def _collection_providers(recs: list[dict]) -> list[dict]:
     names = sorted({r["source"] for r in recs if r["source"]})
     return [{"name": n, "roles": ["producer"]} for n in names] or [
@@ -410,7 +484,7 @@ def _build_item(r: dict, code: str, vocab: Vocab) -> dict:
         props["contacts"] = [{
             "name": r["contact_name"] or r["contact"] or "Unknown",
             "emails": ([{"value": r["contact"]}] if r["contact"] else []),
-            "roles": ["producer", "licensor"],
+            "roles": _contact_roles(r),
         }]
 
     # Drop None datetime keys that STAC validators dislike? datetime=null is allowed

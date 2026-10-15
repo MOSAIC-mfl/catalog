@@ -51,7 +51,7 @@ Per §3 of the assessment. Use `cgiar-cdh:*` where the CDH defines it, `mosaic:*
 | 7 Spatial resolution | `mosaic:spatial_resolution` (verbatim string; omitted when blank). CDH v0.3.0 `cgiar-cdh:spatial_resolution` takes only structured point/polygon objects and grid spacing goes to `cube:dimensions[].step`, so MOSAIC's free text stays in its own namespace | mosaic |
 | 8 Temporal coverage | Item `start_datetime`/`end_datetime` + collection `extent.temporal.interval` (R4). No period → item `datetime` = the date the record was catalogued (`date_registered`, else 2026-07-21, the canonical snapshot); an open end ("present") closes on that date; both flagged in `mosaic:datetime_note` (since 2026-09-28) | core + mosaic |
 | 9 Source / Centre | `providers[]` (role producer/host) | core |
-| 10 Contact person | `providers[]` + Contacts ext `contacts[]`; **≥1 `licensor`** | core + Contacts ext |
+| 10 Contact person | `providers[]` + Contacts ext `contacts[]`; roles per R10 | core + Contacts ext |
 | 11 Access level | `mosaic:access_level` | mosaic |
 | 12 License | `license` on items (since 2026-09-28) and collections: the SPDX id (R3); a verbatim or vague string → `other`, with the text in `mosaic:license_original`. Item: omitted when blank. Collection: the members' shared SPDX id, else `other` | core |
 | 13 Processing status | `mosaic:processing_status` | mosaic |
@@ -81,7 +81,7 @@ Input is messy "Name - email" / "Name, email" / "Name (email)" / just a name / j
 1. Regex-find first email: `[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}`.
 2. If found → `contact = <that email, lowercased, trimmed>`.
 3. If none → `contact = null` and FLAG `missing_contact_email`.
-4. (STAC only) the name portion = text before the first of ` - `, `,`, `(`; use for `contacts[].name`. Email → `contacts[].email`. Default `contacts[].role = "producer"`; ensure the Collection has **≥1 contact with role `licensor`** — if none, set the producer contact to `licensor` and FLAG `no_licensor_assigned`.
+4. (STAC only) the name portion = text before the first of ` - `, `,`, `(`; use for `contacts[].name`. Email → `contacts[].email`. Roles per R10.
 
 ### R2 — formats[] derivation (cols 6 + 14 → `formats`)
 1. From col 14 File name(s): extract all file extensions (regex `\.([A-Za-z0-9]{1,5})(?=[\s,;]|$)`), uppercase, dedupe. Map common ones: `tif/tiff→GeoTIFF`, `shp→Shapefile`, `gpkg→GeoPackage`, `csv→CSV`, `xlsx→XLSX`, `nc→NetCDF`, `geojson→GeoJSON`, `json→JSON`, `zarr→Zarr`, `parquet→Parquet`.
@@ -148,7 +148,27 @@ metadata_url = "stac/collections/" + <id> + "/collection.json"
 
 ---
 
+### R10 — Contact roles (col 10 → STAC `contacts[].roles`)  ** DECISION **
+Replaces the original rule, which hardcoded `["producer","licensor"]` on every item and
+forced a `licensor` where none existed (Lizeth, 2026-10-15). In STAC/OGC `licensor` names
+the party that **granted** the licence, so:
+
+1. If the record's data belongs to a third party → `["point-of-contact"]`.
+   The set of such records is `stac_build.py:THIRD_PARTY_RIGHTS`, grouped by rights holder.
+2. Else if `license` is an SPDX id → `["producer", "licensor"]`.
+3. Else → `["producer"]`.
+
+An SPDX id alone is **not** sufficient for `licensor`: MFL-2026-066 is iSDAsoil under
+CC BY 4.0, but iSDA is the licensor, not the AfricaRice contact. The judgement is who holds
+the rights, which the registry does not record — so it lives in the pipeline, not the record
+schema (decided 2026-10-15, no schema change). Add an id to `THIRD_PARTY_RIGHTS` when a new
+record turns out to re-describe someone else's data.
+
+Result on the 89 published records: 52 `point-of-contact`, 30 `producer`, 7 `producer`+`licensor`.
+Sweep behind the list: `MFL SP docs/project docs/MOSAIC internal/stac_contact_roles_sweep_2026-10-15.md`.
+The flag `no_licensor_assigned` is retired — having no licensor is now a valid outcome.
+
 ## 4. Data-quality FLAGS the engineer must emit (for a side report, not to block v1)
-`missing_contact_email`, `no_licensor_assigned`, `non_spdx_license`, `vague_license`, `missing_license`, `unparsed_temporal`, `non_numeric_resolution`, `duplicate_id`, `missing_readiness`, `non_url_download`, `malformed_row` (the "Soil dataset" record), `unmatched_living_landscape`, `missing_crs`.
+`missing_contact_email`, `non_spdx_license`, `vague_license`, `missing_license`, `unparsed_temporal`, `non_numeric_resolution`, `duplicate_id`, `missing_readiness`, `non_url_download`, `malformed_row` (the "Soil dataset" record), `unmatched_living_landscape`, `missing_crs`.
 
 Emit as `flags: []` per record in an export log. v1 ships even with flags present.

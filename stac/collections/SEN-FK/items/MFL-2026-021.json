@@ -72,8 +72,7 @@
           }
         ],
         "roles": [
-          "producer",
-          "licensor"
+          "point-of-contact"
         ]
       }
     ],
