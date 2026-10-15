@@ -58,7 +58,7 @@
     "mosaic:bbox_approximate": false,
     "mosaic:bbox_note": "Bbox of the canonical landscape delineation, used as a proxy for the dataset's own (unrecorded) extent.",
     "mosaic:formats": [
-      "CSV"
+      "XLSX"
     ],
     "mosaic:spatial_resolution": "Climate station observations",
     "mosaic:last_updated": "2026",
@@ -79,7 +79,7 @@
         ]
       }
     ],
-    "mosaic:access_note": "Current location: server and drive"
+    "mosaic:access_note": "Current location: server and drive | Server path: MOSAIC/datasets/MFL-2026-046/raw/"
   },
   "collection": "CIV-NZ",
   "links": [
@@ -121,7 +121,7 @@
       "roles": [
         "data"
       ],
-      "type": "text/csv"
+      "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     }
   }
 }

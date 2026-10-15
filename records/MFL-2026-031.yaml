@@ -13,12 +13,18 @@ contact: Layal Atassi - l.atassi@cgiar.org
 access_level: Open
 license: CGIAR Open Access
 processing_status: Validated
-file_names: null
+file_names: Tunisia_Sector.shp (complete shapefile set, 8 files)
 current_location: Drive
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-031/raw/
 date_registered: null
 last_updated: null
 update_frequency: null
 download_url: www.geoboundaries.org
-file_size: null
+file_size: 692 KB
+bbox:
+  xmin: 8.767
+  ymin: 35.6887
+  xmax: 9.5377
+  ymax: 36.4634
+crs: EPSG:4326

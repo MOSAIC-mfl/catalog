@@ -40,7 +40,7 @@
     22.5
   ],
   "properties": {
-    "title": "Tree conservation and restoration priority areas",
+    "title": "Tree conservation and restoration priority areas (Laos)",
     "description": "Conservation for Restoration (C4R) tool LAOS: mapping the vulnerability and priority areas for conservation and restoration of 79 native tree species. Linked to D4R",
     "datetime": null,
     "start_datetime": "2017-01-01T00:00:00Z",
@@ -79,7 +79,7 @@
         ]
       }
     ],
-    "mosaic:access_note": "Current location: One drive"
+    "mosaic:access_note": "Current location: One drive | Server path: MOSAIC/datasets/MFL-2026-068/raw/"
   },
   "collection": "MEK-3S",
   "links": [

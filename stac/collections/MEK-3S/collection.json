@@ -174,13 +174,13 @@
       "rel": "item",
       "href": "./items/MFL-2026-068.json",
       "type": "application/json",
-      "title": "Tree conservation and restoration priority areas"
+      "title": "Tree conservation and restoration priority areas (Laos)"
     },
     {
       "rel": "item",
       "href": "./items/MFL-2026-069.json",
       "type": "application/json",
-      "title": "Tree conservation and restoration priority areas"
+      "title": "Tree conservation and restoration priority areas (Vietnam)"
     }
   ],
   "mosaic:landscape_system": "Three S Rivers Sub-basin in the Mekong Basin",

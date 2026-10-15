@@ -1,6 +1,6 @@
 # MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
 id: MFL-2026-069
-title: Tree conservation and restoration priority areas
+title: Tree conservation and restoration priority areas (Vietnam)
 description: 'Conservation for Restoration (C4R) tool VIETNAM: mapping the vulnerability and priority
   areas for conservation and restoration of 66 native tree species. Linked to D4R'
 country: Vietnam
@@ -14,12 +14,18 @@ contact: Hannes Gaisberger, h.gaisberger@cgiar.org
 access_level: Open
 license: CGIAR Open Access
 processing_status: null
-file_names: null
+file_names: ex_situ_conservation.tif; expanding_protection.tif; landscape_restoration.tif; maintaining_protection.tif
 current_location: One drive
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-069/raw/
 date_registered: null
 last_updated: '2025'
 update_frequency: On-demand
 download_url: null
 file_size: 250 MB
+bbox:
+  xmin: 102.1499
+  ymin: 8.4165
+  xmax: 109.4582
+  ymax: 23.3915
+crs: EPSG:4326

@@ -15,12 +15,18 @@ contact: Beatriz Rodríguez (b.rodriguez@cgiar.org)
 access_level: Open
 license: Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license stated
 processing_status: Processed
-file_names: null
+file_names: Ucayali_Annual_Deforestation_2001_2024.shp (complete shapefile set, 8 files)
 current_location: One Drive
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-080/raw/
 date_registered: '2026-09-15'
 last_updated: '2026'
 update_frequency: Unknown
 download_url: https://geobosques.minam.gob.pe/geobosque/view/descargas.php?122345gxxe345w34gg#download
-file_size: null
+file_size: 143.3 MB
+bbox:
+  xmin: -75.9419
+  ymin: -11.4473
+  xmax: -70.4954
+  ymax: -7.2716
+crs: EPSG:4326

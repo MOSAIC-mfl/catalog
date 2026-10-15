@@ -1,6 +1,6 @@
 # MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
 id: MFL-2026-064
-title: Tree conservation and restoration priority areas
+title: Tree conservation and restoration priority areas (Kenya)
 description: 'Conservation for Restoration (C4R) tool KENYA: mapping the vulnerability and priority areas
   for conservation and restoration of 78 native tree species. Linked to D4R'
 country: Kenya
@@ -14,13 +14,19 @@ contact: Hannes Gaisberger, h.gaisberger@cgiar.org
 access_level: Open
 license: CGIAR Open Access
 processing_status: Validated
-file_names: null
+file_names: ex_situ_conservation.tif; expanding_protection.tif; landscape_restoration.tif; maintaining_protection.tif
 current_location: Dataverse repository
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-064/raw/
 date_registered: null
 last_updated: '2025'
 update_frequency: On-demand
 download_url: https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/2ZQTB2
 file_size: 220 MB
 gee_asset_id: projects/mosaic-mfl/assets/mvp/MFL-2026-064
+bbox:
+  xmin: 33.9083
+  ymin: -4.7083
+  xmax: 41.925
+  ymax: 5.0583
+crs: EPSG:4326

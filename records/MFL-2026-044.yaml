@@ -16,12 +16,18 @@ contact: Louis Kouadio (a.kouadio2@cgiar.org)
 access_level: Open
 license: Restricted — GADM terms (academic/non-commercial use only, no redistribution)
 processing_status: Validated
-file_names: null
+file_names: gadm41_CIV_0.shp; gadm41_CIV_1.shp; gadm41_CIV_2.shp; gadm41_CIV_3.shp; gadm41_CIV_4.shp (five complete shapefile sets, 25 files)
 current_location: Drive
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-044/raw/
 date_registered: null
 last_updated: '2022'
 update_frequency: Unknown
 download_url: https://gadm.org/download_country.html
-file_size: null
+file_size: 3.5 MB
+bbox:
+  xmin: -8.5993
+  ymin: 4.3618
+  xmax: -2.4949
+  ymax: 10.7366
+crs: EPSG:4326

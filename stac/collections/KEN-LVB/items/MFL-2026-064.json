@@ -40,7 +40,7 @@
     5.5
   ],
   "properties": {
-    "title": "Tree conservation and restoration priority areas",
+    "title": "Tree conservation and restoration priority areas (Kenya)",
     "description": "Conservation for Restoration (C4R) tool KENYA: mapping the vulnerability and priority areas for conservation and restoration of 78 native tree species. Linked to D4R",
     "datetime": null,
     "start_datetime": "2017-01-01T00:00:00Z",
@@ -80,7 +80,7 @@
         ]
       }
     ],
-    "mosaic:access_note": "Current location: Dataverse repository"
+    "mosaic:access_note": "Current location: Dataverse repository | Server path: MOSAIC/datasets/MFL-2026-064/raw/"
   },
   "collection": "KEN-LVB",
   "links": [

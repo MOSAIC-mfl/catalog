@@ -19,12 +19,12 @@ processing_status: Validated
 file_names: CI.SOL
 current_location: server and drive
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-048/raw/
 date_registered: null
 last_updated: '2015'
 update_frequency: Static
 download_url: https://doi.org/10.7910/DVN/1PEEY0
-file_size: null
+file_size: 9.3 MB
 citation: International Research Institute for Climate and Society (IRI); Michigan State University (MSU);
   HarvestChoice, International Food Policy Research Institute (IFPRI), 2015, "Global High-Resolution Soil
   Profile Database for Crop Modeling Applications", https://doi.org/10.7910/DVN/1PEEY0

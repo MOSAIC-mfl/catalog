@@ -15,12 +15,18 @@ contact: Beatriz Rodríguez (b.rodriguez@cgiar.org)
 access_level: Open
 license: Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license stated
 processing_status: Processed
-file_names: null
+file_names: Ucayali_Human_Footprint_map.shp (complete shapefile set, 8 files)
 current_location: One Drive
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-077/raw/
 date_registered: '2026-09-15'
 last_updated: NA
 update_frequency: Unknown
 download_url: https://geoservidor.minam.gob.pe/recursos/intercambio-de-datos/
-file_size: null
+file_size: 125.6 MB
+bbox:
+  xmin: -75.8586
+  ymin: -11.4394
+  xmax: -70.4949
+  ymax: -7.3333
+crs: EPSG:4326

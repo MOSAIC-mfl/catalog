@@ -13,12 +13,18 @@ contact: Beatriz Rodríguez (b.rodriguez@cgiar.org)
 access_level: Open
 license: Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license stated
 processing_status: Processed
-file_names: null
+file_names: Ucayali_National_Protected_Natural_Areas.shp (complete shapefile set, 8 files)
 current_location: One Drive
 migration_status: null
-server_path: null
+server_path: MOSAIC/datasets/MFL-2026-073/raw/
 date_registered: '2026-09-15'
 last_updated: NA
 update_frequency: Unknown
 download_url: https://geo.sernanp.gob.pe/visorsernanp/
-file_size: null
+file_size: 658 KB
+bbox:
+  xmin: -76.6337
+  ymin: -11.6732
+  xmax: -70.5991
+  ymax: -6.1518
+crs: EPSG:4326
