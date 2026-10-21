@@ -7,7 +7,7 @@
   ],
   "id": "KEN-LVB",
   "title": "Lake Victoria Basin (Kenya)",
-  "description": "Datasets registered under the 'Lake Victoria Basin (Kenya)' Living Landscape (10 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'Lake Victoria Basin (Kenya)' Living Landscape (11 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -30,6 +30,7 @@
     }
   },
   "keywords": [
+    "Boundaries / admin units",
     "Decision-support outputs",
     "Degradation / land health",
     "Ecosystem condition",
@@ -40,6 +41,12 @@
   "providers": [
     {
       "name": "Alliance Bioversity-CIAT",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "Alliance Bioversity-CIAT (MOSAIC)",
       "roles": [
         "producer"
       ]
@@ -63,6 +70,7 @@
       "Restricted"
     ],
     "mosaic:theme": [
+      "Boundaries / admin units",
       "Decision-support outputs",
       "Degradation / land health",
       "Ecosystem condition",
@@ -77,7 +85,7 @@
   "mosaic:living_landscape": "KEN-LVB",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 10,
+  "mosaic:item_count": 11,
   "links": [
     {
       "rel": "root",
@@ -153,6 +161,12 @@
       "href": "./items/MFL-2026-092.json",
       "type": "application/json",
       "title": "Restoration opportunities"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-102.json",
+      "type": "application/json",
+      "title": "Lake Victoria Basin (Kenya) living landscape boundary"
     }
   ],
   "mosaic:landscape_system": "East-South Africa Highland-Lowland-Rift Valley System",

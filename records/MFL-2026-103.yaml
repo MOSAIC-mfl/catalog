@@ -1,0 +1,36 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-103
+title: Pucallpa – Ucayali living landscape boundary
+description: 'Canonical MOSAIC delineation of the Pucallpa – Ucayali living landscape (PER-PCL), used to define
+  the landscape across the catalogue. Source: INEI referential census district limits (cartography of the V Censo
+  Nacional Economico 2022; ''Distrital'' layer, ide.inei.gob.pe): 11 whole districts of Coronel Portillo and Padre
+  Abad provinces (Ucayali) and a clipped part of Calleria. Full-detail Shapefile and GeoPackage in the dated release
+  boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s STAC collection.'
+country: Peru
+living_landscape: PER-PCL
+theme: Boundaries / admin units
+data_type: Vector
+spatial_resolution: Landscape boundary
+temporal_coverage: '2026'
+source: Alliance Bioversity-CIAT (MOSAIC)
+contact: Lizeth Llanos (l.llanos@cgiar.org)
+access_level: Open
+license: No licence stated by the source
+processing_status: Processed
+file_names: PER-PCL_Pucallpa_Ucayali_boundary_2026-10-14.zip
+current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+migration_status: null
+server_path: null
+date_registered: '2026-10-21'
+last_updated: '2026-10-14'
+update_frequency: Static
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/PER-PCL_Pucallpa_Ucayali_boundary_2026-10-14.zip
+file_size: 82 KB
+bbox:
+  xmin: -75.94789
+  ymin: -9.41806
+  xmax: -74.32246
+  ymax: -7.95005
+citation: 'Contains referential census district limits of the Instituto Nacional de Estadistica e Informatica (INEI),
+  Peru (ide.inei.gob.pe); the limits are referential and have no demarcation value. Changes: districts dissolved
+  into one outline and Calleria clipped. No licence is stated by INEI (to be confirmed).'

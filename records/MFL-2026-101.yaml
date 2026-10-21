@@ -1,0 +1,34 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-101
+title: LEILA (Southern Kenya Rangelands) living landscape boundary
+description: 'Canonical MOSAIC delineation of the LEILA (Southern Kenya Rangelands) living landscape (KEN-LEI),
+  used to define the landscape across the catalogue. Source: GADM 4.1, level 1: counties Kajiado (KEN.10_1), Kiambu
+  (KEN.13_1), Machakos (KEN.22_1) and Makueni (KEN.23_1), unmodified. Full-detail Shapefile and GeoPackage in the
+  dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s
+  STAC collection.'
+country: Kenya
+living_landscape: KEN-LEI
+theme: Boundaries / admin units
+data_type: Vector
+spatial_resolution: Landscape boundary
+temporal_coverage: '2026'
+source: Alliance Bioversity-CIAT (MOSAIC)
+contact: Lizeth Llanos (l.llanos@cgiar.org)
+access_level: Open
+license: Source terms (https://gadm.org/license.html)
+processing_status: Processed
+file_names: KEN-LEI_LEILA_Southern_Kenya_Rangelands_boundary_2026-10-14.zip
+current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+migration_status: null
+server_path: null
+date_registered: '2026-10-21'
+last_updated: '2026-10-14'
+update_frequency: Static
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/KEN-LEI_LEILA_Southern_Kenya_Rangelands_boundary_2026-10-14.zip
+file_size: 315 KB
+bbox:
+  xmin: 35.9962
+  ymin: -3.18689
+  xmax: 38.51942
+  ymax: -0.75262
+citation: 'County boundaries: GADM version 4.1 (gadm.org).'

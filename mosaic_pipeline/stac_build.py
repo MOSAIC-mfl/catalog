@@ -347,6 +347,9 @@ THIRD_PARTY_RIGHTS = {
     "072", "073", "074", "076", "077", "078", "079", "080",
     # Mekong River Commission
     "050", "051", "052",
+    # MOSAIC landscape delineations (2026-10-21): derived from GADM, HydroSHEDS, World Bank, INEI
+    # and an unattributed source; the rights stay with those sources, MOSAIC is the point of contact
+    "098", "099", "100", "101", "102", "103", "104", "105",
     # MapBiomas Peru
     "081", "082",
     # Mission Antyodaya (gov.in)

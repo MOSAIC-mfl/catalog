@@ -7,7 +7,7 @@
   ],
   "id": "SEN-FK",
   "title": "Fatick Department",
-  "description": "Datasets registered under the 'Fatick Department' Living Landscape (8 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'Fatick Department' Living Landscape (9 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -24,7 +24,7 @@
       "interval": [
         [
           "1981-01-01T00:00:00Z",
-          "2025-12-31T23:59:59Z"
+          "2026-12-31T23:59:59Z"
         ]
       ]
     }
@@ -36,6 +36,12 @@
     "Water / hydrology"
   ],
   "providers": [
+    {
+      "name": "Alliance Bioversity-CIAT (MOSAIC)",
+      "roles": [
+        "producer"
+      ]
+    },
     {
       "name": "ISRA-BAME",
       "roles": [
@@ -60,7 +66,7 @@
   "mosaic:living_landscape": "SEN-FK",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 8,
+  "mosaic:item_count": 9,
   "links": [
     {
       "rel": "root",
@@ -124,6 +130,12 @@
       "href": "./items/MFL-2026-024.json",
       "type": "application/json",
       "title": "Rainfall data"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-104.json",
+      "type": "application/json",
+      "title": "Fatick Department living landscape boundary"
     }
   ],
   "mosaic:landscape_system": "Sudan-Sahelian and Guinea Forest-Savanna Transition",

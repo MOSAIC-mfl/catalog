@@ -7,7 +7,7 @@
   ],
   "id": "COL-CUM",
   "title": "Cumbal (Narino)",
-  "description": "Datasets registered under the 'Cumbal (Narino)' Living Landscape (1 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'Cumbal (Narino)' Living Landscape (2 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -24,15 +24,22 @@
       "interval": [
         [
           "2023-01-01T00:00:00Z",
-          "2023-12-31T23:59:59Z"
+          "2026-12-31T23:59:59Z"
         ]
       ]
     }
   },
   "keywords": [
-    "Agrobiodiversity / crops"
+    "Agrobiodiversity / crops",
+    "Boundaries / admin units"
   ],
   "providers": [
+    {
+      "name": "Alliance Bioversity-CIAT (MOSAIC)",
+      "roles": [
+        "producer"
+      ]
+    },
     {
       "name": "CIP",
       "roles": [
@@ -42,10 +49,12 @@
   ],
   "summaries": {
     "mosaic:access_level": [
-      "Internal"
+      "Internal",
+      "Open"
     ],
     "mosaic:theme": [
-      "Agrobiodiversity / crops"
+      "Agrobiodiversity / crops",
+      "Boundaries / admin units"
     ]
   },
   "cgiar-cdh:geography": [
@@ -54,7 +63,7 @@
   "mosaic:living_landscape": "COL-CUM",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 1,
+  "mosaic:item_count": 2,
   "links": [
     {
       "rel": "root",
@@ -76,6 +85,12 @@
       "href": "./items/MFL-2026-056.json",
       "type": "application/json",
       "title": "Crop fields (2023)  focus on \tPotatoes, Oca, Mashua and andean fruit trees"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-099.json",
+      "type": "application/json",
+      "title": "Cumbal (Nariño) living landscape boundary"
     }
   ],
   "mosaic:landscape_system": "Amazon",

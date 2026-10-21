@@ -1,0 +1,33 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-104
+title: Fatick Department living landscape boundary
+description: 'Canonical MOSAIC delineation of the Fatick Department living landscape (SEN-FK), used to define the
+  landscape across the catalogue. Source: GADM: level 2 unit Fatick departement (GADM v2 attribute schema; geometry
+  identical to GADM 3.6 and 4.1 SEN.3.1_1). Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-10-14
+  of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s STAC collection.'
+country: Senegal
+living_landscape: SEN-FK
+theme: Boundaries / admin units
+data_type: Vector
+spatial_resolution: Landscape boundary
+temporal_coverage: '2026'
+source: Alliance Bioversity-CIAT (MOSAIC)
+contact: Lizeth Llanos (l.llanos@cgiar.org)
+access_level: Open
+license: Source terms (https://gadm.org/license.html)
+processing_status: Processed
+file_names: SEN-FK_Fatick_Department_boundary_2026-10-14.zip
+current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+migration_status: null
+server_path: null
+date_registered: '2026-10-21'
+last_updated: '2026-10-14'
+update_frequency: Static
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/SEN-FK_Fatick_Department_boundary_2026-10-14.zip
+file_size: 16 KB
+bbox:
+  xmin: -16.79207
+  ymin: 13.92839
+  xmax: -16.10546
+  ymax: 14.60836
+citation: 'Departement boundary: GADM (gadm.org).'

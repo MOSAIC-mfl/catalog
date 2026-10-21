@@ -1,0 +1,36 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-099
+title: Cumbal (Nariño) living landscape boundary
+description: 'Canonical MOSAIC delineation of the Cumbal (Nariño) living landscape (COL-CUM), used to define the
+  landscape across the catalogue. Source: Nine veredas of the Cumbal indigenous reserve area (Tasmag, Quilismal,
+  Boyera, Cuaical, Cuaspud Grande, Llano de Piedras, Cuetial, Guan, San Martin-Miraflores), layer ''Cumbal_veredas_wgs84''
+  compiled by Javier Ochoa (CIP). Original source to be confirmed. Full-detail Shapefile and GeoPackage in the dated
+  release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s STAC
+  collection.'
+country: Colombia
+living_landscape: COL-CUM
+theme: Boundaries / admin units
+data_type: Vector
+spatial_resolution: Landscape boundary
+temporal_coverage: '2026'
+source: Alliance Bioversity-CIAT (MOSAIC)
+contact: Lizeth Llanos (l.llanos@cgiar.org)
+access_level: Open
+license: No licence stated by the source
+processing_status: Processed
+file_names: COL-CUM_Cumbal_Narino_boundary_2026-10-14.zip
+current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+migration_status: null
+server_path: null
+date_registered: '2026-10-21'
+last_updated: '2026-10-14'
+update_frequency: Static
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/COL-CUM_Cumbal_Narino_boundary_2026-10-14.zip
+file_size: 12 KB
+bbox:
+  xmin: -78.0702
+  ymin: 0.83856
+  xmax: -77.7535
+  ymax: 1.07838
+citation: Vereda boundaries compiled by J. Ochoa (CIP) for the CGIAR Science Program on Multifunctional Landscapes;
+  original source to be confirmed.

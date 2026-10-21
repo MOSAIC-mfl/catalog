@@ -7,7 +7,7 @@
   ],
   "id": "PER-PCL",
   "title": "Pucallpa - Ucayali",
-  "description": "Datasets registered under the 'Pucallpa - Ucayali' Living Landscape (12 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary. NOTE: this landscape's name and delineation are PENDING CONFIRMATION with the country team.",
+  "description": "Datasets registered under the 'Pucallpa - Ucayali' Living Landscape (13 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary. NOTE: this landscape's name and delineation are PENDING CONFIRMATION with the country team.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -24,7 +24,7 @@
       "interval": [
         [
           "2000-01-01T00:00:00Z",
-          "2025-12-31T23:59:59Z"
+          "2026-12-31T23:59:59Z"
         ]
       ]
     }
@@ -39,6 +39,12 @@
   "providers": [
     {
       "name": "Alliance Bioversity-CIAT",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "Alliance Bioversity-CIAT (MOSAIC)",
       "roles": [
         "producer"
       ]
@@ -69,7 +75,7 @@
   "mosaic:living_landscape": "PER-PCL",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 12,
+  "mosaic:item_count": 13,
   "links": [
     {
       "rel": "root",
@@ -157,6 +163,12 @@
       "href": "./items/MFL-2026-082.json",
       "type": "application/json",
       "title": "Accumulated Burned Area 2013-2024"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-103.json",
+      "type": "application/json",
+      "title": "Pucallpa – Ucayali living landscape boundary"
     }
   ],
   "mosaic:landscape_system": "Amazon",

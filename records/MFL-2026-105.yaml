@@ -1,0 +1,34 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-105
+title: Mbire – Lower Zambezi Valley living landscape boundary
+description: 'Canonical MOSAIC delineation of the Mbire – Lower Zambezi Valley living landscape (ZWE-MB), used to
+  define the landscape across the catalogue. Source: GADM 4.1, level 3: all 112 wards of the districts Mbire, Centenary/Muzarabani
+  and Mount Darwin (Mashonaland Central) and Hurungwe (Mashonaland West), unmodified. Full-detail Shapefile and
+  GeoPackage in the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached
+  to the landscape''s STAC collection.'
+country: Zimbabwe
+living_landscape: ZWE-MB
+theme: Boundaries / admin units
+data_type: Vector
+spatial_resolution: Landscape boundary
+temporal_coverage: '2026'
+source: Alliance Bioversity-CIAT (MOSAIC)
+contact: Lizeth Llanos (l.llanos@cgiar.org)
+access_level: Open
+license: Source terms (https://gadm.org/license.html)
+processing_status: Processed
+file_names: ZWE-MB_Mbire_Lower_Zambezi_Valley_boundary_2026-10-14.zip
+current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+migration_status: null
+server_path: null
+date_registered: '2026-10-21'
+last_updated: '2026-10-14'
+update_frequency: Static
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/ZWE-MB_Mbire_Lower_Zambezi_Valley_boundary_2026-10-14.zip
+file_size: 185 KB
+bbox:
+  xmin: 28.84448
+  ymin: -17.43389
+  xmax: 32.05844
+  ymax: -15.60728
+citation: 'Ward boundaries: GADM version 4.1 (gadm.org).'
