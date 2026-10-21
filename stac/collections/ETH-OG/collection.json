@@ -7,7 +7,7 @@
   ],
   "id": "ETH-OG",
   "title": "Omo-Gibe Basin",
-  "description": "Datasets registered under the 'Omo-Gibe Basin' Living Landscape (7 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'Omo-Gibe Basin' Living Landscape (8 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -24,7 +24,7 @@
       "interval": [
         [
           "1991-01-01T00:00:00Z",
-          "2024-12-31T23:59:59Z"
+          "2026-12-31T23:59:59Z"
         ]
       ]
     }
@@ -32,6 +32,7 @@
   "keywords": [
     "Agrobiodiversity / crops",
     "Biodiversity / ecosystems",
+    "Boundaries / admin units",
     "Degradation / land health",
     "Land cover / land use",
     "Socio-economic / livelihoods"
@@ -39,6 +40,12 @@
   "providers": [
     {
       "name": "Alliance Bioversity-CIAT",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "Alliance Bioversity-CIAT (MOSAIC)",
       "roles": [
         "producer"
       ]
@@ -64,6 +71,7 @@
     "mosaic:theme": [
       "Agrobiodiversity / crops",
       "Biodiversity / ecosystems",
+      "Boundaries / admin units",
       "Degradation / land health",
       "Land cover / land use",
       "Socio-economic / livelihoods"
@@ -75,7 +83,7 @@
   "mosaic:living_landscape": "ETH-OG",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 7,
+  "mosaic:item_count": 8,
   "links": [
     {
       "rel": "root",
@@ -133,6 +141,12 @@
       "href": "./items/MFL-2026-042.json",
       "type": "application/json",
       "title": "Erosion map"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-100.json",
+      "type": "application/json",
+      "title": "Omo-Gibe Basin living landscape boundary"
     }
   ],
   "mosaic:landscape_system": "East-South Africa Highland-Lowland-Rift Valley System",

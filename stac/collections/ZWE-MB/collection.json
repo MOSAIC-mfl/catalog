@@ -7,7 +7,7 @@
   ],
   "id": "ZWE-MB",
   "title": "Mbire - Lower Zambezi Valley",
-  "description": "Datasets registered under the 'Mbire - Lower Zambezi Valley' Living Landscape (6 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'Mbire - Lower Zambezi Valley' Living Landscape (7 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -36,6 +36,12 @@
     "Land cover / land use"
   ],
   "providers": [
+    {
+      "name": "Alliance Bioversity-CIAT (MOSAIC)",
+      "roles": [
+        "producer"
+      ]
+    },
     {
       "name": "CIMMYT",
       "roles": [
@@ -66,7 +72,7 @@
   "mosaic:living_landscape": "ZWE-MB",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 6,
+  "mosaic:item_count": 7,
   "links": [
     {
       "rel": "root",
@@ -118,6 +124,12 @@
       "href": "./items/MFL-2026-065.json",
       "type": "application/json",
       "title": "Soil health status and texture"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-105.json",
+      "type": "application/json",
+      "title": "Mbire – Lower Zambezi Valley living landscape boundary"
     }
   ],
   "mosaic:landscape_system": "East-South Africa Highland-Lowland-Rift Valley System",

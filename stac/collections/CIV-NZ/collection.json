@@ -7,7 +7,7 @@
   ],
   "id": "CIV-NZ",
   "title": "N'Zi Watershed",
-  "description": "Datasets registered under the 'N'Zi Watershed' Living Landscape (7 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'N'Zi Watershed' Living Landscape (8 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -24,7 +24,7 @@
       "interval": [
         [
           "1979-01-01T00:00:00Z",
-          "2022-12-31T23:59:59Z"
+          "2026-12-31T23:59:59Z"
         ]
       ]
     }
@@ -37,6 +37,12 @@
   "providers": [
     {
       "name": "AfricaRice",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "Alliance Bioversity-CIAT (MOSAIC)",
       "roles": [
         "producer"
       ]
@@ -64,7 +70,7 @@
   "mosaic:living_landscape": "CIV-NZ",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 7,
+  "mosaic:item_count": 8,
   "links": [
     {
       "rel": "root",
@@ -122,6 +128,12 @@
       "href": "./items/MFL-2026-084.json",
       "type": "application/json",
       "title": "Climate data AfricaRice M'Bé Research Station"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-098.json",
+      "type": "application/json",
+      "title": "N'Zi Watershed living landscape boundary"
     }
   ],
   "mosaic:landscape_system": "Sudan-Sahelian and Guinea Forest-Savanna Transition",

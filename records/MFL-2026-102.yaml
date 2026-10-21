@@ -1,0 +1,33 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-102
+title: Lake Victoria Basin (Kenya) living landscape boundary
+description: 'Canonical MOSAIC delineation of the Lake Victoria Basin (Kenya) living landscape (KEN-LVB), used to
+  define the landscape across the catalogue. Source: GADM 4.1, level 1: counties Kakamega (KEN.11_1), Kisumu (KEN.17_1),
+  Siaya (KEN.38_1) and Vihiga (KEN.45_1), unmodified. Full-detail Shapefile and GeoPackage in the dated release
+  boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s STAC collection.'
+country: Kenya
+living_landscape: KEN-LVB
+theme: Boundaries / admin units
+data_type: Vector
+spatial_resolution: Landscape boundary
+temporal_coverage: '2026'
+source: Alliance Bioversity-CIAT (MOSAIC)
+contact: Lizeth Llanos (l.llanos@cgiar.org)
+access_level: Open
+license: Source terms (https://gadm.org/license.html)
+processing_status: Processed
+file_names: KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-10-14.zip
+current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+migration_status: null
+server_path: null
+date_registered: '2026-10-21'
+last_updated: '2026-10-14'
+update_frequency: Static
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-10-14.zip
+file_size: 117 KB
+bbox:
+  xmin: 33.9499
+  ymin: -0.42431
+  xmax: 35.34302
+  ymax: 0.65569
+citation: 'County boundaries: GADM version 4.1 (gadm.org).'

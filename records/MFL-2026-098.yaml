@@ -1,0 +1,43 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-098
+title: N'Zi Watershed living landscape boundary
+description: 'Canonical MOSAIC delineation of the N''Zi Watershed living landscape (CIV-NZ), used to define the
+  landscape across the catalogue. Source: HydroBASINS v1c, level 6, basin HYBAS_ID 1060982320 (PFAF_ID 145402),
+  unmodified. HydroSHEDS version 1, World Wildlife Fund (WWF). Full-detail Shapefile and GeoPackage in the dated
+  release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s STAC
+  collection.'
+country: Côte d'Ivoire
+living_landscape: CIV-NZ
+theme: Boundaries / admin units
+data_type: Vector
+spatial_resolution: Landscape boundary
+temporal_coverage: '2026'
+source: Alliance Bioversity-CIAT (MOSAIC)
+contact: Lizeth Llanos (l.llanos@cgiar.org)
+access_level: Open
+license: Source terms (https://data.hydrosheds.org/file/technical-documentation/HydroSHEDS_TechDoc_v1_4.pdf)
+processing_status: Processed
+file_names: CIV-NZ_NZi_Watershed_boundary_2026-10-14.zip
+current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+migration_status: null
+server_path: null
+date_registered: '2026-10-21'
+last_updated: '2026-10-14'
+update_frequency: Static
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/CIV-NZ_NZi_Watershed_boundary_2026-10-14.zip
+file_size: 19 KB
+bbox:
+  xmin: -5.37917
+  ymin: 5.95
+  xmax: -3.85833
+  ymax: 9.43333
+citation: 'This product (MOSAIC landscape boundary CIV-NZ) incorporates data from the HydroSHEDS version 1 database
+  which is © World Wildlife Fund, Inc. (2006-2022) and has been used herein under license. WWF has not evaluated
+  the data as altered and incorporated within MOSAIC landscape boundary CIV-NZ, and therefore gives no warranty
+  regarding its accuracy, completeness, currency or suitability for any particular purpose. Portions of the HydroSHEDS
+  v1 database incorporate data which are the intellectual property rights of © USGS (2006-2008), NASA (2000-2005),
+  ESRI (1992-1998), CIAT (2004-2006), UNEP-WCMC (1993), WWF (2004), Commonwealth of Australia (2007), and Her Royal
+  Majesty and the British Crown and are used under license. The HydroSHEDS v1 database and more information are
+  available at https://www.hydrosheds.org. Citation: Lehner, B., Grill, G. (2013). Global river hydrography and
+  network routing: baseline data and new approaches to study the world''s large river systems. Hydrological Processes,
+  27(15): 2171-2186. https://doi.org/10.1002/hyp.9740'
