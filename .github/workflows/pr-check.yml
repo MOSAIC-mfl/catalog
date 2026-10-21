@@ -1,0 +1,41 @@
+# Runs on every pull request, so it can be a required status check.
+# The build-and-pages workflow only fires on push to main — by then it is too
+# late to catch a stale or hand-edited generated file.
+name: PR check
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pr-build:
+    name: pr-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # PyYAML matters: without it the build silently falls back to the Excel
+      # snapshot instead of records/, which is not what we are validating.
+      - run: pip install openpyxl pyyaml
+
+      - name: Rebuild the catalog from records/
+        run: python3 build_catalog.py
+
+      - name: Generated files must match the records
+        run: |
+          changes=$(git status --porcelain -- stac datasets.json)
+          if [ -n "$changes" ]; then
+            echo "::error::stac/ or datasets.json do not match records/."
+            echo "Run 'python3 build_catalog.py' locally and commit the result."
+            echo "$changes"
+            git --no-pager diff --stat -- stac datasets.json
+            exit 1
+          fi
+          echo "Generated files are in sync with records/."
