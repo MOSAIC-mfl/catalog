@@ -85,6 +85,16 @@ Internal / Restricted) is recorded honestly. In a later phase, the plan is to
 make the open datasets themselves directly available through MOSAIC — datasets
 that already have a home will keep being linked at their source.
 
+**Access level rule — what does "Open" mean?** Open means anyone can obtain the
+data without asking permission. So a record marked Open needs a public
+`download_url`, and its licence must not say "contact data owner". The build
+checks this for every record and stops with `ACCESS RULE FAILED` (exit code 3)
+when an Open record breaks it. The message names the record and the fix:
+add a public download_url or set access_level to Restricted or Internal.
+Licences that limit use but let anyone download the data, such as
+non-commercial terms, are fine with Open. When the owner later shares a public
+link, the record goes back to Open with a normal edit.
+
 **What if I don't know a field?** Leave it empty. An incomplete-but-honest
 record is far more useful than nothing — the catalog flags gaps rather than
 hiding them.
