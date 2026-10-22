@@ -33,6 +33,7 @@ sys.path.insert(0, str(HERE))
 
 from mosaic_pipeline.frontend_build import build_frontend  # noqa: E402
 from mosaic_pipeline.registry import read_registry  # noqa: E402
+from mosaic_pipeline.rules import check_access_consistency  # noqa: E402
 from mosaic_pipeline.stac_build import build_stac  # noqa: E402
 from mosaic_pipeline.validate import validate_tree  # noqa: E402
 from mosaic_pipeline.vocab import Vocab  # noqa: E402
@@ -133,6 +134,15 @@ def main(argv=None) -> int:
     # not id order; sorting here guarantees byte-identical output.)
     records.sort(key=lambda r: r["id"])
     print(f"Real records read: {len(records)}")
+
+    # --- access level rule: "Open" = obtainable without asking permission ---
+    # Runs on the normalized records of either source, before anything is written.
+    access_errors = check_access_consistency(records)
+    if access_errors:
+        print(f"ACCESS RULE FAILED — {len(access_errors)} error(s); build aborted:")
+        for msg in access_errors:
+            print("  -", msg)
+        return 3
 
     # --- Artifact B: datasets.json (canonical copy inside this repo) ---
     n_front = build_frontend(records, DATASETS_JSON, vocab)

@@ -13,7 +13,7 @@ spatial_resolution: 500m
 temporal_coverage: 2000 - 2024
 source: ISRA-BAME
 contact: dieyemohamadou@gmail.com
-access_level: Open
+access_level: Restricted
 license: CC BY 4.0
 processing_status: Processed
 file_names: null

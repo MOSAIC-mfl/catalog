@@ -10,7 +10,7 @@ spatial_resolution: admin-level-2
 temporal_coverage: NA
 source: ICARDA
 contact: Layal Atassi - l.atassi@cgiar.org
-access_level: Open
+access_level: Restricted
 license: CGIAR Open Access
 processing_status: Validated
 file_names: Tunisia_Sector.shp (complete shapefile set, 8 files)

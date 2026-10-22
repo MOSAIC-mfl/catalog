@@ -10,7 +10,7 @@ spatial_resolution: 10m
 temporal_coverage: 2018-2024
 source: Alliance Bioversity-CIAT
 contact: Smitha Krishnan (s.krishnan@cgiar.org)
-access_level: Open
+access_level: Restricted
 license: CC BY 4.0
 processing_status: Processed
 file_names: null

@@ -11,7 +11,7 @@ spatial_resolution: 1000m
 temporal_coverage: 2017-2025
 source: Alliance Bioversity-CIAT
 contact: Hannes Gaisberger, h.gaisberger@cgiar.org
-access_level: Open
+access_level: Restricted
 license: CGIAR Open Access
 processing_status: null
 file_names: ex_situ_conservation.tif; expanding_protection.tif; landscape_restoration.tif; maintaining_protection.tif

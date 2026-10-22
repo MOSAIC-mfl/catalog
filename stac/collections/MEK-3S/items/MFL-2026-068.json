@@ -51,7 +51,7 @@
     "mosaic:living_landscape": "MEK-3S",
     "mosaic:coverage": "national",
     "mosaic:theme": "Decision-support outputs",
-    "mosaic:access_level": "Open",
+    "mosaic:access_level": "Restricted",
     "mosaic:processing_status": "Raw",
     "mosaic:migration_status": null,
     "mosaic:update_frequency": "On-demand",

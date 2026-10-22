@@ -10,7 +10,7 @@ spatial_resolution: '5000'
 temporal_coverage: 2024-2025
 source: NASA / USGS (external)
 contact: Sudharsan Malaiappan - s.maliappan@cgiar.org
-access_level: Open
+access_level: Internal
 license: CC BY 4.0
 processing_status: Processed
 file_names: null

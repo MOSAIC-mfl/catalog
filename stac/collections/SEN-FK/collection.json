@@ -51,7 +51,8 @@
   ],
   "summaries": {
     "mosaic:access_level": [
-      "Open"
+      "Open",
+      "Restricted"
     ],
     "mosaic:theme": [
       "Boundaries / admin units",

@@ -36,7 +36,7 @@ page explains intent. If the two disagree, the JSON wins — and please fix this
 | 9 | `temporal_coverage` | | string \| null | Verbatim; pipeline parses years (R4). |
 | 10 | `source` | | string \| null | Source / Centre. |
 | 11 | `contact` | yes (since 2026-09-04) | non-empty string | **Single "Name, email" cell** — keep as one string so the R1 extractors work unchanged. Required because a record nobody can be asked about cannot be maintained: two such records (016, 043) were moved to `records/_pending/` when this rule landed. |
-| 12 | `access_level` | | enum \| null | Open, Internal, Restricted. ("CGIAR-internal" was normalized to Internal at migration.) |
+| 12 | `access_level` | | enum \| null | Open, Internal, Restricted. ("CGIAR-internal" was normalized to Internal at migration.) **Open** = anyone can obtain the data without asking permission: since 2026-10-22 the build stops (exit 3, `ACCESS RULE FAILED`) when an Open record has no usable `download_url` after R8 cleaning, or when its `license` contains "contact data owner" (any letter case) — `mosaic_pipeline/rules.py`. |
 | 13 | `license` | | string \| null | Original wording; SPDX mapping is a pipeline rule (R3). |
 | 14 | `processing_status` | | enum \| null | Raw, Processed, Validated. Null → readiness "Raw" + flag. |
 | 15 | `file_names` | | string \| null | Extensions drive `formats` (R2). |

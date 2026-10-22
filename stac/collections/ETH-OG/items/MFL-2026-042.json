@@ -49,7 +49,7 @@
     "mosaic:living_landscape": "ETH-OG",
     "mosaic:coverage": "landscape",
     "mosaic:theme": "Degradation / land health",
-    "mosaic:access_level": "Open",
+    "mosaic:access_level": "Restricted",
     "mosaic:processing_status": "Validated",
     "mosaic:migration_status": null,
     "mosaic:update_frequency": "Static",
