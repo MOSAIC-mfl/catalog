@@ -10,7 +10,7 @@ spatial_resolution: null
 temporal_coverage: '2026'
 source: IWMI
 contact: Telma.SIBANDA@um6p.ma
-access_level: Open
+access_level: Restricted
 license: CGIAR Open Access
 processing_status: Processed
 file_names: null

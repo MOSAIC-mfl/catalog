@@ -10,7 +10,7 @@ spatial_resolution: 10m
 temporal_coverage: '2023'
 source: IFPRI
 contact: z.guo@cgiar.org
-access_level: Open
+access_level: Restricted
 license: CGIAR Open Access
 processing_status: Validated
 file_names: null

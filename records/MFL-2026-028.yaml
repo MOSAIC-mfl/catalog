@@ -11,7 +11,7 @@ spatial_resolution: 10m
 temporal_coverage: '2026'
 source: CIMMYT
 contact: Telma.SIBANDA@um6p.ma
-access_level: Open
+access_level: Restricted
 license: CGIAR Open Access
 processing_status: Validated
 file_names: null

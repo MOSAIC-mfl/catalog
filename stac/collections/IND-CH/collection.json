@@ -74,6 +74,7 @@
   ],
   "summaries": {
     "mosaic:access_level": [
+      "Internal",
       "Open",
       "Restricted"
     ],

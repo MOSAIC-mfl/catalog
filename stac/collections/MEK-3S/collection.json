@@ -67,7 +67,8 @@
   "summaries": {
     "mosaic:access_level": [
       "Internal",
-      "Open"
+      "Open",
+      "Restricted"
     ],
     "mosaic:theme": [
       "Agrobiodiversity / crops",

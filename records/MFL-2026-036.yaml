@@ -10,7 +10,7 @@ spatial_resolution: null
 temporal_coverage: '2018'
 source: NASA / USGS (external)
 contact: Degefie Tibebe- d.tibebe@cgiar.org
-access_level: Open
+access_level: Restricted
 license: Restricted — contact data owner
 processing_status: Raw
 file_names: null
