@@ -23,7 +23,12 @@ jobs:
 
       # PyYAML matters: without it the build silently falls back to the Excel
       # snapshot instead of records/, which is not what we are validating.
-      - run: pip install openpyxl pyyaml
+      - run: pip install openpyxl==3.1.5 pyyaml==6.0.3
+
+      # Before the rebuild, so the golden test compares against the committed
+      # stac/ and datasets.json rather than files this job just regenerated.
+      - name: Unit tests (stdlib unittest)
+        run: python3 -m unittest discover -s tests -t . -v
 
       - name: Rebuild the catalog from records/
         run: python3 build_catalog.py
