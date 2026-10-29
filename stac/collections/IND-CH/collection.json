@@ -7,7 +7,7 @@
   ],
   "id": "IND-CH",
   "title": "Central India Highlands",
-  "description": "Datasets registered under the 'Central India Highlands' Living Landscape (17 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
+  "description": "Datasets registered under the 'Central India Highlands' Living Landscape (23 item(s)). Spatial extent derives from the canonical landscape delineation (2026-07-21); the simplified boundary is published as this collection's 'boundary' asset. National-coverage member items can widen the extent beyond the boundary.",
   "license": "other",
   "extent": {
     "spatial": {
@@ -36,13 +36,22 @@
     "Decision-support outputs",
     "Degradation / land health",
     "Ecosystem condition",
+    "Hotspots / leverage points",
     "Land cover / land use",
+    "Pressures / drivers",
+    "Scenarios / future risks",
     "Socio-economic / livelihoods",
     "Water / hydrology"
   ],
   "providers": [
     {
       "name": "Alliance Bioversity-CIAT",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "CGWB, via CoRE Stack (external)",
       "roles": [
         "producer"
       ]
@@ -72,6 +81,12 @@
       ]
     },
     {
+      "name": "Land Conflict Watch, ASI, Global Energy Monitor and others, via CoRE Stack (external)",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
       "name": "NASA / USGS (external)",
       "roles": [
         "producer"
@@ -79,6 +94,12 @@
     },
     {
       "name": "National government (external)",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "WRI India and CoRE Stack (external)",
       "roles": [
         "producer"
       ]
@@ -97,7 +118,10 @@
       "Decision-support outputs",
       "Degradation / land health",
       "Ecosystem condition",
+      "Hotspots / leverage points",
       "Land cover / land use",
+      "Pressures / drivers",
+      "Scenarios / future risks",
       "Socio-economic / livelihoods",
       "Water / hydrology"
     ]
@@ -108,7 +132,7 @@
   "mosaic:living_landscape": "IND-CH",
   "mosaic:bbox_approximate": false,
   "mosaic:bbox_note": "Bbox derived from the canonical delineation shapefile (dissolved, EPSG:4326), union-ed with member-item locator boxes.",
-  "mosaic:item_count": 17,
+  "mosaic:item_count": 23,
   "links": [
     {
       "rel": "root",
@@ -223,9 +247,45 @@
     },
     {
       "rel": "item",
+      "href": "./items/MFL-2026-016.json",
+      "type": "application/json",
+      "title": "Groundwater data - India"
+    },
+    {
+      "rel": "item",
       "href": "./items/MFL-2026-063.json",
       "type": "application/json",
       "title": "India's open natural ecosystem"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-106.json",
+      "type": "application/json",
+      "title": "Microwatershed boundaries and drainage network - India"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-107.json",
+      "type": "application/json",
+      "title": "Climate hazard and drought indices - India"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-108.json",
+      "type": "application/json",
+      "title": "Restoration opportunities and plantation site suitability - India"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-109.json",
+      "type": "application/json",
+      "title": "Land-use pressures: mining, industry, energy and land conflicts - India"
+    },
+    {
+      "rel": "item",
+      "href": "./items/MFL-2026-110.json",
+      "type": "application/json",
+      "title": "Soil type, nutrients and organic carbon - India"
     }
   ],
   "mosaic:landscape_system": "Deccan Plateau Forest-Dryland Transition Zone",

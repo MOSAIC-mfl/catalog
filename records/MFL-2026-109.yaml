@@ -1,0 +1,26 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-109
+title: 'Land-use pressures: mining, industry, energy and land conflicts - India'
+description: Layers re-published by CoRE Stack. Land conflicts (Land Conflict Watch), mining (Pande et al., 2020), industries (Annual Survey of Industries), and solar and wind power plants (Global Energy Monitor). Pan-India.
+country: India
+living_landscape: IND-CH
+theme: Pressures / drivers
+data_type: Vector
+spatial_resolution: null
+temporal_coverage: null
+source: Land Conflict Watch, ASI, Global Energy Monitor and others, via CoRE Stack (external)
+contact: 'Core Stack (Open access)
+
+  Sudharsan Malaiappan - s.maliappan@cgiar.org'
+access_level: Open
+license: Third-party layers re-published by CoRE Stack; licence set by each source (Land Conflict Watch, Pande et al. 2020, ASI, Global Energy Monitor)
+processing_status: Processed
+file_names: null
+current_location: 'CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row per layer in the CoRE Stack GEE Layers Links sheet (Industry group). Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app'
+migration_status: null
+server_path: null
+date_registered: '2026-10-29'
+last_updated: null
+update_frequency: Unknown
+download_url: https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+file_size: null

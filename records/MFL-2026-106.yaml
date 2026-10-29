@@ -1,0 +1,26 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-106
+title: Microwatershed boundaries and drainage network - India
+description: CoRE Stack hydrological layers. Microwatershed boundaries (v1 and v2) and microwatershed connectivity; drainage lines, stream order, distance to upstream drainage line, single-flow and multi-flow catchment area, and natural depressions. Pan-India.
+country: India
+living_landscape: IND-CH
+theme: Water / hydrology
+data_type: Mixed
+spatial_resolution: Multiple resolutions
+temporal_coverage: Static
+source: CoRE Stack (external)
+contact: 'Core Stack (Open access)
+
+  Sudharsan Malaiappan - s.maliappan@cgiar.org'
+access_level: Open
+license: CC BY 4.0
+processing_status: Processed
+file_names: null
+current_location: 'CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row per layer in the CoRE Stack GEE Layers Links sheet (Hydrological boundaries and Drainage layers groups). Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app'
+migration_status: null
+server_path: null
+date_registered: '2026-10-29'
+last_updated: null
+update_frequency: Static
+download_url: https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+file_size: null
