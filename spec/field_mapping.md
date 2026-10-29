@@ -68,6 +68,8 @@ Per §3 of the assessment. Use `cgiar-cdh:*` where the CDH defines it, `mosaic:*
 
 **YAML-only record fields (no Excel column):** `citation` → `datasets.json` `citation`; `gee_asset_id` (since 2026-09-23) → STAC item property `mosaic:gee_asset_id` (only when set) + `datasets.json` `gee_asset_id`. MOSAIC-local: the CDH has no Earth Engine field and plans none (CDH issue #34, 2026-09-28). It puts the Earth Engine REST URL (`https://earthengine.googleapis.com/v1/<gee_asset_id>`) in a data location, and MOSAIC adds that same URL as an `earth-engine` asset once an asset is public.
 
+**Boundary asset fields (no registry source; since 2026-09-29):** each delineated landscape's collection carries a `boundary` asset with `license`, `mosaic:license_url`, `mosaic:source` and `mosaic:attribution`, and the same four facts ride in the boundary GeoJSON's feature properties. They come from `spec/boundary_provenance.json`, one entry per landscape code, not from a registry row — see R11.
+
 **Not in registry, set by exporter:** `encoding: "stac"` (all spatial rows; a non-spatial document row → `"ogc-records"`), `mosaic_schema_version`, `extent.spatial.bbox` (from `bbox_lookup.json` until real geometries exist), `proj:code`/`proj:epsg` (CRS — absent in registry, leave null + FLAG). **Official STAC 1.0.0 schema conformance** since 2026-09-28 (MOSAIC STAC extension 0.3.0: `mosaic:access_note`, `mosaic:last_updated`, `mosaic:datetime_note`); `validate.py` enforces RFC 3339 dates and non-empty asset hrefs.
 
 **SKIP (CDH owns):** the climate block (`climate.*`) and CDH climate vocabularies (hazard, commodity). For climate layers, MOSAIC links to the CDH via `links[rel=related|via]` — do not redefine.
@@ -167,6 +169,29 @@ record turns out to re-describe someone else's data.
 Result on the 89 published records: 52 `point-of-contact`, 30 `producer`, 7 `producer`+`licensor`.
 Sweep behind the list: `MFL SP docs/project docs/MOSAIC internal/stac_contact_roles_sweep_2026-10-15.md`.
 The flag `no_licensor_assigned` is retired — having no licensor is now a valid outcome.
+
+### R11 — Landscape boundary provenance (`spec/boundary_provenance.json` → boundary GeoJSON + STAC `boundary` asset)
+Not a registry rule: provenance belongs to a landscape (11 canonical codes), not to a dataset record. The one source is `spec/boundary_provenance.json` (keyed by code; `_meta` is skipped), read by two writers — `scripts/build_boundaries.py` (GeoJSON) and `mosaic_pipeline/stac_build.py:_boundary_asset()` (STAC). Added 2026-09-29 (`a90d4f4`, `806850d`).
+
+| provenance key | GeoJSON property (`boundaries/<CODE>.geojson`, `landscapes.geojson`) | STAC `boundary` asset field | Rule |
+|---|---|---|---|
+| `source` | `source` | `mosaic:source` | Verbatim: what the geometry was derived from. Filled for all 11; the code does not enforce it. |
+| `license` | `license` | `license` | Verbatim: an SPDX id when the licence has one, else `other`. **Not passed through R3.** Today: 9 `other`, `CC-BY-4.0` (ETH-OG), `CC-BY-3.0-IGO` (TUN-NW). |
+| `license_url` | `license_url` — always present, `null` when none | `mosaic:license_url` — **omitted** when none | Where the terms are stated. None for COL-CUM and PER-PCL. |
+| `attribution` | `attribution` | `mosaic:attribution` | Verbatim: the credit line to reproduce. Filled for all 11; the code does not enforce it. |
+| `source_url` | not written | not written on a `boundary` asset; becomes the `href` of a `boundary-source` asset (rule 3) | Link to the source's own page. |
+| `publish` | `true` → `<CODE>.geojson` is written; `false` → the file is deleted and the geometry withheld | **not read** — see rule 3 | All 11 are `true` since 2026-09-29 (Lizeth). |
+
+1. **Verbatim copy.** The four fields are copied as written in the provenance file: no trimming, no mapping, no validation. The GeoJSON gets them in `scripts/build_boundaries.py`, which stops with an error if a canonical code has no entry; `landscapes.geojson` is the combined collection of the published features.
+2. **The asset.** `stac_build.py` adds it to the **collection**, never to an item, and only for a delineated landscape (not `GLB`). Key `boundary`; `href` = `{STAC_BASE_URL}/boundaries/<CODE>.geojson`; `type` `application/geo+json`; `roles` `["data"]`; `title` "Landscape boundary (canonical delineation, simplified, EPSG:4326)"; plus the four fields above. `license` is a STAC common-metadata field on the asset; the other three are `mosaic:*`.
+3. **Published is decided by the file, not by `publish`.** `stac_build.py` calls the boundary published when `boundaries/<CODE>.geojson` exists. If it does not and the provenance entry has a `source_url`, the asset is keyed `boundary-source` instead: `href` = `source_url`, `type` `text/html`, `roles` `["metadata"]`, title "Source of the landscape boundary (geometry not redistributed by MOSAIC)", same four fields, and the collection description says the geometry is not redistributed. If there is no file and no `source_url`, there is no asset. This path is currently unused.
+4. **No provenance entry → no fields.** If a code has no entry, or `spec/boundary_provenance.json` is missing, `stac_build.py` still writes the asset, with no `license`, `mosaic:source` or `mosaic:attribution`, and raises no error.
+5. **The asset licence is its own.** The collection's `license` still follows row 12 (the members' shared SPDX id, else `other`) and does not look at the boundary: ETH-OG's collection is `other` while its `boundary` asset is `CC-BY-4.0`.
+6. **Catalog link.** `catalog.json` links `boundaries/landscapes.geojson` as `rel: related`, titled "…(simplified; licence per feature)".
+7. **Not checked by `validate.py`.** It requires only a non-empty `href` on each asset; it does not require the four fields.
+8. **Extension version.** The three `mosaic:*` asset fields were added without a version bump; the MOSAIC extension is still 0.3.0.
+
+Result on the 11 published landscapes: every GeoJSON feature and every `boundary` asset carries all four fields, equal to the provenance file; 9 have `license_url`, COL-CUM and PER-PCL do not.
 
 ## 4. Data-quality FLAGS the engineer must emit (for a side report, not to block v1)
 `missing_contact_email`, `non_spdx_license`, `vague_license`, `missing_license`, `unparsed_temporal`, `non_numeric_resolution`, `duplicate_id`, `missing_readiness`, `non_url_download`, `malformed_row` (the "Soil dataset" record), `unmatched_living_landscape`, `missing_crs`.
