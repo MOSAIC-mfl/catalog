@@ -1,0 +1,26 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-110
+title: Soil type, nutrients and organic carbon - India
+description: CoRE Stack soil layers. Soil type; soil nitrogen, phosphorus and potassium; and soil organic carbon over cropland and over trees and shrubs. The nutrient and carbon layers come from Random Forest models trained on Government of India Soil Health Card data (Soil Health Training Data tab of the sheet). Pan-India.
+country: India
+living_landscape: IND-CH
+theme: Degradation / land health
+data_type: Raster
+spatial_resolution: null
+temporal_coverage: null
+source: CoRE Stack (external)
+contact: 'Core Stack (Open access)
+
+  Sudharsan Malaiappan - s.maliappan@cgiar.org'
+access_level: Open
+license: CoRE Stack layers; no licence stated in the CoRE Stack layer sheet
+processing_status: Processed
+file_names: null
+current_location: 'CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row per layer in the CoRE Stack GEE Layers Links sheet (Soil group). Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app'
+migration_status: null
+server_path: null
+date_registered: '2026-10-29'
+last_updated: null
+update_frequency: Unknown
+download_url: https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+file_size: null

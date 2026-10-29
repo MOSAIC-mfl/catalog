@@ -1,0 +1,26 @@
+# MOSAIC dataset record — schema: spec/record_schema.md (the build fails on invalid records)
+id: MFL-2026-108
+title: Restoration opportunities and plantation site suitability - India
+description: Two layers for restoration planning. The Restoration Opportunities Atlas of WRI India, re-published by CoRE Stack, and the plantation site suitability layer of CoRE Stack (CC BY 4.0 per the sheet). Pan-India.
+country: India
+living_landscape: IND-CH
+theme: Hotspots / leverage points
+data_type: Raster
+spatial_resolution: null
+temporal_coverage: Static
+source: WRI India and CoRE Stack (external)
+contact: 'Core Stack (Open access)
+
+  Sudharsan Malaiappan - s.maliappan@cgiar.org'
+access_level: Open
+license: 'Mixed per layer: WRI India atlas re-published by CoRE Stack with no licence stated; plantation site suitability licensed as stated in the CoRE Stack layer sheet'
+processing_status: Processed
+file_names: null
+current_location: 'CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row per layer in the CoRE Stack GEE Layers Links sheet (WRI restoration opportunities atlas and Plantation Site Suitability groups). Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app'
+migration_status: null
+server_path: null
+date_registered: '2026-10-29'
+last_updated: null
+update_frequency: Static
+download_url: https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+file_size: null

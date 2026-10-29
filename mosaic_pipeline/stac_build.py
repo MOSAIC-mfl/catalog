@@ -333,8 +333,9 @@ def _looks_spdx(value: str) -> bool:
 # about who holds the rights, which the registry does not record. Add an id here
 # when a new record turns out to re-describe someone else's data.
 THIRD_PARTY_RIGHTS = {
-    # CoRE Stack, India (014 re-publishes India-WRIS layers)
-    "013", "014", "015",
+    # CoRE Stack, India (014 re-publishes India-WRIS layers, 016 CGWB, 108 WRI India,
+    # 109 Land Conflict Watch / ASI / Global Energy Monitor)
+    "013", "014", "015", "016", "106", "107", "108", "109", "110",
     # National government (external)
     "039", "040", "042",
     # GADM
