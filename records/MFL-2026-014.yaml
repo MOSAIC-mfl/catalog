@@ -8,19 +8,20 @@ theme: Water / hydrology
 data_type: Mixed
 spatial_resolution: Multiple resolutions
 temporal_coverage: Static
-source: National government (external)
+source: India-WRIS, via CoRE Stack (external)
 contact: 'Core Stack (Open access)
 
   Sudharsan Malaiappan - s.maliappan@cgiar.org'
 access_level: Open
-license: CC BY 4.0
+license: India-WRIS layers re-published by CoRE Stack; no licence stated by the source
 processing_status: Processed
 file_names: null
-current_location: 'CoreStack: Github / Google rive'
+current_location: 'CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row
+  per layer in the CoRE Stack GEE Layers Links sheet (Waterbodies Layers group). Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app'
 migration_status: null
 server_path: null
 date_registered: null
 last_updated: '2024'
 update_frequency: Static
-download_url: https://github.com/core-stack-org/QGIS-Styles/blob/main/Hydrology/Sub-Basin_style.qml
+download_url: https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
 file_size: null

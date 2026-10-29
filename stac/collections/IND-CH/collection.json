@@ -48,6 +48,12 @@
       ]
     },
     {
+      "name": "CoRE Stack (external)",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
       "name": "ESA / Copernicus (external)",
       "roles": [
         "producer"
@@ -55,6 +61,12 @@
     },
     {
       "name": "IWMI",
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "name": "India-WRIS, via CoRE Stack (external)",
       "roles": [
         "producer"
       ]
