@@ -8,7 +8,7 @@ theme: Land cover / land use
 data_type: Raster
 spatial_resolution: 30m
 temporal_coverage: 2018 - 2025
-source: National government (external)
+source: CoRE Stack (external)
 contact: 'Core Stack (Open access)
 
   Sudharsan Malaiappan - s.maliappan@cgiar.org'
@@ -16,11 +16,12 @@ access_level: Open
 license: CC BY 4.0
 processing_status: Validated
 file_names: null
-current_location: 'CoreStack: Github / Google rive'
+current_location: 'CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row
+  per layer in the CoRE Stack GEE Layers Links sheet. Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app'
 migration_status: null
 server_path: null
 date_registered: null
 last_updated: '2025'
 update_frequency: Annual
-download_url: https://github.com/core-stack-org/QGIS-Styles/blob/main/Land/LULC0_12class.qml
+download_url: https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
 file_size: null

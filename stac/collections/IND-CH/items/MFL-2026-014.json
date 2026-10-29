@@ -63,7 +63,8 @@
     "mosaic:last_updated": "2024",
     "proj:code": null,
     "mosaic:crs_note": "CRS not recorded in registry (missing_crs).",
-    "license": "CC-BY-4.0",
+    "license": "other",
+    "mosaic:license_original": "India-WRIS layers re-published by CoRE Stack; no licence stated by the source",
     "contacts": [
       {
         "name": "Core Stack",
@@ -77,7 +78,7 @@
         ]
       }
     ],
-    "mosaic:access_note": "Current location: CoreStack: Github / Google rive"
+    "mosaic:access_note": "Current location: CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row per layer in the CoRE Stack GEE Layers Links sheet (Waterbodies Layers group). Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app"
   },
   "collection": "IND-CH",
   "links": [
@@ -103,7 +104,7 @@
     },
     {
       "rel": "via",
-      "href": "https://github.com/core-stack-org/QGIS-Styles/blob/main/Hydrology/Sub-Basin_style.qml",
+      "href": "https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0",
       "title": "Primary source / download"
     },
     {
@@ -114,7 +115,7 @@
   ],
   "assets": {
     "data": {
-      "href": "https://github.com/core-stack-org/QGIS-Styles/blob/main/Hydrology/Sub-Basin_style.qml",
+      "href": "https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0",
       "title": "Primary data source",
       "roles": [
         "data"

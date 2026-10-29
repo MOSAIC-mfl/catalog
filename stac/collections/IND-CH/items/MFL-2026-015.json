@@ -78,7 +78,7 @@
         ]
       }
     ],
-    "mosaic:access_note": "Current location: CoreStack: Github / Google rive"
+    "mosaic:access_note": "Current location: CoRE Stack: public Google Earth Engine assets and Google Drive downloads, one row per layer in the CoRE Stack GEE Layers Links sheet. Map viewer: https://ee-corestackdev.projects.earthengine.app/view/core-stack-gee-app"
   },
   "collection": "IND-CH",
   "links": [
@@ -104,13 +104,13 @@
     },
     {
       "rel": "via",
-      "href": "https://github.com/core-stack-org/QGIS-Styles/blob/main/Land/LULC0_12class.qml",
+      "href": "https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0",
       "title": "Primary source / download"
     }
   ],
   "assets": {
     "data": {
-      "href": "https://github.com/core-stack-org/QGIS-Styles/blob/main/Land/LULC0_12class.qml",
+      "href": "https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0",
       "title": "Primary data source",
       "roles": [
         "data"
