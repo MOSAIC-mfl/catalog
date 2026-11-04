@@ -1,0 +1,49 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-106.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-106
+title: Microwatershed boundaries and drainage network - India
+description: >-
+  CoRE Stack hydrological layers. Microwatershed boundaries (v1 and v2) and microwatershed connectivity;
+  drainage lines, stream order, distance to upstream drainage line, single-flow and multi-flow catchment
+  area, and natural depressions. Pan-India.
+resource_type: dataset
+themes:
+- water-hydrology
+geography:
+- IND
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: CoRE Stack (external)
+  roles:
+  - producer
+- organization: Core Stack (Open access)
+  roles:
+  - point-of-contact
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at docs.google.com
+  kind: mixed
+  method: landing_page
+  url: >-
+    https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+temporal:
+  text: Static
+spatial:
+  resolution:
+    text: Multiple resolutions
+update_frequency: static
+created: '2026-10-29'
+updated: '2026-10-29'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published
+    submitted_on: '2026-10-29'

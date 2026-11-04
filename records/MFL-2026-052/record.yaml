@@ -1,0 +1,42 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-052.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-052
+title: LULC classification
+description: MRC produced the data
+resource_type: dataset
+themes:
+- land-cover-land-use
+geography:
+- LAO
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: IWMI
+  roles:
+  - producer
+- email: s.douangsavanh@cgiar.org
+  roles:
+  - point-of-contact
+access: internal
+access_note: MRC website
+data:
+- name: Data held by the owner (on request)
+  kind: vector
+  method: request
+  access: internal
+temporal:
+  text: present
+spatial:
+  resolution:
+    text: basin and country levels
+update_frequency: unknown
+source_updated: '2020'
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - MEK-3S
+  intake:
+    status: published

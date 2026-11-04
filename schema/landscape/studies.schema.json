@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.1.0/landscape/studies.schema.json",
+  "title": "Study cards of a map explorer",
+  "description": "kind 'published': a finding verified against the cited paper (claims and where they were found in 'verified'). kind 'explore': a question only, no numbers, no claims.",
+  "type": "object",
+  "required": ["cards"],
+  "properties": {
+    "about": {"type": "string"}, "updated": {"type": "string"}, "note": {"type": "string"},
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["id", "question", "kind"],
+        "properties": {
+          "id": {"type": "string"}, "question": {"type": "string"},
+          "kind": {"enum": ["published", "explore"]},
+          "finding": {"type": "string"}, "caveat": {"type": "string"}, "citation": {"type": "string"},
+          "doi": {"type": "string", "pattern": "^10\\."},
+          "verified": {"type": "array", "items": {"type": "object", "required": ["claim", "where"]}},
+          "layers": {"type": "array", "items": {"type": "string"}},
+          "open_panel": {"type": "string"}, "camera": {"type": "object"}, "time": {"type": "object"}
+        },
+        "allOf": [
+          {"if": {"properties": {"kind": {"const": "published"}}}, "then": {"required": ["finding", "citation", "verified"]}},
+          {"if": {"properties": {"kind": {"const": "explore"}}}, "then": {"not": {"required": ["finding"]}}}
+        ]
+      }
+    }
+  }
+}

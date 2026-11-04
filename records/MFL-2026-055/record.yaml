@@ -1,0 +1,49 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-055.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-055
+title: Crop fields (2025) - focus on NUS crops
+description: >-
+  Amazonian tubers classified as Neglected and Underutilized Crop Species (NUS crops) in each farmers
+  field, accurately documenting the characteristics of these species in situ. This process generated a
+  comprehensive dataset comprising seven different crops: cassava (Manihot esculenta), sweet potato (Ipomoea
+  batatas), aerial potato (Dioscorea bulbifera L.), achipa or chuin (Pachyrhizus tuberosus), pituca (Colocasia
+  spp., Xanthosoma spp.), dale-dale (Calathea allouia), and sacha papa (Dioscorea bulbifera). Overall,
+  the study captured the main characteristics of 683 varieties/404 species recorded across 273 mapped
+  plots from 221 farmer households. The dataset is organized into: A) Household information, B) Field
+  information and land-use history, C) Species names, D) Variety names, and E) Community collection points
+  of NUS crops
+resource_type: dataset
+themes:
+- agrobiodiversity-crops
+geography:
+- PER
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: CIP
+  roles:
+  - producer
+- email: javier.ochoa@cgiar.org
+  roles:
+  - point-of-contact
+access: internal
+data:
+- name: Page at data.cipotato.org
+  kind: vector
+  method: landing_page
+  url: https://data.cipotato.org/
+temporal:
+  start: '2025'
+  end: '2025'
+  text: '2025'
+spatial:
+  resolution:
+    text: Pucallpa Aguaytia Corridor (Andean Amazon Landscape)
+update_frequency: unknown
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  intake:
+    status: published

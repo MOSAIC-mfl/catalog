@@ -1,0 +1,58 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-097.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-097
+title: >-
+  Data on the dynamics of Land Cover at different scales, Kef-Siliana region and sub-spatial units of
+  the Agroecological Living Lab Landscape in Tunisia (2017-2022)
+description: >-
+  Land cover change statistics and the ecological degradation or improvement they imply, at two scales
+  - the Kef-Siliana region as a whole and the sub-spatial units of the Agroecological Living Lab Landscape
+  in Tunisia. Land cover change was analysed in QGIS 3.28.15 with the Semi-Automatic Classification Plugin;
+  degradation and improvement were assessed following the UNCCD Good Practice Guidance. Delivered as two
+  CSV tables with data dictionaries. Published on ICARDA's MEL data portal; MOSAIC links to it there.
+resource_type: dataset
+themes:
+- degradation-land-health
+geography:
+- TUN
+license:
+  spdx: CC-BY-SA-4.0
+  url: https://spdx.org/licenses/CC-BY-SA-4.0.html
+  text: null
+contacts:
+- organization: ICARDA
+  roles:
+  - producer
+- name: Layal Atassi
+  email: l.atassi@cgiar.org
+  roles:
+  - point-of-contact
+citation: >-
+  Shiri, Zahra; Frija, Aymen; Rejeb, Hichem; Ouerghemmi, Hassen; Le, Quang Bao, 2024, "Data on the dynamics
+  of Land Cover at different scales: Kef-Siliana region and sub spatial units of Agroecological Living
+  Lab Landscape in Tunisia (2017-2022)", https://hdl.handle.net/20.500.11766.1/FK2/U4JHNU, MELDATA, V14
+access: public
+data:
+- name: Page at hdl.handle.net
+  kind: tabular
+  method: landing_page
+  url: https://hdl.handle.net/20.500.11766.1/FK2/U4JHNU
+  files: LCD_KS_data.csv; LCD_ALL_data.csv
+  size: 18 KB
+temporal:
+  start: '2017'
+  end: '2022'
+  text: 2017-2022
+spatial:
+  resolution:
+    text: Region and sub-landscape spatial units
+update_frequency: static
+source_updated: '2026-04-09'
+created: '2026-10-15'
+updated: '2026-10-15'
+mosaic:
+  landscapes:
+  - TUN-NW
+  intake:
+    status: published
+    submitted_on: '2026-10-15'

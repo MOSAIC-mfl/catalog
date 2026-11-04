@@ -1,0 +1,44 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-009.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-009
+title: District level livestock population data - India
+description: District level livestock population data
+resource_type: dataset
+themes:
+- biodiversity-ecosystems
+geography:
+- IND
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: National government (external)
+  roles:
+  - producer
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at www.data.gov.in
+  kind: tabular
+  method: landing_page
+  url: >-
+    https://www.data.gov.in/resource/district-wise-details-livestock-population-madhya-pradesh-20th-livestock-census-2019
+temporal:
+  end: '2019'
+  text: Till 2019
+spatial:
+  resolution:
+    text: District level
+update_frequency: annual
+source_updated: '2019'
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

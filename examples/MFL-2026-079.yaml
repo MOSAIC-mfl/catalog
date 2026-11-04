@@ -1,0 +1,37 @@
+# Example: a public dataset converted by hand from its schema-1 record (catalog main).
+# It is INCOMPLETE on purpose: the schema-1 record has no keywords and no citation, and they are not invented.
+id: MFL-2026-079
+title: Forest/Non-forest 2000/Forest loss 2001-2024
+description: >-
+  Forest/non-forest baseline for 2000 and annual forest loss from 2001 to 2024 in Ucayali, derived
+  from MINAM’s GEOBOSQUES forest monitoring dataset and spatially aggregated by provinces and
+  districts.
+resource_type: dataset
+themes: [pressures-drivers]
+geography: [PER]
+license:
+  spdx: null
+  url: null
+  text: Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license stated
+contacts:
+  - name: Beatriz Rodríguez
+    organization: Alliance Bioversity-CIAT
+    email: b.rodriguez@cgiar.org
+    roles: [producer, point-of-contact]
+access: public
+data:
+  - name: GEOBOSQUES downloads (MINAM)
+    kind: vector
+    method: landing_page
+    url: https://geobosques.minam.gob.pe/geobosque/view/descargas.php?122345gxxe345w34gg#download
+    files: Ucayali_Forest_NonForest2000_ForestLoss2001_2024.shp (complete shapefile set, 8 files)
+    size: 175.2 MB
+    vector:
+      crs: EPSG:4326
+temporal: {start: "2000", end: "2024", text: 2000-2024}
+spatial:
+  bbox: [-75.9479, -11.4476, -70.4953, -7.262]
+  crs: EPSG:4326
+update_frequency: unknown
+mosaic:
+  landscapes: [PER-PCL]

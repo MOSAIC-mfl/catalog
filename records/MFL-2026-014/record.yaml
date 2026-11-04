@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-014.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-014
+title: Waterbodies data on River, canals, waterbodies, reservoir
+description: Waterbodies data
+resource_type: dataset
+themes:
+- water-hydrology
+geography:
+- IND
+license:
+  spdx: null
+  url: null
+  text: India-WRIS layers re-published by CoRE Stack; no licence stated by the source
+contacts:
+- organization: India-WRIS, via CoRE Stack (external)
+  roles:
+  - producer
+- organization: Core Stack (Open access)
+  roles:
+  - point-of-contact
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at docs.google.com
+  kind: mixed
+  method: landing_page
+  url: >-
+    https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+temporal:
+  text: Static
+spatial:
+  resolution:
+    text: Multiple resolutions
+update_frequency: static
+source_updated: '2024'
+created: '2026-07-24'
+updated: '2026-10-29'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

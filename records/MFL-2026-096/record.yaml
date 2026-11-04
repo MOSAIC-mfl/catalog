@@ -1,0 +1,57 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-096.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-096
+title: >-
+  Data on landscape metrics at different scales, Kef-Siliana region and sub-spatial units of the Agroecological
+  Living Lab Landscape in Tunisia (2017-2022)
+description: >-
+  Landscape metrics computed from the 2017 and 2022 land cover maps of the Kef-Siliana region (MFL-2026-093
+  and MFL-2026-094) with the LecoS plugin in QGIS 3.28.15, at two scales - the Kef-Siliana region as a
+  whole and the sub-spatial units of the Agroecological Living Lab Landscape in Tunisia. Delivered as
+  two CSV tables with data dictionaries. Published on ICARDA's MEL data portal; MOSAIC links to it there.
+resource_type: dataset
+themes:
+- ecosystem-condition
+geography:
+- TUN
+license:
+  spdx: CC-BY-SA-4.0
+  url: https://spdx.org/licenses/CC-BY-SA-4.0.html
+  text: null
+contacts:
+- organization: ICARDA
+  roles:
+  - producer
+- name: Layal Atassi
+  email: l.atassi@cgiar.org
+  roles:
+  - point-of-contact
+citation: >-
+  Shiri, Zahra; Frija, Aymen; Rejeb, Hichem; Ouerghemmi, Hassen; Le, Quang Bao, 2024, "Data on landscape
+  metrics at different scales: Kef-Siliana region and sub spatial units of Agroecological Living Lab Landscape
+  in Tunisia (2017-2022)", https://hdl.handle.net/20.500.11766.1/FK2/UN7DKQ, MELDATA, V15
+access: public
+data:
+- name: Page at hdl.handle.net
+  kind: tabular
+  method: landing_page
+  url: https://hdl.handle.net/20.500.11766.1/FK2/UN7DKQ
+  files: LM_KS_data.csv; LM_ALL_data.csv
+  size: 9.5 KB
+temporal:
+  start: '2017'
+  end: '2022'
+  text: 2017-2022
+spatial:
+  resolution:
+    text: Region and sub-landscape spatial units
+update_frequency: static
+source_updated: '2026-04-09'
+created: '2026-10-15'
+updated: '2026-10-15'
+mosaic:
+  landscapes:
+  - TUN-NW
+  intake:
+    status: published
+    submitted_on: '2026-10-15'

@@ -1,0 +1,35 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-020.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-020
+title: Localities
+description: Official administrative boundaries of Senegal
+resource_type: dataset
+themes:
+- boundaries-admin-units
+geography:
+- SEN
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: ISRA-BAME
+  roles:
+  - producer
+- email: dieyemohamadou@gmail.com
+  roles:
+  - point-of-contact
+access: restricted
+data:
+- name: Data held by the owner (on request)
+  kind: vector
+  method: request
+  access: restricted
+update_frequency: static
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  landscapes:
+  - SEN-FK
+  intake:
+    status: published

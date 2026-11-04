@@ -1,0 +1,49 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-011.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-011
+title: >-
+  Central Indian Landscape health status (Rainfall, Vegetation, infrastructure, soil moisture, carbon
+  stocks) using remote sensing indices
+description: >-
+  Assessment of landscape health (Rainfall trends, water bodies, vegetation heath, infrastructure changes,
+  carbon stocks) using various remote sensing indices (such as NDVI, NDBI, CVI, NDRE, FAPAR, NDRE)
+resource_type: dataset
+themes:
+- ecosystem-condition
+geography:
+- IND
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: ESA / Copernicus (external)
+  roles:
+  - producer
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+access_note: Internal Available on request
+data:
+- name: Data held by the owner (on request)
+  kind: raster
+  method: request
+  access: restricted
+temporal:
+  start: '2001'
+  end: '2025'
+  text: 2001 to 2025
+spatial:
+  resolution:
+    text: Multiple resolutions (10m, 30m, 5000m)
+update_frequency: seasonal
+source_updated: '2025'
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

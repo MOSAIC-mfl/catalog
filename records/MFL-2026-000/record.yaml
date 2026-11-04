@@ -1,0 +1,45 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-000.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-000
+title: Central India Landscape - Boundary
+description: MFL LL boundary
+resource_type: dataset
+themes:
+- boundaries-admin-units
+geography:
+- IND
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: IWMI
+  roles:
+  - producer
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: internal
+access_note: Internal
+data:
+- name: Data held by the owner (on request)
+  kind: vector
+  method: request
+  access: internal
+temporal:
+  start: '2025'
+  end: '2025'
+  text: '2025'
+spatial:
+  resolution:
+    text: Admin - MFLLs Boundary
+update_frequency: static
+source_updated: '2026'
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

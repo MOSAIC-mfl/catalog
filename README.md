@@ -1,77 +1,128 @@
-# MOSAIC catalog pipeline
+# MOSAIC catalog
 
-Turns the **MFL Dataset Registry** (one Excel file, the single source of truth) into two machine-readable artifacts: a static **STAC catalog** and the frontend **`datasets.json`**. Part of MOSAIC, the geospatial coordination network for the CGIAR MFL Science Programme (AoW2). MOSAIC connects metadata across CGIAR centres and external services — it does not re-host data ("connect, don't duplicate").
+> **Status: v0.1.0, branch `metadata-standard-v0.1`, for review.** Phase 1: the metadata standard.
+> Phase 2: the 108 MOSAIC records migrated from the first pipeline of this repository (main @
+> `0dad25c`), and the build. Phase 3, the API, lives in
+> [MOSAIC-mfl/mosaic-api](https://github.com/MOSAIC-mfl/mosaic-api). Published at
+> https://mosaic-mfl.github.io/catalog/ once merged into `main`.
 
-## Quickstart
+MOSAIC is a network of metadata. It describes geospatial and related resources wherever they live
+and links to them; it does not copy them. This repository holds three things:
 
-```bash
-cd "MOSAIC_development/MOSAIC_catalog"
-python3 build_catalog.py
+1. **The MOSAIC metadata standard.** JSON Schemas, controlled vocabularies and crosswalks to other
+   catalogues.
+2. **MOSAIC's own records.** One YAML file per resource, in `records/<id>/record.yaml`.
+3. **The build.** It validates the records and publishes them as JSON for `mosaic-api`
+   (`dist/catalog.json` + `dist/manifest.json`).
+4. **Landscape profiles.** What the page of each living landscape shows (`landscapes/<CODE>/`),
+   validated and published with the records. Guide: [`docs/landscape-profiles.md`](docs/landscape-profiles.md).
+
+## The standard in one minute
+
+| Level | What | If it is missing |
+|---|---|---|
+| **Structure** | Every field has the right shape and uses the vocabularies | **Invalid:** the check fails and must be fixed |
+| **Minimum** | Enough to find, understand, cite and access the resource without opening its files | **Incomplete:** listed in `review/minimum_gaps.csv` and published flagged (configurable) |
+| **Recommended** | Period, bounding box, licensor, link to the licence terms, linked keywords… | Warning |
+| **Profile `mosaic`** | Living landscapes, MFL id | Warning (can be enforced in `mosaic.config.yaml`) |
+| **Extensions** | Domain blocks (`soil:`, `biodiversity:`…) declared per record | Invalid if malformed or undeclared |
+
+**The minimum** (`schema/levels/minimum.schema.json`):
+
+- `id`, `title`, `description`, `resource_type`
+- `themes`, `keywords`, `geography`
+- `license` (SPDX, or at least the text)
+- `contacts`
+- `citation` or `doi`
+- `access` (always explicit)
+- `data`: at least one access point, each with its `kind` (data type) and `method` (download,
+  landing page, service, request). A **public** resource needs a URL; a
+  restricted or internal one needs an `access_note` that says how to obtain it.
+
+Further reading:
+
+- All fields with their level, type, values and equivalents (CDH, schema 1):
+  [`docs/fields.xlsx`](docs/fields.xlsx), [`docs/fields.md`](docs/fields.md), and a record with every
+  field commented: [`docs/record-reference.yaml`](docs/record-reference.yaml). All three are
+  generated from the schemas.
+- Why each decision was taken: [`docs/standard.md`](docs/standard.md) and [`docs/adr/`](docs/adr/).
+
+## Layout
+
+```
+schema/
+  record.schema.json             structure of a record (types, vocabularies)
+  levels/minimum.schema.json     level 0
+  levels/recommended.schema.json level 1
+  profiles/mosaic.schema.json    MOSAIC profile (not enforced in v0.1)
+  extensions/_template/          how to add a domain extension
+  vocab.schema.json              generated from vocab/
+vocab/                           themes, landscapes, geography (ISO 3166 / UN M49), access, data kinds, access methods, roles…
+crosswalks/cdh.yaml              how a Climate Data Hub record maps to a MOSAIC record (read direction)
+crosswalks/mosaic-schema1.yaml   how the old schema-1 records were migrated
+records/<id>/record.yaml         the 108 migrated MOSAIC records
+landscapes/<CODE>/               landscape profiles (KEN-LVB: the Lake Victoria Basin Explorer)
+schema/landscape/                schemas of the profile files
+review/                          minimum_gaps, classification_gaps, migration_notes, inference_report
+examples/                        real records converted by hand (999 complete, an example id; 079 and 090 incomplete)
+tests/fixtures/                  valid / invalid / incomplete cases the suite checks
+src/mosaic_catalog/              validator and CLI
+scripts/                         build_vocab.py, build_docs.py, build_reference.py, migrate_schema1.py
+mosaic.config.yaml               standard version, enforced profiles, publish incomplete records or not
+boundaries/                      landscape delineations (GeoJSON), kept from the first pipeline
+docs/history/                    decisions, guides and record changelogs of the first pipeline
+legacy/                          Excel registry, schema 1, pending submission, frozen STAC (legacy/README.md)
 ```
 
-Prerequisites: **Python 3** and **openpyxl** (pandas and Pillow are also available). No Node/npm — validation is pure Python, by design (the npm registry is blocked here and the CDH npm CI is intentionally not used).
+## Use
 
-The run is **idempotent**: it wipes and rebuilds `stac/` and overwrites `datasets.json` every time. It prints a coverage report and exits non-zero if STAC validation fails.
+```sh
+pip install -e ".[dev]"                     # Python 3.10+
+python -m mosaic_catalog validate examples  # check records (text report)
+python -m mosaic_catalog validate examples -v --format json
+python -m mosaic_catalog validate records --gaps review/minimum_gaps   # writes the review list
+python -m mosaic_catalog infer              # read public downloadable files, fill geometry / spatial (needs pyshp)
+python -m mosaic_catalog validate-landscapes # the landscape profiles
+python -m mosaic_catalog build              # dist/catalog.json + dist/manifest.json + dist/landscapes/ for the API
+pytest -q                                   # tests
+python scripts/build_vocab.py               # after editing a vocabulary in the script
+python scripts/build_docs.py                # after editing a schema
+python scripts/build_reference.py           # docs/fields.xlsx + docs/record-reference.yaml
+```
 
-## Inputs and outputs
+Exit code 1 means at least one record is **invalid**. Incomplete records do not fail the check:
+they go to the review list.
 
-**Input — source of truth (since 2026-07-24):** `records/<ID>.yaml` — one validated
-YAML file per dataset (68 records), reviewed via PRs. See `records/README.md` to
-add or edit datasets and `spec/record_schema.md` for the field docs. Invalid
-records abort the build. The Excel workbook (`catalog/MFL_Dataset_Registry.xlsx`)
-is retained as an import/working view only; `--from-excel` forces it as source
-(the two paths are acceptance-tested byte-identical).
+Editors with the YAML language server can validate while typing (once the schemas are published):
 
-> **CI note:** the Pages workflow still runs `pip install openpyxl` only. Until
-> `pyyaml` is added to that line (one-line edit in
-> `.github/workflows/build-and-pages.yml`, via the GitHub web UI — the local
-> token cannot push workflow changes), CI falls back to the Excel snapshot with
-> a loud warning, so the snapshot must be kept in sync after record edits
-> (`python3 scripts/excel_to_records.py` works Excel→records; regenerating the
-> snapshot the other way is manual until then).
+```yaml
+# yaml-language-server: $schema=https://mosaic-mfl.github.io/catalog/schema/v0.1.0/record.schema.json
+```
 
-**Output A — STAC catalog tree** (`stac/`): plain JSON, no pystac.
-- `stac/catalog.json` (root)
-- `stac/collections/<CODE>/collection.json` — one per canonical living landscape (11, all delineated — created even when empty) + `GLB` for global datasets (12 total)
-- `stac/collections/<CODE>/items/<id>.json` — one per dataset (68)
-- `stac/boundaries/<CODE>.geojson` — the canonical landscape delineations (simplified, EPSG:4326), copied from the committed `boundaries/` folder; each collection exposes its boundary as a `boundary` asset
-- Uses `cgiar-cdh:*` and `mosaic:*` namespaces. Climate-themed items carry a `links[rel=related]` pointing to the CGIAR Climate Data Hub instead of re-describing it (connect, don't duplicate).
+## Rules for changes
 
-**Output B — frontend data contract:** `datasets.json` — 68 flat records consumed by the catalogue pages (synced into the frontend repo with `--sync-frontend`).
+- A branch per topic, pull request, green checks (`Validate` runs on every pull request). Lizeth reviews any change to records, the
+  standard or the build.
+- `vocab/*.json`, `schema/vocab.schema.json` and `docs/fields.md` are generated. Change the script
+  or the schema, then regenerate.
+- Nothing is invented: what the source does not state stays empty and is reported.
 
-**Boundaries build (local only):** `python3 scripts/build_boundaries.py` regenerates `boundaries/` and the real bboxes in `spec/bbox_lookup.json` from the delineation shapefiles in `../MOSAIC_LLV_delim` (needs geopandas; CI never runs this — it just copies the committed GeoJSONs).
+## Migration from the old catalogue (phase 2)
 
-## How it works
+The 108 records were converted from the schema-1 records of this repository's first pipeline
+(main @ `0dad25c`, see [`legacy/README.md`](legacy/README.md)) by `scripts/migrate_schema1.py`,
+which reads them with `git show 0dad25c:records/...` (`--ref`). Mapping: [`crosswalks/mosaic-schema1.yaml`](crosswalks/mosaic-schema1.yaml).
 
-1. **Read** the registry, skip the placeholder row (`mosaic_pipeline/registry.py`).
-2. **Transform** each row with rules R1–R9 — contact email, formats, license→SPDX, temporal split, etc. — emitting data-quality flags instead of crashing (`mosaic_pipeline/transform.py`).
-3. **Resolve** controlled vocab: living-landscape crosswalk, country→M49/ISO3, approximate bbox (`mosaic_pipeline/vocab.py` + `spec/`).
-4. **Emit** the STAC tree (`mosaic_pipeline/stac_build.py`) and `datasets.json` (`mosaic_pipeline/frontend_build.py`).
-5. **Validate** the STAC tree structurally in pure Python (`mosaic_pipeline/validate.py`).
+```sh
+python scripts/migrate_schema1.py --source . --ref 0dad25c     # reads the first pipeline; rewrites records/ and review/migration_notes.*
+python -m mosaic_catalog validate records --gaps review/minimum_gaps
+```
 
-## Caveats and coverage
+**Results:**
 
-This is **functional, not perfect**. Honest numbers from the current registry (68 records, 2026-07-21):
-
-- **living_landscape:** 66/68 mapped to a canonical landscape; 2 global datasets sit in `GLB`. Coverage split: 57 landscape, 9 national (`mosaic:coverage: national`, assigned to the country's landscape collection), 2 global.
-- **bbox:** 68/68 assigned. Landscape-coverage items use the **real delineation-derived bbox** (still flagged `mosaic:bbox_approximate: true` because the dataset's *own* extent is unrecorded — the landscape box is a proxy). National/global items use locator boxes. **Collection** extents are delineation-derived and flagged `false`.
-- **download_url:** 32/68 usable; the rest were "Internal" / "One drive" / server paths and are set to `null` (kept as an access note in STAC).
-- **contact email:** 66/68 extracted.
-- **formats:** the File name(s) column is empty, so `formats[]` falls back to `data_type`.
-- **license / spatial_resolution:** non-SPDX licenses and messy resolution strings are kept verbatim and flagged.
-
-**Canonical vs. pending:**
-- The landscape list (11 codes + `NATIONAL`/`GLOBAL` coverage values) is **canonical**, approved 2026-07-21 — see `spec/living_landscape_crosswalk.json` and `docs/REGISTRY_CHANGELOG_2026-07-21.md`.
-- **`PER-PCL` (Pucallpa – Ucayali) is pending confirmation** with the Peru team (the older reference map said Apurímac; the delivered shapefile is Pucallpa/Ucayali). Flagged `mosaic:pending_confirmation: true`.
-- National-coverage **Kenya** datasets sit in `KEN-LVB` (primary) with a `related` link to `KEN-LEI`.
-- The CDH link URL is a **placeholder** pending the real CDH Collection URLs.
-- The `mosaic:*` / `cgiar-cdh:*` extension schema JSONs are not yet hosted.
-
-## Pointers
-
-- **Registering datasets (focal-point guide): `docs/HOW_TO_REGISTER_DATASETS.md`** — the form, the PR path, and bulk import.
-
-- Field rules and crosswalks: `spec/field_mapping.md`, `spec/vocab_reconciliation.md`, `spec/living_landscape_crosswalk.json`, `spec/bbox_lookup.json`.
-- Governing decisions: the MOSAIC↔CDH interoperability assessment is an internal
-  team document (kept out of the public repo); its operative rules live in
-  `spec/field_mapping.md`, `spec/vocab_reconciliation.md` and the schema docs.
+- **108 records migrated** (catalog main @ 0dad25c). None is invalid, and none is complete yet: no schema-1 record has
+  keywords, and 92 have no citation.
+- **`review/minimum_gaps.csv`** lists what is missing for the minimum, with the person to ask. Its
+  `decision` column is for the outcome: complete, publish incomplete, or withdraw.
+- **`review/migration_notes.csv`** lists conversions a person should check: licence texts that
+  describe access, `NATIONAL`/`GLOBAL` landscapes, periods without a year, and so on.

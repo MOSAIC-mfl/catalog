@@ -1,0 +1,74 @@
+# INCOMPLETE: geography missing
+id: MFL-2099-001
+slug: test-land-cover
+title: Test land cover map
+description: Synthetic record used by the test suite.
+resource_type: dataset
+themes:
+- land-cover-land-use
+- pressures-drivers
+keywords:
+- land cover
+- term: land cover
+  scheme: agrovoc
+  uri: http://aims.fao.org/aos/agrovoc/c_37897
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: Example Institute
+  ror: https://ror.org/0abcdefg1
+  roles:
+  - producer
+  - licensor
+- name: Test Person
+  email: test@example.org
+  orcid: https://orcid.org/0000-0002-1825-0097
+  roles:
+  - point-of-contact
+citation:
+  authors:
+  - organization: Example Institute
+  title: Test land cover map
+  date: '2099'
+access: public
+data:
+- name: GeoTIFF
+  kind: raster
+  method: download
+  url: https://example.org/data.tif
+  media_type: image/tiff; application=geotiff
+  raster:
+    resolution:
+      value: 30
+      unit: m
+    bands:
+    - name: class
+      data_type: uint8
+      nodata: 0
+- name: WMS
+  kind: raster
+  method: service
+  url: https://example.org/wms
+  service:
+    service_type: wms
+    layers:
+    - landcover
+temporal:
+  start: '2020'
+  end: null
+  text: 2020 onwards
+spatial:
+  bbox:
+  - -80
+  - -12
+  - -70
+  - -2
+  crs: EPSG:4326
+update_frequency: annual
+created: '2099-01-01'
+updated: '2099-01-02'
+mosaic:
+  landscapes:
+  - PER-PCL

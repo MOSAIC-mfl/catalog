@@ -1,0 +1,53 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-015.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-015
+title: Land Use and Land Cover - India
+description: Landuse and Land cover changes
+resource_type: dataset
+themes:
+- land-cover-land-use
+geography:
+- IND
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: CoRE Stack (external)
+  roles:
+  - producer
+- organization: Core Stack (Open access)
+  roles:
+  - point-of-contact
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at docs.google.com
+  kind: raster
+  method: landing_page
+  url: >-
+    https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+  raster:
+    resolution:
+      value: 30
+      unit: m
+temporal:
+  start: '2018'
+  end: '2025'
+  text: 2018 - 2025
+spatial:
+  resolution:
+    value: 30
+    unit: m
+update_frequency: annual
+source_updated: '2025'
+created: '2026-07-24'
+updated: '2026-10-29'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

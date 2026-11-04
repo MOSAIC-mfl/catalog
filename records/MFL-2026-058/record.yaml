@@ -1,0 +1,50 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-058.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-058
+title: Forest cover in Cambodia (2015-2023)
+description: >-
+  Cambodia's annual forest cover developed through the USAID's Cambodia Supporting Forests and Biodiversity
+  (USAID SFB) project
+resource_type: dataset
+themes:
+- land-cover-land-use
+geography:
+- KHM
+license:
+  spdx: null
+  url: null
+  text: null
+contacts:
+- organization: WorldFish
+  roles:
+  - producer
+- name: Shwu Jiau Teoh
+  email: s.teoh@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at data.opendevelopmentmekong.net
+  kind: raster
+  method: landing_page
+  url: https://data.opendevelopmentmekong.net/map/forest-cove-2015-present
+  raster:
+    resolution:
+      value: 30
+      unit: m
+temporal:
+  start: '2015'
+  end: '2023'
+  text: 2015-2023
+spatial:
+  resolution:
+    value: 30
+    unit: m
+update_frequency: unknown
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - MEK-3S
+  intake:
+    status: published

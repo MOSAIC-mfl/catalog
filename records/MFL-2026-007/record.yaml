@@ -1,0 +1,44 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-007.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-007
+title: Solar Irrigation Suitability map for India
+description: District-level solar irrigation suitability map.
+resource_type: dataset
+themes:
+- decision-support-outputs
+geography:
+- IND
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: IWMI
+  roles:
+  - producer
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+data:
+- name: Page at solaready.iwmi.org
+  kind: raster
+  method: landing_page
+  url: https://solaready.iwmi.org/india/
+temporal:
+  start: '2025'
+  end: '2025'
+  text: '2025'
+spatial:
+  resolution:
+    text: District level
+update_frequency: annual
+source_updated: '2025'
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

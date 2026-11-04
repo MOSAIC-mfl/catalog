@@ -1,0 +1,52 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-016.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-016
+title: Groundwater data - India
+description: >-
+  Groundwater levels in dug wells and bore wells, and the Stage of Groundwater Extraction from the groundwater
+  resource assessments of 2011, 2013, 2017, 2020, 2022, 2023, 2024 and 2025. Published by the Central
+  Ground Water Board (CGWB) and re-published by CoRE Stack. Pan-India.
+resource_type: dataset
+themes:
+- water-hydrology
+geography:
+- IND
+license:
+  spdx: null
+  url: null
+  text: CGWB layers re-published by CoRE Stack; no licence stated in the CoRE Stack layer sheet
+contacts:
+- organization: CGWB, via CoRE Stack (external)
+  roles:
+  - producer
+- organization: Core Stack (Open access)
+  roles:
+  - point-of-contact
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at docs.google.com
+  kind: vector
+  method: landing_page
+  url: >-
+    https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+temporal:
+  start: '2011'
+  end: '2025'
+  text: 2011 - 2025
+spatial:
+  resolution:
+    text: Multiple resolutions
+update_frequency: annual
+source_updated: '2025'
+created: '2026-10-29'
+updated: '2026-10-29'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published
+    submitted_on: '2026-10-29'

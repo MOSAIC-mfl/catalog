@@ -1,0 +1,42 @@
+# MOSAIC record template (v0.1). Copy to records/<id>/record.yaml and fill in.
+# (M) = minimum, (R) = recommended, (O) = optional. Delete what you do not know - never guess.
+# Full reference: docs/fields.md
+
+id: MFL-2026-000                 # (M) next free MFL id; never reuse or change it
+title: ""                        # (M) as the source names it
+description: >-                  # (M) what it is: content, coverage, method in brief
+  ...
+resource_type: dataset           # (M) dataset | service | document | software | model
+themes: []                       # (M) vocab/themes.json ids, primary first, e.g. [land-cover-land-use]
+keywords: []                     # (M) plain terms, or {term, scheme: agrovoc, uri}
+geography: []                    # (M) ISO3 countries (PER), m49:<code> regions, or global
+license:                         # (M) spdx OR text; url recommended when spdx is null
+  spdx: null                     #     e.g. CC-BY-4.0
+  url: null
+  text: null
+contacts:                        # (M) at least one; a licensor is (R)
+  - name: ""
+    organization: ""
+    email: ""
+    roles: [point-of-contact]    # producer | licensor | host | processor | point-of-contact | maintainer | funder
+citation: ""                     # (M) citation OR doi
+doi: null                        #     10.xxxx/... without https://doi.org/
+access: public                   # (M) public | restricted | internal
+access_note: null                # (M) only if access is not public: how to obtain the data
+data:                            # (M) one entry per access point; public -> at least one url
+  - name: ""
+    kind: raster                 # raster | vector | tabular | document | mixed | other
+    method: download             # download | landing_page | service | request
+    url: ""
+    # media_type: image/tiff; application=geotiff
+    # access: internal           # only when this point differs from the record
+    # raster: {resolution: {value: 30, unit: m}}   # block matching kind (optional)
+temporal: {start: null, end: null, text: null}   # (R) ISO years/dates; end null = ongoing
+spatial: {bbox: null, crs: null}                 # (R) [west, south, east, north]; resolution: {value, unit} or {text} (O)
+update_frequency: unknown        # (R) static | annual | seasonal | monthly | ... | unknown
+# source_updated: "2025"        # (O) when the source last updated the data (not the record)
+# version: ""                    # (O) as the source labels it
+# related: [{relation: IsSupplementTo, scheme: doi, value: "", title: ""}]   # (O)
+# funding: [{name: ""}]          # (O)
+mosaic:                          # profile mosaic (warning only in v0.1)
+  landscapes: []                 # vocab/landscapes.json, e.g. [PER-PCL]

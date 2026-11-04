@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-086.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-086
+title: Resource change
+description: Changes in the condition and availability of key resources over time.
+resource_type: dataset
+themes:
+- ecosystem-condition
+geography:
+- KEN
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: ILRI
+  roles:
+  - producer
+- name: Ambica Paliwal
+  email: a.paliwal@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+access_note: Internal Available on Request
+data:
+- name: Data held by the owner (on request)
+  kind: vector
+  method: request
+  access: restricted
+temporal:
+  start: '2026'
+  end: '2026'
+  text: '2026'
+spatial:
+  resolution:
+    text: Basin level
+update_frequency: irregular
+source_updated: '2026'
+created: '2026-09-30'
+updated: '2026-09-30'
+mosaic:
+  landscapes:
+  - KEN-LVB
+  intake:
+    status: published
+    submitted_on: '2026-09-30'

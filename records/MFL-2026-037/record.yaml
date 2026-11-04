@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-037.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-037
+title: Land use/cover
+description: Land Use and Land Cover Classification
+resource_type: dataset
+themes:
+- land-cover-land-use
+geography:
+- ETH
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- name: Degefie Tibebe
+  email: d.tibebe@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+access_note: Internal Available on request
+data:
+- name: Data held by the owner (on request)
+  kind: raster
+  method: request
+  access: restricted
+  raster:
+    resolution:
+      value: 30
+      unit: m
+temporal:
+  start: '2021'
+  end: '2021'
+  text: '2021'
+spatial:
+  resolution:
+    value: 30
+    unit: m
+update_frequency: unknown
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - ETH-OG
+  intake:
+    status: published

@@ -1,0 +1,54 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-071.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-071
+title: >-
+  Urochloa hybrid adoption in Latin America and the Caribbean 2001-2024: An analysis of the land use,
+  social, economic, and environmental impacts in 27 countries
+description: >-
+  Analysis of interspecific Urochloa forage-grass hybrid adoption across 27 Latin American and Caribbean
+  countries, 2001-2024. Estimates over 1.09 million adopting farmers on 1.62 million cumulative hectares,
+  projects cumulative forage value of US$47-62 billion by 2033, and estimates potential greenhouse gas
+  emission reductions of 16.9-56.3 Mt CO2-eq by that timeframe.
+resource_type: dataset
+themes:
+- agrobiodiversity-crops
+geography:
+- m49:419
+license:
+  spdx: CC0-1.0
+  url: https://spdx.org/licenses/CC0-1.0.html
+  text: null
+contacts:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Stefan Burkart
+  email: s.burkart@cgiar.org
+  roles:
+  - point-of-contact
+citation: >-
+  Burkart, Stefan; Sandoval, Danny; Junca Paredes, John Jairo, 2026, "Urochloa hybrid adoption in Latin
+  America and the Caribbean 2001-2024: An analysis of the land use, social, economic, and environmental
+  impacts in 27 countries", https://doi.org/10.7910/DVN/L86VZ9, Harvard Dataverse, V1
+doi: 10.7910/DVN/L86VZ9
+access: public
+data:
+- name: Page at doi.org
+  kind: tabular
+  method: landing_page
+  url: https://doi.org/10.7910/DVN/L86VZ9
+  files: >-
+    1_hybrid_calculation_determinist_LAC.xlsx; 2_environmental calculation_determinist_LAC.xlsx
+  size: 104.2 KB (2 files)
+temporal:
+  start: '2001'
+  end: '2024'
+  text: 2001-2024
+update_frequency: static
+source_updated: '2026'
+created: '2026-08-03'
+updated: '2026-08-03'
+mosaic:
+  intake:
+    status: published
+    submitted_on: '2026-08-03'

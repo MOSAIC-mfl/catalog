@@ -1,0 +1,42 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-023.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-023
+title: Tree mapping
+description: >-
+  Tree data are derived from Sentinel-2 imagery using image classification techniques. Limitations include
+  infrequent updates, which may affect temporal accuracy and may not reflect recent changes. Related datasets:
+  Sentinel-2 imagery, land cover products, vegetation indices (NDVI/EVI).
+resource_type: dataset
+themes:
+- land-cover-land-use
+geography:
+- SEN
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: ISRA-BAME
+  roles:
+  - producer
+- email: dieyemohamadou@gmail.com
+  roles:
+  - point-of-contact
+access: restricted
+data:
+- name: Data held by the owner (on request)
+  kind: vector
+  method: request
+  access: restricted
+temporal:
+  start: '2021'
+  end: '2021'
+  text: '2021'
+source_updated: '2021'
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  landscapes:
+  - SEN-FK
+  intake:
+    status: published

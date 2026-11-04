@@ -1,0 +1,49 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-038.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-038
+title: Soil resource
+description: Digital soil mapping
+resource_type: dataset
+themes:
+- degradation-land-health
+geography:
+- ETH
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Degefie Tibebe
+  email: d.tibebe@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+access_note: Internal Available on request
+data:
+- name: Data held by the owner (on request)
+  kind: raster
+  method: request
+  access: restricted
+  raster:
+    resolution:
+      value: 250
+      unit: m
+temporal:
+  start: '2024'
+  end: '2024'
+  text: '2024'
+spatial:
+  resolution:
+    value: 250
+    unit: m
+update_frequency: unknown
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  landscapes:
+  - ETH-OG
+  intake:
+    status: published

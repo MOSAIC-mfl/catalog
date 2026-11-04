@@ -1,0 +1,50 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-063.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-063
+title: India's open natural ecosystem
+description: India's Open Natural Ecosystems at a 10-m scale,
+resource_type: dataset
+themes:
+- ecosystem-condition
+geography:
+- IND
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Smitha Krishnan
+  email: s.krishnan@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+access_note: open-natural-ecosystems
+data:
+- name: Data held by the owner (on request)
+  kind: raster
+  method: request
+  access: restricted
+  raster:
+    resolution:
+      value: 10
+      unit: m
+temporal:
+  start: '2018'
+  end: '2024'
+  text: 2018-2024
+spatial:
+  resolution:
+    value: 10
+    unit: m
+update_frequency: static
+source_updated: '2025'
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

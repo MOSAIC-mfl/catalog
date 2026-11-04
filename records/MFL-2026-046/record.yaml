@@ -1,0 +1,53 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-046.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-046
+title: Climate station data (NHMS synoptic stations)
+description: >-
+  Daily weather data for three synoptic stations in and around the N'Zi watershed, served by AfricaRice's
+  ARCWeather portal: Bouaké and Ferkessédougou from 1980 to 2010, Korhogo from 1994 to 2001. Korhogo holds
+  fewer variables, and its dew point is estimated from the minimum temperature. AfricaRice's own M'Bé
+  research-station data from 2014 onward is a separate record, MFL-2026-084.
+resource_type: dataset
+themes:
+- water-hydrology
+geography:
+- CIV
+license:
+  spdx: null
+  url: null
+  text: >-
+    ARCWeather usage terms: non-commercial, educational, research or personal use only, with citation.
+    The portal states that Côte d'Ivoire climate data is distributed by Sodexam; no licence stated by
+    the rights holder
+contacts:
+- organization: AfricaRice
+  roles:
+  - producer
+- name: Louis Kouadio
+  email: a.kouadio2@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at arcweather.africarice.org
+  kind: tabular
+  method: landing_page
+  url: https://arcweather.africarice.org/en/downloads
+  files: synoptic_stations_daily.xlsx (one sheet per station - Bouake, Korhogo, Ferkessedougou)
+  size: 3.5 MB
+temporal:
+  start: '1980'
+  end: '2010'
+  text: 1980-2010
+spatial:
+  resolution:
+    text: Climate station observations
+update_frequency: static
+source_updated: '2026'
+created: '2026-07-24'
+updated: '2026-10-15'
+mosaic:
+  landscapes:
+  - CIV-NZ
+  intake:
+    status: published

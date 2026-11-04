@@ -1,0 +1,47 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-031.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-031
+title: Tunisia LLs Sector boundary containing Es Sers, Gaafour, El Krib, Makthar, and Kesra.
+description: Administrative boundaries for Tunisia
+resource_type: dataset
+themes:
+- boundaries-admin-units
+geography:
+- TUN
+license:
+  spdx: null
+  url: null
+  text: CGIAR Open Access
+contacts:
+- organization: ICARDA
+  roles:
+  - producer
+- name: Layal Atassi
+  email: l.atassi@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+access_note: www.geoboundaries.org
+data:
+- name: Data held by the owner (on request)
+  kind: vector
+  method: request
+  access: restricted
+  files: Tunisia_Sector.shp (complete shapefile set, 8 files)
+  size: 692 KB
+spatial:
+  resolution:
+    text: admin-level-2
+  bbox:
+  - 8.767
+  - 35.6887
+  - 9.5377
+  - 36.4634
+  crs: EPSG:4326
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  landscapes:
+  - TUN-NW
+  intake:
+    status: published

@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-065.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-065
+title: Soil health status and texture
+description: >-
+  Ward-level soil texture, nitrogen, and carbon content data — Original landscape entry: Mbire: Wards
+  2 and 3
+resource_type: dataset
+themes:
+- degradation-land-health
+geography:
+- ZWE
+license:
+  spdx: null
+  url: null
+  text: CGIAR Open Access
+contacts:
+- organization: CIMMYT
+  roles:
+  - producer
+- email: Telma.SIBANDA@um6p.ma
+  roles:
+  - point-of-contact
+access: restricted
+access_note: Internal Available on request
+data:
+- name: Data held by the owner (on request)
+  kind: tabular
+  method: request
+  access: restricted
+temporal:
+  start: '2024'
+  end: '2024'
+  text: '2024'
+spatial:
+  resolution:
+    text: Ward level
+update_frequency: static
+source_updated: '2024'
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  landscapes:
+  - ZWE-MB
+  intake:
+    status: published

@@ -1,0 +1,44 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-004.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-004
+title: Central India Landscape - Socio economic
+description: Village level socio-economic inftrastructure data
+resource_type: dataset
+themes:
+- socio-economic-livelihoods
+geography:
+- IND
+license:
+  spdx: null
+  url: null
+  text: null
+contacts:
+- organization: National government (external)
+  roles:
+  - producer
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at missionantyodaya.dord.gov.in
+  kind: tabular
+  method: landing_page
+  url: https://missionantyodaya.dord.gov.in/
+temporal:
+  start: '2023'
+  end: '2023'
+  text: '2023'
+spatial:
+  resolution:
+    text: Village level
+update_frequency: annual
+source_updated: '2023'
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

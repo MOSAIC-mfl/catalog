@@ -1,0 +1,48 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-013.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-013
+title: Tree characteristics (canopy density & canopy height), tree cover change for India
+description: Tree canopy cover, density and height
+resource_type: dataset
+themes:
+- ecosystem-condition
+geography:
+- IND
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: CoRE Stack (external)
+  roles:
+  - producer
+- organization: Core Stack (Open access)
+  roles:
+  - point-of-contact
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at docs.google.com
+  kind: raster
+  method: landing_page
+  url: >-
+    https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+temporal:
+  start: '2017'
+  end: '2023'
+  text: 2017 - 2023
+spatial:
+  resolution:
+    text: Multiple resolutions
+update_frequency: annual
+source_updated: '2024'
+created: '2026-07-24'
+updated: '2026-10-29'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

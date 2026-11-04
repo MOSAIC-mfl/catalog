@@ -1,0 +1,55 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-079.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-079
+title: Forest/Non-forest 2000/Forest loss 2001-2024
+description: >-
+  Forest/non-forest baseline for 2000 and annual forest loss from 2001 to 2024 in Ucayali, derived from
+  MINAM’s GEOBOSQUES forest monitoring dataset and spatially aggregated by provinces and districts.
+resource_type: dataset
+themes:
+- pressures-drivers
+geography:
+- PER
+license:
+  spdx: null
+  url: null
+  text: >-
+    Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
+    stated
+contacts:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at geobosques.minam.gob.pe
+  kind: vector
+  method: landing_page
+  url: https://geobosques.minam.gob.pe/geobosque/view/descargas.php?122345gxxe345w34gg#download
+  files: Ucayali_Forest_NonForest2000_ForestLoss2001_2024.shp (complete shapefile set, 8 files)
+  size: 175.2 MB
+temporal:
+  start: '2000'
+  end: '2024'
+  text: 2000-2024
+spatial:
+  bbox:
+  - -75.9479
+  - -11.4476
+  - -70.4953
+  - -7.262
+  crs: EPSG:4326
+update_frequency: unknown
+source_updated: '2026'
+created: '2026-09-15'
+updated: '2026-10-15'
+mosaic:
+  landscapes:
+  - PER-PCL
+  intake:
+    status: published
+    submitted_on: '2026-09-15'

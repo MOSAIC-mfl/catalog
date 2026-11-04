@@ -1,0 +1,56 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-080.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-080
+title: Annual deforestation
+description: >-
+  Annual forest loss from 2001-2024 in Ucayali, derived from MINAM’s GEOBOSQUES forest monitoring dataset
+  and spatially aggregated by provinces and districts. The 2025 update published at source is not yet
+  included in this layer.
+resource_type: dataset
+themes:
+- pressures-drivers
+geography:
+- PER
+license:
+  spdx: null
+  url: null
+  text: >-
+    Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
+    stated
+contacts:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at geobosques.minam.gob.pe
+  kind: vector
+  method: landing_page
+  url: https://geobosques.minam.gob.pe/geobosque/view/descargas.php?122345gxxe345w34gg#download
+  files: Ucayali_Annual_Deforestation_2001_2024.shp (complete shapefile set, 8 files)
+  size: 143.3 MB
+temporal:
+  start: '2001'
+  end: '2024'
+  text: 2001-2024
+spatial:
+  bbox:
+  - -75.9419
+  - -11.4473
+  - -70.4954
+  - -7.2716
+  crs: EPSG:4326
+update_frequency: unknown
+source_updated: '2026'
+created: '2026-09-15'
+updated: '2026-10-15'
+mosaic:
+  landscapes:
+  - PER-PCL
+  intake:
+    status: published
+    submitted_on: '2026-09-15'

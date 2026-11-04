@@ -1,0 +1,48 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-067.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-067
+title: Gridded climate data (CHIRPS and AgERA5)
+description: Gridded daily climate data from CHIRPS and ERA5 climate reanalysis
+resource_type: dataset
+themes:
+- water-hydrology
+geography:
+- CIV
+license:
+  spdx: CC-BY-4.0
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+  text: null
+contacts:
+- organization: AfricaRice
+  roles:
+  - producer
+- name: Louis Kouadio
+  email: a.kouadio2@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at doi.org
+  kind: tabular
+  method: landing_page
+  url: https://doi.org/10.15780/G2JQ0P
+- name: Page at doi.org
+  kind: tabular
+  method: landing_page
+  url: https://doi.org/10.24381/f9c1f09d
+temporal:
+  start: '1979'
+  end: null
+  text: 1979 - present
+spatial:
+  resolution:
+    text: 0.05° × 0.05° and 0.1° x 0.1°, depending on the products
+update_frequency: seasonal
+source_updated: '2026'
+created: '2026-07-24'
+updated: '2026-09-14'
+mosaic:
+  landscapes:
+  - CIV-NZ
+  intake:
+    status: published

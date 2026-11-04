@@ -1,0 +1,41 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-053.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-053
+title: Sekong River Basin Management Plan
+description: Ministry of Agriculture and Environment (MOAE), Lao PDR
+resource_type: dataset
+themes:
+- socio-economic-livelihoods
+geography:
+- LAO
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: IWMI
+  roles:
+  - producer
+- email: s.douangsavanh@cgiar.org
+  roles:
+  - point-of-contact
+access: internal
+access_note: website-MOAE
+data:
+- name: Data held by the owner (on request)
+  kind: mixed
+  method: request
+  access: internal
+temporal:
+  start: '2021'
+  end: '2025'
+  text: 2021-2025
+spatial:
+  resolution:
+    text: report-country and basin level
+update_frequency: unknown
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  intake:
+    status: published

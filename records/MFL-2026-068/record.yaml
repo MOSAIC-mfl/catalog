@@ -1,0 +1,58 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-068.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-068
+title: Tree conservation and restoration priority areas (Laos)
+description: >-
+  Conservation for Restoration (C4R) tool LAOS: mapping the vulnerability and priority areas for conservation
+  and restoration of 79 native tree species. Linked to D4R
+resource_type: dataset
+themes:
+- decision-support-outputs
+geography:
+- LAO
+license:
+  spdx: null
+  url: null
+  text: CGIAR Open Access
+contacts:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Hannes Gaisberger
+  email: h.gaisberger@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+data:
+- name: Data held by the owner (on request)
+  kind: raster
+  method: request
+  access: restricted
+  files: >-
+    ex_situ_conservation.tif; expanding_protection.tif; landscape_restoration.tif; maintaining_protection.tif
+  size: 250 MB
+  raster:
+    resolution:
+      value: 1000
+      unit: m
+temporal:
+  start: '2017'
+  end: '2025'
+  text: 2017-2025
+spatial:
+  resolution:
+    value: 1000
+    unit: m
+  bbox:
+  - 100.0832
+  - 13.9082
+  - 107.6332
+  - 22.4999
+  crs: EPSG:4326
+update_frequency: irregular
+source_updated: '2025'
+created: '2026-07-24'
+updated: '2026-10-22'
+mosaic:
+  intake:
+    status: published

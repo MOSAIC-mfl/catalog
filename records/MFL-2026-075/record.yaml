@@ -1,0 +1,52 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-075.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-075
+title: Indigenous Territories
+description: Indigenous Territories clipped to Ucayali
+resource_type: dataset
+themes:
+- boundaries-admin-units
+geography:
+- PER
+license:
+  spdx: null
+  url: null
+  text: Free download from RAISG; no formal license stated
+contacts:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+access: public
+data:
+- name: Page at www.raisg.org
+  kind: vector
+  method: landing_page
+  url: https://www.raisg.org/es/mapas/
+  files: Ucayali_Indigenous_Territories.shp (complete shapefile set, 8 files)
+  size: 5.3 MB
+temporal:
+  start: '2025'
+  end: '2025'
+  text: '2025'
+spatial:
+  resolution:
+    text: Boundary level
+  bbox:
+  - -75.9023
+  - -12.1781
+  - -70.5177
+  - -6.7279
+  crs: EPSG:4674
+update_frequency: unknown
+created: '2026-09-15'
+updated: '2026-10-15'
+mosaic:
+  landscapes:
+  - PER-PCL
+  intake:
+    status: published
+    submitted_on: '2026-09-15'

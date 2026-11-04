@@ -1,0 +1,44 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-006.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-006
+title: Water Productivity atlas for India
+description: Water footprints, Water productivity - Physical, economic, and Nutritional
+resource_type: dataset
+themes:
+- decision-support-outputs
+geography:
+- IND
+license:
+  spdx: null
+  url: null
+  text: Restricted — contact data owner
+contacts:
+- organization: IWMI
+  roles:
+  - producer
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+access: restricted
+data:
+- name: Page at indiawpatlas.shinyapps.io
+  kind: raster
+  method: landing_page
+  url: https://indiawpatlas.shinyapps.io/wpatlas/#/trends
+temporal:
+  start: '1999'
+  end: '2019'
+  text: 1999 - 2019
+spatial:
+  resolution:
+    text: District and River basin level
+update_frequency: annual
+source_updated: '2019'
+created: '2026-07-24'
+updated: '2026-07-24'
+mosaic:
+  landscapes:
+  - IND-CH
+  intake:
+    status: published

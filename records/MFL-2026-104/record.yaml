@@ -1,0 +1,92 @@
+# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-104.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+id: MFL-2026-104
+title: Fatick Department living landscape boundary
+description: >-
+  Canonical MOSAIC delineation of the Fatick Department living landscape (SEN-FK), used to define the
+  landscape across the catalogue. Source: GADM: level 2 unit Fatick departement (GADM v2 attribute schema;
+  geometry identical to GADM 3.6 and 4.1 SEN.3.1_1). Full-detail Shapefile and GeoPackage in the dated
+  release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape's
+  STAC collection.
+resource_type: dataset
+themes:
+- boundaries-admin-units
+geography:
+- SEN
+license:
+  spdx: null
+  url: https://gadm.org/license.html
+  text: Source terms (https://gadm.org/license.html)
+contacts:
+- organization: Alliance Bioversity-CIAT (MOSAIC)
+  roles:
+  - producer
+- name: Lizeth Llanos
+  email: l.llanos@cgiar.org
+  roles:
+  - point-of-contact
+citation: 'Departement boundary: GADM (gadm.org).'
+access: public
+data:
+- name: Download from github.com
+  kind: vector
+  method: download
+  url: >-
+    https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/SEN-FK_Fatick_Department_boundary_2026-10-14.zip
+  files: SEN-FK_Fatick_Department_boundary_2026-10-14.zip
+  size: 16 KB
+  vector:
+    geometry_type: polygon
+    feature_count: 1
+    attributes:
+    - name: code
+      type: string
+    - name: name
+      type: string
+    - name: country
+      type: string
+    - name: system
+      type: string
+    - name: area_km2
+      type: number
+    - name: licence
+      type: string
+    - name: lic_url
+      type: string
+    - name: credit
+      type: string
+    - name: note
+      type: string
+    - name: version
+      type: string
+    crs: EPSG:4326
+  derived:
+  - vector.attributes
+  - vector.crs
+  - vector.feature_count
+  - vector.geometry_type
+temporal:
+  start: '2026'
+  end: '2026'
+  text: '2026'
+spatial:
+  resolution:
+    text: Landscape boundary
+  bbox:
+  - -16.79207
+  - 13.92839
+  - -16.10546
+  - 14.60836
+  crs: EPSG:4326
+update_frequency: static
+source_updated: '2026-10-14'
+created: '2026-10-21'
+updated: '2026-10-21'
+mosaic:
+  landscapes:
+  - SEN-FK
+  intake:
+    status: published
+    submitted_on: '2026-10-21'
+derived:
+- spatial.crs
