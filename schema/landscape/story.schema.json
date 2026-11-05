@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.1.0/landscape/story.schema.json",
+  "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.2.0/landscape/story.schema.json",
   "title": "Story of a map explorer",
   "description": "Scroll-driven chapters: each chapter sets the map (overlay, time, camera) as it reaches the reading band. Numbers carry their source: kind 'study' (printed in the cited paper, page recorded) or 'app' (the explorer's own analysis, method named).",
   "type": "object",

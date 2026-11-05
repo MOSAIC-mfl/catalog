@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-065.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-065.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-065
 title: Soil health status and texture
 description: >-
@@ -8,39 +9,33 @@ description: >-
 resource_type: dataset
 themes:
 - degradation-land-health
-geography:
-- ZWE
-license:
-  spdx: null
-  url: null
-  text: CGIAR Open Access
-contacts:
+spatial:
+  resolution:
+    text: Ward level
+  geography:
+  - ZWE
+  landscapes:
+  - ZWE-MB
+temporal:
+  date: '2024'
+  text: '2024'
+  update_frequency: static
+license: LicenseRef-source-terms
+license_text: CGIAR Open Access
+access: restricted
+access_note: Internal Available on request
+contact:
 - organization: CIMMYT
   roles:
   - producer
 - email: Telma.SIBANDA@um6p.ma
   roles:
   - point-of-contact
-access: restricted
-access_note: Internal Available on request
 data:
 - name: Data held by the owner (on request)
+  access_method: request
   kind: tabular
-  method: request
   access: restricted
-temporal:
-  start: '2024'
-  end: '2024'
-  text: '2024'
-spatial:
-  resolution:
-    text: Ward level
-update_frequency: static
-source_updated: '2024'
 created: '2026-07-24'
 updated: '2026-10-22'
-mosaic:
-  landscapes:
-  - ZWE-MB
-  intake:
-    status: published
+source_updated: '2024'

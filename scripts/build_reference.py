@@ -25,48 +25,137 @@ ROOT = Path(__file__).resolve().parent.parent
 SCHEMA = ROOT / "schema"
 DOCS = ROOT / "docs"
 
-MIN, REC, PROF, OPT, AUTO = "Mínimo", "Recomendado", "Perfil mosaic", "Opcional", "Automático"
+MIN, REC, PROF, OPT, AUTO = "Mínimo", "Recomendado", "Perfil MOSAIC", "Opcional", "Automático"
 
 # Level of nested fields, where the level schemas set one (top-level fields are read from the schemas).
 NESTED_LEVELS = {
-    "license.spdx": (MIN, "spdx o text: al menos uno"),
-    "license.text": (MIN, "spdx o text: al menos uno"),
-    "license.url": (REC, "recomendado cuando spdx está vacío"),
-    "contacts[].roles": (REC, "recomendado: algún contacto con rol licensor"),
-    "data[].kind": (MIN, ""),
-    "data[].method": (MIN, ""),
-    "data[].url": (MIN, "si access es public, al menos un punto con url"),
-    "temporal.start": (REC, ""),
+    "spatial.geography": (REC, ""),
     "spatial.bbox": (REC, ""),
-    "keywords[].uri": (REC, "recomendado: al menos una keyword enlazada (p. ej. AGROVOC)"),
-    "citation.authors": (REC, "recomendado: cita con autores, o un DOI"),
-    "mosaic.landscapes": (PROF, "obligatorio si se activa el perfil mosaic"),
-    "data[].vector.geometry_type": (REC, "si kind es vector; lo infiere `infer` cuando puede leer el archivo"),
-    "data[].tabular.spatial": (REC, "si kind es tabular; lo infiere `infer` cuando puede leer el archivo"),
+    "spatial.landscapes": (PROF, "obligatorio si se activa el perfil MOSAIC"),
+    "temporal.date": (REC, "temporal.date o temporal.start_date"),
+    "temporal.start_date": (REC, "temporal.date o temporal.start_date"),
+    "temporal.update_frequency": (REC, "unknown si la fuente no lo dice"),
+    "contact[].organization": (MIN, "en cada contacto"),
+    "contact[].roles": (MIN, "en cada contacto; al menos un contacto con rol licensor"),
+    "citation.authors": (REC, "autores y fecha, o el texto de la cita"),
+    "citation.date": (REC, "autores y fecha, o el texto de la cita"),
+    "data[].name": (MIN, ""),
+    "data[].locations": (MIN, "si access es public, al menos una entrada con ubicación"),
+    "data[].access_method": (REC, ""),
+    "data[].kind": (REC, ""),
+    "data[].geometry_type": (REC, "si kind es vector; lo infiere `infer` cuando puede leer el archivo"),
 }
+# Name of each field in the MOSAIC standard v0.1 (when it changed; see src/mosaic_catalog/v02.py).
+V01 = {
+    "spatial.geography": "geography",
+    "spatial.landscapes": "mosaic.landscapes",
+    "temporal.date": "temporal.start = temporal.end",
+    "temporal.start_date": "temporal.start",
+    "temporal.end_date": "temporal.end",
+    "temporal.update_frequency": "update_frequency",
+    "license": "license.spdx",
+    "license_text": "license.text",
+    "contact[]": "contacts[]",
+    "citation.text": "citation (texto)",
+    "related_publications[]": "related[]",
+    "additional_links[]": "related[], license.url",
+    "data[].locations[]": "data[].url",
+    "data[].locations[].url": "data[].url",
+    "data[].access_method": "data[].method",
+    "data[].file_size": "data[].size",
+    "data[].geometry_type": "data[].vector.geometry_type",
+    "data[].feature_count": "data[].vector.feature_count, data[].tabular.row_count",
+    "data[].spatial.crs": "data[].raster.crs, data[].vector.crs",
+    "data[].service.type": "data[].service.service_type",
+    "structures[]": "data[].raster / vector / tabular",
+    "structures[].variables[]": "data[].raster.bands[], vector.attributes[], tabular.columns[]",
+    "structures[].dimensions[]": "data[].tabular.coordinate_columns",
+    "structures[].geometry_column": "data[].tabular.geometry_column",
+    "derived": "derived, data[].derived",
+}
+V01_SAME = {
+    "id",
+    "title",
+    "description",
+    "note",
+    "resource_type",
+    "version",
+    "language",
+    "themes",
+    "keywords",
+    "spatial",
+    "spatial.bbox",
+    "spatial.crs",
+    "spatial.resolution",
+    "spatial.resolution.value",
+    "spatial.resolution.unit",
+    "spatial.resolution.text",
+    "temporal",
+    "temporal.text",
+    "access",
+    "access_note",
+    "citation",
+    "citation.title",
+    "citation.authors",
+    "citation.date",
+    "citation.publisher",
+    "doi",
+    "funding[]",
+    "funding[].name",
+    "funding[].url",
+    "funding[].ror",
+    "funding[].award",
+    "data[]",
+    "data[].name",
+    "data[].kind",
+    "data[].description",
+    "data[].media_type",
+    "data[].access",
+    "data[].service",
+    "data[].service.layers",
+    "created",
+    "updated",
+    "source_updated",
+    "extensions",
+}
+# Fields of the MOSAIC core that the CDH core does not have (everything else has the same name in CDH).
+NOT_IN_CDH_PREFIXES = (
+    "language",
+    "spatial.landscapes",
+    "spatial.resolution",
+    "temporal.text",
+    "license_text",
+    "citation.text",
+    "funding[].ror",
+    "funding[].award",
+    "data[].access_method",
+    "data[].kind",
+    "data[].access",
+    "data[].geometry_type",
+    "data[].feature_count",
+    "data[].service",
+    "data[].spatial.crs",
+    "derived",
+    "source_updated",
+)
+
+
 EXAMPLES = {  # for fields the complete test fixture does not use
     "note": "Pixel area shrinks with latitude; reproject before computing areas.",
     "access_note": "Write to the point of contact; data shared under a data-sharing agreement.",
     "doi": "10.5061/dryad.6djh9w18f",
     "version": "v2",
     "language": ["en", "es"],
+    "license_text": "Free download from the source; no formal licence stated.",
+    "attribution": "Contains modified Copernicus Sentinel data (2024).",
+    "commodities": ["maize", "cattle"],
     "funding": [{"name": "CGIAR Trust Fund", "url": "https://www.cgiar.org/funders/", "award": "MFL-2026"}],
-    "related": [
-        {
-            "relation": "IsSupplementTo",
-            "scheme": "doi",
-            "value": "10.1016/j.agee.2025.109966",
-            "title": "Journal article",
-        }
-    ],
-    "extensions": ["soil@0.1.0"],
+    "related_publications": [{"doi": "10.1016/j.agee.2025.109966"}],
+    "extensions": ["climate@0.2.0"],
     "source_updated": "2025-10-01",
-    "derived": ["spatial.bbox"],
-    "data[].derived": ["vector.geometry_type"],
-    "data[].tabular.spatial": True,
-    "data[].tabular.coordinate_columns.x": "lon",
-    "data[].tabular.coordinate_columns.y": "lat",
-    "data[].vector.geometry_type": "point",
+    "derived": ["spatial.bbox", "data[].geometry_type"],
+    "data[].geometry_type": "point",
+    "data[].feature_count": 1250,
 }
 
 
@@ -99,13 +188,14 @@ class Walker:
         self.vocab_files = {
             "theme": "themes", "landscape": "landscapes", "geography": "geography", "resourceType": "resource_type",
             "access": "access", "dataKind": "data_kind", "accessMethod": "access_method",
-            "contactRole": "contact_role", "relation": "relation", "updateFrequency": "update_frequency",
+            "contactRole": "contact_role", "serviceType": "service_type", "updateFrequency": "update_frequency",
         }  # fmt: skip
         self.min = load("levels/minimum.schema.json")
         self.recm = load("levels/recommended.schema.json")
         self.example = yaml.safe_load((ROOT / "tests" / "fixtures" / "valid" / "complete.yaml").read_text("utf-8"))
         self.cdh = self._reverse(ROOT / "crosswalks" / "cdh.yaml", "cdh")
-        self.s1 = self._reverse(ROOT / "crosswalks" / "mosaic-schema1.yaml", "s1")
+        cw = yaml.safe_load((ROOT / "crosswalks" / "cdh.yaml").read_text(encoding="utf-8"))
+        self.cdh_same = set(cw.get("same", []))
         self.rows: list[Row] = []
 
     @staticmethod
@@ -120,6 +210,17 @@ class Walker:
         return out
 
     def resolve(self, node: dict[str, Any]) -> tuple[dict[str, Any], str | None]:
+        if not isinstance(node, dict):
+            return {}, None
+        if "allOf" in node and "$ref" not in node:  # e.g. locations[]: location + a url format
+            merged: dict[str, Any] = {k: v for k, v in node.items() if k != "allOf"}
+            name = None
+            for part in node["allOf"]:
+                sub, n = self.resolve(part)
+                name = name or n
+                props = {**sub.get("properties", {}), **merged.get("properties", {})}
+                merged = {**sub, **merged, **({"properties": props} if props else {})}
+            return merged, name
         ref = node.get("$ref")
         if ref and ref.startswith("#/$defs/"):
             name = ref.rsplit("/", 1)[1]
@@ -129,6 +230,8 @@ class Walker:
         return node, None
 
     def type_and_values(self, node: dict[str, Any]) -> tuple[str, str]:
+        if not isinstance(node, dict):
+            return "", ""
         ref = node.get("$ref", "")
         if ref.startswith("vocab.schema.json"):
             name = ref.rsplit("/", 1)[1]
@@ -136,8 +239,9 @@ class Walker:
             shown = ", ".join(enum) if len(enum) <= 20 else f"{len(enum)} códigos (ver hoja Vocabularios)"
             return "texto (vocabulario)", f"vocab/{self.vocab_files[name]}.json: {shown}"
         node, defname = self.resolve(node)
-        if "oneOf" in node:
-            parts = [self.type_and_values(n)[0] for n in node["oneOf"]]
+        alts = node.get("oneOf") or (node.get("anyOf") if "properties" not in node else None)
+        if alts:
+            parts = [self.type_and_values(n)[0] for n in alts]
             nullable = "null" in parts
             label = " o ".join(dict.fromkeys(p for p in parts if p != "null"))
             return label + (" (puede ser null)" if nullable else ""), ""
@@ -162,19 +266,44 @@ class Walker:
         return label, hint
 
     def top_level(self, name: str) -> tuple[str, str]:
+        if name == "schema_version":
+            return AUTO, "lo escribe el build si falta"
         if name in ("created", "updated"):
-            return AUTO, "lo llena el build con el historial de git si no está"
+            return AUTO, "lo escribe el build desde el historial de git si falta"
         if name in ("citation", "doi"):
-            return MIN, "citation o doi: al menos uno"
+            return REC, "citation o doi: al menos uno"
         if name == "access_note":
-            return MIN, "obligatorio si access es restricted o internal"
+            return MIN, "obligatorio si access es restricted o non-public"
+        if name == "license_text":
+            return OPT, "obligatorio si license es LicenseRef-… y no hay enlace (additional_links rel: license)"
         if name in self.min["required"]:
             return MIN, ""
         if name in self.recm["required"]:
             return REC, ""
-        if name == "mosaic":
-            return PROF, "aviso en v0.1; obligatorio si se activa el perfil"
         return OPT, ""
+
+    def cdh_name(self, path: str) -> str:
+        if path.startswith(NOT_IN_CDH_PREFIXES):
+            return ""
+        if path.startswith("usage"):
+            return "cdh." + path  # CDH extension cdh
+        if path == "commodities":
+            return "commodities (extensión agriculture)"
+        rev = self.cdh.get(path) or self.cdh.get(path.replace("[]", ""))
+        if rev:
+            return ", ".join(rev)
+        return path if path.replace("[]", "").split(".")[0] in self.cdh_same else ""
+
+    def v01_name(self, path: str) -> str:
+        if path in V01:
+            return V01[path]
+        if path in V01_SAME:
+            return path
+        if path.startswith("contact[]."):
+            return "contacts[]." + path.removeprefix("contact[].")
+        if path.startswith("citation.authors[]."):
+            return path
+        return ""
 
     def example_at(self, path: str) -> Any:
         node: Any = self.example
@@ -217,8 +346,8 @@ class Walker:
                 values=values,
                 description=desc,
                 example=self.example_at(key_path),
-                cdh=", ".join(self.cdh.get(key_path, self.cdh.get(path, []))),
-                schema1=", ".join(self.s1.get(key_path, self.s1.get(path, []))),
+                cdh=self.cdh_name(key_path),
+                schema1=self.v01_name(key_path),
                 is_object=child is not None,
             )
             self.rows.append(row)
@@ -245,21 +374,22 @@ def write_xlsx(rows: list[Row], path: Path) -> None:
     readme = wb.active
     readme.title = "Léeme"
     text = [
-        ("MOSAIC — campos del estándar de metadatos v0.1", True),
+        ("MOSAIC — campos del estándar de metadatos v0.2", True),
         ("Generado por scripts/build_reference.py desde schema/. No editar a mano: cambiar el esquema y regenerar.", False),
         ("", False),
         ("Niveles", True),
         ("Mínimo: obligatorio. Si falta, el registro queda INCOMPLETO y aparece en review/minimum_gaps.", False),
         ("Recomendado: si falta, solo es un aviso.", False),
-        ("Perfil mosaic: aviso en v0.1; pasa a obligatorio con profiles.mosaic.enforce: true en mosaic.config.yaml.", False),
+        ("Perfil MOSAIC: aviso; pasa a obligatorio con profiles.mosaic.enforce: true en mosaic.config.yaml.", False),
         ("Opcional: sin control.", False),
-        ("Automático: lo llena el build (historial de git); no lo escribe una persona.", False),
+        ("Automático: lo escribe el build; no lo escribe una persona.", False),
+        ("v0.2: el núcleo usa los nombres y formas del Climate Data Hub (CDH v0.5.0) donde coinciden; lo propio de MOSAIC se agrega al núcleo.", False),
         ("", False),
         ("Columnas de la hoja Campos", True),
         ("Campo: ruta del campo. [] = lista; un punto = campo dentro de un objeto (p. ej. data[].kind).", False),
         ("Obligatorio en el objeto: el campo es obligatorio cuando su objeto existe (forma, no completitud).", False),
         ("Condición: cuándo aplica el nivel.", False),
-        ("CDH: campo del Climate Data Hub del que se lee (crosswalks/cdh.yaml). Esquema 1: campo del catálogo actual (crosswalks/mosaic-schema1.yaml).", False),
+        ("CDH: el mismo campo en el Climate Data Hub (vacío = no existe en CDH; crosswalks/cdh.yaml). MOSAIC v0.1: cómo se llamaba en la versión anterior (vacío = nuevo).", False),
         ("", False),
         ("Un campo con forma incorrecta (tipo, vocabulario, fecha) hace el registro INVÁLIDO sin importar su nivel.", False),
     ]  # fmt: skip
@@ -269,7 +399,7 @@ def write_xlsx(rows: list[Row], path: Path) -> None:
 
     ws = wb.create_sheet("Campos")
     headers = ["Campo", "Nivel", "Condición", "Obligatorio en el objeto", "Tipo", "Valores / formato",
-               "Qué es (EN)", "Ejemplo", "CDH", "Esquema 1 (catalog actual)"]  # fmt: skip
+               "Qué es (EN)", "Ejemplo", "CDH v0.5.0", "MOSAIC v0.1"]  # fmt: skip
     widths = [30, 14, 34, 12, 22, 40, 60, 40, 26, 26]
     for c, (h, w) in enumerate(zip(headers, widths, strict=True), 1):
         cell = ws.cell(1, c, h)
@@ -339,13 +469,13 @@ def write_xlsx(rows: list[Row], path: Path) -> None:
 
 def write_reference_yaml(rows: list[Row], path: Path) -> None:
     out = [
-        "# MOSAIC record — every field of the standard v0.1, with its level and meaning.",
+        "# MOSAIC record — every field of the standard v0.2, with its level and meaning.",
         "# Generated by scripts/build_reference.py from schema/. Reference only: a real record uses",
         "# only the fields it knows (template: docs/record-template.yaml). Values are examples",
         "# (mostly from the synthetic test record tests/fixtures/valid/complete.yaml).",
         "#",
         "# [MÍNIMO] required to be complete · [RECOMENDADO] warning if missing",
-        "# [PERFIL MOSAIC] warning in v0.1 · [OPCIONAL] · [AUTOMÁTICO] filled by the build",
+        "# [PERFIL MOSAIC] warning until enforced · [OPCIONAL] · [AUTOMÁTICO] filled by the build",
         "",
     ]
 

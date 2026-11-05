@@ -48,7 +48,7 @@ def test_incomplete_fixtures_are_incomplete_not_invalid(std: Standard, path: Pat
 def test_messages_name_the_field(std: Standard) -> None:
     rep = std.check(_load(FIX / "incomplete" / "restricted-no-note.yaml"))
     assert [(i.field, i.message) for i in rep.by_level("minimum")] == [
-        ("access_note", "restricted/internal resource without access_note (how to obtain it)")
+        ("access_note", "restricted / non-public resource without access_note (how to obtain it)")
     ]
 
 
@@ -57,23 +57,40 @@ def test_restricted_without_url_is_fine_when_it_says_how_to_ask(std: Standard) -
     data["access"] = "restricted"
     data["access_note"] = "Write to the contact."
     for point in data["data"]:
-        point.pop("url")
+        point.pop("locations")
     assert std.check(data).status is Status.COMPLETE
 
 
-def test_license_with_text_only_meets_the_minimum_but_warns(std: Standard) -> None:
+def test_license_without_spdx_code_meets_the_minimum_but_warns(std: Standard) -> None:
     data = _load(FIX / "valid" / "complete.yaml")
-    data["license"] = {"spdx": None, "url": None, "text": "Dryad terms of use"}
+    data["license"] = "LicenseRef-source-terms"
+    data["license_text"] = "Dryad terms of use"
+    data.pop("additional_links")
     rep = std.check(data)
     assert rep.status is Status.COMPLETE
-    assert ("license", "non-standard licence without the URL of its terms") in {
+    assert ("license", "licence without an SPDX code (confirm whether one exists)") in {
         (i.field, i.message) for i in rep.by_level("recommended")
     }
 
 
+@pytest.mark.parametrize(
+    ("drop", "message"),
+    [
+        ("keywords", "missing: keywords"),
+        ("citation", "no citation and no DOI"),
+    ],
+)
+def test_recommended_gaps_are_warnings(std: Standard, drop: str, message: str) -> None:
+    data = _load(FIX / "valid" / "complete.yaml")
+    data.pop(drop)
+    rep = std.check(data)
+    assert rep.status is Status.COMPLETE
+    assert message in {i.message for i in rep.by_level("recommended")}
+
+
 def test_mosaic_profile_is_a_warning_until_enforced() -> None:
     data = _load(FIX / "valid" / "complete.yaml")
-    data.pop("mosaic")
+    data["spatial"].pop("landscapes")
     assert Standard().check(data).status is Status.COMPLETE
     assert Standard(enforced_profiles=["mosaic"]).check(data).status is Status.INCOMPLETE
 
@@ -106,12 +123,11 @@ def test_duplicate_yaml_keys_are_rejected(tmp_path: Path) -> None:
 
 
 def test_examples_have_the_documented_status(std: Standard) -> None:
-    status = {p.stem: std.check(_load(p)).status for p in (ROOT / "examples").glob("*.yaml")}
-    assert status == {
-        "MFL-2026-999": Status.COMPLETE,  # rich record from Dryad / CGSpace
-        "MFL-2026-079": Status.INCOMPLETE,  # no keywords, no citation
-        "MFL-2026-090": Status.INCOMPLETE,  # restricted; no keywords, no citation
-    }
+    reports = {p.stem: std.check(_load(p)) for p in (ROOT / "examples").glob("*.yaml")}
+    missing = {k: sorted({i.field for i in r.by_level("minimum")}) for k, r in reports.items()}
+    assert {k: r.status for k, r in reports.items()} == dict.fromkeys(missing, Status.INCOMPLETE)
+    assert missing["MFL-2026-999"] == ["contact"]  # rich record; the source does not say who licenses it
+    assert "contact" in missing["MFL-2026-079"] and "contact" in missing["MFL-2026-090"]
 
 
 def test_config_matches_schemas() -> None:

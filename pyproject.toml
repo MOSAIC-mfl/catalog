@@ -1,6 +1,6 @@
 [project]
 name = "mosaic-catalog"
-version = "0.1.0"
+version = "0.2.0"
 description = "MOSAIC metadata standard, records and catalogue build"
 requires-python = ">=3.10"
 dependencies = ["jsonschema>=4.21", "referencing>=0.35", "pyyaml>=6.0"]

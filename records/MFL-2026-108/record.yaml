@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-108.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-108.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-108
 title: Restoration opportunities and plantation site suitability - India
 description: >-
@@ -8,15 +9,20 @@ description: >-
 resource_type: dataset
 themes:
 - hotspots-leverage-points
-geography:
-- IND
-license:
-  spdx: null
-  url: null
-  text: >-
-    Mixed per layer: WRI India atlas re-published by CoRE Stack with no licence stated; plantation site
-    suitability licensed as stated in the CoRE Stack layer sheet
-contacts:
+spatial:
+  geography:
+  - IND
+  landscapes:
+  - IND-CH
+temporal:
+  text: Static
+  update_frequency: static
+license: LicenseRef-source-terms
+license_text: >-
+  Mixed per layer: WRI India atlas re-published by CoRE Stack with no licence stated; plantation site
+  suitability licensed as stated in the CoRE Stack layer sheet
+access: public
+contact:
 - organization: WRI India and CoRE Stack (external)
   roles:
   - producer
@@ -27,21 +33,12 @@ contacts:
   email: s.maliappan@cgiar.org
   roles:
   - point-of-contact
-access: public
 data:
 - name: Page at docs.google.com
+  locations:
+  - url: >-
+      https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+  access_method: landing_page
   kind: raster
-  method: landing_page
-  url: >-
-    https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
-temporal:
-  text: Static
-update_frequency: static
 created: '2026-10-29'
 updated: '2026-10-29'
-mosaic:
-  landscapes:
-  - IND-CH
-  intake:
-    status: published
-    submitted_on: '2026-10-29'

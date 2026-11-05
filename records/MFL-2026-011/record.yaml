@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-011.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-011.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-011
 title: >-
   Central Indian Landscape health status (Rainfall, Vegetation, infrastructure, soil moisture, carbon
@@ -10,13 +11,23 @@ description: >-
 resource_type: dataset
 themes:
 - ecosystem-condition
-geography:
-- IND
-license:
-  spdx: null
-  url: null
-  text: Restricted — contact data owner
-contacts:
+spatial:
+  resolution:
+    text: Multiple resolutions (10m, 30m, 5000m)
+  geography:
+  - IND
+  landscapes:
+  - IND-CH
+temporal:
+  start_date: '2001'
+  end_date: '2025'
+  text: 2001 to 2025
+  update_frequency: seasonal
+license: LicenseRef-source-terms
+license_text: Restricted — contact data owner
+access: restricted
+access_note: Internal Available on request
+contact:
 - organization: ESA / Copernicus (external)
   roles:
   - producer
@@ -24,26 +35,11 @@ contacts:
   email: s.maliappan@cgiar.org
   roles:
   - point-of-contact
-access: restricted
-access_note: Internal Available on request
 data:
 - name: Data held by the owner (on request)
+  access_method: request
   kind: raster
-  method: request
   access: restricted
-temporal:
-  start: '2001'
-  end: '2025'
-  text: 2001 to 2025
-spatial:
-  resolution:
-    text: Multiple resolutions (10m, 30m, 5000m)
-update_frequency: seasonal
-source_updated: '2025'
 created: '2026-07-24'
 updated: '2026-07-24'
-mosaic:
-  landscapes:
-  - IND-CH
-  intake:
-    status: published
+source_updated: '2025'

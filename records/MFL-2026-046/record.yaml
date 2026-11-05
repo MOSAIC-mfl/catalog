@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-046.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-046.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-046
 title: Climate station data (NHMS synoptic stations)
 description: >-
@@ -10,16 +11,25 @@ description: >-
 resource_type: dataset
 themes:
 - water-hydrology
-geography:
-- CIV
-license:
-  spdx: null
-  url: null
-  text: >-
-    ARCWeather usage terms: non-commercial, educational, research or personal use only, with citation.
-    The portal states that Côte d'Ivoire climate data is distributed by Sodexam; no licence stated by
-    the rights holder
-contacts:
+spatial:
+  resolution:
+    text: Climate station observations
+  geography:
+  - CIV
+  landscapes:
+  - CIV-NZ
+temporal:
+  start_date: '1980'
+  end_date: '2010'
+  text: 1980-2010
+  update_frequency: static
+license: LicenseRef-source-terms
+license_text: >-
+  ARCWeather usage terms: non-commercial, educational, research or personal use only, with citation. The
+  portal states that Côte d'Ivoire climate data is distributed by Sodexam; no licence stated by the rights
+  holder
+access: public
+contact:
 - organization: AfricaRice
   roles:
   - producer
@@ -27,27 +37,15 @@ contacts:
   email: a.kouadio2@cgiar.org
   roles:
   - point-of-contact
-access: public
 data:
 - name: Page at arcweather.africarice.org
+  locations:
+  - url: https://arcweather.africarice.org/en/downloads
+  access_method: landing_page
   kind: tabular
-  method: landing_page
-  url: https://arcweather.africarice.org/en/downloads
-  files: synoptic_stations_daily.xlsx (one sheet per station - Bouake, Korhogo, Ferkessedougou)
-  size: 3.5 MB
-temporal:
-  start: '1980'
-  end: '2010'
-  text: 1980-2010
-spatial:
-  resolution:
-    text: Climate station observations
-update_frequency: static
-source_updated: '2026'
+  file_size: 3.5 MB
+  description: >-
+    Files: synoptic_stations_daily.xlsx (one sheet per station - Bouake, Korhogo, Ferkessedougou)
 created: '2026-07-24'
 updated: '2026-10-15'
-mosaic:
-  landscapes:
-  - CIV-NZ
-  intake:
-    status: published
+source_updated: '2026'

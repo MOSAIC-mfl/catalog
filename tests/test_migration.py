@@ -1,4 +1,4 @@
-"""Schema-1 -> v0.1 migration: conversions keep what the old record says and invent nothing."""
+"""Schema-1 -> v0.2 migration: conversions keep what the old record says and invent nothing."""
 
 from __future__ import annotations
 
@@ -149,7 +149,46 @@ def test_build_outputs(tmp_path: Path) -> None:
     res = build(rec_dir, out)
     assert res.published == 3 and not res.invalid
     manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
-    assert manifest["counts"]["complete"] == 1 and manifest["counts"]["incomplete"] == 2
+    # v0.2: no example says who grants the licence (licensor), so none is complete
+    assert manifest["counts"]["complete"] == 0 and manifest["counts"]["incomplete"] == 3
     catalog = json.loads((out / "catalog.json").read_text(encoding="utf-8"))
-    assert {r["id"]: r["meta"]["status"] for r in catalog["records"]}["MFL-2026-999"] == "complete"
+    rec = {r["id"]: r for r in catalog["records"]}["MFL-2026-999"]
+    assert rec["meta"]["missing_minimum"] == ["contact"] and rec["schema_version"] == "0.2.0"
     assert (out / "schema" / "record.schema.json").exists()
+
+
+def test_v01_to_v02_moves_and_renames_only() -> None:
+    from mosaic_catalog.v02 import convert
+
+    old = {
+        "id": "MFL-2099-002", "geography": ["PER"], "update_frequency": "annual",
+        "license": {"spdx": None, "url": "https://x.org/terms", "text": "Source terms"},
+        "contacts": [{"organization": "X", "roles": ["producer"]}], "access": "internal",
+        "citation": "Someone (2020). Data.",
+        "temporal": {"start": "2001", "end": "2001", "text": "2001"},
+        "data": [{"name": "Shapefile", "kind": "vector", "method": "download", "url": "https://x.org/a.zip",
+                  "size": "1.2 MB", "vector": {"geometry_type": "polygon", "feature_count": 3, "crs": "EPSG:4326",
+                                               "attributes": [{"name": "code", "type": "string"}]},
+                  "derived": ["vector.geometry_type"]}],
+        "mosaic": {"landscapes": ["PER-PCL"], "intake": {"status": "published"}},
+    }  # fmt: skip
+    new, notes = convert(old)
+    assert new["spatial"] == {"geography": ["PER"], "landscapes": ["PER-PCL"]}
+    assert new["temporal"] == {"date": "2001", "text": "2001", "update_frequency": "annual"}
+    assert new["license"] == "LicenseRef-source-terms" and new["license_text"] == "Source terms"
+    assert new["additional_links"] == [{"rel": "license", "url": "https://x.org/terms"}]
+    assert new["access"] == "non-public" and new["contact"] == old["contacts"]
+    assert new["citation"] == {"text": "Someone (2020). Data."}
+    d = new["data"][0]
+    assert d["locations"] == [{"url": "https://x.org/a.zip"}] and d["access_method"] == "download"
+    assert (d["geometry_type"], d["feature_count"], d["spatial"], d["file_size"]) == (
+        "polygon",
+        3,
+        {"crs": "EPSG:4326"},
+        "1.2 MB",
+    )
+    assert new["structures"] == [{"name": "Shapefile", "variables": [{"name": "code", "data_type": "string"}]}]
+    assert new["derived"] == ["data[].geometry_type"] and "mosaic" not in new
+    assert [f for f, _ in notes] == ["license"]
+    assert convert(new) == (new, [])  # already v0.2: unchanged
+    assert Standard().check(new).status is not Status.INVALID

@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-048.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-048.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-048
 title: DSSAT soil profiles for Côte d'Ivoire (CI.SOL)
 description: >-
@@ -10,13 +11,18 @@ description: >-
 resource_type: dataset
 themes:
 - degradation-land-health
-geography:
-- CIV
-license:
-  spdx: CC-BY-4.0
-  url: https://spdx.org/licenses/CC-BY-4.0.html
-  text: null
-contacts:
+spatial:
+  resolution:
+    text: 5-min resolution
+  geography:
+  - CIV
+temporal:
+  date: '2015'
+  text: '2015'
+  update_frequency: static
+license: CC-BY-4.0
+access: public
+contact:
 - organization: AfricaRice
   roles:
   - producer
@@ -24,30 +30,23 @@ contacts:
   email: a.kouadio2@cgiar.org
   roles:
   - point-of-contact
-citation: >-
-  International Research Institute for Climate and Society (IRI); Michigan State University (MSU); HarvestChoice,
-  International Food Policy Research Institute (IFPRI), 2015, "Global High-Resolution Soil Profile Database
-  for Crop Modeling Applications", https://doi.org/10.7910/DVN/1PEEY0
+citation:
+  text: >-
+    International Research Institute for Climate and Society (IRI); Michigan State University (MSU); HarvestChoice,
+    International Food Policy Research Institute (IFPRI), 2015, "Global High-Resolution Soil Profile Database
+    for Crop Modeling Applications", https://doi.org/10.7910/DVN/1PEEY0
 doi: 10.7910/DVN/1PEEY0
-access: public
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
 data:
 - name: Page at doi.org
+  locations:
+  - url: https://doi.org/10.7910/DVN/1PEEY0
+  access_method: landing_page
   kind: tabular
-  method: landing_page
-  url: https://doi.org/10.7910/DVN/1PEEY0
-  files: CI.SOL
-  size: 9.3 MB
-temporal:
-  start: '2015'
-  end: '2015'
-  text: '2015'
-spatial:
-  resolution:
-    text: 5-min resolution
-update_frequency: static
-source_updated: '2015'
+  file_size: 9.3 MB
+  description: 'Files: CI.SOL'
 created: '2026-07-24'
 updated: '2026-10-15'
-mosaic:
-  intake:
-    status: published
+source_updated: '2015'

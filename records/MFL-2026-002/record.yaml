@@ -1,18 +1,28 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-002.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-002.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-002
 title: Central India Landscape - Rainfall (Remote sensing data)
 description: Rainfall data
 resource_type: dataset
 themes:
 - water-hydrology
-geography:
-- IND
-license:
-  spdx: CC-BY-4.0
-  url: https://spdx.org/licenses/CC-BY-4.0.html
-  text: null
-contacts:
+spatial:
+  resolution:
+    text: '5000'
+  geography:
+  - IND
+  landscapes:
+  - IND-CH
+temporal:
+  start_date: '2024'
+  end_date: '2025'
+  text: 2024-2025
+  update_frequency: annual
+license: CC-BY-4.0
+access: non-public
+access_note: Internal
+contact:
 - organization: NASA / USGS (external)
   roles:
   - producer
@@ -20,25 +30,13 @@ contacts:
   email: s.maliappan@cgiar.org
   roles:
   - point-of-contact
-access: internal
-access_note: Internal
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
 data:
 - name: Data held by the owner (on request)
+  access_method: request
   kind: raster
-  method: request
-  access: internal
-temporal:
-  start: '2024'
-  end: '2025'
-  text: 2024-2025
-spatial:
-  resolution:
-    text: '5000'
-update_frequency: annual
+  access: non-public
 created: '2026-07-24'
 updated: '2026-10-22'
-mosaic:
-  landscapes:
-  - IND-CH
-  intake:
-    status: published

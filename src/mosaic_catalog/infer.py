@@ -1,17 +1,19 @@
 """Fill classification fields by reading the data itself, when it can be read.
 
-For each PUBLIC access point with method ``download`` and a URL, the file is fetched (size and
-time limited) and inspected:
+For each PUBLIC data entry with access_method ``download`` and a location, the file is fetched
+(size and time limited) and inspected:
 
 * zip with a Shapefile, GeoJSON, GeoPackage or CSV inside, or one of those files directly;
-* vector -> ``vector.geometry_type``, ``feature_count``, ``attributes``, ``crs``;
-* table  -> ``tabular.spatial``, ``coordinate_columns`` / ``geometry_column``, ``columns``, ``row_count``;
+* vector -> ``data[].geometry_type``, ``feature_count``, ``spatial.crs`` and the attributes as the
+  entry's data dictionary (``structures[]``: variables);
+* table  -> ``feature_count`` (rows) and its columns, coordinate columns (x / y dimensions) or
+  geometry column as the entry's data dictionary;
 * geographic WGS84 data -> record ``spatial.bbox`` / ``spatial.crs`` when the record has none.
 
 Rules (docs/standard.md, "authored values win"):
 
 * a value written by a person is never replaced; when the file disagrees, it is reported;
-* every value filled here is listed in ``derived`` (on the access point or the record);
+* every value filled here is listed in the record's ``derived``;
 * nothing is guessed: a format that cannot be read is reported and left alone.
 
 Raster files are not read yet (they would need GDAL/rasterio); they are reported.
@@ -47,10 +49,13 @@ DBF_TYPES = {"C": "string", "N": "number", "F": "number", "L": "boolean", "D": "
 
 @dataclass
 class Findings:
-    """What a file says about itself. Keys are dot paths relative to the access point
-    (``point``) or to the record (``record``)."""
+    """What a file says about itself: ``kind`` of data, values for the data entry (``point``, dot
+    paths relative to data[i]), for its data dictionary (``structure``: variables, dimensions,
+    geometry_column) and for the record (``record``)."""
 
+    kind: str | None = None
     point: dict[str, Any] = field(default_factory=dict)
+    structure: dict[str, Any] = field(default_factory=dict)
     record: dict[str, Any] = field(default_factory=dict)
     problems: list[str] = field(default_factory=list)
 
@@ -69,24 +74,24 @@ def _is_wgs84(prj: str | None) -> bool:
 def read_shapefile(shp: Path) -> Findings:
     import shapefile  # pyshp; optional dependency (extra "infer")
 
-    f = Findings()
+    f = Findings(kind="vector")
     with shapefile.Reader(str(shp)) as r:
         gtype = SHP_TYPES.get(r.shapeType)
         if gtype is None:
             f.problems.append(f"shapefile geometry type {r.shapeTypeName} not classified")
         else:
-            f.point["vector.geometry_type"] = gtype
-        f.point["vector.feature_count"] = len(r)
+            f.point["geometry_type"] = gtype
+        f.point["feature_count"] = len(r)
         attrs = []
         for name, ftype, _size, decimals in r.fields[1:]:
             t = "integer" if ftype == "N" and decimals == 0 else DBF_TYPES.get(ftype, "other")
-            attrs.append({"name": name, "type": t})
+            attrs.append({"name": name, "data_type": t})
         if attrs:
-            f.point["vector.attributes"] = attrs
+            f.structure["variables"] = attrs
         prj = shp.with_suffix(".prj")
         wkt = prj.read_text(encoding="utf-8", errors="replace") if prj.exists() else None
         if _is_wgs84(wkt):
-            f.point["vector.crs"] = "EPSG:4326"
+            f.point["spatial.crs"] = "EPSG:4326"
             f.record["spatial.crs"] = "EPSG:4326"
             f.record["spatial.bbox"] = [round(v, 6) for v in r.bbox]
         else:
@@ -95,7 +100,7 @@ def read_shapefile(shp: Path) -> Findings:
 
 
 def read_geojson(path: Path) -> Findings:
-    f = Findings()
+    f = Findings(kind="vector")
     data = json.loads(path.read_text(encoding="utf-8"))
     feats = data.get("features", []) if data.get("type") == "FeatureCollection" else [data]
     types: set[str] = set()
@@ -117,9 +122,9 @@ def read_geojson(path: Path) -> Findings:
         walk(g.get("coordinates"))
     gtype = _merge_types(types)
     if gtype:
-        f.point["vector.geometry_type"] = gtype
-    f.point["vector.feature_count"] = len(feats)
-    f.point["vector.crs"] = "EPSG:4326"  # RFC 7946
+        f.point["geometry_type"] = gtype
+    f.point["feature_count"] = len(feats)
+    f.point["spatial.crs"] = "EPSG:4326"  # RFC 7946
     if xs:
         f.record["spatial.crs"] = "EPSG:4326"
         f.record["spatial.bbox"] = [round(min(xs), 6), round(min(ys), 6), round(max(xs), 6), round(max(ys), 6)]
@@ -127,7 +132,7 @@ def read_geojson(path: Path) -> Findings:
 
 
 def read_geopackage(path: Path) -> Findings:
-    f = Findings()
+    f = Findings(kind="vector")
     con = sqlite3.connect(f"file:{path}?mode=ro", uri=True)
     try:
         rows = con.execute(
@@ -141,15 +146,15 @@ def read_geopackage(path: Path) -> Findings:
     types = {names.get(str(r[0]).upper(), "mixed") for r in rows}
     gtype = _merge_types(types)
     if gtype:
-        f.point["vector.geometry_type"] = gtype
+        f.point["geometry_type"] = gtype
     crs = {f"{r[1]}:{r[2]}" for r in rows if r[1]}
     if len(crs) == 1:
-        f.point["vector.crs"] = crs.pop().upper()
+        f.point["spatial.crs"] = crs.pop().upper()
     return f
 
 
 def read_csv(path: Path) -> Findings:
-    f = Findings()
+    f = Findings(kind="tabular")
     raw = path.read_bytes()[:2_000_000].decode("utf-8-sig", errors="replace")
     try:
         dialect: Any = csv.Sniffer().sniff(raw.splitlines()[0] if raw else ",", delimiters=",;\t|")
@@ -164,17 +169,20 @@ def read_csv(path: Path) -> Findings:
     lat = next((low[n] for n in low if n in LAT_NAMES), None)
     lon = next((low[n] for n in low if n in LON_NAMES), None)
     geom = next((low[n] for n in low if n in GEOM_NAMES), None)
-    f.point["tabular.columns"] = [{"name": h} for h in header if h]
     if lat and lon:
-        f.point["tabular.spatial"] = True
-        f.point["tabular.coordinate_columns"] = {"x": lon, "y": lat}
+        # latitude / longitude columns are geographic coordinates, in degrees by definition
+        f.structure["dimensions"] = [
+            {"name": lon, "type": "x", "unit": "degree", "description": "Longitude column"},
+            {"name": lat, "type": "y", "unit": "degree", "description": "Latitude column"},
+        ]
     elif geom:
-        f.point["tabular.spatial"] = True
-        f.point["tabular.geometry_column"] = geom
-    else:
-        f.point["tabular.spatial"] = False
+        f.structure["geometry_column"] = geom
+    skip = {lat, lon, geom}
+    variables = [{"name": h} for h in header if h and h not in skip]
+    if variables:
+        f.structure["variables"] = variables
     if len(raw) < 2_000_000:
-        f.point["tabular.row_count"] = max(len(rows) - 1, 0)
+        f.point["feature_count"] = max(len(rows) - 1, 0)
     return f
 
 
@@ -256,30 +264,42 @@ class Outcome:
 
 
 def apply(record: dict[str, Any], index: int, found: Findings) -> Outcome:
-    """Fill absent values from ``found`` into data[index] / the record. Never overwrite."""
+    """Fill absent values from ``found`` into data[index], its data dictionary and the record.
+    Never overwrite a person's value; refresh a previous inference (listed in ``derived``)."""
     out = Outcome(problems=list(found.problems))
     point = record["data"][index]
-    block = next((k.split(".")[0] for k in found.point), None)
-    if block and point.get("kind") != block:
-        out.conflicts.append(f"data[{index}].kind is {point.get('kind')!r} but the file holds {block} data")
+    if found.kind and point.get("kind") not in (None, found.kind, "mixed"):
+        out.conflicts.append(f"data[{index}].kind is {point.get('kind')!r} but the file holds {found.kind} data")
         return out
-    for target, values, derived_owner, prefix in (
-        (point, found.point, point, f"data[{index}]."),
-        (record, found.record, record, ""),
-    ):
-        derived = set(derived_owner.get("derived") or [])
-        for path, value in values.items():
-            current = _get(target, path)
-            if current is None:
+    derived = set(record.get("derived") or [])
+
+    def fill(target: dict[str, Any], path: str, value: Any, mark: str, label: str) -> None:
+        current = _get(target, path)
+        if current is None:
+            _set(target, path, value)
+            derived.add(mark)
+            out.filled.append(label)
+        elif mark in derived:
+            if current != value:  # a previous inference: refresh it
                 _set(target, path, value)
-                derived.add(path)
-                out.filled.append(prefix + path)
-            elif path in derived:
-                if current != value:  # a previous inference: refresh it
-                    _set(target, path, value)
-                    out.filled.append(prefix + path)
-            elif current != value and not isinstance(value, list | dict):
-                out.conflicts.append(f"{prefix}{path}: record says {current!r}, the file says {value!r}")
-        if derived:
-            derived_owner["derived"] = sorted(derived)
+                out.filled.append(label)
+        elif current != value and not isinstance(value, list | dict):
+            out.conflicts.append(f"{label}: record says {current!r}, the file says {value!r}")
+
+    for path, value in found.point.items():
+        fill(point, path, value, f"data[].{path}", f"data[{index}].{path}")
+    if found.structure:
+        name = str(point.get("name") or f"data {index + 1}")
+        structures = record.setdefault("structures", [])
+        st = next((s for s in structures if s.get("name") == name), None)
+        if st is None:
+            st = {"name": name}
+            structures.append(st)
+        for key, value in found.structure.items():
+            fill(st, key, value, "structures", f"structures[{name}].{key}")
+        point.setdefault("structures", [name])
+    for path, value in found.record.items():
+        fill(record, path, value, path, path)
+    if derived:
+        record["derived"] = sorted(derived)
     return out

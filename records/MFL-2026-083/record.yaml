@@ -1,49 +1,39 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-083.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-083.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-083
 title: Crop type map
 description: Major crop type maps in Nandi county, Kenya
 resource_type: dataset
 themes:
 - ecosystem-condition
-geography:
-- KEN
-license:
-  spdx: null
-  url: null
-  text: CGIAR Open Access
-contacts:
+spatial:
+  resolution:
+    value: 10
+    unit: m
+  geography:
+  - KEN
+  landscapes:
+  - KEN-LVB
+temporal:
+  date: '2023'
+  text: '2023'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: CGIAR Open Access
+access: restricted
+contact:
 - organization: IFPRI
   roles:
   - producer
 - email: z.guo@cgiar.org
   roles:
   - point-of-contact
-access: restricted
 data:
 - name: Data held by the owner (on request)
+  access_method: request
   kind: raster
-  method: request
   access: restricted
-  raster:
-    resolution:
-      value: 10
-      unit: m
-temporal:
-  start: '2023'
-  end: '2023'
-  text: '2023'
-spatial:
-  resolution:
-    value: 10
-    unit: m
-update_frequency: unknown
-source_updated: '2025'
 created: '2026-09-16'
 updated: '2026-10-22'
-mosaic:
-  landscapes:
-  - KEN-LVB
-  intake:
-    status: published
-    submitted_on: '2026-09-16'
+source_updated: '2025'

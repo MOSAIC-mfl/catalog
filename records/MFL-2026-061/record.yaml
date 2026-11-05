@@ -1,18 +1,26 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-061.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-061.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-061
 title: Fish dependency
 description: Fsh dependency rate based on the communal statistics
 resource_type: dataset
 themes:
 - socio-economic-livelihoods
-geography:
-- KHM
-license:
-  spdx: CC-BY-4.0
-  url: https://spdx.org/licenses/CC-BY-4.0.html
-  text: null
-contacts:
+spatial:
+  resolution:
+    text: commune level (admin-level-3)
+  geography:
+  - KHM
+  landscapes:
+  - MEK-3S
+temporal:
+  date: '2015'
+  text: '2015'
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+contact:
 - organization: WorldFish
   roles:
   - producer
@@ -20,24 +28,14 @@ contacts:
   email: s.teoh@cgiar.org
   roles:
   - point-of-contact
-access: public
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
 data:
 - name: Page at data.opendevelopmentcambodia.net
+  locations:
+  - url: https://data.opendevelopmentcambodia.net/en/dataset/map_fish_dependency
+  access_method: landing_page
   kind: vector
-  method: landing_page
-  url: https://data.opendevelopmentcambodia.net/en/dataset/map_fish_dependency
-temporal:
-  start: '2015'
-  end: '2015'
-  text: '2015'
-spatial:
-  resolution:
-    text: commune level (admin-level-3)
-update_frequency: unknown
 created: '2026-07-24'
 updated: '2026-07-24'
-mosaic:
-  landscapes:
-  - MEK-3S
-  intake:
-    status: published

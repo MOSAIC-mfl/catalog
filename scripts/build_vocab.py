@@ -19,8 +19,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 VOCAB = ROOT / "vocab"
-STANDARD_VERSION = "0.1.0"
-# Where the schemas will be published (GitHub Pages of this repo). Not live yet.
+STANDARD_VERSION = "0.2.0"
+# Where the schemas are published (GitHub Pages of this repo).
 SCHEMA_BASE = f"https://mosaic-mfl.github.io/catalog/schema/v{STANDARD_VERSION}/"
 
 
@@ -122,7 +122,8 @@ SIMPLE = {
         ],
     ),
     "access": (
-        "Access condition of a resource or of one of its access points. Always explicit: it is never assumed to be public.",
+        "Access condition of a resource or of one of its data entries. Always explicit in MOSAIC: it is never assumed "
+        "to be public. Same values as the Climate Data Hub (DCAT / EU access rights).",
         [
             ("public", "Public", "Anyone can obtain the data without asking."),
             (
@@ -131,14 +132,14 @@ SIMPLE = {
                 "The record is public, but the data needs a request, an account or an agreement.",
             ),
             (
-                "internal",
-                "Internal",
-                "Catalogued for the network; the data is not available outside the team that holds it.",
+                "non-public",
+                "Non-public",
+                "Catalogued for the network; the data is not available outside the team that holds it (v0.1: internal).",
             ),
         ],
     ),
     "data_kind": (
-        "What kind of data an access point leads to. Drives the 'data type' facet and which detail block applies.",
+        "What kind of data a data entry leads to. Drives the 'data type' facet and which detail block applies.",
         [
             ("raster", "Raster", "Gridded data: GeoTIFF/COG, NetCDF, Zarr, Earth Engine images."),
             ("vector", "Vector", "Points, lines or polygons: Shapefile, GeoPackage, GeoJSON, FlatGeobuf."),
@@ -149,7 +150,7 @@ SIMPLE = {
         ],
     ),
     "access_method": (
-        "How an access point is used: download a file, visit a page, call a service, or ask for the data.",
+        "How a data entry is reached: download a file, call a service, visit a page, or ask for the data.",
         [
             ("download", "Download", "A direct link to a file or a bundle of files."),
             ("landing_page", "Landing page", "A page at the source that describes the data and links to it."),
@@ -169,29 +170,19 @@ SIMPLE = {
             ("funder", "Funder", "Paid for producing the data (prefer the funding field when only a name is known)."),
         ],
     ),
-    "relation": (
-        "How a related resource relates to this one (DataCite relation types, subset).",
+    "service_type": (
+        "Protocol of a web service behind a data entry.",
         [
-            (
-                "IsSupplementTo",
-                "Is supplement to",
-                "This resource supplements the related one (e.g. data behind an article).",
-            ),
-            ("IsDocumentedBy", "Is documented by", "The related resource documents this one."),
-            (
-                "IsSupplementedBy",
-                "Is supplemented by",
-                "The related resource supplements this one (e.g. a style file, a legend).",
-            ),
-            ("IsDerivedFrom", "Is derived from", "This resource was produced from the related one."),
-            ("IsSourceOf", "Is source of", "The related resource was produced from this one."),
-            ("IsPartOf", "Is part of", "This resource belongs to the related one."),
-            ("HasPart", "Has part", "The related resource belongs to this one."),
-            ("IsNewVersionOf", "Is new version of", "This resource replaces an earlier release."),
-            ("IsPreviousVersionOf", "Is previous version of", "This resource was replaced by the related one."),
-            ("IsCitedBy", "Is cited by", "The related resource cites this one."),
-            ("References", "References", "This resource references the related one."),
-            ("IsVariantFormOf", "Is variant form of", "Same content in another format or packaging."),
+            ("wms", "WMS", "OGC Web Map Service."),
+            ("wmts", "WMTS", "OGC Web Map Tile Service."),
+            ("wfs", "WFS", "OGC Web Feature Service."),
+            ("wcs", "WCS", "OGC Web Coverage Service."),
+            ("ogc-api", "OGC API", "OGC API Features, Coverages, Tiles or Maps."),
+            ("arcgis-rest", "ArcGIS REST", "Esri ArcGIS Server or Online REST service."),
+            ("xyz", "XYZ tiles", "Map tiles by {z}/{x}/{y} URL template."),
+            ("stac-api", "STAC API", "SpatioTemporal Asset Catalog API."),
+            ("gee", "Google Earth Engine", "An Earth Engine asset or app."),
+            ("other", "Other", "Another API; describe it in the data entry."),
         ],
     ),
     "update_frequency": (
@@ -203,6 +194,7 @@ SIMPLE = {
             ("weekly", "Weekly", ""),
             ("monthly", "Monthly", ""),
             ("quarterly", "Quarterly", ""),
+            ("semiannual", "Semiannual", "Twice a year."),
             ("seasonal", "Seasonal", "Once per season."),
             ("annual", "Annual", ""),
             ("irregular", "Irregular", "Updated when needed, with no fixed schedule."),
@@ -284,7 +276,7 @@ SCHEMA_DEFS = {  # $defs name in schema/vocab.schema.json -> vocabulary file
     "dataKind": "data_kind",
     "accessMethod": "access_method",
     "contactRole": "contact_role",
-    "relation": "relation",
+    "serviceType": "service_type",
     "updateFrequency": "update_frequency",
 }
 

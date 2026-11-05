@@ -1,6 +1,7 @@
 # ADR-0003: Keep MFL-YYYY-NNN ids, add an optional slug, namespace ids in the API
 
 - Status: proposed (2026-10-30)
+- Amended by [ADR-0009](0009-v02-on-the-cdh-core.md) (2026-11-05): ids stay MFL-YYYY-NNN; the optional slug is dropped (unused).
 
 ## Options
 

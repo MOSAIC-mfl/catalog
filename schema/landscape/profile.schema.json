@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.1.0/landscape/profile.schema.json",
+  "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.2.0/landscape/profile.schema.json",
   "title": "MOSAIC landscape profile",
   "description": "One page per living landscape (landscapes/<CODE>/profile.yaml). The page is a list of sections; each section is a module the website knows how to draw ('kind'). A landscape without profile.yaml gets the default sections (see mosaic.config.yaml: landscapes.default_sections).",
   "type": "object",

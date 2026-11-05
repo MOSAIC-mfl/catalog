@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-081.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-081.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-081
 title: Land Cover and Land Use
 description: >-
@@ -9,32 +10,6 @@ description: >-
 resource_type: dataset
 themes:
 - land-cover-land-use
-geography:
-- PER
-license:
-  spdx: CC-BY-4.0
-  url: https://spdx.org/licenses/CC-BY-4.0.html
-  text: null
-contacts:
-- organization: Alliance Bioversity-CIAT
-  roles:
-  - producer
-- name: Beatriz Rodríguez
-  email: b.rodriguez@cgiar.org
-  roles:
-  - point-of-contact
-access: public
-data:
-- name: Page at peru.mapbiomas.org
-  kind: vector
-  method: landing_page
-  url: https://peru.mapbiomas.org/iniciativas-y-productos/cobertura-y-uso-del-suelo/cobertura/
-  files: Ucayali_Land_cover_Land_use.shp (complete shapefile set, 8 files)
-  size: 520.2 MB
-temporal:
-  start: '2000'
-  end: '2024'
-  text: 2000, 2005, 2010, 2015, 2020, 2024
 spatial:
   resolution:
     value: 30
@@ -45,13 +20,36 @@ spatial:
   - -70.4944
   - -7.2621
   crs: EPSG:4326
-update_frequency: unknown
-source_updated: '2026'
-created: '2026-09-15'
-updated: '2026-10-15'
-mosaic:
+  geography:
+  - PER
   landscapes:
   - PER-PCL
-  intake:
-    status: published
-    submitted_on: '2026-09-15'
+temporal:
+  start_date: '2000'
+  end_date: '2024'
+  text: 2000, 2005, 2010, 2015, 2020, 2024
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+contact:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+data:
+- name: Page at peru.mapbiomas.org
+  locations:
+  - url: https://peru.mapbiomas.org/iniciativas-y-productos/cobertura-y-uso-del-suelo/cobertura/
+  access_method: landing_page
+  kind: vector
+  file_size: 520.2 MB
+  description: 'Files: Ucayali_Land_cover_Land_use.shp (complete shapefile set, 8 files)'
+created: '2026-09-15'
+updated: '2026-10-15'
+source_updated: '2026'

@@ -1,5 +1,5 @@
 # MOSAIC catalogue configuration. Read by the validator and the build.
-standard_version: 0.1.0
+standard_version: 0.2.0
 
 profiles:
   # MOSAIC profile (mosaic.landscapes, MFL-YYYY-NNN ids). false = warnings only.

@@ -112,7 +112,8 @@ class Standard:
         return f"{name}@{version}"
 
     def _validator(self, schema: Mapping[str, Any]) -> Draft202012Validator:
-        return Draft202012Validator(schema, registry=self.registry)
+        # Formats are asserted (date, email...), as in the CDH validator: "2020-13" is not a date.
+        return Draft202012Validator(schema, registry=self.registry, format_checker=Draft202012Validator.FORMAT_CHECKER)
 
     # -- checking ---------------------------------------------------------------------
     def check(self, record: Mapping[str, Any], record_id: str | None = None) -> Report:
@@ -207,7 +208,7 @@ class Standard:
         """Share of the level's fields that pass (fields = required + fields named by rules)."""
         fields = set(schema.get("required", [])) | set(schema.get("properties", {}))
         fields |= {r["x-field"] for r in schema.get("allOf", []) if "x-field" in r}
-        if "access_note" in fields and data.get("access") not in ("restricted", "internal"):
+        if "access_note" in fields and data.get("access") not in ("restricted", "non-public"):
             fields.discard("access_note")
         failing = {i.field if i.field in fields else i.path.split("/")[0] for i in issues} & fields
         return round(1 - len(failing) / len(fields), 3) if fields else 1.0

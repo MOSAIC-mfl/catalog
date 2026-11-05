@@ -1,6 +1,7 @@
 # ADR-0007: Data classification is explicit in the record and inferred when the file can be read
 
 - Status: accepted by Santiago Calderón (2026-10-30); to review with Lizeth Llanos
+- Amended by [ADR-0009](0009-v02-on-the-cdh-core.md) (2026-11-05): geometry type is `data[].geometry_type`; "spatial or not" is no longer a field or a filter.
 
 ## Context
 

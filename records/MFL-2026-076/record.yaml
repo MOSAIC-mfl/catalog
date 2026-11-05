@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-076.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-076.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-076
 title: National Ecosystem Map
 description: >-
@@ -8,34 +9,6 @@ description: >-
 resource_type: dataset
 themes:
 - biodiversity-ecosystems
-geography:
-- PER
-license:
-  spdx: null
-  url: null
-  text: >-
-    Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
-    stated
-contacts:
-- organization: Alliance Bioversity-CIAT
-  roles:
-  - producer
-- name: Beatriz Rodríguez
-  email: b.rodriguez@cgiar.org
-  roles:
-  - point-of-contact
-access: public
-data:
-- name: Page at geoservidor.minam.gob.pe
-  kind: vector
-  method: landing_page
-  url: https://geoservidor.minam.gob.pe/recursos/intercambio-de-datos/
-  files: Ucayali_Ecosystems_map.shp (complete shapefile set, 8 files)
-  size: 109.7 MB
-temporal:
-  start: '2018'
-  end: '2018'
-  text: '2018'
 spatial:
   bbox:
   - -75.9479
@@ -43,12 +16,34 @@ spatial:
   - -70.4944
   - -7.262
   crs: EPSG:4326
-update_frequency: unknown
-created: '2026-09-15'
-updated: '2026-10-15'
-mosaic:
+  geography:
+  - PER
   landscapes:
   - PER-PCL
-  intake:
-    status: published
-    submitted_on: '2026-09-15'
+temporal:
+  date: '2018'
+  text: '2018'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: >-
+  Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
+  stated
+access: public
+contact:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at geoservidor.minam.gob.pe
+  locations:
+  - url: https://geoservidor.minam.gob.pe/recursos/intercambio-de-datos/
+  access_method: landing_page
+  kind: vector
+  file_size: 109.7 MB
+  description: 'Files: Ucayali_Ecosystems_map.shp (complete shapefile set, 8 files)'
+created: '2026-09-15'
+updated: '2026-10-15'

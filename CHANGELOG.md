@@ -1,6 +1,26 @@
 # Changelog
 
-## [0.1.0] - unreleased (local draft)
+## [0.2.0] - unreleased
+
+### Standard on the Climate Data Hub core (ADR-0009, review of 2026-11-05)
+- `schema/record.schema.json` is the CDH core v0.5.0 (MIT) with MOSAIC's fields in the same core:
+  `themes`, `language`, `spatial.landscapes`, `spatial.resolution`, `temporal.text`,
+  `license_text`, `citation.text`, `data[].access_method / kind / access / geometry_type /
+  feature_count / service / spatial.crs`, `derived`, `source_updated`; `commodities` and `usage`
+  (CDH extensions) move into the core. Formats are checked (dates, e-mails).
+- Levels: the minimum follows CDH's required fields plus `themes` and an explicit `access`; a
+  contact with the licensor role and an organization in every contact are now minimum; keywords,
+  citation or DOI, geography and the kind and access method of each data entry are recommended.
+- Extension `climate@0.2.0` (same fields as CDH's). Vocabularies: access `internal` ->
+  `non-public`; new `service_type`; `semiannual` frequency; `relation` removed (links use `rel`).
+- The 108 records, the examples and the fixtures are converted by `src/mosaic_catalog/v02.py`
+  (`scripts/migrate_v02.py`; moves and renames only; notes in `review/migration_v02.md`).
+  `migrate_schema1.py` now writes v0.2 directly. `infer` fills `geometry_type`, `feature_count`
+  and the data dictionary (`structures[]`).
+- Docs: `docs/standard.md` (v0.2, FAIR), field reference regenerated with the CDH and v0.1
+  equivalents of every field, `docs/record-template.yaml`.
+
+## [0.1.0] - 2026-11-04 (branch metadata-standard-v0.1, first push)
 
 ### Catalogue main up to 0dad25c
 - Migration re-run on the current `catalog` main: record 016 restored, 106-110 added (CoRE Stack,

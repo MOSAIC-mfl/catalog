@@ -1,18 +1,25 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-036.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-036.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-036
 title: Agricultural production system
 description: Survey
 resource_type: dataset
 themes:
 - socio-economic-livelihoods
-geography:
-- ETH
-license:
-  spdx: null
-  url: null
-  text: Restricted — contact data owner
-contacts:
+spatial:
+  geography:
+  - ETH
+  landscapes:
+  - ETH-OG
+temporal:
+  date: '2018'
+  text: '2018'
+license: LicenseRef-source-terms
+license_text: Restricted — contact data owner
+access: restricted
+access_note: Internal Available on request
+contact:
 - organization: NASA / USGS (external)
   roles:
   - producer
@@ -20,21 +27,10 @@ contacts:
   email: d.tibebe@cgiar.org
   roles:
   - point-of-contact
-access: restricted
-access_note: Internal Available on request
 data:
 - name: Data held by the owner (on request)
+  access_method: request
   kind: vector
-  method: request
   access: restricted
-temporal:
-  start: '2018'
-  end: '2018'
-  text: '2018'
 created: '2026-07-24'
 updated: '2026-10-22'
-mosaic:
-  landscapes:
-  - ETH-OG
-  intake:
-    status: published

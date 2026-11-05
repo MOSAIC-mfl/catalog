@@ -1,6 +1,7 @@
 # ADR-0001: MOSAIC has its own metadata standard, guided by CDH
 
 - Status: proposed (2026-10-30)
+- Superseded in part by [ADR-0009](0009-v02-on-the-cdh-core.md) (2026-11-05): v0.2 uses the CDH core structure itself.
 - Deciders: Lizeth Llanos, Steven Sotelo, Santiago Calderón
 
 ## Context

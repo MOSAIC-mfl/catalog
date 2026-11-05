@@ -1,18 +1,26 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-012.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-012.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-012
 title: Rainfall erosivity, soil erodability, and water erosion status of India
 description: Geospatial modeling and mapping of soil erosion in India
 resource_type: dataset
 themes:
 - degradation-land-health
-geography:
-- IND
-license:
-  spdx: null
-  url: null
-  text: null
-contacts:
+spatial:
+  resolution:
+    value: 250
+    unit: m
+  geography:
+  - IND
+  landscapes:
+  - IND-CH
+temporal:
+  date: '2024'
+  text: '2024'
+  update_frequency: static
+access: public
+contact:
 - organization: National government (external)
   roles:
   - producer
@@ -20,38 +28,22 @@ contacts:
   email: s.maliappan@cgiar.org
   roles:
   - point-of-contact
-access: public
 data:
 - name: Page at zenodo.org
+  locations:
+  - url: https://zenodo.org/records/10846594
+  access_method: landing_page
   kind: raster
-  method: landing_page
-  url: https://zenodo.org/records/10846594
-  raster:
-    resolution:
-      value: 250
-      unit: m
 - name: Page at zenodo.org
+  locations:
+  - url: https://zenodo.org/records/6505510
+  access_method: landing_page
   kind: raster
-  method: landing_page
-  url: https://zenodo.org/records/6505510
 - name: Page at zenodo.org
+  locations:
+  - url: https://zenodo.org/records/8011445
+  access_method: landing_page
   kind: raster
-  method: landing_page
-  url: https://zenodo.org/records/8011445
-temporal:
-  start: '2024'
-  end: '2024'
-  text: '2024'
-spatial:
-  resolution:
-    value: 250
-    unit: m
-update_frequency: static
-source_updated: '2024'
 created: '2026-07-24'
 updated: '2026-07-24'
-mosaic:
-  landscapes:
-  - IND-CH
-  intake:
-    status: published
+source_updated: '2024'

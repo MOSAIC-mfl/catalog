@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Migrate MOSAIC schema-1 records (old `catalog` repo) to the MOSAIC standard v0.1.
+"""Migrate MOSAIC schema-1 records (old `catalog` repo) to the MOSAIC standard (v0.2).
+
+Two steps: schema 1 -> v0.1 (this file, crosswalks/mosaic-schema1.yaml), then v0.1 -> v0.2
+(src/mosaic_catalog/v02.py, the same conversion as scripts/migrate_v02.py).
 
 The old repository is only READ, through `git show <ref>:records/<file>` and `git log`;
 its working tree, branches and files are never touched.
@@ -27,6 +30,9 @@ from urllib.parse import urlparse
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "src"))
+from mosaic_catalog.v02 import convert  # noqa: E402
+
 VOCAB = ROOT / "vocab"
 
 URL_RE = re.compile(r"(?:https?|ftp)://[^\s)\],;]+")
@@ -320,7 +326,7 @@ def migrate(old: dict[str, Any], dates: tuple[str | None, str | None], notes: No
 
 # -- output ----------------------------------------------------------------------------------------
 HEADER = (
-    "# MOSAIC record (standard v0.1). Migrated from the schema-1 record {src} on {ref} by\n"
+    "# MOSAIC record (standard v0.2). Migrated from the schema-1 record {src} on {ref} by\n"
     "# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.\n"
 )
 
@@ -349,7 +355,7 @@ def write_notes(notes: Notes, path: Path) -> None:
         w.writerow(["record", "field", "note", "decision"])
         w.writerows([(*r, "") for r in rows])
     md = [
-        "# Migration notes (schema 1 -> v0.1)",
+        "# Migration notes (schema 1 -> v0.2)",
         "",
         f"{len({r[0] for r in rows})} records, {len(rows)} notes. Things a person should look at; "
         "they do not make a record incomplete. Missing minimum fields are in minimum_gaps.md.",
@@ -373,6 +379,9 @@ def main(argv: list[str] | None = None) -> int:
     written = 0
     for path, old in old_records(args.source, args.ref):
         rec = migrate(old, history_dates(args.source, args.ref, path), notes)
+        rec, v02_notes = convert(rec)
+        for f, n in v02_notes:
+            notes.add(rec["id"], f, n)
         if not args.dry_run:
             folder = args.out / rec["id"]
             folder.mkdir(parents=True, exist_ok=True)

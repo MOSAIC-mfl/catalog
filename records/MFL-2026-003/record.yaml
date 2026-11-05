@@ -1,18 +1,26 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-003.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-003.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-003
 title: Central India Landscape - Rainfall (Observed)
 description: Rainfall data
 resource_type: dataset
 themes:
 - water-hydrology
-geography:
-- IND
-license:
-  spdx: null
-  url: null
-  text: null
-contacts:
+spatial:
+  resolution:
+    text: '25000'
+  geography:
+  - IND
+  landscapes:
+  - IND-CH
+temporal:
+  start_date: '2024'
+  end_date: '2025'
+  text: 2024-2025
+  update_frequency: annual
+access: public
+contact:
 - organization: National government (external)
   roles:
   - producer
@@ -20,25 +28,12 @@ contacts:
   email: s.maliappan@cgiar.org
   roles:
   - point-of-contact
-access: public
 data:
 - name: Page at imdpune.gov.in
+  locations:
+  - url: https://imdpune.gov.in/cmpg/Griddata/Rainfall_25_NetCDF.html
+  access_method: landing_page
   kind: tabular
-  method: landing_page
-  url: https://imdpune.gov.in/cmpg/Griddata/Rainfall_25_NetCDF.html
-temporal:
-  start: '2024'
-  end: '2025'
-  text: 2024-2025
-spatial:
-  resolution:
-    text: '25000'
-update_frequency: annual
-source_updated: '2025'
 created: '2026-07-24'
 updated: '2026-07-24'
-mosaic:
-  landscapes:
-  - IND-CH
-  intake:
-    status: published
+source_updated: '2025'

@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-093.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-093.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-093
 title: Land cover Kef-Siliana region (2017)
 description: >-
@@ -11,39 +12,6 @@ description: >-
 resource_type: dataset
 themes:
 - land-cover-land-use
-geography:
-- TUN
-license:
-  spdx: CC-BY-SA-4.0
-  url: https://spdx.org/licenses/CC-BY-SA-4.0.html
-  text: null
-contacts:
-- organization: ICARDA
-  roles:
-  - producer
-- name: Layal Atassi
-  email: l.atassi@cgiar.org
-  roles:
-  - point-of-contact
-citation: >-
-  Shiri, Zahra; Frija, Aymen; Rejeb, Hichem; Ouerghemmi, Hassen; Le, Quang Bao, 2024, "Land cover Kef-Siliana
-  region (2017)", https://hdl.handle.net/20.500.11766.1/FK2/HNCLNU, MELDATA, V17
-access: public
-data:
-- name: Page at hdl.handle.net
-  kind: raster
-  method: landing_page
-  url: https://hdl.handle.net/20.500.11766.1/FK2/HNCLNU
-  files: Land_cover_Kef_Siliana_region_2017.tif; LC_2017.csv
-  size: 143 MB
-  raster:
-    resolution:
-      value: 10
-      unit: m
-temporal:
-  start: '2017'
-  end: '2017'
-  text: '2017'
 spatial:
   resolution:
     value: 10
@@ -53,13 +21,39 @@ spatial:
   - 35.475588
   - 9.772774
   - 36.462446
-update_frequency: static
-source_updated: '2026-04-09'
-created: '2026-10-15'
-updated: '2026-10-15'
-mosaic:
+  geography:
+  - TUN
   landscapes:
   - TUN-NW
-  intake:
-    status: published
-    submitted_on: '2026-10-15'
+temporal:
+  date: '2017'
+  text: '2017'
+  update_frequency: static
+license: CC-BY-SA-4.0
+access: public
+contact:
+- organization: ICARDA
+  roles:
+  - producer
+- name: Layal Atassi
+  email: l.atassi@cgiar.org
+  roles:
+  - point-of-contact
+citation:
+  text: >-
+    Shiri, Zahra; Frija, Aymen; Rejeb, Hichem; Ouerghemmi, Hassen; Le, Quang Bao, 2024, "Land cover Kef-Siliana
+    region (2017)", https://hdl.handle.net/20.500.11766.1/FK2/HNCLNU, MELDATA, V17
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-SA-4.0.html
+data:
+- name: Page at hdl.handle.net
+  locations:
+  - url: https://hdl.handle.net/20.500.11766.1/FK2/HNCLNU
+  access_method: landing_page
+  kind: raster
+  file_size: 143 MB
+  description: 'Files: Land_cover_Kef_Siliana_region_2017.tif; LC_2017.csv'
+created: '2026-10-15'
+updated: '2026-10-15'
+source_updated: '2026-04-09'

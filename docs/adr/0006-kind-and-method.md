@@ -1,6 +1,7 @@
 # ADR-0006: An access point states its data kind and its access method separately
 
 - Status: proposed (2026-10-30)
+- Amended by [ADR-0009](0009-v02-on-the-cdh-core.md) (2026-11-05): `method` is `data[].access_method`, `url` is `data[].locations[].url`; detail blocks become `structures[]`.
 
 ## Context
 

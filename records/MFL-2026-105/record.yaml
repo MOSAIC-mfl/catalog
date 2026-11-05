@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-105.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-105.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-105
 title: Mbire – Lower Zambezi Valley living landscape boundary
 description: >-
@@ -11,64 +12,6 @@ description: >-
 resource_type: dataset
 themes:
 - boundaries-admin-units
-geography:
-- ZWE
-license:
-  spdx: null
-  url: https://gadm.org/license.html
-  text: Source terms (https://gadm.org/license.html)
-contacts:
-- organization: Alliance Bioversity-CIAT (MOSAIC)
-  roles:
-  - producer
-- name: Lizeth Llanos
-  email: l.llanos@cgiar.org
-  roles:
-  - point-of-contact
-citation: 'Ward boundaries: GADM version 4.1 (gadm.org).'
-access: public
-data:
-- name: Download from github.com
-  kind: vector
-  method: download
-  url: >-
-    https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/ZWE-MB_Mbire_Lower_Zambezi_Valley_boundary_2026-10-14.zip
-  files: ZWE-MB_Mbire_Lower_Zambezi_Valley_boundary_2026-10-14.zip
-  size: 185 KB
-  vector:
-    geometry_type: polygon
-    feature_count: 1
-    attributes:
-    - name: code
-      type: string
-    - name: name
-      type: string
-    - name: country
-      type: string
-    - name: system
-      type: string
-    - name: area_km2
-      type: number
-    - name: licence
-      type: string
-    - name: lic_url
-      type: string
-    - name: credit
-      type: string
-    - name: note
-      type: string
-    - name: version
-      type: string
-    crs: EPSG:4326
-  derived:
-  - vector.attributes
-  - vector.crs
-  - vector.feature_count
-  - vector.geometry_type
-temporal:
-  start: '2026'
-  end: '2026'
-  text: '2026'
 spatial:
   resolution:
     text: Landscape boundary
@@ -78,15 +21,74 @@ spatial:
   - 32.05844
   - -15.60728
   crs: EPSG:4326
-update_frequency: static
-source_updated: '2026-10-14'
-created: '2026-10-21'
-updated: '2026-10-21'
-mosaic:
+  geography:
+  - ZWE
   landscapes:
   - ZWE-MB
-  intake:
-    status: published
-    submitted_on: '2026-10-21'
+temporal:
+  date: '2026'
+  text: '2026'
+  update_frequency: static
+license: LicenseRef-source-terms
+license_text: Source terms (https://gadm.org/license.html)
+access: public
+contact:
+- organization: Alliance Bioversity-CIAT (MOSAIC)
+  roles:
+  - producer
+- name: Lizeth Llanos
+  email: l.llanos@cgiar.org
+  roles:
+  - point-of-contact
+citation:
+  text: 'Ward boundaries: GADM version 4.1 (gadm.org).'
+additional_links:
+- rel: license
+  url: https://gadm.org/license.html
+data:
+- name: Download from github.com
+  locations:
+  - url: >-
+      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/ZWE-MB_Mbire_Lower_Zambezi_Valley_boundary_2026-10-14.zip
+  access_method: download
+  kind: vector
+  file_size: 185 KB
+  geometry_type: polygon
+  feature_count: 1
+  spatial:
+    crs: EPSG:4326
+  description: 'Files: ZWE-MB_Mbire_Lower_Zambezi_Valley_boundary_2026-10-14.zip'
+  structures:
+  - Download from github.com
+structures:
+- name: Download from github.com
+  variables:
+  - name: code
+    data_type: string
+  - name: name
+    data_type: string
+  - name: country
+    data_type: string
+  - name: system
+    data_type: string
+  - name: area_km2
+    data_type: number
+  - name: licence
+    data_type: string
+  - name: lic_url
+    data_type: string
+  - name: credit
+    data_type: string
+  - name: note
+    data_type: string
+  - name: version
+    data_type: string
 derived:
 - spatial.crs
+- structures
+- data[].spatial.crs
+- data[].feature_count
+- data[].geometry_type
+created: '2026-10-21'
+updated: '2026-10-21'
+source_updated: '2026-10-14'

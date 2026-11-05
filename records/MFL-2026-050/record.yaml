@@ -1,41 +1,37 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-050.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-050.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-050
 title: watershed boundary
 description: MRC produced the data
 resource_type: dataset
 themes:
 - boundaries-admin-units
-geography:
-- LAO
-license:
-  spdx: null
-  url: null
-  text: Restricted — contact data owner
-contacts:
+spatial:
+  resolution:
+    text: basin and country levels
+  geography:
+  - LAO
+  landscapes:
+  - MEK-3S
+temporal:
+  text: present
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: Restricted — contact data owner
+access: non-public
+access_note: MRC website
+contact:
 - organization: IWMI
   roles:
   - producer
 - email: s.douangsavanh@cgiar.org
   roles:
   - point-of-contact
-access: internal
-access_note: MRC website
 data:
 - name: Data held by the owner (on request)
+  access_method: request
   kind: vector
-  method: request
-  access: internal
-temporal:
-  text: present
-spatial:
-  resolution:
-    text: basin and country levels
-update_frequency: unknown
+  access: non-public
 created: '2026-07-24'
 updated: '2026-09-29'
-mosaic:
-  landscapes:
-  - MEK-3S
-  intake:
-    status: published

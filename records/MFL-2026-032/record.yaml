@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-032.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-032.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-032
 title: >-
   Tunisia LLs boundary for the six communities containing Sers, Elles, El Ahouez Sud, Hammam Biadha Sud,
@@ -8,29 +9,6 @@ description: Administrative boundaries for Tunisia
 resource_type: dataset
 themes:
 - boundaries-admin-units
-geography:
-- TUN
-license:
-  spdx: null
-  url: null
-  text: CGIAR Open Access
-contacts:
-- organization: ICARDA
-  roles:
-  - producer
-- name: Layal Atassi
-  email: l.atassi@cgiar.org
-  roles:
-  - point-of-contact
-access: restricted
-access_note: www.geoboundaries.org
-data:
-- name: Data held by the owner (on request)
-  kind: vector
-  method: request
-  access: restricted
-  files: Tunisia_ALL.shp (complete shapefile set, 8 files)
-  size: 723 KB
 spatial:
   resolution:
     text: admin-level-3
@@ -40,10 +18,28 @@ spatial:
   - 9.4466
   - 36.4324
   crs: EPSG:4326
-created: '2026-07-24'
-updated: '2026-10-22'
-mosaic:
+  geography:
+  - TUN
   landscapes:
   - TUN-NW
-  intake:
-    status: published
+license: LicenseRef-source-terms
+license_text: CGIAR Open Access
+access: restricted
+access_note: www.geoboundaries.org
+contact:
+- organization: ICARDA
+  roles:
+  - producer
+- name: Layal Atassi
+  email: l.atassi@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Data held by the owner (on request)
+  access_method: request
+  kind: vector
+  access: restricted
+  file_size: 723 KB
+  description: 'Files: Tunisia_ALL.shp (complete shapefile set, 8 files)'
+created: '2026-07-24'
+updated: '2026-10-22'

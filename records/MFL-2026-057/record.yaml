@@ -1,5 +1,6 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-057.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-057.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-057
 title: Crop fields (2023)  focus on Banana, Pumpkins, Taro, Mustard
 description: >-
@@ -13,35 +14,30 @@ description: >-
 resource_type: dataset
 themes:
 - agrobiodiversity-crops
-geography:
-- VNM
-license:
-  spdx: null
-  url: null
-  text: Restricted — contact data owner
-contacts:
+spatial:
+  resolution:
+    text: Son La  and Lao Cai (Vietnam)
+  geography:
+  - VNM
+temporal:
+  date: '2023'
+  text: '2023'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: Restricted — contact data owner
+access: non-public
+contact:
 - organization: CIP
   roles:
   - producer
 - email: javier.ochoa@cgiar.org
   roles:
   - point-of-contact
-access: internal
 data:
 - name: Page at data.cipotato.org
+  locations:
+  - url: https://data.cipotato.org/
+  access_method: landing_page
   kind: vector
-  method: landing_page
-  url: https://data.cipotato.org/
-temporal:
-  start: '2023'
-  end: '2023'
-  text: '2023'
-spatial:
-  resolution:
-    text: Son La  and Lao Cai (Vietnam)
-update_frequency: unknown
 created: '2026-07-24'
 updated: '2026-07-24'
-mosaic:
-  intake:
-    status: published

@@ -1,6 +1,7 @@
 # ADR-0002: Licence as {spdx, url, text}; required, with text alone enough for the minimum
 
 - Status: proposed (2026-10-30)
+- Superseded by [ADR-0009](0009-v02-on-the-cdh-core.md) (2026-11-05): `license` is an SPDX expression (or `LicenseRef-…` with `license_text`), as in CDH.
 
 ## Context
 

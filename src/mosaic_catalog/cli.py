@@ -71,7 +71,7 @@ def _print_text(reports: list[Report], verbose: bool) -> None:
 
 def _owner(data: dict[str, Any]) -> str:
     """Who can complete the record: its point of contact, else its first contact."""
-    contacts = [c for c in data.get("contacts") or [] if isinstance(c, dict)]
+    contacts = [c for c in data.get("contact") or [] if isinstance(c, dict)]
     pick = [c for c in contacts if "point-of-contact" in (c.get("roles") or [])] or contacts
     if not pick:
         return ""
@@ -89,7 +89,7 @@ def _write_gaps(reports: list[Report], path: Path, owners: dict[str, str]) -> No
 
     * <path>: fields missing for the minimum;
     * <dir>/classification_gaps: data the website cannot classify yet (geometry type of vector
-      data, whether a table is spatial) - recommended, not minimum, but needed for the filters.
+      data) - recommended, not minimum, but needed to show and describe the data.
     """
     minimum = [(r.record_id, i.field, i.message) for r in reports for i in r.by_level("minimum")]
     classification = [
@@ -110,7 +110,7 @@ def _write_gaps(reports: list[Report], path: Path, owners: dict[str, str]) -> No
         classification,
         owners,
         "Data the website cannot classify yet",
-        "Not part of the minimum, but needed for the 'geometry' and 'spatial' filters. A tool fills "
+        "Not part of the minimum, but needed to show and describe the data. A tool fills "
         "them when it can read the file (python -m mosaic_catalog infer); the rest needs a person.",
     )
 
@@ -191,11 +191,12 @@ def _infer(args: argparse.Namespace) -> int:
             continue
         touched = False
         for i, point in enumerate(data.get("data") or []):
-            if point.get("method") != "download" or not point.get("url") or point.get("access", "public") != "public":
+            url = next((loc.get("url") for loc in point.get("locations") or [] if loc.get("url")), None)
+            if point.get("access_method") != "download" or not url or point.get("access", "public") != "public":
                 continue
             with tempfile.TemporaryDirectory() as tmp:
                 try:
-                    found = inspect_file(fetch(point["url"], Path(tmp)))
+                    found = inspect_file(fetch(url, Path(tmp)))
                 except Exception as exc:  # any fetch or read failure is reported, not fatal
                     lines.append(f"| {data['id']} | {i} | | could not read: {exc} |")
                     continue

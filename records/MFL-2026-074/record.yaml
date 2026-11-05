@@ -1,37 +1,12 @@
-# MOSAIC record (standard v0.1). Migrated from the schema-1 record records/MFL-2026-074.yaml on main by
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-074.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
 id: MFL-2026-074
 title: Regional Conservation Areas
 description: Regional Conservation Areas clipped to Ucayali
 resource_type: dataset
 themes:
 - boundaries-admin-units
-geography:
-- PER
-license:
-  spdx: null
-  url: null
-  text: >-
-    Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
-    stated
-contacts:
-- organization: Alliance Bioversity-CIAT
-  roles:
-  - producer
-- name: Beatriz Rodríguez
-  email: b.rodriguez@cgiar.org
-  roles:
-  - point-of-contact
-access: public
-data:
-- name: Page at geo.sernanp.gob.pe
-  kind: vector
-  method: landing_page
-  url: https://geo.sernanp.gob.pe/visorsernanp/
-  files: Ucayali_Regional_Conservation_Areas.shp (complete shapefile set, 8 files)
-  size: 125 KB
-temporal:
-  text: Current
 spatial:
   resolution:
     text: Boundary level
@@ -41,12 +16,33 @@ spatial:
   - -73.437
   - -8.2754
   crs: EPSG:4326
-update_frequency: unknown
-created: '2026-09-15'
-updated: '2026-10-15'
-mosaic:
+  geography:
+  - PER
   landscapes:
   - PER-PCL
-  intake:
-    status: published
-    submitted_on: '2026-09-15'
+temporal:
+  text: Current
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: >-
+  Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
+  stated
+access: public
+contact:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at geo.sernanp.gob.pe
+  locations:
+  - url: https://geo.sernanp.gob.pe/visorsernanp/
+  access_method: landing_page
+  kind: vector
+  file_size: 125 KB
+  description: 'Files: Ucayali_Regional_Conservation_Areas.shp (complete shapefile set, 8 files)'
+created: '2026-09-15'
+updated: '2026-10-15'

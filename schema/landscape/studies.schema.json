@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.1.0/landscape/studies.schema.json",
+  "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.2.0/landscape/studies.schema.json",
   "title": "Study cards of a map explorer",
   "description": "kind 'published': a finding verified against the cited paper (claims and where they were found in 'verified'). kind 'explore': a question only, no numbers, no claims.",
   "type": "object",

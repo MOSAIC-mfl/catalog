@@ -100,12 +100,14 @@ body:
     id: access_level
     attributes:
       label: Access level
-      options: [Open, Internal, Restricted]
+      description: Public = anyone can get the data; Restricted = on request or with an account; Non-public = only the team that holds it.
+      options: [Public, Restricted, Non-public]
   - type: input
     id: license
     attributes:
       label: License
-      placeholder: e.g. CC BY 4.0
+      description: The licence of the data, and who grants it (the licensor), if you know.
+      placeholder: e.g. CC BY 4.0, granted by ILRI
   - type: dropdown
     id: processing_status
     attributes:

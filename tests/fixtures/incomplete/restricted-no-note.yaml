@@ -1,6 +1,6 @@
-# INCOMPLETE: restricted without access_note
+# INCOMPLETE: restricted resource without access_note
+schema_version: 0.2.0
 id: MFL-2099-001
-slug: test-land-cover
 title: Test land cover map
 description: Synthetic record used by the test suite.
 resource_type: dataset
@@ -12,16 +12,31 @@ keywords:
 - term: land cover
   scheme: agrovoc
   uri: http://aims.fao.org/aos/agrovoc/c_37897
-geography:
-- PER
-- m49:419
-license:
-  spdx: CC-BY-4.0
-  url: https://spdx.org/licenses/CC-BY-4.0.html
-  text: null
-contacts:
+spatial:
+  bbox:
+  - -80
+  - -12
+  - -70
+  - -2
+  crs: EPSG:4326
+  geography:
+  - PER
+  - m49:419
+  landscapes:
+  - PER-PCL
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '2020'
+  end_date: null
+  text: 2020 onwards
+  update_frequency: annual
+license: CC-BY-4.0
+access: restricted
+contact:
 - organization: Example Institute
-  ror: https://ror.org/0abcdefg1
+  ror: https://ror.org/04xsxqp89
   roles:
   - producer
   - licensor
@@ -30,48 +45,38 @@ contacts:
   orcid: https://orcid.org/0000-0002-1825-0097
   roles:
   - point-of-contact
+  organization: Example Institute
 citation:
   authors:
   - organization: Example Institute
   title: Test land cover map
   date: '2099'
-access: restricted
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
 data:
 - name: GeoTIFF
+  locations:
+  - url: https://example.org/data.tif
+  access_method: download
   kind: raster
-  method: download
-  url: https://example.org/data.tif
   media_type: image/tiff; application=geotiff
-  raster:
-    resolution:
-      value: 30
-      unit: m
-    bands:
-    - name: class
-      data_type: uint8
-      nodata: 0
+  structures:
+  - GeoTIFF
 - name: WMS
+  locations:
+  - url: https://example.org/wms
+  access_method: service
   kind: raster
-  method: service
-  url: https://example.org/wms
   service:
-    service_type: wms
+    type: wms
     layers:
     - landcover
-temporal:
-  start: '2020'
-  end: null
-  text: 2020 onwards
-spatial:
-  bbox:
-  - -80
-  - -12
-  - -70
-  - -2
-  crs: EPSG:4326
-update_frequency: annual
+structures:
+- name: GeoTIFF
+  variables:
+  - name: class
+    data_type: uint8
+    nodata: 0
 created: '2099-01-01'
 updated: '2099-01-02'
-mosaic:
-  landscapes:
-  - PER-PCL

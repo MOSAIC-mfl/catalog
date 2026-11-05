@@ -73,13 +73,11 @@ def build(records_dir: Path, out_dir: Path, cfg: Config | None = None) -> BuildR
         if report.status is Status.INVALID or any(rid == report.record_id for rid, _ in dup):
             invalid.append(report)
             continue
-        if (rec.data.get("mosaic") or {}).get("intake", {}).get("status") == "withdrawn":
-            skipped["withdrawn"] += 1
-            continue
         if report.status is Status.INCOMPLETE and not cfg.include_incomplete:
             skipped["incomplete"] += 1
             continue
         data = dict(rec.data)
+        data.setdefault("schema_version", std.version)
         created, updated = _history(rec.path)
         if created:
             data.setdefault("created", created)
