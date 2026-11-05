@@ -32,7 +32,7 @@ SCHEMA_DIR = ROOT / "schema" / "landscape"
 VOCAB_FILE = ROOT / "vocab" / "landscapes.json"
 PROFILE_FILE = "profile.yaml"
 CORE_SECTIONS = frozenset({"overview", "map-explorer", "catalogue-datasets", "data-status"})
-CORE_OVERLAYS = frozenset({"raster-tiles", "year-tiles", "climate-grid", "index-grid"})
+CORE_OVERLAYS = frozenset({"raster-tiles", "year-tiles", "climate-grid", "index-grid", "style-layers"})
 DOCS = {  # file key in a map-explorer config -> schema
     "explorer": "explorer.schema.json",
     "story": "story.schema.json",
@@ -140,7 +140,8 @@ def _explorer_checks(cfg: dict[str, Any], where: str, record_ids: set[str]) -> l
     style = explorer.get("map") or {}
     base_ids = [lyr.get("id") for lyr in style.get("layers") or []]
     story_ids = [lyr.get("id") for lyr in (story.get("map") or {}).get("layers") or []]
-    for dup, n in Counter(base_ids + story_ids).items():
+    overlay_layer_ids = [lyr.get("id") for o in explorer.get("overlays") or [] for lyr in o.get("layers") or []]
+    for dup, n in Counter(base_ids + story_ids + overlay_layer_ids).items():
         if n > 1:
             err("map.layers", f"layer id '{dup}' used {n} times")
     sources_ids = set(style.get("sources") or {}) | set((story.get("map") or {}).get("sources") or {})
@@ -178,6 +179,10 @@ def _explorer_checks(cfg: dict[str, Any], where: str, record_ids: set[str]) -> l
         overlay_ids.add(o.get("id"))
         if o.get("before") and o["before"] not in base_ids:
             err(f"overlays/{o.get('id')}.before", f"'{o['before']}' is not in map.layers")
+        own_sources = set(o.get("sources") or {}) | sources_ids
+        for lyr in o.get("layers") or []:
+            if lyr.get("source") and lyr["source"] not in own_sources:
+                err(f"overlays/{o.get('id')}.layers/{lyr.get('id')}", f"unknown source '{lyr['source']}'")
         if o.get("kind") not in CORE_OVERLAYS:
             warn(
                 f"overlays/{o.get('id')}",
@@ -188,6 +193,10 @@ def _explorer_checks(cfg: dict[str, Any], where: str, record_ids: set[str]) -> l
         if rec and rec.startswith("mosaic:") and rec.split(":", 1)[1] not in record_ids:
             err(f"sources/{s.get('id')}.record", f"catalogue record {rec} does not exist")
 
+    focus = (story.get("map") or {}).get("focus") or {}
+    for lid in focus.get("layers") or []:
+        if lid not in story_ids + base_ids:
+            err("story.map.focus", f"layer '{lid}' is not in the story or base map layers")
     panel_ids = {p.get("id") for p in explorer.get("panels") or []}
     highlights = set((story.get("map") or {}).get("highlights") or {})
     for ch in story.get("chapters") or []:
@@ -198,10 +207,20 @@ def _explorer_checks(cfg: dict[str, Any], where: str, record_ids: set[str]) -> l
         for name in v.get("show") or []:
             if name not in highlights:
                 err(f"story/{ch.get('id')}.visual.show", f"'{name}' is not in story.map.highlights")
+        for st in v.get("steps") or []:
+            if st.get("layer") and st["layer"] not in overlay_ids:
+                err(f"story/{ch.get('id')}.visual.steps", f"'{st['layer']}' is not an overlay")
         cmp_ = v.get("compare") or ch.get("compare_option") or {}
         if cmp_ and cmp_.get("overlay") not in overlay_ids:
             err(f"story/{ch.get('id')}.compare", f"'{cmp_.get('overlay')}' is not an overlay")
     for card in studies.get("cards") or []:
+        if card.get("kind") == "published" and not card.get("verified"):
+            warn(f"studies/{card.get('id')}", "no 'verified' list: check that the finding cites its pages")
+        if card.get("kind") == "explore" and card.get("finding"):
+            warn(f"studies/{card.get('id')}.finding", "an explore card states no claims: check the text only describes")
+        for st in card.get("steps") or []:
+            if st.get("layer") and st["layer"] not in overlay_ids:
+                err(f"studies/{card.get('id')}.steps", f"'{st['layer']}' is not an overlay")
         for lid in card.get("layers") or []:
             if lid not in overlay_ids:
                 warn(f"studies/{card.get('id')}.layers", f"'{lid}' is not an overlay (the card shows it as missing)")

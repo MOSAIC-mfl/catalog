@@ -63,7 +63,7 @@ vocab/                           themes, landscapes, geography (ISO 3166 / UN M4
 crosswalks/cdh.yaml              the few differences between a Climate Data Hub record and a MOSAIC record
 crosswalks/mosaic-schema1.yaml   how the old schema-1 records were migrated
 records/<id>/record.yaml         the 108 MOSAIC records (standard v0.2)
-landscapes/<CODE>/               landscape profiles (KEN-LVB: the Lake Victoria Basin Explorer)
+landscapes/<CODE>/               landscape profiles (KEN-LVB: Lake Victoria Basin Explorer; PER-PCL: Ucayali Explorer)
 schema/landscape/                schemas of the profile files
 review/                          minimum_gaps, classification_gaps, migration_notes, migration_v02, inference_report
 examples/                        real records converted by hand (999 a rich one, with an example id; 079 and 090)

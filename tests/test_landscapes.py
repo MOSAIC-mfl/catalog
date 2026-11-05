@@ -21,7 +21,9 @@ def test_every_landscape_of_the_vocabulary_has_a_valid_profile() -> None:
     assert all(p.ok for p in profiles), [str(x) for p in profiles for x in p.problems if x.level == "error"]
     lvb = next(p for p in profiles if p.code == "KEN-LVB")
     assert lvb.curated and lvb.sections[0]["kind"] == "map-explorer"
-    default = next(p for p in profiles if p.code == "PER-PCL")
+    pcl = next(p for p in profiles if p.code == "PER-PCL")
+    assert pcl.curated and pcl.sections[0]["kind"] == "map-explorer"
+    default = next(p for p in profiles if p.code == "SEN-FK")
     assert not default.curated and [s["kind"] for s in default.sections] == list(SECTIONS)
 
 
@@ -52,7 +54,17 @@ def _errors(folder: Path) -> list[str]:
         ("explorer.yaml", lambda d: d["data"].update(default_root="s3"), "is not one of the roots"),
         ("story.yaml", lambda d: d["chapters"][1]["visual"].update(layers=["rain"]), "'rain' is not an overlay"),
         ("studies.yaml", lambda d: d["cards"][0].update(open_panel="dam"), "'dam' is not a panel"),
-        ("studies.yaml", lambda d: d["cards"][0].pop("verified"), "'verified' is a required property"),
+        ("studies.yaml", lambda d: d["cards"][0].pop("finding"), "'finding' is a required property"),
+        (
+            "studies.yaml",
+            lambda d: d["cards"][0].update(steps=[{"label": "x", "layer": "rain"}]),
+            "'rain' is not an overlay",
+        ),
+        (
+            "story.yaml",
+            lambda d: d["chapters"][1]["visual"].update(steps=[{"label": "x", "layer": "rain"}]),
+            "'rain' is not an overlay",
+        ),
         ("profile.yaml", lambda d: d.update(landscape="KEN-LEI"), "!= folder"),
     ],
 )

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://mosaic-mfl.github.io/catalog/schema/v0.2.0/landscape/studies.schema.json",
   "title": "Study cards of a map explorer",
-  "description": "kind 'published': a finding verified against the cited paper (claims and where they were found in 'verified'). kind 'explore': a question only, no numbers, no claims.",
+  "description": "kind 'published': a finding verified against the cited paper (claims and where they were found in 'verified', or pages cited in the finding). kind 'explore': a question; a finding there only describes what the question rests on (no claims). Missing 'verified' and explore findings are warnings (validate-landscapes).",
   "type": "object",
   "required": ["cards"],
   "properties": {
@@ -18,11 +18,13 @@
           "doi": {"type": "string", "pattern": "^10\\."},
           "verified": {"type": "array", "items": {"type": "object", "required": ["claim", "where"]}},
           "layers": {"type": "array", "items": {"type": "string"}},
-          "open_panel": {"type": "string"}, "camera": {"type": "object"}, "time": {"type": "object"}
+          "open_panel": {"type": "string"}, "camera": {"type": "object"}, "time": {"type": "object"},
+          "steps": {"type": "array", "items": {"type": "object", "required": ["label"], "properties": {"label": {"type": "string"}, "layer": {"type": "string"}, "time": {"type": "object"}, "camera": {"type": "object"}}}},
+          "map_note": {"type": "string", "description": "What the map shows for this card (e.g. context only, not the study's data)."},
+          "data_note": {"type": "string", "description": "Why the card shows no layer."}
         },
         "allOf": [
-          {"if": {"properties": {"kind": {"const": "published"}}}, "then": {"required": ["finding", "citation", "verified"]}},
-          {"if": {"properties": {"kind": {"const": "explore"}}}, "then": {"not": {"required": ["finding"]}}}
+          {"if": {"properties": {"kind": {"const": "published"}}}, "then": {"required": ["finding", "citation"]}}
         ]
       }
     }

@@ -102,15 +102,16 @@
       }
     },
     "overlay": {
-      "allOf": [{"$ref": "#/$defs/railItem"}],
       "required": ["kind"],
       "properties": {
-        "kind": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "Renderer. Core: raster-tiles, year-tiles, climate-grid, index-grid."},
+        "kind": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "Renderer. Core: raster-tiles, year-tiles, climate-grid, index-grid, style-layers (the overlay's own MapLibre sources and layers: vector data, or a raster grid with points on top)."},
         "before": {"type": "string", "description": "Base layer the overlay is drawn under."},
         "asset": {"$ref": "#/$defs/path"},
         "paint": {"type": "object"},
         "legend": {"$ref": "#/$defs/legend"},
-        "inspect": {"type": "object", "required": ["kind"], "properties": {"kind": {"type": "string"}}, "description": "What a click on the map shows while the overlay is active."},
+        "inspect": {"type": "object", "required": ["kind"], "properties": {"kind": {"type": "string"}}, "description": "What a click on the map shows while the overlay is active. Core: cell-sum, class-at-point, annual-series, region-series, feature-attributes, value-at-point, series-values, combined (several parts)."},
+        "sources": {"type": "object", "additionalProperties": {"$ref": "#/$defs/styleSource"}, "description": "style-layers: MapLibre sources, with {asset} / {pmtiles} references."},
+        "layers": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/styleLayer"}, "description": "style-layers: MapLibre layers, shown and hidden together."},
         "variants": {
           "type": "array", "minItems": 2,
           "items": {"type": "object", "required": ["id", "label", "asset"], "properties": {"id": {"type": "string"}, "label": {"type": "string"}, "asset": {"$ref": "#/$defs/path"}, "legend": {"$ref": "#/$defs/legend"}}}
@@ -118,9 +119,11 @@
         "years": {"type": "object", "minProperties": 1, "propertyNames": {"pattern": "^[0-9]{4}$"}, "additionalProperties": {"$ref": "#/$defs/path"}}
       },
       "allOf": [
+        {"$ref": "#/$defs/railItem"},
         {"if": {"properties": {"kind": {"const": "raster-tiles"}}}, "then": {"anyOf": [{"required": ["asset"]}, {"required": ["variants"]}]}},
         {"if": {"properties": {"kind": {"const": "year-tiles"}}}, "then": {"required": ["years"]}},
-        {"if": {"properties": {"kind": {"enum": ["climate-grid", "index-grid"]}}}, "then": {"required": ["grid"]}}
+        {"if": {"properties": {"kind": {"enum": ["climate-grid", "index-grid"]}}}, "then": {"required": ["grid"]}},
+        {"if": {"properties": {"kind": {"const": "style-layers"}}}, "then": {"required": ["sources", "layers"]}}
       ]
     }
   }

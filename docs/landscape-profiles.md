@@ -68,9 +68,17 @@ must register it first (see mosaic-web, `docs/landscape-profiles.md`).
 
 Overlay kinds: `raster-tiles` (one PMTiles raster, or `variants` switched in the legend),
 `year-tiles` (one raster per year, optionally points per year), `climate-grid` (yearly and seasonal
-climate stacks with anomalies and a cell panel), `index-grid` (a monthly index such as SPI-3).
-Click kinds: `cell-sum`, `class-at-point`, `annual-series`, `region-series`, and the ones a profile
-plugin adds (KEN-LVB: `flood-query`).
+climate stacks with anomalies and a cell panel), `index-grid` (a monthly index such as SPI-3),
+`style-layers` (the overlay's own MapLibre `sources` and `layers`: vector data coloured by a
+property, points from a zoom level, or a raster grid with points on top).
+Click kinds: `cell-sum`, `class-at-point`, `annual-series`, `region-series`, `feature-attributes`
+(the clicked polygon or nearest point, its fields as templates `{field|filter}`), `value-at-point`
+(raster bands at the click, with scale and nodata), `series-values` (named values from a JSON file),
+`combined` (several of these on one click), and the ones a profile plugin adds (KEN-LVB:
+`flood-query`). Story charts: `seasonal-total`, `monthly-mean`, `monthly`, `annual-bars`,
+`class-bars` (one horizontal bar per class). Story chapters can carry `steps` (chips that switch the
+layer and its time, highlight a feature with `focus`, and move the camera, also to a `bounds` box);
+`story.map.focus` names the layers and the field of that highlight.
 
 ## A new profile
 
@@ -94,3 +102,26 @@ exactly what the explorer shows.
 Its layers are not catalogue records yet: `review/landscape_KEN-LVB_sources.md` lists them for the
 team to register. Licences to confirm before publishing: the ICPAC basin boundary (not specified:
 withheld), DAHITI lake levels (non-commercial), HydroSHEDS rivers (display only).
+
+## Pucallpa – Ucayali (PER-PCL)
+
+Converted the same way from the MOSAIC Ucayali Explorer by Andrés Aguilar
+(https://github.com/anaguilarar/mosaic-ucayali, commit 24fbe3a) with `scripts/migrate_ucayali.py`:
+
+```
+python scripts/migrate_ucayali.py --source D:/Code/Mosaic/mosaic-ucayali
+```
+
+The explorer was scaffolded from the Lake Victoria one, so land cover, forest loss, fire, burned area
+and the climate layers use the same modules. Its vegetation classes, protected areas and GEDI
+footprints are `style-layers` overlays with `feature-attributes` clicks (GEDI: `combined` with the
+1 km cell's `value-at-point`); canopy height uses `value-at-point`; the story's class charts use
+`class-bars`. It needs no profile plugin. Its climate files are the newer format of the pipeline
+(per-variable `scales`, `seasons` and real-unit normals in `app_meta.json`), which the climate
+modules read as well as the older one.
+
+Its layers are not catalogue records yet: `review/landscape_PER-PCL_sources.md` lists them, with the
+records MOSAIC already has on the same sources (derived products, not the same files). Licences to
+confirm before publishing: terrain (DEM provenance open), GEOBOSQUES forest loss (no licence stated),
+SERNANP protected areas (derived maps authorised, no commercial use). RAISG Indigenous territories
+are deliberately not hosted.

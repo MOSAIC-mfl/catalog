@@ -2,6 +2,17 @@
 
 ## [0.2.0] - unreleased
 
+### Landscape profile PER-PCL (Pucallpa – Ucayali)
+- `landscapes/PER-PCL/`: the MOSAIC Ucayali Explorer (Andrés Aguilar, anaguilarar/mosaic-ucayali @
+  24fbe3a) converted by `scripts/migrate_ucayali.py` (the explorer is only read): vegetation classes,
+  canopy height, GEDI lidar, land cover, forest loss, fire, burned area, protected areas, climate and
+  SPI-3, a 10-chapter story and 5 study cards. Layers to register and licences to confirm:
+  `review/landscape_PER-PCL_sources.md`.
+- Explorer schema: overlay kind `style-layers` (own `sources` and `layers`); the rail item rule now
+  applies to overlays (a duplicated `allOf` key hid it). Studies schema: `steps`, `map_note`,
+  `data_note`; a missing `verified` list and a finding on an explore card are warnings.
+  `validate-landscapes` checks layer ids of style-layers overlays, step layers and `story.map.focus`.
+
 ### Standard on the Climate Data Hub core (ADR-0009, review of 2026-11-05)
 - `schema/record.schema.json` is the CDH core v0.5.0 (MIT) with MOSAIC's fields in the same core:
   `themes`, `language`, `spatial.landscapes`, `spatial.resolution`, `temporal.text`,
