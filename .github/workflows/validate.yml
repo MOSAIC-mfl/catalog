@@ -1,5 +1,6 @@
-# Runs on every pull request: the standard (schemas, vocabularies, docs) and the records.
-# Incomplete records do not fail the check; invalid records do.
+# Runs on every pull request: the records and the landscape profiles, checked against the MOSAIC
+# standard (MOSAIC-mfl/mosaic-standard, main; the repository variable STANDARD_REF picks another
+# branch or tag). Incomplete records do not fail the check; invalid records and profiles do.
 name: Validate
 
 on:
@@ -18,13 +19,13 @@ jobs:
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
-      - run: pip install -e ".[dev]"
-      - run: ruff check src scripts tests && ruff format --check src scripts tests
-      - run: mypy src
-      - run: python scripts/build_vocab.py --check
-      - run: python scripts/build_docs.py --check
-      - run: pytest -q
+      - name: Install the standard
+        env:
+          STANDARD_REF: ${{ vars.STANDARD_REF || 'main' }}
+        run: |
+          git clone --quiet --depth 1 --branch "$STANDARD_REF" https://github.com/MOSAIC-mfl/mosaic-standard.git _standard
+          pip install -e ./_standard   # editable: the tool reads schema/ and vocab/ from the checkout
       - name: Records
-        run: python -m mosaic_catalog validate records --gaps review/minimum_gaps
+        run: python -m mosaic_catalog --catalog . validate
       - name: Landscape profiles
-        run: python -m mosaic_catalog validate-landscapes
+        run: python -m mosaic_catalog --catalog . validate-landscapes
