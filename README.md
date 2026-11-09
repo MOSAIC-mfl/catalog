@@ -36,6 +36,9 @@ Not a maintainer? Use the issue form **New dataset** and a maintainer writes the
 
 A landscape profile works the same way (`landscapes/<CODE>/`); guide:
 [`docs/landscape-profiles.md`](https://github.com/MOSAIC-mfl/mosaic-standard/blob/main/docs/landscape-profiles.md).
+Without programming, the Claude Code skill
+[`mosaic-landscape-profile`](https://github.com/MOSAIC-mfl/mosaic-standard/tree/main/skills/mosaic-landscape-profile)
+writes the profile with you and opens the pull request.
 
 ## Check locally
 
