@@ -2,9 +2,9 @@
 id: MFL-2026-102
 title: Lake Victoria Basin (Kenya) living landscape boundary
 description: 'Canonical MOSAIC delineation of the Lake Victoria Basin (Kenya) living landscape (KEN-LVB), used to
-  define the landscape across the catalogue. Source: GADM 4.1, level 1: counties Kakamega (KEN.11_1), Kisumu (KEN.17_1),
-  Siaya (KEN.38_1) and Vihiga (KEN.45_1), unmodified. Full-detail Shapefile and GeoPackage in the dated release
-  boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s STAC collection.'
+  define the landscape across the catalogue. Source: OCHA COD-AB Kenya (IEBC), admin level 1: counties Kericho,
+  Kisumu, Nandi, Siaya and Vihiga, dissolved into one outline (replaced the 4-county GADM outline on 2026-11-10).
+  Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-10 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape''s STAC collection.'
 country: Kenya
 living_landscape: KEN-LVB
 theme: Boundaries / admin units
@@ -14,20 +14,20 @@ temporal_coverage: '2026'
 source: Alliance Bioversity-CIAT (MOSAIC)
 contact: Lizeth Llanos (l.llanos@cgiar.org)
 access_level: Open
-license: Source terms (https://gadm.org/license.html)
+license: CC BY-IGO 3.0
 processing_status: Processed
-file_names: KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-10-14.zip
-current_location: GitHub release boundaries-2026-10-14 (MOSAIC-mfl/catalog)
+file_names: KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-10.zip
+current_location: GitHub release boundaries-2026-11-10 (MOSAIC-mfl/catalog)
 migration_status: null
 server_path: null
 date_registered: '2026-10-21'
-last_updated: '2026-10-14'
+last_updated: '2026-11-10'
 update_frequency: Static
-download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-10-14.zip
-file_size: 117 KB
+download_url: https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-10/KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-10.zip
+file_size: 54 KB
 bbox:
-  xmin: 33.9499
-  ymin: -0.42431
-  xmax: 35.34302
-  ymax: 0.65569
-citation: 'County boundaries: GADM version 4.1 (gadm.org).'
+  xmin: 33.94797
+  ymin: -0.66155
+  xmax: 35.67504
+  ymax: 0.56308
+citation: 'Contains data from ''Kenya - Subnational Administrative Boundaries'' (COD-AB), source: IEBC, published by UN OCHA on HDX (https://data.humdata.org/dataset/cod-ab-ken), licensed under CC BY-IGO 3.0.'
