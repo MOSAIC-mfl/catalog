@@ -51,7 +51,7 @@ CANONICAL = {
     "ETH-OG": ("Omo-Gibe Basin", "East-South Africa Highland-Lowland-Rift Valley System",
                ["Ethiopia"], "Omo_Gibe_LL_ETH.shp"),
     "KEN-LVB": ("Lake Victoria Basin (Kenya)", "East-South Africa Highland-Lowland-Rift Valley System",
-                ["Kenya"], "LVB-2_KEN.shp"),
+                ["Kenya"], "LVB_Counties_KEN.shp"),  # 5 counties, OCHA COD-AB (2026-11-10)
     "KEN-LEI": ("LEILA (Southern Kenya Rangelands)", "East-South Africa Highland-Lowland-Rift Valley System",
                 ["Kenya"], "Zone1_KEN.shp"),
     "ZWE-MB": ("Mbire - Lower Zambezi Valley", "East-South Africa Highland-Lowland-Rift Valley System",
