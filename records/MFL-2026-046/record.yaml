@@ -29,6 +29,7 @@ license_text: >-
   portal states that Côte d'Ivoire climate data is distributed by Sodexam; no licence stated by the rights
   holder
 access: public
+processing_status: validated
 contact:
 - organization: AfricaRice
   roles:

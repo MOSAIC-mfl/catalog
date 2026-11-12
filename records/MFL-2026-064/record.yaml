@@ -29,6 +29,7 @@ temporal:
 license: LicenseRef-source-terms
 license_text: CGIAR Open Access
 access: public
+processing_status: validated
 contact:
 - organization: Alliance Bioversity-CIAT
   roles:

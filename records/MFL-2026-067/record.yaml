@@ -21,6 +21,7 @@ temporal:
   update_frequency: seasonal
 license: CC-BY-4.0
 access: public
+processing_status: validated
 contact:
 - organization: AfricaRice
   roles:

@@ -26,6 +26,7 @@ temporal:
 license: LicenseRef-source-terms
 license_text: Restricted — contact data owner
 access: non-public
+processing_status: validated
 contact:
 - organization: CIP
   roles:

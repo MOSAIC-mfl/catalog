@@ -21,6 +21,7 @@ license_text: >-
   Third-party layers re-published by CoRE Stack; licence set by each source (Land Conflict Watch, Pande
   et al. 2020, ASI, Global Energy Monitor)
 access: public
+processing_status: processed
 contact:
 - organization: Land Conflict Watch, ASI, Global Energy Monitor and others, via CoRE Stack (external)
   roles:

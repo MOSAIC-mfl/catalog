@@ -28,6 +28,7 @@ temporal:
   update_frequency: static
 license: CC-BY-SA-4.0
 access: public
+processing_status: processed
 contact:
 - organization: ICARDA
   roles:

@@ -16,6 +16,7 @@ temporal:
   update_frequency: static
 license: CC-BY-4.0
 access: restricted
+processing_status: validated
 contact:
 - organization: ISRA-BAME
   roles:

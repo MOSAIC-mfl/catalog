@@ -20,6 +20,7 @@ temporal:
   text: '2024'
   update_frequency: static
 access: public
+processing_status: processed
 contact:
 - organization: National government (external)
   roles:

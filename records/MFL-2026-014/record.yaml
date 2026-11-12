@@ -20,6 +20,7 @@ temporal:
 license: LicenseRef-source-terms
 license_text: India-WRIS layers re-published by CoRE Stack; no licence stated by the source
 access: public
+processing_status: processed
 contact:
 - organization: India-WRIS, via CoRE Stack (external)
   roles:

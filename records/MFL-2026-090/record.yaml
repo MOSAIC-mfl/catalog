@@ -22,6 +22,7 @@ license: LicenseRef-source-terms
 license_text: Restricted — contact data owner
 access: restricted
 access_note: Internal Available on Request
+processing_status: raw
 contact:
 - organization: ILRI
   roles:

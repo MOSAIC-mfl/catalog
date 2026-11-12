@@ -27,6 +27,7 @@ license: LicenseRef-source-terms
 license_text: Restricted — contact data owner
 access: restricted
 access_note: Internal Available on request
+processing_status: processed
 contact:
 - organization: ESA / Copernicus (external)
   roles:

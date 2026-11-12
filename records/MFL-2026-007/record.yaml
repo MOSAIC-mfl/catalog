@@ -21,6 +21,7 @@ temporal:
 license: LicenseRef-source-terms
 license_text: Restricted — contact data owner
 access: restricted
+processing_status: processed
 contact:
 - organization: IWMI
   roles:

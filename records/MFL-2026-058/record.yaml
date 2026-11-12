@@ -23,6 +23,7 @@ temporal:
   text: 2015-2023
   update_frequency: unknown
 access: public
+processing_status: validated
 contact:
 - organization: WorldFish
   roles:

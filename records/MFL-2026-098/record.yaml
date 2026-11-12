@@ -33,6 +33,7 @@ license: LicenseRef-source-terms
 license_text: >-
   Source terms (https://data.hydrosheds.org/file/technical-documentation/HydroSHEDS_TechDoc_v1_4.pdf)
 access: public
+processing_status: processed
 contact:
 - organization: Alliance Bioversity-CIAT (MOSAIC)
   roles:

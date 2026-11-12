@@ -22,6 +22,7 @@ temporal:
   update_frequency: annual
 license: CC-BY-4.0
 access: public
+processing_status: validated
 contact:
 - organization: CoRE Stack (external)
   roles:

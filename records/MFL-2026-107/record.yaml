@@ -19,6 +19,7 @@ temporal:
 license: LicenseRef-source-terms
 license_text: CoRE Stack layers; no licence stated in the CoRE Stack layer sheet
 access: public
+processing_status: processed
 contact:
 - organization: CoRE Stack (external)
   roles:

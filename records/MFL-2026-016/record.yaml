@@ -25,6 +25,7 @@ temporal:
 license: LicenseRef-source-terms
 license_text: CGWB layers re-published by CoRE Stack; no licence stated in the CoRE Stack layer sheet
 access: public
+processing_status: processed
 contact:
 - organization: CGWB, via CoRE Stack (external)
   roles:

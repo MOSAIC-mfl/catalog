@@ -22,6 +22,7 @@ license_text: >-
   Mixed per layer: WRI India atlas re-published by CoRE Stack with no licence stated; plantation site
   suitability licensed as stated in the CoRE Stack layer sheet
 access: public
+processing_status: processed
 contact:
 - organization: WRI India and CoRE Stack (external)
   roles:

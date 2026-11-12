@@ -15,6 +15,7 @@ temporal:
   text: '2017'
   update_frequency: static
 access: public
+processing_status: validated
 contact:
 - organization: IFPRI
   roles:

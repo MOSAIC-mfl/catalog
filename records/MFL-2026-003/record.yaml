@@ -20,6 +20,7 @@ temporal:
   text: 2024-2025
   update_frequency: annual
 access: public
+processing_status: validated
 contact:
 - organization: National government (external)
   roles:
