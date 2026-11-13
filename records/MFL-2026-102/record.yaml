@@ -5,10 +5,10 @@ id: MFL-2026-102
 title: Lake Victoria Basin (Kenya) living landscape boundary
 description: >-
   Canonical MOSAIC delineation of the Lake Victoria Basin (Kenya) living landscape (KEN-LVB), used to
-  define the landscape across the catalogue. Source: GADM 4.1, level 1: counties Kakamega (KEN.11_1),
-  Kisumu (KEN.17_1), Siaya (KEN.38_1) and Vihiga (KEN.45_1), unmodified. Full-detail Shapefile and GeoPackage
-  in the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to
-  the landscape's STAC collection.
+  define the landscape across the catalogue. Source: OCHA COD-AB Kenya (IEBC), admin level 1: counties
+  Kericho, Kisumu, Nandi, Siaya and Vihiga, dissolved into one outline (replaced the 4-county GADM outline
+  on 2026-11-10). Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-10 of
+  MOSAIC-mfl/catalog; a simplified outline is attached to the landscape's STAC collection.
 resource_type: dataset
 themes:
 - boundaries-admin-units
@@ -16,10 +16,10 @@ spatial:
   resolution:
     text: Landscape boundary
   bbox:
-  - 33.9499
-  - -0.42431
-  - 35.34302
-  - 0.65569
+  - 33.94797
+  - -0.66155
+  - 35.67504
+  - 0.56308
   crs: EPSG:4326
   geography:
   - KEN
@@ -29,8 +29,7 @@ temporal:
   date: '2026'
   text: '2026'
   update_frequency: static
-license: LicenseRef-source-terms
-license_text: Source terms (https://gadm.org/license.html)
+license: CC-BY-3.0-IGO
 access: public
 processing_status: processed
 contact:
@@ -42,23 +41,25 @@ contact:
   roles:
   - point-of-contact
 citation:
-  text: 'County boundaries: GADM version 4.1 (gadm.org).'
+  text: >-
+    Contains data from 'Kenya - Subnational Administrative Boundaries' (COD-AB), source: IEBC, published
+    by UN OCHA on HDX (https://data.humdata.org/dataset/cod-ab-ken), licensed under CC BY-IGO 3.0.
 additional_links:
 - rel: license
-  url: https://gadm.org/license.html
+  url: https://spdx.org/licenses/CC-BY-3.0-IGO.html
 data:
 - name: Download from github.com
   locations:
   - url: >-
-      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-10-14.zip
+      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-10/KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-10.zip
   access_method: download
   kind: vector
-  file_size: 117 KB
+  file_size: 54 KB
   geometry_type: polygon
   feature_count: 1
   spatial:
     crs: EPSG:4326
-  description: 'Files: KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-10-14.zip'
+  description: 'Files: KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-10.zip'
   structures:
   - Download from github.com
 structures:
@@ -91,5 +92,5 @@ derived:
 - data[].feature_count
 - data[].geometry_type
 created: '2026-10-21'
-updated: '2026-10-21'
-source_updated: '2026-10-14'
+updated: '2026-11-10'
+source_updated: '2026-11-10'
