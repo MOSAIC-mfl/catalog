@@ -1,8 +1,9 @@
 # MOSAIC catalog
 
-> **Status: branch `metadata-standard-v0.1`, for review.** 108 records in the MOSAIC metadata
-> standard v0.2 and the landscape profiles. Published at https://mosaic-mfl.github.io/catalog/ once
-> merged into `main`.
+> 108 records in the MOSAIC metadata standard v0.2 and the landscape profiles, published at
+> https://mosaic-mfl.github.io/catalog/ (the STAC catalog of the first pipeline stays, frozen, at
+> https://mosaic-mfl.github.io/catalog/stac/). The first pipeline (schema-1 records, `build_catalog.py`)
+> is in the git history up to 9abbfc6 and in MOSAIC-mfl/mosaic-standard `legacy/`.
 
 The catalogue of datasets of MOSAIC, the CGIAR Multifunctional Landscapes metadata network. Only
 data lives here:
