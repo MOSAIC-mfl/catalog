@@ -1,6 +1,10 @@
 # Runs on every pull request: the records and the landscape profiles, checked against the MOSAIC
 # standard (MOSAIC-mfl/mosaic-standard, main; the repository variable STANDARD_REF picks another
-# branch or tag). Incomplete records do not fail the check; invalid records and profiles do.
+# branch or tag), then the catalogue built as Publish builds it. Incomplete records do not fail the
+# check; invalid records and profiles do.
+#
+# The job is named pr-build: that is the status check the protection of main requires (it was the
+# first pipeline's build check). Keep the name, or change the required check in the settings with it.
 name: Validate
 
 on:
@@ -13,9 +17,12 @@ permissions:
 
 jobs:
   validate:
+    name: pr-build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          fetch-depth: 0            # full history: the build takes created / updated from git log
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.12"
@@ -29,3 +36,5 @@ jobs:
         run: python -m mosaic_catalog --catalog . validate
       - name: Landscape profiles
         run: python -m mosaic_catalog --catalog . validate-landscapes
+      - name: Build (as Publish does)
+        run: python -m mosaic_catalog --catalog . build --out _site
