@@ -50,6 +50,7 @@ data:
   - url: https://hdl.handle.net/20.500.11766.1/FK2/UN7DKQ
   access_method: landing_page
   kind: tabular
+  media_type: 'text/csv'
   file_size: 9.5 KB
   description: 'Files: LM_KS_data.csv; LM_ALL_data.csv'
 created: '2026-10-15'

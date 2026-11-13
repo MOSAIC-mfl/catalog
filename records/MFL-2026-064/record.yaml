@@ -44,12 +44,14 @@ data:
   - url: https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/2ZQTB2
   access_method: landing_page
   kind: raster
+  media_type: 'image/tiff; application=geotiff'
   file_size: 220 MB
   description: >-
     Files: ex_situ_conservation.tif; expanding_protection.tif; landscape_restoration.tif; maintaining_protection.tif
 - name: Earth Engine asset (MOSAIC project)
   access_method: service
   kind: raster
+  media_type: 'image/tiff; application=geotiff'
   access: non-public
   service:
     type: gee

@@ -46,6 +46,7 @@ data:
   - url: https://doi.org/10.7910/DVN/L86VZ9
   access_method: landing_page
   kind: tabular
+  media_type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
   description: >-
     Size: 104.2 KB (2 files). Files: 1_hybrid_calculation_determinist_LAC.xlsx; 2_environmental calculation_determinist_LAC.xlsx
 created: '2026-08-03'

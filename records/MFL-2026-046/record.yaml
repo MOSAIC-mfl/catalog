@@ -44,6 +44,7 @@ data:
   - url: https://arcweather.africarice.org/en/downloads
   access_method: landing_page
   kind: tabular
+  media_type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
   file_size: 3.5 MB
   description: >-
     Files: synoptic_stations_daily.xlsx (one sheet per station - Bouake, Korhogo, Ferkessedougou)

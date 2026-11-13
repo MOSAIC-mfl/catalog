@@ -49,6 +49,7 @@ data:
   - url: https://peru.mapbiomas.org/iniciativas-y-productos/cobertura-y-uso-del-suelo/cobertura/
   access_method: landing_page
   kind: vector
+  media_type: 'application/x-esri-shapefile'
   file_size: 520.2 MB
   description: 'Files: Ucayali_Land_cover_Land_use.shp (complete shapefile set, 8 files)'
 created: '2026-09-15'

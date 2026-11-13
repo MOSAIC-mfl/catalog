@@ -37,6 +37,7 @@ data:
 - name: Data held by the owner (on request)
   access_method: request
   kind: vector
+  media_type: 'application/x-esri-shapefile'
   access: restricted
   file_size: 571 KB
   description: 'Files: Tunisia_Governorate.shp (complete shapefile set, 8 files)'

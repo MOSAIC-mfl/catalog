@@ -44,6 +44,7 @@ data:
   - url: https://geoservidor.minam.gob.pe/recursos/intercambio-de-datos/
   access_method: landing_page
   kind: vector
+  media_type: 'application/x-esri-shapefile'
   file_size: 109.7 MB
   description: 'Files: Ucayali_Ecosystems_map.shp (complete shapefile set, 8 files)'
 created: '2026-09-15'

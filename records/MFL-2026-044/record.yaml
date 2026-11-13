@@ -46,6 +46,7 @@ data:
   - url: https://gadm.org/download_country.html
   access_method: landing_page
   kind: vector
+  media_type: 'application/x-esri-shapefile'
   file_size: 3.5 MB
   description: >-
     Files: gadm41_CIV_0.shp; gadm41_CIV_1.shp; gadm41_CIV_2.shp; gadm41_CIV_3.shp; gadm41_CIV_4.shp (five

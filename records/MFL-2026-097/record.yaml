@@ -52,6 +52,7 @@ data:
   - url: https://hdl.handle.net/20.500.11766.1/FK2/U4JHNU
   access_method: landing_page
   kind: tabular
+  media_type: 'text/csv'
   file_size: 18 KB
   description: 'Files: LCD_KS_data.csv; LCD_ALL_data.csv'
 created: '2026-10-15'

@@ -42,6 +42,7 @@ data:
   - url: https://doi.org/10.7910/DVN/XD96CL
   access_method: landing_page
   kind: tabular
+  media_type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
   file_size: 586 KB
   description: 'Files: .xlsx'
 created: '2026-08-03'

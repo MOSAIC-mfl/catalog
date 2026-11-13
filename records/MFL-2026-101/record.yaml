@@ -53,6 +53,7 @@ data:
       https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/KEN-LEI_LEILA_Southern_Kenya_Rangelands_boundary_2026-10-14.zip
   access_method: download
   kind: vector
+  media_type: 'application/zip'
   file_size: 315 KB
   geometry_type: polygon
   feature_count: 1

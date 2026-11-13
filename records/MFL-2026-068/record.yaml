@@ -41,6 +41,7 @@ data:
 - name: Data held by the owner (on request)
   access_method: request
   kind: raster
+  media_type: 'image/tiff; application=geotiff'
   access: restricted
   file_size: 250 MB
   description: >-
