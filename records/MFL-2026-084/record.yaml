@@ -1,0 +1,50 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-084.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-084
+title: Climate data AfricaRice M'Bé Research Station
+description: >-
+  Daily weather data from AfricaRice's two weather stations at the M'Bé research station near Bouaké,
+  in the N'Zi watershed: MBE_LOWLAND (273 m) and MBE_UPLAND (303 m), from 2014 onward. Served by AfricaRice's
+  ARCWeather portal.
+resource_type: dataset
+themes:
+- water-hydrology
+spatial:
+  resolution:
+    text: Point level
+  geography:
+  - CIV
+  landscapes:
+  - CIV-NZ
+temporal:
+  start_date: '2014'
+  end_date: null
+  text: 2014 - present
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: >-
+  AfricaRice Terms of Use (https://www.africarice.org/privacy-policy), the usage policy linked from ARCWeather:
+  attribution with the ARCWeather citation; non-commercial, research, educational or personal use only;
+  reuse under the same conditions. No formal licence issued for the climate data yet
+access: public
+contact:
+- organization: AfricaRice
+  roles:
+  - producer
+- name: Louis Kouadio
+  email: a.kouadio2@cgiar.org
+  roles:
+  - point-of-contact
+additional_links:
+- rel: license
+  url: https://www.africarice.org/privacy-policy
+data:
+- name: Page at arcweather.africarice.org
+  locations:
+  - url: https://arcweather.africarice.org/en/downloads
+  access_method: landing_page
+  kind: tabular
+created: '2026-09-22'
+updated: '2026-09-28'
+source_updated: '2026'

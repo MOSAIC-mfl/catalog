@@ -1,0 +1,48 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-022.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-022
+title: Land Degradation - Senegal
+description: >-
+  Based on MODIS time-series vegetation indices (NDVI/EVI) to assess land condition. Coarse spatial resolution
+  (250m–1km) and atmospheric/cloud effects may limit precision; short-term changes may be smoothed. Related:
+  Landsat, Sentinel-2, soil and climate datasets. — Original landscape entry: In the Senegal region, the
+  resolution does not allow for data at the departmental level
+resource_type: dataset
+themes:
+- degradation-land-health
+spatial:
+  resolution:
+    value: 500
+    unit: m
+  geography:
+  - SEN
+  landscapes:
+  - SEN-FK
+temporal:
+  start_date: '2000'
+  end_date: '2024'
+  text: 2000 - 2024
+  update_frequency: annual
+license: CC-BY-4.0
+access: restricted
+access_note: Plugin Trends earth
+processing_status: processed
+contact:
+- organization: ISRA-BAME
+  roles:
+  - producer
+- email: dieyemohamadou@gmail.com
+  roles:
+  - point-of-contact
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+data:
+- name: Data held by the owner (on request)
+  access_method: request
+  kind: raster
+  access: restricted
+created: '2026-07-24'
+updated: '2026-10-22'
+source_updated: '2025'

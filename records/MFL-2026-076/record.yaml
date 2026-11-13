@@ -1,0 +1,51 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-076.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-076
+title: National Ecosystem Map
+description: >-
+  Spatial distribution and classification of ecosystem within Ucayali department, derived from Peru´s
+  National Ecosystem Map 2018, and aggregated by adminstrative provinces and districts level
+resource_type: dataset
+themes:
+- biodiversity-ecosystems
+spatial:
+  bbox:
+  - -75.9479
+  - -11.4483
+  - -70.4944
+  - -7.262
+  crs: EPSG:4326
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+temporal:
+  date: '2018'
+  text: '2018'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: >-
+  Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
+  stated
+access: public
+processing_status: processed
+contact:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at geoservidor.minam.gob.pe
+  locations:
+  - url: https://geoservidor.minam.gob.pe/recursos/intercambio-de-datos/
+  access_method: landing_page
+  kind: vector
+  media_type: 'application/x-esri-shapefile'
+  file_size: 109.7 MB
+  description: 'Files: Ucayali_Ecosystems_map.shp (complete shapefile set, 8 files)'
+created: '2026-09-15'
+updated: '2026-10-15'

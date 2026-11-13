@@ -1,0 +1,50 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-073.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-073
+title: National Protected Natural Areas
+description: National Protected Natural Areas clipped to  Ucayali
+resource_type: dataset
+themes:
+- boundaries-admin-units
+spatial:
+  resolution:
+    text: Boundary level
+  bbox:
+  - -76.6337
+  - -11.6732
+  - -70.5991
+  - -6.1518
+  crs: EPSG:4326
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+temporal:
+  text: Current
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: >-
+  Free download from the Peruvian government source (MINAM/GEOBOSQUES, SERNANP, INEI); no formal license
+  stated
+access: public
+processing_status: processed
+contact:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Beatriz Rodríguez
+  email: b.rodriguez@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at geo.sernanp.gob.pe
+  locations:
+  - url: https://geo.sernanp.gob.pe/visorsernanp/
+  access_method: landing_page
+  kind: vector
+  media_type: 'application/x-esri-shapefile'
+  file_size: 658 KB
+  description: 'Files: Ucayali_National_Protected_Natural_Areas.shp (complete shapefile set, 8 files)'
+created: '2026-09-15'
+updated: '2026-10-15'

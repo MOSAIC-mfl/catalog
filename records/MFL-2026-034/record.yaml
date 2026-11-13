@@ -1,0 +1,38 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-034.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-034
+title: Tunisia Agricultural soil for Le Kef and Siliana.
+description: Agricultural soil map classification
+resource_type: dataset
+themes:
+- degradation-land-health
+spatial:
+  geography:
+  - TUN
+  landscapes:
+  - TUN-NW
+temporal:
+  date: '2021'
+  text: '2021'
+license: LicenseRef-source-terms
+license_text: CGIAR Open Access
+access: restricted
+access_note: Internal Available on request
+processing_status: validated
+contact:
+- organization: ICARDA
+  roles:
+  - producer
+- name: Ayman Frija
+  email: a.frija@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Data held by the owner (on request)
+  access_method: request
+  kind: vector
+  access: restricted
+created: '2026-07-24'
+updated: '2026-10-22'
+source_updated: '2021'

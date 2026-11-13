@@ -1,0 +1,35 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-045.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-045
+title: Agroecological zones
+description: Agroecological zones
+resource_type: dataset
+spatial:
+  geography:
+  - CIV
+  landscapes:
+  - CIV-NZ
+temporal:
+  date: '2017'
+  text: '2017'
+  update_frequency: static
+access: public
+processing_status: validated
+contact:
+- organization: IFPRI
+  roles:
+  - producer
+- name: Justin Djagba
+  email: j.djagba@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at doi.org
+  locations:
+  - url: https://doi.org/10.7910/DVN/G4TBLF
+  access_method: landing_page
+  kind: raster
+created: '2026-07-24'
+updated: '2026-07-24'
+source_updated: '2017'

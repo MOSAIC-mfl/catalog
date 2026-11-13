@@ -1,0 +1,36 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-054.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-054
+title: soil classification
+description: Ministry of Agriculture and Environment (MOAE), Lao PDR
+resource_type: dataset
+themes:
+- land-cover-land-use
+spatial:
+  resolution:
+    text: basin and country levels
+  geography:
+  - LAO
+temporal:
+  text: present
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: Restricted — contact data owner
+access: non-public
+access_note: website-MOAE
+processing_status: validated
+contact:
+- organization: IWMI
+  roles:
+  - producer
+- email: s.douangsavanh@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Data held by the owner (on request)
+  access_method: request
+  kind: vector
+  access: non-public
+created: '2026-07-24'
+updated: '2026-07-24'

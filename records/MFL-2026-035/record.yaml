@@ -1,0 +1,28 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-035.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-035
+title: Agroecological and socioeconomic datasets
+description: Survay collecting evidence of the holistic impact of agroecology
+resource_type: dataset
+themes:
+- socio-economic-livelihoods
+spatial:
+  geography:
+  - TUN
+  landscapes:
+  - TUN-NW
+temporal:
+  date: '2024'
+  text: '2024'
+  update_frequency: unknown
+contact:
+- organization: ICARDA
+  roles:
+  - producer
+- name: Ayman Frija
+  email: a.frija@cgiar.org
+  roles:
+  - point-of-contact
+created: '2026-07-24'
+updated: '2026-07-24'

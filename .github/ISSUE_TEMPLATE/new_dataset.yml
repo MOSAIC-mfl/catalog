@@ -1,5 +1,5 @@
 name: Register a new dataset
-description: Submit a geospatial dataset to the MOSAIC catalog. A maintainer will turn this into a record file (records/<ID>.yaml) and the catalog rebuilds automatically.
+description: Submit a geospatial dataset to the MOSAIC catalog. A maintainer will turn this into a record (records/<ID>/record.yaml) and the catalog rebuilds automatically.
 title: "[Dataset] <short dataset name>"
 labels: ["dataset-submission"]
 body:
@@ -9,7 +9,7 @@ body:
         Thanks for contributing to MOSAIC! Fill in what you know — only the first
         four fields are required. A maintainer converts this into a validated
         record file; you'll be tagged on the pull request for review.
-        Field definitions: see [`spec/record_schema.md`](../blob/main/spec/record_schema.md).
+        Field definitions: see [fields.md](https://github.com/MOSAIC-mfl/mosaic-standard/blob/main/docs/fields.md) and [standard.md](https://github.com/MOSAIC-mfl/mosaic-standard/blob/main/docs/standard.md) in mosaic-standard.
   - type: input
     id: title
     attributes:
@@ -100,12 +100,14 @@ body:
     id: access_level
     attributes:
       label: Access level
-      options: [Open, Internal, Restricted]
+      description: Public = anyone can get the data; Restricted = on request or with an account; Non-public = only the team that holds it.
+      options: [Public, Restricted, Non-public]
   - type: input
     id: license
     attributes:
       label: License
-      placeholder: e.g. CC BY 4.0
+      description: The licence of the data, and who grants it (the licensor), if you know.
+      placeholder: e.g. CC BY 4.0, granted by ILRI
   - type: dropdown
     id: processing_status
     attributes:

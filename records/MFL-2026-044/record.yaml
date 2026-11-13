@@ -1,0 +1,56 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-044.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-044
+title: District/Region boundaries
+description: >-
+  GADM 4.1 administrative boundaries for Côte d'Ivoire, levels 0 to 4: the country; 12 districts and 2
+  autonomous districts; 31 regions plus the 2 autonomous districts; 113 departments; and 191 sub-prefectures.
+  Country-wide, not clipped to the N'Zi landscape. Unmodified from GADM; download from gadm.org. GADM's
+  licence does not allow redistribution, so MOSAIC keeps only an internal quality-control copy.
+resource_type: dataset
+themes:
+- boundaries-admin-units
+spatial:
+  resolution:
+    text: admin-level-0 to admin-level-4 (GADM 4.1)
+  bbox:
+  - -8.5993
+  - 4.3618
+  - -2.4949
+  - 10.7366
+  crs: EPSG:4326
+  geography:
+  - CIV
+  landscapes:
+  - CIV-NZ
+temporal:
+  date: '2022'
+  text: '2022'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: Restricted — GADM terms (academic/non-commercial use only, no redistribution)
+access: public
+processing_status: validated
+contact:
+- organization: AfricaRice
+  roles:
+  - producer
+- name: Louis Kouadio
+  email: a.kouadio2@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at gadm.org
+  locations:
+  - url: https://gadm.org/download_country.html
+  access_method: landing_page
+  kind: vector
+  media_type: 'application/x-esri-shapefile'
+  file_size: 3.5 MB
+  description: >-
+    Files: gadm41_CIV_0.shp; gadm41_CIV_1.shp; gadm41_CIV_2.shp; gadm41_CIV_3.shp; gadm41_CIV_4.shp (five
+    complete shapefile sets, 25 files)
+created: '2026-07-24'
+updated: '2026-10-15'
+source_updated: '2022'

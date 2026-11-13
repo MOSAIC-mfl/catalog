@@ -1,15 +1,16 @@
-__pycache__/
-*.pyc
-.DS_Store
-.venv/
+# written by the workflows and by local builds (the standard and the build live in mosaic-standard)
+_standard/
 _site/
-MOSAIC_Catalog_Gap_Analysis.*
+dist/
+__pycache__/
+
+# local settings and secrets: never committed
+.env
+.env.*
+.DS_Store
 
 # Internal working documents (discussions, plans, assessments) stay out of git.
-# Drop anything of that kind in _internal/ or at the repo root as office files.
 _internal/
 /*.pptx
 /*.docx
 /*.xlsx
-MOSAIC_CDH_Interoperability_STAC_Assessment_202606.md
-catalog/*_LOCKED_*.xlsx

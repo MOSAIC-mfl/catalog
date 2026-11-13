@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-001.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-001
+title: Central India Landscape - Land Use / Land Cover
+description: 'Related data set: Sentinel 2. Landsat 7, Landsat 8
+
+  Method: Hierarchical classification approach.'
+resource_type: dataset
+themes:
+- land-cover-land-use
+spatial:
+  resolution:
+    value: 30
+    unit: m
+  geography:
+  - IND
+  landscapes:
+  - IND-CH
+temporal:
+  start_date: '2024'
+  end_date: '2025'
+  text: 2024-2025
+  update_frequency: annual
+license: CC-BY-4.0
+access: public
+processing_status: validated
+contact:
+- organization: National government (external)
+  roles:
+  - producer
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+data:
+- name: Page at drive.google.com
+  locations:
+  - url: https://drive.google.com/file/d/1CPV03S47s0asEJqdAozbNOT1lkgr0YkG/view?usp=sharing
+  access_method: landing_page
+  kind: raster
+created: '2026-07-24'
+updated: '2026-07-24'

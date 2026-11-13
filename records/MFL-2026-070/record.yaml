@@ -1,0 +1,50 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-070.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-070
+title: >-
+  Coding Matrix: Ecosystem Services in Tropical Cattle Systems — A Systematic Literature Review across
+  Five Thematic Streams
+description: >-
+  Workbook documenting ~549 coded study entries from a systematic literature review on ecosystem services
+  in tropical and subtropical cattle systems, coded consistently across five thematic streams for cross-paper
+  comparison and filtering. Studies may appear in multiple streams.
+resource_type: dataset
+themes:
+- ecosystem-services
+spatial:
+  geography:
+  - global
+temporal:
+  update_frequency: static
+license: CC-BY-4.0
+access: public
+contact:
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - producer
+- name: Stefan Burkart
+  email: s.burkart@cgiar.org
+  roles:
+  - point-of-contact
+citation:
+  text: >-
+    Lüdtke, Adrian; Burkart, Stefan, 2026, "Coding Matrix: Ecosystem Services in Tropical Cattle Systems
+    A Systematic Literature Review across Five Thematic Streams", https://doi.org/10.7910/DVN/XD96CL,
+    Harvard Dataverse, V1
+doi: 10.7910/DVN/XD96CL
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+data:
+- name: Page at doi.org
+  locations:
+  - url: https://doi.org/10.7910/DVN/XD96CL
+  access_method: landing_page
+  kind: tabular
+  media_type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  file_size: 586 KB
+  description: 'Files: .xlsx'
+created: '2026-08-03'
+updated: '2026-08-03'
+source_updated: '2026'

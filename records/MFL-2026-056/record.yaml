@@ -1,0 +1,44 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-056.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-056
+title: "Crop fields (2023)  focus on \tPotatoes, Oca, Mashua and andean fruit trees"
+description: >-
+  A total of 206 farmers in Cumbal, Colombia, were surveyed utilizing ArcGIS Survey 123. Each farmer's
+  field was physically visited, and the 'Participatory Mapping of Farmers' Fields' tool was employed to
+  delineate polygons for each 'shagra', accurately determining their respective areas. This process captured
+  the characteristics of 557 mapped plots across 206 farmers' households. The resultant comprehensive
+  dataset comprises five distinct databases: A) Preliminary Information, B) Shagra Information, C) Land
+  Use Over the Years, and D) Variety Names. These datasets have been individualized and standardized using
+  the common identifiers 'GlobalID Household' and 'GlobalID Shagra'.
+resource_type: dataset
+themes:
+- agrobiodiversity-crops
+spatial:
+  resolution:
+    text: Cumbal (Andean Amazon Landscape)
+  geography:
+  - COL
+temporal:
+  date: '2023'
+  text: '2023'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: Restricted — contact data owner
+access: non-public
+processing_status: validated
+contact:
+- organization: CIP
+  roles:
+  - producer
+- email: javier.ochoa@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at data.cipotato.org
+  locations:
+  - url: https://data.cipotato.org/
+  access_method: landing_page
+  kind: vector
+created: '2026-07-24'
+updated: '2026-07-24'

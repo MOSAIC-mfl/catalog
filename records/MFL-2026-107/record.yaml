@@ -1,0 +1,42 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-107.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-107
+title: Climate hazard and drought indices - India
+description: >-
+  CoRE Stack Hazard Index layers. Extreme rainfall, forest fire and high wind speed indices, and SPEI
+  drought indices at 1, 3 and 12 months (monthly, seasonal and annual drought). Pan-India.
+resource_type: dataset
+themes:
+- scenarios-future-risks
+spatial:
+  geography:
+  - IND
+  landscapes:
+  - IND-CH
+temporal:
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: CoRE Stack layers; no licence stated in the CoRE Stack layer sheet
+access: public
+processing_status: processed
+contact:
+- organization: CoRE Stack (external)
+  roles:
+  - producer
+- organization: Core Stack (Open access)
+  roles:
+  - point-of-contact
+- name: Sudharsan Malaiappan
+  email: s.maliappan@cgiar.org
+  roles:
+  - point-of-contact
+data:
+- name: Page at docs.google.com
+  locations:
+  - url: >-
+      https://docs.google.com/spreadsheets/d/1xS5d7vgyjyoqqnmmajKDZBx9qS6GqyAdSbNDR62ot2Y/edit?gid=0
+  access_method: landing_page
+  kind: raster
+created: '2026-10-29'
+updated: '2026-10-29'

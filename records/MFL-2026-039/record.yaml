@@ -1,0 +1,41 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-039.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-039
+title: District level crop area, production and yield data - Ethiopia
+description: District level crop area, production and yield.
+resource_type: dataset
+themes:
+- agrobiodiversity-crops
+spatial:
+  geography:
+  - ETH
+  landscapes:
+  - ETH-OG
+temporal:
+  start_date: '1991'
+  end_date: '2020'
+  text: 1991-2020
+  update_frequency: annual
+license: CC-BY-4.0
+access: restricted
+access_note: Internal Available on request
+processing_status: validated
+contact:
+- organization: National government (external)
+  roles:
+  - producer
+- name: Degefie Tibebe
+  email: d.tibebe@cgiar.org
+  roles:
+  - point-of-contact
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+data:
+- name: Data held by the owner (on request)
+  access_method: request
+  kind: tabular
+  access: restricted
+created: '2026-07-24'
+updated: '2026-10-28'

@@ -1,0 +1,45 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-060.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-060
+title: Marine fisheries management area
+description: >-
+  Marine fisheries management area to enhance the protection of the marine biodiversity and fisheries
+  livelihood within​ Archipelago in marine areas, divided into 6 classifications such as community fisheries,
+  conservation areas, fisheries refugias, multiple use areas, protected area, and recreational areas.
+resource_type: dataset
+themes:
+- biodiversity-ecosystems
+spatial:
+  resolution:
+    text: boundary level
+  geography:
+  - KHM
+  landscapes:
+  - MEK-3S
+temporal:
+  date: '2018'
+  text: '2018'
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+processing_status: validated
+contact:
+- organization: WorldFish
+  roles:
+  - producer
+- name: Shwu Jiau Teoh
+  email: s.teoh@cgiar.org
+  roles:
+  - point-of-contact
+additional_links:
+- rel: license
+  url: https://spdx.org/licenses/CC-BY-4.0.html
+data:
+- name: Page at data.opendevelopmentcambodia.net
+  locations:
+  - url: https://data.opendevelopmentcambodia.net/en/dataset/marine-fisheries-management-area
+  access_method: landing_page
+  kind: vector
+created: '2026-07-24'
+updated: '2026-07-24'

@@ -1,0 +1,37 @@
+# MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-026.yaml on main by
+# scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+schema_version: 0.2.0
+id: MFL-2026-026
+title: District/ward boundaries
+description: Administrative boundaries for the Lower Zambezi Valley (Districts and wards)
+resource_type: dataset
+themes:
+- boundaries-admin-units
+spatial:
+  resolution:
+    text: Admin - MFLLs Boundary
+  geography:
+  - ZWE
+  landscapes:
+  - ZWE-MB
+temporal:
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: Restricted — GADM terms (academic/non-commercial use only, no redistribution)
+access: public
+processing_status: validated
+contact:
+- organization: CIMMYT
+  roles:
+  - producer
+- email: Telma.SIBANDA@um6p.ma
+  roles:
+  - point-of-contact
+data:
+- name: Page at gadm.org
+  locations:
+  - url: https://gadm.org/
+  access_method: landing_page
+  kind: vector
+created: '2026-07-24'
+updated: '2026-09-14'
