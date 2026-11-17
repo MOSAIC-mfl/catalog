@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-123
+title: Global Forest Change 2000-2025, version 1.13 (Hansen/UMD)
+description: >-
+  Tree cover in 2000 and the year of gross tree-cover loss, 2001-2025, at 30 m from Landsat (Hansen et al. 2013;
+  version GFC-2025-v1.13). Tree-cover loss is not deforestation: it includes plantation and woodlot harvest. Detection
+  improved around 2011-2013, so annual values before and after are not strictly comparable. The MOSAIC Lake Victoria
+  Basin explorer counts loss where tree cover in 2000 was at least 30 %.
+resource_type: dataset
+themes:
+- land-cover-land-use
+- pressures-drivers
+spatial:
+  geography:
+  - global
+  landscapes:
+  - KEN-LVB
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '2000'
+  end_date: '2025'
+  update_frequency: unknown
+version: GFC-2025-v1.13
+license: CC-BY-4.0
+access: public
+contact:
+- organization: University of Maryland, Department of Geographical Sciences
+  roles:
+  - producer
+  - licensor
+citation:
+  text: Hansen, M.C. et al. (2013). High-resolution global maps of 21st-century forest cover change. Science 342,
+    850-853.
+data:
+- name: GFC-2025-v1.13 download page
+  locations:
+  - url: https://storage.googleapis.com/earthenginepartners-hansen/GFC-2025-v1.13/download.html
+  access_method: landing_page
+  kind: raster
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-116
+title: Lake Victoria Basin boundary (ICPAC)
+description: >-
+  Outline of the Lake Victoria Basin published on the ICPAC geoportal as layer geonode:lv_basin (2019). The MOSAIC
+  Lake Victoria Basin explorer uses it as the common study extent of all its layers, with the lake shoreline taken
+  from the Copernicus GLO-30 water-body mask (2011-2015).
+resource_type: dataset
+themes:
+- boundaries-admin-units
+- water-hydrology
+spatial:
+  geography:
+  - KEN
+  - UGA
+  - TZA
+  - RWA
+  - BDI
+  landscapes:
+  - KEN-LVB
+temporal:
+  date: '2019'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: 'Not specified: the ICPAC geoportal states the licence as ''not specified''. Redistribution to be
+  confirmed with ICPAC.'
+access: public
+contact:
+- organization: IGAD Climate Prediction and Applications Centre (ICPAC)
+  roles:
+  - producer
+  - host
+citation:
+  text: ICPAC Geoportal. Lake Victoria Basin shapefile (geonode:lv_basin), 2019.
+data:
+- name: geonode:lv_basin on the ICPAC geoportal
+  locations:
+  - url: https://geoportal.icpac.net/layers/geonode:lv_basin
+  access_method: landing_page
+  kind: vector
+  geometry_type: polygon
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

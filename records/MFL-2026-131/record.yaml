@@ -1,0 +1,55 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-131
+title: Drought index SPI-3 from CHIRPS v3, Ucayali
+description: >-
+  3-month Standardized Precipitation Index (McKee et al. 1993) per 0.05 degree cell, monthly from March 1981, computed
+  from CHIRPS v3.0 monthly rainfall: gamma fit per cell and calendar month (Thom 1958) calibrated on 1991-2020,
+  zero-rain months as a mixed distribution, values limited to plus or minus 3; class names after WMO (2012). The
+  most recent 2-3 CHIRPS months are provisional. Computed for the MOSAIC Ucayali explorer.
+resource_type: dataset
+themes:
+- climate
+- water-hydrology
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  resolution:
+    value: 0.05
+    unit: degree
+temporal:
+  start_date: 1981-03
+  end_date: 2026-08
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: No licence stated by the author (the explorer repository has no licence file). Derived from CHIRPS
+  v3.0 (CC BY 4.0).
+access: public
+processing_status: processed
+contact:
+- organization: CGIAR
+  name: Andrés Aguilar
+  roles:
+  - producer
+  - point-of-contact
+data:
+- name: spi3.tif (monthly SPI-3 stack)
+  locations:
+  - url: https://anaguilarar.github.io/mosaic-ucayali/data/climate/app/spi3.tif
+  access_method: download
+  kind: raster
+  media_type: image/tiff; application=geotiff
+processing:
+- id: source
+  description: SPI-3 from CHIRPS v3.0 monthly totals (3-month rolling sums).
+  derived_from:
+  - title: CHIRPS v3.0 (UCSB Climate Hazards Center)
+    url: https://www.chc.ucsb.edu/data/chirps3
+  code:
+    url: https://github.com/anaguilarar/mosaic-ucayali
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

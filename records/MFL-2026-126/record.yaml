@@ -1,0 +1,50 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-126
+title: Esri/Impact Observatory annual land use and land cover, version 2, 10 m
+description: >-
+  Annual nine-class land-use and land-cover maps at 10 m from Sentinel-2 and deep learning (Karra et al. 2021),
+  version 2, 2017-2023 on the Microsoft Planetary Computer (io-lulc-annual-v02). The MOSAIC Lake Victoria Basin
+  explorer shows it at 30 m. Global land-cover products disagree on cropland in sub-Saharan Africa (Kerner et al.
+  2023): year-to-year change is indicative.
+resource_type: dataset
+themes:
+- land-cover-land-use
+spatial:
+  geography:
+  - global
+  landscapes:
+  - KEN-LVB
+  resolution:
+    value: 10
+    unit: m
+temporal:
+  start_date: '2017'
+  end_date: '2023'
+  update_frequency: annual
+license: CC-BY-4.0
+access: public
+contact:
+- organization: Impact Observatory
+  roles:
+  - producer
+  - licensor
+- organization: Esri
+  roles:
+  - producer
+- organization: Microsoft Planetary Computer
+  roles:
+  - host
+citation:
+  text: Karra, K., Kontgis, C., Statman-Weil, Z., Mazzariello, J.C., Mathis, M., Brumby, S.P. (2021). Global land
+    use / land cover with Sentinel-2 and deep learning. IGARSS 2021.
+data:
+- name: io-lulc-annual-v02 on the Planetary Computer
+  locations:
+  - url: https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02
+  access_method: service
+  kind: raster
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

@@ -1,0 +1,47 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-118
+title: Sentinel-2 MSI Level-2A surface reflectance (harmonized)
+description: >-
+  Copernicus Sentinel-2 Level-2A surface reflectance as served in Google Earth Engine (COPERNICUS/S2_SR_HARMONIZED).
+  The MOSAIC map explorers use cloud-masked median composites of bands B4, B3 and B2 at 30 m as their true-colour
+  base map: 2023-2025 for the Lake Victoria Basin, 2025 for Ucayali.
+resource_type: dataset
+themes:
+- land-cover-land-use
+spatial:
+  geography:
+  - global
+  landscapes:
+  - KEN-LVB
+  - PER-PCL
+temporal:
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: 'Copernicus Sentinel data: free use, including reproduction and distribution, with attribution to
+  ESA / Copernicus.'
+attribution: Contains modified Copernicus Sentinel data [year]
+access: public
+contact:
+- organization: European Space Agency (ESA), Copernicus programme
+  roles:
+  - producer
+  - licensor
+- organization: Google Earth Engine
+  roles:
+  - host
+citation:
+  text: Copernicus Sentinel-2 L2A, via Google Earth Engine (COPERNICUS/S2_SR_HARMONIZED).
+data:
+- name: COPERNICUS/S2_SR_HARMONIZED in the Earth Engine catalogue
+  locations:
+  - url: https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED
+  access_method: landing_page
+  kind: raster
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

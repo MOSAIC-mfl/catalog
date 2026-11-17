@@ -525,6 +525,7 @@ toggles:
   - provinces-label
   attribution: IGN (ODC-By)
   source_ref: admin_boundaries
+  record: mosaic:MFL-2026-072
 panels: []
 click:
   title: Ucayali
@@ -549,6 +550,7 @@ overlays:
   kind: style-layers
   swatch: '#55a05f'
   source_ref: veg_classes
+  record: mosaic:MFL-2026-128
   before: dim
   attribution: Cooley et al. (2024) vegetation typologies (CC0)
   sources:
@@ -625,6 +627,7 @@ overlays:
   kind: raster-tiles
   swatch: '#1f704a'
   source_ref: canopy
+  record: mosaic:MFL-2026-129
   asset: tiles/canopy.pmtiles
   before: dim
   paint: &id007
@@ -673,6 +676,7 @@ overlays:
   kind: style-layers
   swatch: '#579a66'
   source_ref: gedi
+  record: mosaic:MFL-2026-132
   before: dim
   attribution: NASA GEDI L2A v002
   sources:
@@ -812,6 +816,7 @@ overlays:
   kind: year-tiles
   swatch: '#e49635'
   source_ref: landcover
+  record: mosaic:MFL-2026-133
   before: dim
   attribution: MapBiomas Perú C4 (CC BY 4.0)
   paint:
@@ -907,6 +912,7 @@ overlays:
   kind: raster-tiles
   swatch: '#b2182b'
   source_ref: forest_loss
+  record: mosaic:MFL-2026-130
   asset: tiles/forest_loss.pmtiles
   before: dim
   paint: *id007
@@ -953,6 +959,7 @@ overlays:
   kind: year-tiles
   swatch: '#e55064'
   source_ref: fire
+  record: mosaic:MFL-2026-124
   before: dim
   attribution: NASA FIRMS VIIRS
   paint: *id007
@@ -1046,6 +1053,7 @@ overlays:
   kind: year-tiles
   swatch: '#782012'
   source_ref: burned_area
+  record: mosaic:MFL-2026-134
   before: dim
   attribution: MapBiomas Fuego C2 (CC BY 4.0)
   paint: *id007
@@ -1103,6 +1111,7 @@ overlays:
   kind: style-layers
   swatch: '#2e86ab'
   source_ref: protected_areas
+  record: mosaic:MFL-2026-073
   before: dim
   attribution: SERNANP
   sources:
@@ -1166,6 +1175,7 @@ overlays:
   kind: climate-grid
   swatch: '#434e6b'
   source_ref: precip
+  record: cdh:chirps-v3-daily
   grid: climate/app/
   before: dim
   attribution: CHIRPS v3 (UCSB CHC, CC BY 4.0)
@@ -1223,6 +1233,7 @@ overlays:
   kind: climate-grid
   swatch: '#e14c66'
   source_ref: temperature
+  record: cdh:chirts-era5-daily
   grid: climate/app/
   before: dim
   attribution: CHIRTS-ERA5 (UCSB CHC)
@@ -1283,6 +1294,7 @@ overlays:
   kind: index-grid
   swatch: '#35978f'
   source_ref: spi3
+  record: mosaic:MFL-2026-131
   grid: climate/app/
   before: dim
   attribution: SPI-3 from CHIRPS v3

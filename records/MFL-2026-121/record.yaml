@@ -1,0 +1,43 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-121
+title: HydroRIVERS v1.0 global river network
+description: >-
+  Vector river network derived from HydroSHEDS version 1 (Lehner & Grill 2013), with the Strahler order of each
+  reach. The MOSAIC Lake Victoria Basin explorer shows reaches of Strahler order 4 and above, clipped to the basin
+  (1,076 reaches).
+resource_type: dataset
+themes:
+- water-hydrology
+spatial:
+  geography:
+  - global
+  landscapes:
+  - KEN-LVB
+temporal:
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: 'HydroSHEDS v1 licence agreement (© World Wildlife Fund, Inc. 2006-2022): use under the licence, with
+  its required attribution; redistribution is restricted by the licence.'
+access: public
+contact:
+- organization: World Wildlife Fund (WWF)
+  roles:
+  - producer
+  - licensor
+citation:
+  text: Lehner, B., Grill, G. (2013). Global river hydrography and network routing. Hydrological Processes 27, 2171-2186.
+data:
+- name: HydroRIVERS on hydrosheds.org
+  locations:
+  - url: https://www.hydrosheds.org/products/hydrorivers
+  access_method: landing_page
+  kind: vector
+  geometry_type: line
+additional_links:
+- rel: license
+  url: https://www.hydrosheds.org/terms-of-use
+  title: HydroSHEDS terms of use
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

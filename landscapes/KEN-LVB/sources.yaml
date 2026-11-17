@@ -14,7 +14,7 @@ layers:
     Lake shoreline from the Copernicus GLO-30 water-body mask (2011-2015); it predates the 2020/2024 high
     stands.
   citation: ICPAC Geoportal; Copernicus DEM GLO-30 (ESA/Airbus)
-  record: null
+  record: mosaic:MFL-2026-116
 - id: flood_hazard
   title: Flood hazard (observed flood frequency)
   group: Flood hazard
@@ -29,7 +29,7 @@ layers:
   caveats: >-
     Flooded vegetation and urban areas under-detected; short floods between overpasses missed; band 3
     shows where SAR cannot map floods.
-  record: null
+  record: mosaic:MFL-2026-117
 - id: terrain
   title: Terrain (Copernicus GLO-30)
   group: Base
@@ -42,7 +42,7 @@ layers:
     The DEM export is a union of two rectangles; areas outside it (all outside the basin: north-west of
     31E/1N, the far south-east and south-west corners) and the 600 km display padding hold synthetic filler.
     Elevations are neither shown nor queryable anywhere; the basin itself has full real GLO-30 coverage.
-  record: null
+  record: cdh:copernicus-dem
 - id: precip
   title: Precipitation (CHIRPS v3)
   group: Climate
@@ -55,7 +55,7 @@ layers:
   caveats: >-
     Satellite rainfall over the lake surface is less reliable; basin means use land cells only.
   citation: Funk et al. (2015), Scientific Data 2:150066; CHIRPS v3.0, UCSB Climate Hazards Center
-  record: null
+  record: cdh:chirps-v3-daily
 - id: temperature
   title: Temperature (CHIRTS-ERA5)
   group: Climate
@@ -64,7 +64,7 @@ layers:
   units: degC
   licence: CC-BY-4.0
   citation: Funk et al. (2019), J. Climate 32:5639-5658; CHIRTS-ERA5, UCSB CHC
-  record: null
+  record: cdh:chirts-era5-daily
 - id: s2_rgb
   title: Satellite imagery (Sentinel-2)
   group: Base
@@ -73,7 +73,7 @@ layers:
   units: true colour (fixed stretch 0-3000, gamma 2.2)
   licence: 'Copernicus Sentinel data: free use with attribution'
   citation: Contains modified Copernicus Sentinel-2 data [2023-2025]
-  record: null
+  record: mosaic:MFL-2026-118
 - id: lake_level
   title: Lake water level (satellite altimetry)
   group: Water
@@ -84,7 +84,7 @@ layers:
   attribution: DAHITI, DGFI-TUM
   citation: >-
     Schwatke, C., Dettmering, D., Bosch, W., Seitz, F. (2015), HESS 19, 4345–4364, doi:10.5194/hess-19-4345-2015
-  record: null
+  record: mosaic:MFL-2026-119
 - id: spi3
   title: Drought index (SPI-3)
   group: Climate
@@ -98,7 +98,7 @@ layers:
   citation: >-
     McKee, Doesken & Kleist (1993), 8th Conf. Applied Climatology; classes: WMO (2012), SPI User Guide,
     WMO-No. 1090; Funk et al. (2015), Scientific Data 2:150066
-  record: null
+  record: mosaic:MFL-2026-120
 - id: rivers
   title: Rivers (HydroRIVERS)
   group: Base
@@ -127,7 +127,7 @@ layers:
     rights of © USGS (2006-2008), NASA (2000-2005), ESRI (1992-1998), CIAT (2004-2006), UNEP-WCMC (1993),
     WWF (2004), Commonwealth of Australia (2007), and Her Royal Majesty and the British Crown and are
     used under license. The HydroSHEDS v1 database and more information are available at https://www.hydrosheds.org.
-  record: null
+  record: mosaic:MFL-2026-121
 - id: population
   title: Population (exposure input)
   group: Exposure
@@ -141,7 +141,7 @@ layers:
   caveats: Exposure input (people in place), not risk; census-era modelled counts.
   citation: >-
     WorldPop (2020), School of Geography and Environmental Science, University of Southampton. doi:10.5258/SOTON/WP00682
-  record: null
+  record: mosaic:MFL-2026-122
 - id: forest_loss
   title: Tree-cover loss (Hansen GFC)
   group: Land
@@ -154,7 +154,7 @@ layers:
     annual values not strictly comparable across the break. Map shows cumulative loss at 5-year epochs
     (MapLibre cannot style rasters by value); the panel reports exact annual areas.
   citation: 'Hansen et al. (2013), Science 342:850-853. Data: UMD/Google/USGS/NASA.'
-  record: null
+  record: mosaic:MFL-2026-123
 - id: fire
   title: Active fires (VIIRS)
   group: Fire
@@ -168,7 +168,7 @@ layers:
     Mostly savanna and crop-residue burning; charcoal production not detected reliably; cloud hides wet-season
     fires. NOAA-20 only in the point layer.
   citation: NASA FIRMS; Schroeder et al. (2014), RSE 143:85-96. doi:10.5067/FIRMS/VIIRS/VNP14IMGT
-  record: null
+  record: mosaic:MFL-2026-124
 - id: burned_area
   title: Burned area (MODIS)
   group: Fire
@@ -182,7 +182,7 @@ layers:
   range_note: >-
     annual burned area in the basin, all years 2001-2025: min 4100 km2 (2017), median 10296 km2, max 15323
     km2 (2003)
-  record: null
+  record: mosaic:MFL-2026-125
 - id: landcover
   title: Land cover (Esri/IO annual)
   group: Land
@@ -196,7 +196,7 @@ layers:
     Global land-cover products disagree on cropland in sub-Saharan Africa (Kerner et al. 2023); year-to-year
     change is indicative.
   citation: Karra et al. (2021), IGARSS; Impact Observatory, Esri, Microsoft.
-  record: null
+  record: mosaic:MFL-2026-126
 - id: worldcover
   title: Land cover reference (ESA WorldCover 2021)
   group: Land
@@ -205,7 +205,7 @@ layers:
   units: land-cover class
   licence: CC BY 4.0
   citation: Zanaga et al. (2022). ESA WorldCover 10 m 2021 v200. doi:10.5281/zenodo.7254221
-  record: null
+  record: cdh:esa-worldcover-2021
 - id: osm_labels
   title: Place names
   group: Base
@@ -319,4 +319,4 @@ layers:
     licence: Public Domain
     boundaryID: BDI-ADM2-21766830
     units_in_basin: 81
-  record: null
+  record: mosaic:MFL-2026-127

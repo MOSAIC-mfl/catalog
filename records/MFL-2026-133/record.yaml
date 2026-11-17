@@ -1,0 +1,48 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-133
+title: MapBiomas Perú Collection 4 annual land cover and land use
+description: >-
+  Annual land-cover and land-use maps of Peru at 30 m, 1985-2025 (MapBiomas Perú Collection 4), with classes such
+  as forest, flooded forest, mosaic of agriculture and pasture, oil palm and urban infrastructure; cacao has no
+  class of its own. The MOSAIC Ucayali explorer shows 2000, 2005, 2010, 2015, 2020 and 2024. MFL-2026-081 is derived
+  from it, vectorised and aggregated by province and district.
+resource_type: dataset
+themes:
+- land-cover-land-use
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '1985'
+  end_date: '2025'
+  update_frequency: unknown
+version: '4'
+license: CC-BY-4.0
+access: public
+contact:
+- organization: MapBiomas Perú
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  text: MapBiomas Perú. Colección 4 de mapas anuales de cobertura y uso del suelo. peru.mapbiomas.org.
+data:
+- name: MapBiomas Perú land cover
+  locations:
+  - url: https://peru.mapbiomas.org/iniciativas-y-productos/cobertura-y-uso-del-suelo/cobertura/
+  access_method: landing_page
+  kind: raster
+additional_links:
+- rel: related
+  id: MFL-2026-081
+  title: 'Derived product: land cover by province and district'
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer
