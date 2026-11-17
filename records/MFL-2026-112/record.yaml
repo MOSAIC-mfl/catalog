@@ -1,0 +1,58 @@
+# MOSAIC record (standard v0.2). Registered from the New dataset form, catalog issue #10 (IITA, 2026-11-05, revised 2026-11-12).
+schema_version: 0.2.0
+id: MFL-2026-112
+title: Land productivity linear trends in the long growing season
+description: >-
+  Land productivity linear trends in the long growing season (March to June) from 1997 to 2024 in the
+  Lake Victoria Basin (LVB) in Kenya. Trends were derived from time series of bimonthly cloud-free Landsat
+  imagery with 30 m spatial resolution. A modified Mann-Kendall (MK) test and Sen’s slope estimator were
+  utilized to determine the significance and magnitude of the trends, respectively. MK test assumes a
+  monotonic linear trend, though, naturally, land productivity exhibit temporally differentiated discontinuities
+  that may affect the estimation of the magnitude of the trend. Negative values indicate significant land
+  degradation (browning), zero represents no significant trend, and positive values indicate significant
+  land improvements (greening).
+resource_type: dataset
+themes:
+- degradation-land-health
+spatial:
+  geography:
+  - KEN
+  landscapes:
+  - KEN-LVB
+  crs: EPSG:4326
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '1997'
+  end_date: '2024'
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+processing_status: processed
+attribution: International Institute of Tropical Agriculture (IITA)
+contact:
+- organization: International Institute of Tropical Agriculture (IITA)
+  name: Francis Muthoni
+  email: f.muthoni@cgiar.org
+  roles:
+  - producer
+  - licensor
+  - point-of-contact
+data:
+- name: long_season_trend_class.tif
+  locations:
+  - url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/raw/main/results/ndvi/linear/long_season_trend_class.tif
+  access_method: download
+  kind: raster
+  media_type: image/tiff; application=geotiff
+additional_links:
+- rel: license
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/blob/main/LICENSE
+  title: Licence of the repository (CC BY 4.0, IITA)
+- rel: related
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB
+  title: 'Land Degradation Neutrality in the Lake Victoria Basin (IITA repository: data, scripts, results)'
+- rel: describedby
+  url: https://github.com/MOSAIC-mfl/catalog/issues/10
+  title: 'Submission form (catalog issue #10)'

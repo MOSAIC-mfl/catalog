@@ -1,0 +1,59 @@
+# MOSAIC record (standard v0.2). Registered from the New dataset form, catalog issue #11 (IITA, 2026-11-05, revised 2026-11-12).
+schema_version: 0.2.0
+id: MFL-2026-113
+title: Land productivity non-linear trends in the short growing season
+description: >-
+  Data show non-linear trends in land productivity during the short season (October to December) from
+  1997 to 2024 in the Lake Victoria Basin (LVB), Kenya. Negative values indicate significant land degradation
+  (browning), zero represents no significant trend, and positive values indicate significant land improvements
+  (greening). Trends were derived from time series of bimonthly cloud-free Landsat imagery with 30 m spatial
+  resolution. The ensemble empirical mode decomposition (EEMD) method was applied as a nonlinear approach
+  to draw out the trend in monthly aggregated NDVI as an indicator of land productivity. The EEMD procedure
+  was applied as follows: (1) add white noise of finite amplitude to the signal; (2) decompose the data
+  plus the white noise into IMFs using EMD; (3) repeat the above steps with different sets of white noise
+  each time; (4) find the mean of each IMF obtained in different trials to arrive at the final IMFs.
+resource_type: dataset
+themes:
+- degradation-land-health
+spatial:
+  geography:
+  - KEN
+  landscapes:
+  - KEN-LVB
+  crs: EPSG:4326
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '1997'
+  end_date: '2024'
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+processing_status: processed
+attribution: International Institute of Tropical Agriculture (IITA)
+contact:
+- organization: International Institute of Tropical Agriculture (IITA)
+  name: Francis Muthoni
+  email: f.muthoni@cgiar.org
+  roles:
+  - producer
+  - licensor
+  - point-of-contact
+data:
+- name: short_season_EEMD_trend_class.tif
+  locations:
+  - url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/raw/main/results/ndvi/nonlinear/short_season_EEMD_trend_class.tif
+  access_method: download
+  kind: raster
+  media_type: image/tiff; application=geotiff
+additional_links:
+- rel: license
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/blob/main/LICENSE
+  title: Licence of the repository (CC BY 4.0, IITA)
+- rel: related
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB
+  title: 'Land Degradation Neutrality in the Lake Victoria Basin (IITA repository: data, scripts, results)'
+- rel: describedby
+  url: https://github.com/MOSAIC-mfl/catalog/issues/11
+  title: 'Submission form (catalog issue #11)'
