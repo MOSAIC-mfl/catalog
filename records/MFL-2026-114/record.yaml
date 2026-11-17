@@ -1,0 +1,53 @@
+# MOSAIC record (standard v0.2). Registered from the New dataset form, catalog issue #13 (IITA, 2026-11-05, revised 2026-11-12).
+schema_version: 0.2.0
+id: MFL-2026-114
+title: Spatial distribution of the CO₂ linear trends
+description: >-
+  Monotonic linear trends of CO₂ emissions within the Lake Victoria Basin (Kenya), 1997–2024. Annual CO₂
+  emissions data from EDGAR were converted to emission density (tonnes/km²). Basin-wide trends were evaluated
+  using the Hamed–Rao modified Mann–Kendall test with Sen’s slope to account for temporal autocorrelation.
+  Total annual CO₂ emissions across the study area rose from about 1.95 million tonnes in 1997 to 4.80
+  million tonnes in 2024, an increase of about 146.5%.
+resource_type: dataset
+themes:
+- pressures-drivers
+- ecosystem-condition
+spatial:
+  geography:
+  - KEN
+  landscapes:
+  - KEN-LVB
+  crs: EPSG:4326
+temporal:
+  start_date: '1997'
+  end_date: '2024'
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+processing_status: processed
+attribution: International Institute of Tropical Agriculture (IITA)
+contact:
+- organization: International Institute of Tropical Agriculture (IITA)
+  name: Francis Muthoni
+  email: f.muthoni@cgiar.org
+  roles:
+  - producer
+  - licensor
+  - point-of-contact
+data:
+- name: EDGAR_CO2_Hamed_Rao_MK_Sen_1997_2024.tif
+  locations:
+  - url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/raw/main/results/human%20related%20variables/EDGAR_CO2_Hamed_Rao_MK_Sen_1997_2024.tif
+  access_method: download
+  kind: raster
+  media_type: image/tiff; application=geotiff
+additional_links:
+- rel: license
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/blob/main/LICENSE
+  title: Licence of the repository (CC BY 4.0, IITA)
+- rel: related
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB
+  title: 'Land Degradation Neutrality in the Lake Victoria Basin (IITA repository: data, scripts, results)'
+- rel: describedby
+  url: https://github.com/MOSAIC-mfl/catalog/issues/13
+  title: 'Submission form (catalog issue #13)'

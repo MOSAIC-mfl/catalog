@@ -1,0 +1,57 @@
+# MOSAIC record (standard v0.2). Registered from the New dataset form, catalog issue #14 (IITA, 2026-11-05, revised 2026-11-12).
+schema_version: 0.2.0
+id: MFL-2026-115
+title: Livestock density trends (TLU/km²)
+description: >-
+  Spatial distribution of livestock density trends (TLU/km²) within the Kenyan extent of the Lake Victoria
+  Basin, 2000–2022. Global Pasture Watch livestock data were processed for 2000–2022. The dominant livestock
+  in the area (cattle, goats and sheep) were converted into tropical livestock units using 0.7 TLU per
+  cattle head and 0.1 TLU per goat or sheep head. Annual trends were calculated from the annual 1 km livestock
+  density rasters provided by Global Pasture Watch.
+resource_type: dataset
+themes:
+- pressures-drivers
+- ecosystem-condition
+spatial:
+  geography:
+  - KEN
+  landscapes:
+  - KEN-LVB
+  crs: EPSG:4326
+  resolution:
+    value: 1
+    unit: km
+temporal:
+  start_date: '2000'
+  end_date: '2022'
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+processing_status: processed
+attribution: International Institute of Tropical Agriculture (IITA)
+contact:
+- organization: International Institute of Tropical Agriculture (IITA)
+  name: Francis Muthoni
+  email: f.muthoni@cgiar.org
+  roles:
+  - producer
+  - licensor
+  - point-of-contact
+data:
+- name: TLU_density_annual_slope_2000_2022.tif
+  locations:
+  - url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/raw/main/results/human%20related%20variables/TLU_density_annual_slope_2000_2022.tif
+  access_method: download
+  kind: raster
+  media_type: image/tiff; application=geotiff
+  file_size: 170609
+additional_links:
+- rel: license
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB/blob/main/LICENSE
+  title: Licence of the repository (CC BY 4.0, IITA)
+- rel: related
+  url: https://github.com/IITA-UUwp2/Land-Degradation-Neutrality-in-LVB
+  title: 'Land Degradation Neutrality in the Lake Victoria Basin (IITA repository: data, scripts, results)'
+- rel: describedby
+  url: https://github.com/MOSAIC-mfl/catalog/issues/14
+  title: 'Submission form (catalog issue #14)'
