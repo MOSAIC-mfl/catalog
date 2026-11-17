@@ -1,0 +1,55 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-130
+title: Peruvian Amazon humid forest map 2000-2024 (GEOBOSQUES)
+description: >-
+  National 30 m raster 'Mapa del Bosque Húmedo Amazónico Peruano, 2000-2024': water, forest in 2024, forest loss
+  2001-2024, non-forest in 2000 and areas not monitored, from Landsat, by MINAM (PNCBMCC) and MIDAGRI (SERFOR),
+  distributed through GEOBOSQUES. Loss includes natural and human-caused losses; losses from river-channel migration
+  are excluded. The MOSAIC Ucayali explorer shows it masked to the department. MFL-2026-079 is derived from it,
+  aggregated by province and district.
+resource_type: dataset
+themes:
+- land-cover-land-use
+- pressures-drivers
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  crs: EPSG:32718
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '2000'
+  end_date: '2024'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: 'No licence stated (the product metadata''s LICENCIA field is ''-''). Citation required: "MINAM (PNCBMCC)
+  y MIDAGRI (SERFOR). ''Mapa del Bosque Húmedo Amazónico Peruano, 2000-2024''. Acceso a través de GEOBOSQUES."'
+access: public
+contact:
+- organization: Ministerio del Ambiente (MINAM), PNCBMCC
+  roles:
+  - producer
+  - host
+- organization: Servicio Nacional Forestal y de Fauna Silvestre (SERFOR), MIDAGRI
+  roles:
+  - producer
+citation:
+  text: MINAM (PNCBMCC) y MIDAGRI (SERFOR). 'Mapa del Bosque Húmedo Amazónico Peruano, 2000-2024'. Acceso a través
+    de GEOBOSQUES.
+data:
+- name: GEOBOSQUES downloads (download in a browser)
+  locations:
+  - url: https://geobosques.minam.gob.pe/geobosque/view/descargas.php
+  access_method: landing_page
+  kind: raster
+additional_links:
+- rel: related
+  id: MFL-2026-079
+  title: 'Derived product: forest and loss by province and district'
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

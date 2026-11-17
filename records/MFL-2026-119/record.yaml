@@ -1,0 +1,44 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-119
+title: Lake Victoria water level from satellite altimetry (DAHITI)
+description: >-
+  Water-surface elevation of Lake Victoria (DAHITI target 2), each value with its uncertainty, from multi-mission
+  satellite altimetry, about every 10 days from 17 October 1992. It shows the 2019-2020 rise and the record high
+  of May 2024. Used in the MOSAIC Lake Victoria Basin explorer.
+resource_type: dataset
+themes:
+- water-hydrology
+spatial:
+  geography:
+  - KEN
+  - UGA
+  - TZA
+  landscapes:
+  - KEN-LVB
+temporal:
+  start_date: '1992-10-17'
+  update_frequency: unknown
+license: CC-BY-NC-4.0
+access: restricted
+access_note: The time series is shown on the DAHITI target page; data downloads and the API need a DAHITI account.
+contact:
+- organization: Deutsches Geodätisches Forschungsinstitut, Technische Universität München (DGFI-TUM)
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  text: Schwatke, C., Dettmering, D., Bosch, W., Seitz, F. (2015). DAHITI - an innovative approach for estimating
+    water level time series over inland waters using multi-mission satellite altimetry. Hydrology and Earth System
+    Sciences 19, 4345-4364.
+data:
+- name: 'DAHITI target 2: Lake Victoria'
+  locations:
+  - url: https://dahiti.dgfi.tum.de/en/2/
+  access_method: landing_page
+  kind: tabular
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

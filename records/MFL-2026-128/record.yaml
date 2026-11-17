@@ -1,0 +1,59 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-128
+title: Vegetation typology classification and data set in Ucayali, Peru (version 4.0)
+description: >-
+  324 polygons of vegetation types in Ucayali, Peru (mature lowland forest, secondary or degraded lowland forest,
+  young regrowth (purma), degraded shrubland or pasture, cloud forest, palm swamps, wetland forest), digitised on
+  2020/2021 imagery with local knowledge (Cooley et al. 2021, CaltechDATA). It is the basis of the GEDI canopy-height
+  study of Cooley et al. (2024). Used in the MOSAIC Ucayali explorer.
+resource_type: dataset
+themes:
+- land-cover-land-use
+- biodiversity-ecosystems
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+temporal:
+  update_frequency: unknown
+version: '4.0'
+license: CC0-1.0
+access: public
+contact:
+- organization: Columbia University
+  name: Savannah Cooley
+  roles:
+  - producer
+  - licensor
+- organization: CaltechDATA (California Institute of Technology)
+  roles:
+  - host
+doi: 10.22002/D1.2318
+citation:
+  authors:
+  - family: Cooley
+    given: Savannah
+  - family: Pinto
+    given: Naiara
+  - family: Aguilar-Amuchastegui
+    given: Naikoa
+  - family: Vela Alvarado
+    given: Jorge
+  - family: Fahlen
+    given: Jocelyn
+  date: '2021'
+related_publications:
+- doi: 10.1002/ece3.70116
+data:
+- name: CaltechDATA record
+  locations:
+  - url: https://data.caltech.edu/records/7hm3v-11p40
+  access_method: landing_page
+  kind: vector
+  geometry_type: polygon
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

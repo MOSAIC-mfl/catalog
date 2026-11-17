@@ -543,6 +543,7 @@ toggles:
   - adm1-label
   attribution: geoBoundaries (Runfola et al. 2020)
   source_ref: admin_boundaries
+  record: mosaic:MFL-2026-127
 - id: rivers
   group: Water
   title: Rivers
@@ -551,6 +552,7 @@ toggles:
   layers:
   - rivers
   source_ref: rivers
+  record: mosaic:MFL-2026-121
 panels:
 - id: lake
   group: Water
@@ -558,6 +560,7 @@ panels:
   swatch: '#117A8D'
   kind: series-summary
   source_ref: lake_level
+  record: mosaic:MFL-2026-119
   open_on_click: lake-hit
   heading: Lake Victoria
   subheading: Satellite altimetry · DAHITI (DGFI-TUM)
@@ -615,6 +618,7 @@ overlays:
   title: Years flooded
   kind: raster-tiles
   source_ref: flood_hazard
+  record: mosaic:MFL-2026-117
   asset: tiles/flood_years.pmtiles
   before: rivers
   paint: &id004
@@ -653,6 +657,7 @@ overlays:
   title: Flood frequency
   kind: raster-tiles
   source_ref: flood_hazard
+  record: mosaic:MFL-2026-117
   before: rivers
   paint: *id004
   attribution: Copernicus EMS GFM
@@ -713,6 +718,7 @@ overlays:
   title: Not assessed (GFM exclusion)
   kind: raster-tiles
   source_ref: flood_hazard
+  record: mosaic:MFL-2026-117
   asset: tiles/flood_excl.pmtiles
   before: rivers
   paint: *id004
@@ -738,6 +744,7 @@ overlays:
   title: Max extent 2020
   kind: raster-tiles
   source_ref: flood_hazard
+  record: mosaic:MFL-2026-117
   asset: tiles/max_2020.pmtiles
   before: rivers
   paint: *id004
@@ -764,6 +771,7 @@ overlays:
   kind: climate-grid
   swatch: '#434e6b'
   source_ref: precip
+  record: cdh:chirps-v3-daily
   grid: climate/app/
   before: dim
   attribution: CHIRPS v3 (UCSB CHC)
@@ -810,6 +818,7 @@ overlays:
   kind: climate-grid
   swatch: '#e14c66'
   source_ref: temperature
+  record: cdh:chirts-era5-daily
   grid: climate/app/
   before: dim
   attribution: CHIRTS-ERA5 (UCSB CHC)
@@ -864,6 +873,7 @@ overlays:
   kind: index-grid
   swatch: '#35978f'
   source_ref: spi3
+  record: mosaic:MFL-2026-120
   grid: climate/app/
   before: dim
   attribution: SPI-3 from CHIRPS v3
@@ -912,6 +922,7 @@ overlays:
   kind: raster-tiles
   swatch: '#d7301f'
   source_ref: population
+  record: mosaic:MFL-2026-122
   asset: tiles/population.pmtiles
   before: rivers
   paint: *id004
@@ -948,6 +959,7 @@ overlays:
   kind: year-tiles
   swatch: '#b2182b'
   source_ref: forest_loss
+  record: mosaic:MFL-2026-123
   before: rivers
   attribution: Hansen GFC (UMD)
   paint:
@@ -997,6 +1009,7 @@ overlays:
   kind: year-tiles
   swatch: '#e49635'
   source_ref: landcover
+  record: mosaic:MFL-2026-126
   before: rivers
   attribution: Esri/IO LULC (CC-BY)
   paint:
@@ -1114,6 +1127,7 @@ overlays:
   kind: raster-tiles
   swatch: '#397d49'
   source_ref: worldcover
+  record: cdh:esa-worldcover-2021
   asset: tiles/worldcover2021.pmtiles
   before: rivers
   paint:
@@ -1224,6 +1238,7 @@ overlays:
   kind: year-tiles
   swatch: '#e55064'
   source_ref: fire
+  record: mosaic:MFL-2026-124
   before: rivers
   attribution: NASA FIRMS VIIRS
   paint: *id004
@@ -1311,6 +1326,7 @@ overlays:
   kind: year-tiles
   swatch: '#782012'
   source_ref: burned_area
+  record: mosaic:MFL-2026-125
   before: rivers
   attribution: MODIS MCD64A1
   paint: *id004

@@ -1,0 +1,43 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-127
+title: geoBoundaries open administrative boundaries (gbOpen)
+description: >-
+  Open administrative boundaries by country and level from the geoBoundaries database (Runfola et al. 2020). The
+  MOSAIC Lake Victoria Basin explorer uses ADM1 and ADM2 of Kenya, Uganda, Tanzania, Rwanda and Burundi (50 ADM1
+  and 311 ADM2 units), clipped to the basin. Boundaries are indicative, not an official delimitation; boundary years
+  range from 2006 to 2021.
+resource_type: dataset
+themes:
+- boundaries-admin-units
+spatial:
+  geography:
+  - global
+  landscapes:
+  - KEN-LVB
+temporal:
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: 'Licence per boundary, from its source. For the explorer''s units: Public Domain (Kenya ADM1, Uganda
+  ADM2, Burundi ADM2), CC0 (Burundi ADM1), CC BY 4.0 (Rwanda), CC BY 3.0 IGO (Kenya and Tanzania ADM2), ODbL (Uganda
+  and Tanzania ADM1, from OpenStreetMap: share-alike with attribution).'
+access: public
+contact:
+- organization: William & Mary geoLab (geoBoundaries)
+  roles:
+  - producer
+  - host
+citation:
+  text: 'Runfola, D. et al. (2020). geoBoundaries: A global database of political administrative boundaries. PLoS
+    ONE 15(4), e0231866. doi:10.1371/journal.pone.0231866.'
+data:
+- name: geoBoundaries
+  locations:
+  - url: https://www.geoboundaries.org/
+  access_method: landing_page
+  kind: vector
+  geometry_type: polygon
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

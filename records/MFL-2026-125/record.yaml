@@ -1,0 +1,52 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-125
+title: MODIS monthly burned area, MCD64A1 version 6.1
+description: >-
+  Monthly burned area from MODIS at ~500 m, with the approximate day of burning (Giglio et al. 2018). The MOSAIC
+  Lake Victoria Basin explorer combines it, from the Microsoft Planetary Computer, into a yearly 'burned at least
+  once' mask for 2001-2025. Small and low-intensity burns are missed, and cloud limits wet-season detection.
+resource_type: dataset
+themes:
+- pressures-drivers
+spatial:
+  geography:
+  - global
+  landscapes:
+  - KEN-LVB
+  resolution:
+    value: 500
+    unit: m
+temporal:
+  update_frequency: monthly
+version: '6.1'
+license: LicenseRef-source-terms
+license_text: 'NASA Earth science data: free and open; cite the product DOI.'
+access: public
+contact:
+- organization: NASA Land Processes Distributed Active Archive Center (LP DAAC)
+  roles:
+  - host
+  - licensor
+- organization: Microsoft Planetary Computer
+  roles:
+  - host
+doi: 10.5067/MODIS/MCD64A1.061
+citation:
+  text: Giglio, L., Boschetti, L., Roy, D.P., Humber, M.L., Justice, C.O. (2018). The Collection 6 MODIS burned
+    area mapping algorithm and product. Remote Sensing of Environment 217, 72-85.
+data:
+- name: MCD64A1 v6.1 (NASA Earthdata)
+  locations:
+  - url: https://doi.org/10.5067/MODIS/MCD64A1.061
+  access_method: landing_page
+  kind: raster
+- name: modis-64A1-061 on the Planetary Computer
+  locations:
+  - url: https://planetarycomputer.microsoft.com/dataset/modis-64A1-061
+  access_method: service
+  kind: raster
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

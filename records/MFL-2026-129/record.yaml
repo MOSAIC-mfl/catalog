@@ -1,0 +1,45 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-129
+title: Global canopy height 2020 at 10 m (ETH Zurich)
+description: >-
+  Canopy top height for 2020 at 10 m, from a model that combines GEDI lidar with Sentinel-2 imagery (Lang et al.
+  2023), with a per-pixel standard deviation. A model estimate, not a measurement. Used in the MOSAIC Ucayali explorer.
+resource_type: dataset
+themes:
+- ecosystem-condition
+spatial:
+  geography:
+  - global
+  landscapes:
+  - PER-PCL
+  resolution:
+    value: 10
+    unit: m
+temporal:
+  date: '2020'
+  update_frequency: unknown
+license: CC-BY-4.0
+access: public
+contact:
+- organization: ETH Zurich
+  roles:
+  - producer
+  - licensor
+  - host
+doi: 10.3929/ethz-b-000609802
+citation:
+  text: Lang, N., Jetz, W., Schindler, K., Wegner, J.D. (2023). A high-resolution canopy height model of the Earth.
+    Nature Ecology & Evolution 7, 1778-1789.
+related_publications:
+- doi: 10.1038/s41559-023-02206-6
+data:
+- name: ETH Research Collection record
+  locations:
+  - url: https://doi.org/10.3929/ethz-b-000609802
+  access_method: landing_page
+  kind: raster
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

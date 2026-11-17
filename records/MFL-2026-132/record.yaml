@@ -1,0 +1,63 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-132
+title: GEDI canopy height (RH95) footprints and 1 km grid, Ucayali, 2019-2025
+description: >-
+  Canopy height from GEDI L2A version 2 lidar footprints (RH95) inside the Ucayali department, 20 April 2019 to
+  9 July 2025 (no shots April 2023 to April 2024). Shots are filtered as in Cooley et al. (2024), plus quality_flag
+  = 1 and degrade_flag = 0: 1,506,194 footprints as vector tiles, and a 0.01 degree grid of mean RH95 and shot count,
+  where 11.4 % of the department's cells have no valid shot. Shots above 60 m (0.15 %) are kept and flagged. Computed
+  for the MOSAIC Ucayali explorer.
+resource_type: dataset
+themes:
+- ecosystem-condition
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  resolution:
+    value: 0.01
+    unit: degree
+temporal:
+  start_date: '2019-04-20'
+  end_date: '2025-07-09'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: No licence stated by the author (the explorer repository has no licence file). Derived from NASA GEDI
+  L2A version 2 (free and open; cite doi:10.5067/GEDI/GEDI02_A.002).
+access: public
+processing_status: processed
+contact:
+- organization: CGIAR
+  name: Andrés Aguilar
+  roles:
+  - producer
+  - point-of-contact
+related_publications:
+- doi: 10.1002/ece3.70116
+data:
+- name: gedi_rh95_1km.tif (band 1 mean RH95 in dm, band 2 shot count)
+  locations:
+  - url: https://huggingface.co/datasets/aaguilar90/mosaic-ucayali/resolve/main/query/gedi_rh95_1km.tif
+  access_method: download
+  kind: raster
+  media_type: image/tiff; application=geotiff
+- name: gedi_footprints.pmtiles (footprints with RH95, RH50 and date)
+  locations:
+  - url: https://huggingface.co/datasets/aaguilar90/mosaic-ucayali/resolve/main/tiles/gedi_footprints.pmtiles
+  access_method: download
+  kind: vector
+  geometry_type: point
+processing:
+- id: source
+  description: GEDI L2A v002 shots subset with NASA Harmony, filtered and gridded.
+  derived_from:
+  - title: GEDI L2A Elevation and Height Metrics, version 2
+    url: https://doi.org/10.5067/GEDI/GEDI02_A.002
+  code:
+    url: https://github.com/anaguilarar/mosaic-ucayali
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

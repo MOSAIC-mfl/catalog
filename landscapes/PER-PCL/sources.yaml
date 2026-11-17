@@ -18,7 +18,7 @@ layers:
     Counts and areas are this app's analysis of the CC0 polygon file. The published dataset has no oil-palm
     or cacao polygons; the paper's results for those classes cannot be reproduced from it. The file's
     'Bosque_secudario_o_degradado' spelling is normalised here (original kept in COBERTURA_RAW).
-  record: null
+  record: mosaic:MFL-2026-128
 - id: terrain
   title: Terrain
   group: Base
@@ -39,7 +39,7 @@ layers:
   units: true colour (fixed stretch 0-3000, gamma 2.2)
   licence: 'Copernicus Sentinel data: free use with attribution'
   citation: Contains modified Copernicus Sentinel-2 data [2025]
-  record: null
+  record: mosaic:MFL-2026-118
 - id: department
   title: Ucayali department
   group: Base
@@ -60,7 +60,7 @@ layers:
   licence: Open Data Commons Attribution License (ODC-By), as stated on the dataset page
   citation: Instituto Geográfico Nacional (IGN), Plataforma Nacional de Datos Abiertos
   caveats: Referential boundaries at 1:100,000; simplified ~90 m for display.
-  record: null
+  record: mosaic:MFL-2026-072
 - id: protected_areas
   title: Protected areas (ANP & ACR)
   group: Conservation
@@ -77,7 +77,7 @@ layers:
   caveats: >-
     Boundaries simplified for display; legal areas (ha) are the service's anp_suleg/acr_suleg values,
     not recomputed.
-  record: null
+  record: mosaic:MFL-2026-073
 - id: fire
   title: Active fires (VIIRS)
   group: Fire
@@ -89,7 +89,7 @@ layers:
   caveats: >-
     Detections, not burned area: small/short fires can be missed under cloud; confidence nominal/high
     only.
-  record: null
+  record: mosaic:MFL-2026-124
 - id: canopy
   title: Canopy height (ETH 2020)
   group: Vegetation
@@ -106,7 +106,7 @@ layers:
     Model estimate, not a measurement: tall-canopy heights saturate and the map carries the model's uncertainty
     (a per-pixel SD layer exists upstream). Display tiles are averaged to ~38 m at z12; clicks read the
     10 m raster.
-  record: null
+  record: mosaic:MFL-2026-129
 - id: forest_loss
   title: Forest & loss (GEOBOSQUES)
   group: Land
@@ -123,7 +123,7 @@ layers:
     natural losses, not only deforestation; river-channel migration losses are excluded (metadata PRECAUCIONES).
     2001-2016 follow the UMD methodology, 2017+ the PNCBMCC methodology. Areas are this app's analysis.
   period: baseline 2000, loss 2001-2024, forest state 2024
-  record: null
+  record: mosaic:MFL-2026-130
 - id: precip
   title: Precipitation (CHIRPS v3)
   group: Climate
@@ -135,7 +135,7 @@ layers:
   licence: CC-BY-4.0
   caveats: The latest 2-3 CHIRPS months are provisional and may be revised.
   citation: Funk et al. (2015), Scientific Data 2:150066; CHIRPS v3.0, UCSB Climate Hazards Center
-  record: null
+  record: cdh:chirps-v3-daily
 - id: temperature
   title: Temperature (CHIRTS-ERA5)
   group: Climate
@@ -146,7 +146,7 @@ layers:
   units: degC
   licence: CC-BY-4.0
   citation: Funk et al. (2019), J. Climate 32:5639-5658; CHIRTS-ERA5, UCSB CHC
-  record: null
+  record: cdh:chirts-era5-daily
 - id: spi3
   title: Drought index (SPI-3)
   group: Climate
@@ -160,7 +160,7 @@ layers:
   citation: >-
     McKee, Doesken & Kleist (1993), 8th Conf. Applied Climatology; classes: WMO (2012), SPI User Guide,
     WMO-No. 1090; Funk et al. (2015), Sci. Data 2:150066
-  record: null
+  record: mosaic:MFL-2026-131
 - id: gedi
   title: GEDI canopy height (RH95)
   group: Vegetation
@@ -177,7 +177,7 @@ layers:
     This app's analysis. Each dot is one 25 m footprint, located to about ±10 m. Zoomed out, a 1 km grid
     shows the mean RH95 of the shots in each cell; at zooms 9-10 the dots are a random sample. RH95 is
     GEDI's own value (no ground-return transformation, unlike the paper's Table 2a).
-  record: null
+  record: mosaic:MFL-2026-132
 - id: landcover
   title: Land cover (MapBiomas)
   group: Land
@@ -191,7 +191,7 @@ layers:
     Oil palm is its own class (35, Palma aceitera); cacao and other specific crops have no class and fall
     inside 'Mosaico agropecuario' (21) - relevant when relating classes to Cooley et al. (2024). Class
     areas are this app's analysis.
-  record: null
+  record: mosaic:MFL-2026-133
 - id: burned_area
   title: Burned area (MapBiomas)
   group: Fire
@@ -204,11 +204,11 @@ layers:
     Landsat-based: misses small or low-severity burns. Zoomed out, each pixel shows the share of its area
     that burned; from zoom 12 each 30 m cell is shown as burned or not. Burned km² per year is this app's
     analysis.
-  record: null
+  record: mosaic:MFL-2026-134
 - id: indigenous_territories
   title: Indigenous territories (not hosted here)
   caveats: >-
     RAISG's Indigenous-territories data is not redistributed in this app: RAISG's use licence requires
     unaltered data and non-profit use, and the layer includes territories of peoples in isolation. View
     it on RAISG's own map: https://www.raisg.org/es/mapas/
-  record: null
+  record: mosaic:MFL-2026-075

@@ -1,0 +1,46 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-134
+title: MapBiomas Perú Fire Collection 2 annual burned area
+description: >-
+  Annual burned-area maps of Peru at 30 m (value 1 = burned), 1990-2025 (MapBiomas Perú Fuego, Collection 2). The
+  MOSAIC Ucayali explorer uses 2013-2024. MFL-2026-082 is a product derived from the earlier Collection 1.
+resource_type: dataset
+themes:
+- pressures-drivers
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '1990'
+  end_date: '2025'
+  update_frequency: unknown
+version: '2'
+license: CC-BY-4.0
+access: public
+contact:
+- organization: MapBiomas Perú
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  text: MapBiomas Perú. Colección 2 de fuego. peru.mapbiomas.org.
+data:
+- name: MapBiomas Perú fire, annual mapping
+  locations:
+  - url: https://peru.mapbiomas.org/iniciativas-y-productos/fuego/mapeo-anual/
+  access_method: landing_page
+  kind: raster
+additional_links:
+- rel: related
+  id: MFL-2026-082
+  title: 'Derived product: cumulative burned area 2013-2024 (Collection 1)'
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

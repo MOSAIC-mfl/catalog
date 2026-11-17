@@ -1,0 +1,49 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-124
+title: NASA FIRMS VIIRS 375 m active fire detections
+description: >-
+  Active-fire detections from the VIIRS sensors at 375 m (S-NPP from 2012, NOAA-20 from 2020), distributed by NASA's
+  Fire Information for Resource Management System (FIRMS), including yearly archives by country. The MOSAIC map
+  explorers use detections of nominal and high confidence: yearly density per km2 on a ~1 km grid from S-NPP only,
+  and individual points. Active fires are not burned area; cloud cover hides wet-season fires.
+resource_type: dataset
+themes:
+- pressures-drivers
+spatial:
+  geography:
+  - global
+  landscapes:
+  - KEN-LVB
+  - PER-PCL
+  resolution:
+    value: 375
+    unit: m
+temporal:
+  start_date: '2012'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: NASA FIRMS data are freely available; cite NASA FIRMS.
+access: public
+contact:
+- organization: NASA Fire Information for Resource Management System (FIRMS)
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  text: Schroeder, W., Oliva, P., Giglio, L., Csiszar, I.A. (2014). The New VIIRS 375 m active fire detection data
+    product. Remote Sensing of Environment 143, 85-96.
+data:
+- name: FIRMS yearly country archives
+  locations:
+  - url: https://firms.modaps.eosdis.nasa.gov/country/
+  access_method: download
+  kind: tabular
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer

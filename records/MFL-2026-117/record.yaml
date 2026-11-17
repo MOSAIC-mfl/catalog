@@ -1,0 +1,66 @@
+# MOSAIC record (standard v0.2). A source of the MOSAIC map explorers (landscapes/*/sources.yaml), from their DATA_REPORT.md.
+schema_version: 0.2.0
+id: MFL-2026-117
+title: Observed flood frequency, Lake Victoria Basin, 2016-2025
+description: >-
+  Years flooded (0-10), flood frequency (flooded passes divided by valid Sentinel-1 observations) and share of observations
+  excluded, per 20 m cell, 2016-2025, counted from the Copernicus Emergency Management Service Global Flood Monitoring
+  (GFM) archive; no flood detection was re-implemented. Permanent water is removed; two radar artefacts (southern
+  Rwanda, Serengeti-Mara) are masked. A flood-hazard proxy, not flood risk: flooded vegetation and urban areas are
+  under-detected, and floods shorter than the 6-12-day revisit can be missed. Under internal review before external
+  use (data report, 21 October 2026). Computed for the MOSAIC Lake Victoria Basin explorer.
+resource_type: dataset
+themes:
+- water-hydrology
+spatial:
+  geography:
+  - KEN
+  - UGA
+  - TZA
+  - RWA
+  - BDI
+  landscapes:
+  - KEN-LVB
+  resolution:
+    value: 20
+    unit: m
+temporal:
+  start_date: '2016'
+  end_date: '2025'
+  update_frequency: unknown
+license: LicenseRef-source-terms
+license_text: 'No licence stated by the author (the explorer repository has no licence file). Derived from Copernicus
+  EMS GFM: contains modified Copernicus EMS information [2016-2025].'
+access: public
+processing_status: processed
+contact:
+- organization: CGIAR
+  name: Andrés Aguilar
+  roles:
+  - producer
+  - point-of-contact
+data:
+- name: 'flood_query_100m.tif (100 m query version: maximum of the 20 m cells)'
+  locations:
+  - url: https://anaguilarar.github.io/mosaic-lake-victoria/data/query/flood_query_100m.tif
+  access_method: download
+  kind: raster
+  media_type: image/tiff; application=geotiff
+- name: Map tiles and series on Hugging Face
+  locations:
+  - url: https://huggingface.co/datasets/aaguilar90/mosaic-lake-victoria
+  access_method: landing_page
+  kind: mixed
+processing:
+- id: source
+  description: Per-pixel counts of observed, excluded and flooded Sentinel-1 passes from the GFM archive (EODC STAC,
+    collection GFM).
+  derived_from:
+  - title: Copernicus EMS Global Flood Monitoring (GFM)
+    url: https://global-flood.emergency.copernicus.eu/
+  code:
+    url: https://github.com/anaguilarar/mosaic-lake-victoria
+additional_links:
+- rel: describedby
+  url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
+  title: Data report of the MOSAIC map explorer
