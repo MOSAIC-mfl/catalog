@@ -31,7 +31,8 @@ Everything else is in other repositories:
    Nothing is invented: what the source does not state stays empty.
 2. Open a pull request. The **Validate** check runs the standard on every record and profile: an
    invalid record fails it; an incomplete one passes and is listed for review.
-3. Once merged into `main`, **Publish** rebuilds the catalogue and the API picks it up.
+3. Once merged into `main`, **Publish** rebuilds the catalogue and asks the API to harvest it
+   again (see [Publishing](#publishing)).
 
 Not a maintainer? Use the issue form **New dataset** and a maintainer writes the record.
 
@@ -39,6 +40,23 @@ A landscape profile works the same way (`landscapes/<CODE>/`); guide:
 [`docs/landscape-profiles.md`](https://github.com/MOSAIC-mfl/mosaic-standard/blob/main/docs/landscape-profiles.md).
 MOSAIC team members can write a profile without programming with the Claude Code skill
 `mosaic-landscape-profile` (team repository `MOSAIC-mfl/ai-context`).
+
+## Publishing
+
+On every push to `main`, **Publish** (`.github/workflows/publish.yml`) builds the catalogue, puts it
+on GitHub Pages and then, in the job `notify-api`, sends `catalog-updated` to
+[mosaic-api](https://github.com/MOSAIC-mfl/mosaic-api), whose pipeline harvests and republishes the
+API at once. The notification uses a GitHub App:
+
+1. An organization owner creates a GitHub App (no webhook) with the repository permission
+   **Contents: read and write**, installs it on `MOSAIC-mfl/mosaic-api` only, and generates a
+   private key.
+2. In this repository, *Settings → Secrets and variables → Actions*: the variable
+   `API_APP_CLIENT_ID` (the App's Client ID) and the secret `API_APP_PRIVATE_KEY` (the `.pem`
+   contents).
+
+Without them `notify-api` only leaves a notice, and the API picks the change up on its daily run
+(05:17 UTC).
 
 ## Check locally
 

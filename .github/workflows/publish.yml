@@ -1,7 +1,15 @@
 # Builds the catalogue with the MOSAIC standard (MOSAIC-mfl/mosaic-standard) and publishes dist/
 # (catalog.json, manifest.json, landscapes/, and the standard's schema/, vocab/, crosswalks/) on
-# GitHub Pages: https://mosaic-mfl.github.io/catalog/ . mosaic-api picks the changes up on its daily
-# run (or when its workflow is run by hand).
+# GitHub Pages: https://mosaic-mfl.github.io/catalog/ . Then notify-api asks mosaic-api to harvest
+# it again at once (repository_dispatch "catalog-updated"), so the API and the website show the
+# change without waiting for the API's daily run.
+#
+# notify-api authenticates as a GitHub App installed on MOSAIC-mfl/mosaic-api with the repository
+# permission Contents: read and write (needed for repository_dispatch). Its settings live here:
+#   variable  API_APP_CLIENT_ID     the App's Client ID
+#   secret    API_APP_PRIVATE_KEY   a private key of the App (.pem contents)
+# Until both are set the job only writes a notice and passes; the API then picks the change up on
+# its daily run, as before.
 name: Publish
 
 on:
@@ -49,3 +57,33 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+  notify-api:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions: {}
+    env:
+      HAS_APP: ${{ vars.API_APP_CLIENT_ID != '' && secrets.API_APP_PRIVATE_KEY != '' }}
+    steps:
+      - name: No GitHub App configured
+        if: env.HAS_APP != 'true'
+        run: echo "::notice title=mosaic-api not notified::Set the variable API_APP_CLIENT_ID and the secret API_APP_PRIVATE_KEY (see the header of this workflow). mosaic-api picks this change up on its daily run."
+      - name: Token for mosaic-api
+        id: app
+        if: env.HAS_APP == 'true'
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.API_APP_CLIENT_ID }}
+          private-key: ${{ secrets.API_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: mosaic-api
+          permission-contents: write
+      - name: Ask mosaic-api to harvest the catalogue
+        if: env.HAS_APP == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          CATALOG_SHA: ${{ github.sha }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY_OWNER}/mosaic-api/dispatches" \
+            -f event_type=catalog-updated \
+            -f "client_payload[catalog_sha]=${CATALOG_SHA}"
+          echo "::notice title=mosaic-api notified::Harvest requested for catalogue commit ${CATALOG_SHA}"
