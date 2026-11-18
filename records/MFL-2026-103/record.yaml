@@ -9,7 +9,7 @@ description: >-
   V Censo Nacional Economico 2022; 'Distrital' layer, ide.inei.gob.pe): 11 whole districts of Coronel
   Portillo and Padre Abad provinces (Ucayali) and a clipped part of Calleria. Full-detail Shapefile and
   GeoPackage in the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is
-  attached to the landscape's STAC collection.
+  published as boundaries/PER-PCL.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units

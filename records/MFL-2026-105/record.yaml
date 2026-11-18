@@ -8,7 +8,8 @@ description: >-
   define the landscape across the catalogue. Source: GADM 4.1, level 3: all 112 wards of the districts
   Mbire, Centenary/Muzarabani and Mount Darwin (Mashonaland Central) and Hurungwe (Mashonaland West),
   unmodified. Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog;
-  a simplified outline is attached to the landscape's STAC collection.
+  a simplified outline is
+  published as boundaries/ZWE-MB.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units

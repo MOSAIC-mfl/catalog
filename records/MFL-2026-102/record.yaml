@@ -8,7 +8,8 @@ description: >-
   define the landscape across the catalogue. Source: OCHA COD-AB Kenya (IEBC), admin level 1: counties
   Kericho, Kisumu, Nandi, Siaya and Vihiga, dissolved into one outline (replaced the 4-county GADM outline
   on 2026-11-10). Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-10 of
-  MOSAIC-mfl/catalog; a simplified outline is attached to the landscape's STAC collection.
+  MOSAIC-mfl/catalog; a simplified outline is
+  published as boundaries/KEN-LVB.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units

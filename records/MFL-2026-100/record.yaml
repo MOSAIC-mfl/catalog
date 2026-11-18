@@ -7,8 +7,8 @@ description: >-
   Canonical MOSAIC delineation of the Omo-Gibe Basin living landscape (ETH-OG), used to define the landscape
   across the catalogue. Source: Ethiopia River Basins (eth_basins), World Bank Group, World Bank Data
   Catalog dataset 0040202: Omo basin polygon (79,549 km2). Full-detail Shapefile and GeoPackage in the
-  dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape's
-  STAC collection.
+  dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is
+  published as boundaries/ETH-OG.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units

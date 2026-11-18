@@ -7,8 +7,8 @@ description: >-
   Canonical MOSAIC delineation of the Fatick Department living landscape (SEN-FK), used to define the
   landscape across the catalogue. Source: GADM: level 2 unit Fatick departement (GADM v2 attribute schema;
   geometry identical to GADM 3.6 and 4.1 SEN.3.1_1). Full-detail Shapefile and GeoPackage in the dated
-  release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the landscape's
-  STAC collection.
+  release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is
+  published as boundaries/SEN-FK.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units
