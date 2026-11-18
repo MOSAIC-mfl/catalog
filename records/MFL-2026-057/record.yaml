@@ -2,7 +2,7 @@
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
 schema_version: 0.2.0
 id: MFL-2026-057
-title: Crop fields (2023)  focus on Banana, Pumpkins, Taro, Mustard
+title: Crop fields (2023) focus on Banana, Pumpkins, Taro, Mustard
 description: >-
   A total of 200 farmers in Vietnam, were surveyed utilizing ArcGIS Survey 123. Each farmer's field was
   physically visited, and the 'Participatory Mapping of Farmers' Fields' tool was employed to delineate

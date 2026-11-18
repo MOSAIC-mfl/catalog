@@ -7,8 +7,8 @@ description: >-
   Canonical MOSAIC delineation of the N'Zi Watershed living landscape (CIV-NZ), used to define the landscape
   across the catalogue. Source: HydroBASINS v1c, level 6, basin HYBAS_ID 1060982320 (PFAF_ID 145402),
   unmodified. HydroSHEDS version 1, World Wildlife Fund (WWF). Full-detail Shapefile and GeoPackage in
-  the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to the
-  landscape's STAC collection.
+  the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is
+  published as boundaries/CIV-NZ.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units

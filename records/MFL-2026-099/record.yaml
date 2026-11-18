@@ -8,8 +8,8 @@ description: >-
   across the catalogue. Source: Nine veredas of the Cumbal indigenous reserve area (Tasmag, Quilismal,
   Boyera, Cuaical, Cuaspud Grande, Llano de Piedras, Cuetial, Guan, San Martin-Miraflores), layer 'Cumbal_veredas_wgs84'
   compiled by Javier Ochoa (CIP). Original source to be confirmed. Full-detail Shapefile and GeoPackage
-  in the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is attached to
-  the landscape's STAC collection.
+  in the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is
+  published as boundaries/COL-CUM.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units
