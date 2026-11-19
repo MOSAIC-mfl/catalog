@@ -30,7 +30,8 @@ contact:
 - organization: CIMMYT
   roles:
   - producer
-- email: Telma.SIBANDA@um6p.ma
+- name: Telma Sibanda
+  email: Telma.SIBANDA@um6p.ma
   roles:
   - point-of-contact
 data:

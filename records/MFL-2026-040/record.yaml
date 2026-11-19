@@ -2,7 +2,7 @@
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
 schema_version: 0.2.0
 id: MFL-2026-040
-title: Agroecological zones
+title: Agroecological zones (Omo-Gibe Basin)
 description: Agroecological zonations
 resource_type: dataset
 spatial:

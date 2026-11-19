@@ -2,7 +2,7 @@
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
 schema_version: 0.2.0
 id: MFL-2026-027
-title: LULC classification
+title: LULC classification (Mbire)
 description: >-
   Land Use and Land Cover Classification — Original landscape entry: Mbire: Wards 2, 3, 9, 12 and 17
 resource_type: dataset
@@ -29,7 +29,8 @@ contact:
 - organization: CIMMYT
   roles:
   - producer
-- email: Telma.SIBANDA@um6p.ma
+- name: Telma Sibanda
+  email: Telma.SIBANDA@um6p.ma
   roles:
   - point-of-contact
 data:

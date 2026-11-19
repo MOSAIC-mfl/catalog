@@ -3,7 +3,7 @@
 schema_version: 0.2.0
 id: MFL-2026-042
 title: Erosion map
-description: Emprical modellling
+description: Empirical modelling
 resource_type: dataset
 themes:
 - degradation-land-health
