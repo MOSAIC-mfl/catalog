@@ -22,21 +22,20 @@ body:
     id: living_landscape
     attributes:
       label: Living landscape
-      description: The MFL landscape this dataset covers. Pick NATIONAL for country-wide datasets, GLOBAL for global/cross-landscape ones.
+      description: The MFL living landscape this dataset covers (vocabulary `landscapes` of the MOSAIC standard). Pick the last option for country-wide, regional or global datasets.
       options:
-        - CIV-NZ — N'Zi Watershed (Côte d'Ivoire)
-        - COL-CUM — Cumbal, Nariño (Colombia)
-        - ETH-OG — Omo-Gibe Basin (Ethiopia)
-        - IND-CH — Central India Highlands (India)
-        - KEN-LVB — Lake Victoria Basin (Kenya)
-        - KEN-LEI — LEILA, Southern Kenya Rangelands (Kenya)
-        - MEK-3S — 3S Basins (Laos / Cambodia / Vietnam)
-        - PER-PCL — Pucallpa – Ucayali (Peru)
-        - SEN-FK — Fatick Department (Senegal)
-        - TUN-NW — Northwestern Tunisia (Tunisia)
-        - ZWE-MB — Mbire – Lower Zambezi Valley (Zimbabwe)
-        - NATIONAL — Country-wide coverage
-        - GLOBAL — Global / cross-landscape
+        - CIV-NZ — N'Zi Watershed · Côte d'Ivoire
+        - COL-CUM — Cumbal (Nariño) · Colombia
+        - ETH-OG — Omo-Gibe Basin · Ethiopia
+        - IND-CH — Central India Highlands · India
+        - KEN-LEI — LEILA (Southern Kenya Rangelands) · Kenya
+        - KEN-LVB — Lake Victoria Basin (Kenya) · Kenya
+        - MEK-3S — 3S Basins (Sekong, Sesan, Srepok) · Cambodia / Laos / Vietnam
+        - PER-PCL — Pucallpa – Ucayali · Peru
+        - SEN-FK — Fatick Department · Senegal
+        - TUN-NW — Northwestern Tunisia · Tunisia
+        - ZWE-MB — Mbire – Lower Zambezi Valley · Zimbabwe
+        - None — country-wide, regional or global
     validations:
       required: true
   - type: dropdown
@@ -57,6 +56,8 @@ body:
     id: theme
     attributes:
       label: MFL theme
+      description: Vocabulary `themes` of the MOSAIC standard. Pick every theme that applies.
+      multiple: true
       options:
         - Boundaries / admin units
         - Land cover / land use
@@ -71,11 +72,14 @@ body:
         - Decision-support outputs
         - Agrobiodiversity / crops
         - Socio-economic / livelihoods
+        - Climate
+        - Climate adaptation
+        - Climate mitigation
   - type: dropdown
     id: data_type
     attributes:
       label: Data type
-      options: [Raster, Vector, Tabular, Mixed]
+      options: [Raster, Vector, Tabular, Document, Mixed, Other]
   - type: textarea
     id: description
     attributes:

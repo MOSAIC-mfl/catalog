@@ -48,7 +48,7 @@ data:
   media_type: image/tiff; application=geotiff
 - name: Map tiles and series on Hugging Face
   locations:
-  - url: https://huggingface.co/datasets/aaguilar90/mosaic-lake-victoria
+  - url: https://huggingface.co/datasets/MOSAIC-CGIAR/mosaic-lake-victoria
   access_method: landing_page
   kind: mixed
 processing:

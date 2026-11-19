@@ -39,13 +39,13 @@ related_publications:
 data:
 - name: gedi_rh95_1km.tif (band 1 mean RH95 in dm, band 2 shot count)
   locations:
-  - url: https://huggingface.co/datasets/aaguilar90/mosaic-ucayali/resolve/main/query/gedi_rh95_1km.tif
+  - url: https://huggingface.co/datasets/MOSAIC-CGIAR/mosaic-ucayali/resolve/main/query/gedi_rh95_1km.tif
   access_method: download
   kind: raster
   media_type: image/tiff; application=geotiff
 - name: gedi_footprints.pmtiles (footprints with RH95, RH50 and date)
   locations:
-  - url: https://huggingface.co/datasets/aaguilar90/mosaic-ucayali/resolve/main/tiles/gedi_footprints.pmtiles
+  - url: https://huggingface.co/datasets/MOSAIC-CGIAR/mosaic-ucayali/resolve/main/tiles/gedi_footprints.pmtiles
   access_method: download
   kind: vector
   geometry_type: point

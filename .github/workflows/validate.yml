@@ -1,7 +1,8 @@
-# Runs on every pull request: the records and the landscape profiles, checked against the MOSAIC
-# standard (MOSAIC-mfl/mosaic-standard, main; the repository variable STANDARD_REF picks another
-# branch or tag), then the catalogue built as Publish builds it. Incomplete records do not fail the
-# check; invalid records and profiles do.
+# Runs on every pull request (and by hand): the records and the landscape profiles, checked
+# against the MOSAIC standard (MOSAIC-mfl/mosaic-standard, main; the repository variable
+# STANDARD_REF picks another branch or tag), then the catalogue built as Publish builds it.
+# Incomplete records do not fail the check; invalid records and profiles do. Not run on pushes to
+# main: a merge was already checked in its pull request, and Publish builds the catalogue again.
 #
 # The job is named pr-build: that is the status check the protection of main requires (it was the
 # first pipeline's build check). Keep the name, or change the required check in the settings with it.
@@ -9,8 +10,7 @@ name: Validate
 
 on:
   pull_request:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read

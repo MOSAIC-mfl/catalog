@@ -1,6 +1,6 @@
 # MOSAIC catalog
 
-> 108 records in the MOSAIC metadata standard v0.2 and the landscape profiles, published at
+> 132 records in the MOSAIC metadata standard v0.2 and the landscape profiles, published at
 > https://mosaic-mfl.github.io/catalog/ (the STAC catalog of the first pipeline stays, frozen, at
 > https://mosaic-mfl.github.io/catalog/stac/). The first pipeline (schema-1 records, `build_catalog.py`)
 > is in the git history up to 9abbfc6 and in MOSAIC-mfl/mosaic-standard `legacy/`.
@@ -39,7 +39,7 @@ Not a maintainer? Use the issue form **New dataset** and a maintainer writes the
 A landscape profile works the same way (`landscapes/<CODE>/`); guide:
 [`docs/landscape-profiles.md`](https://github.com/MOSAIC-mfl/mosaic-standard/blob/main/docs/landscape-profiles.md).
 MOSAIC team members can write a profile without programming with the Claude Code skill
-`mosaic-landscape-profile` (team repository `MOSAIC-mfl/ai-context`).
+`mosaic-landscape-profile` ([MOSAIC-mfl/mosaic-skills](https://github.com/MOSAIC-mfl/mosaic-skills)).
 
 ## Publishing
 
@@ -55,7 +55,7 @@ API at once. The notification uses a GitHub App:
    (the App's Client ID, or its numeric App ID) and `NOTIFIER_APP_KEY` (the `.pem` contents).
 
 Without them `notify-api` only leaves a notice, and the API picks the change up on its daily run
-(05:17 UTC).
+(scheduled at 05:17 UTC; GitHub often starts scheduled runs hours later).
 
 ## Check locally
 
