@@ -49,6 +49,9 @@ processing:
 - id: source
   description: SPI-3 from CHIRPS v3.0 monthly totals (3-month rolling sums).
   derived_from:
+  - title: CHIRPS v3 Daily Precipitation, 'rnl' flavour (CGIAR Climate Data Hub record chirps-v3-daily)
+    url: https://github.com/CGIAR-Climate-Data-Hub/cdh-catalog/blob/main/records/chirps-v3-daily/chirps-v3-daily.yaml
+    version: v3.0
   - title: CHIRPS v3.0 (UCSB Climate Hazards Center)
     url: https://www.chc.ucsb.edu/data/chirps3
   code:
