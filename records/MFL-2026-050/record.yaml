@@ -26,7 +26,8 @@ contact:
 - organization: IWMI
   roles:
   - producer
-- email: s.douangsavanh@cgiar.org
+- name: Somphasith Douangsavanh
+  email: s.douangsavanh@cgiar.org
   roles:
   - point-of-contact
 data:

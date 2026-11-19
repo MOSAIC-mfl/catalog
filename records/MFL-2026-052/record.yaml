@@ -2,7 +2,7 @@
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
 schema_version: 0.2.0
 id: MFL-2026-052
-title: LULC classification
+title: LULC classification (3S Basins)
 description: MRC produced the data
 resource_type: dataset
 themes:
@@ -26,7 +26,8 @@ contact:
 - organization: IWMI
   roles:
   - producer
-- email: s.douangsavanh@cgiar.org
+- name: Somphasith Douangsavanh
+  email: s.douangsavanh@cgiar.org
   roles:
   - point-of-contact
 data:

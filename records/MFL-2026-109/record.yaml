@@ -26,10 +26,10 @@ contact:
 - organization: Land Conflict Watch, ASI, Global Energy Monitor and others, via CoRE Stack (external)
   roles:
   - producer
-- organization: Core Stack (Open access)
+- organization: CoRE Stack (external)
   roles:
   - point-of-contact
-- name: Sudharsan Malaiappan
+- name: Sudharsan Maliappan
   email: s.maliappan@cgiar.org
   roles:
   - point-of-contact

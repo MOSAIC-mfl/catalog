@@ -31,7 +31,8 @@ contact:
 - organization: CIP
   roles:
   - producer
-- email: javier.ochoa@cgiar.org
+- name: Javier Ochoa
+  email: javier.ochoa@cgiar.org
   roles:
   - point-of-contact
 data:

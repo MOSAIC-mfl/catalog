@@ -2,7 +2,7 @@
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
 schema_version: 0.2.0
 id: MFL-2026-045
-title: Agroecological zones
+title: Agroecological zones (N'Zi Watershed)
 description: Agroecological zones
 resource_type: dataset
 spatial:

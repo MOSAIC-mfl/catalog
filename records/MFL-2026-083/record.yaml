@@ -27,7 +27,8 @@ contact:
 - organization: IFPRI
   roles:
   - producer
-- email: z.guo@cgiar.org
+- name: Zhe Guo
+  email: z.guo@cgiar.org
   roles:
   - point-of-contact
 data:
