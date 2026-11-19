@@ -5,9 +5,10 @@
 # change without waiting for the API's daily run.
 #
 # notify-api authenticates as a GitHub App installed on MOSAIC-mfl/mosaic-api with the repository
-# permission Contents: read and write (needed for repository_dispatch). Its settings live here:
-#   variable  API_APP_CLIENT_ID     the App's Client ID
-#   secret    API_APP_PRIVATE_KEY   a private key of the App (.pem contents)
+# permission Contents: read and write (needed for repository_dispatch). Its settings are two
+# repository secrets here:
+#   NOTIFIER_APP_ID    the App's Client ID (or its numeric App ID)
+#   NOTIFIER_APP_KEY   a private key of the App (.pem contents)
 # Until both are set the job only writes a notice and passes; the API then picks the change up on
 # its daily run, as before.
 name: Publish
@@ -62,18 +63,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions: {}
     env:
-      HAS_APP: ${{ vars.API_APP_CLIENT_ID != '' && secrets.API_APP_PRIVATE_KEY != '' }}
+      HAS_APP: ${{ secrets.NOTIFIER_APP_ID != '' && secrets.NOTIFIER_APP_KEY != '' }}
     steps:
       - name: No GitHub App configured
         if: env.HAS_APP != 'true'
-        run: echo "::notice title=mosaic-api not notified::Set the variable API_APP_CLIENT_ID and the secret API_APP_PRIVATE_KEY (see the header of this workflow). mosaic-api picks this change up on its daily run."
+        run: echo "::notice title=mosaic-api not notified::Set the secrets NOTIFIER_APP_ID and NOTIFIER_APP_KEY (see the header of this workflow). mosaic-api picks this change up on its daily run."
       - name: Token for mosaic-api
         id: app
         if: env.HAS_APP == 'true'
         uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
-          client-id: ${{ vars.API_APP_CLIENT_ID }}
-          private-key: ${{ secrets.API_APP_PRIVATE_KEY }}
+          client-id: ${{ secrets.NOTIFIER_APP_ID }}
+          private-key: ${{ secrets.NOTIFIER_APP_KEY }}
           owner: ${{ github.repository_owner }}
           repositories: mosaic-api
           permission-contents: write

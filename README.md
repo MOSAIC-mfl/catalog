@@ -51,9 +51,8 @@ API at once. The notification uses a GitHub App:
 1. An organization owner creates a GitHub App (no webhook) with the repository permission
    **Contents: read and write**, installs it on `MOSAIC-mfl/mosaic-api` only, and generates a
    private key.
-2. In this repository, *Settings → Secrets and variables → Actions*: the variable
-   `API_APP_CLIENT_ID` (the App's Client ID) and the secret `API_APP_PRIVATE_KEY` (the `.pem`
-   contents).
+2. In this repository, *Settings → Secrets and variables → Actions → Secrets*: `NOTIFIER_APP_ID`
+   (the App's Client ID, or its numeric App ID) and `NOTIFIER_APP_KEY` (the `.pem` contents).
 
 Without them `notify-api` only leaves a notice, and the API picks the change up on its daily run
 (05:17 UTC).
