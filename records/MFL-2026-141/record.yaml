@@ -1,0 +1,95 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source PS-026), registered 2026-11-20 from the original files.
+schema_version: 0.2.0
+id: MFL-2026-141
+title: Regional ecosystem map of Ucayali department
+description: >-
+  'Mapa Regional de Ecosistemas del Departamento de Ucayali', the official ecosystem map of Ucayali approved by
+  Ordenanza Regional N° 006-2023-GRU-CR. It maps 12 natural ecosystems (8 tropical lowland forest types, 2 yunga
+  forests, lakes and rivers) and 4 intervened zones (secondary vegetation, agricultural, mining and urban areas) over
+  10,507,617.8 ha, at a regional working scale of 1:50,000. Built by the Gobierno Regional de Ucayali (Autoridad
+  Regional Ambiental, Dirección de Gestión del Territorio) in coordination with MINAM, from MINAM's national ecosystem
+  map of 2018, refined with Landsat 2019 and 2020 imagery, palm swamps from the JICA wetland study and GEOBOSQUES, the
+  1:100,000 national chart for water bodies, and the PNCBMCC land-use change map 2016 and MIDAGRI's agricultural-area
+  map for intervened zones. The descriptive report gives the method, the classes and an office validation with 158
+  points (overall accuracy 86.7 %, kappa 0.85).
+resource_type: dataset
+language:
+- es
+themes:
+- biodiversity-ecosystems
+- land-cover-land-use
+keywords:
+- ecosystems
+- ecosystem map
+- Amazon forest
+- aguajales
+- Ucayali
+- Mapa Regional de Ecosistemas
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -75.9479
+  - -11.4483
+  - -70.4944
+  - -7.262
+  crs: EPSG:32718
+  resolution:
+    text: 'Working scale 1:50,000; minimum mappable area 2-20 ha depending on the component'
+temporal:
+  text: Inputs dated 2016 (land-use change), 2019 and 2020 (Landsat); the shapefile was last edited on 2021-12-01; approved in 2023
+  update_frequency: unknown
+source_updated: '2023-07'
+license: LicenseRef-source-terms
+license_text: >-
+  No licence stated: the approving ordinance, the descriptive report and the IDER Ucayali map catalogue (checked on
+  2026-11-20) state none. Free download from IDER Ucayali.
+access: public
+contact:
+- organization: Gobierno Regional de Ucayali, Autoridad Regional Ambiental (ARAU), Dirección de Gestión del Territorio
+  roles:
+  - producer
+  - licensor
+- organization: Gobierno Regional de Ucayali, Infraestructura de Datos Espaciales Regional (IDER Ucayali)
+  url: https://ider.regionucayali.gob.pe/
+  roles:
+  - host
+citation:
+  authors:
+  - organization: Gobierno Regional de Ucayali, Autoridad Regional Ambiental
+  date: '2023'
+  title: Mapa Regional de Ecosistemas del Departamento de Ucayali
+  publisher: Gobierno Regional de Ucayali
+data:
+- name: Shapefile, map sheet and descriptive report (RAR archive)
+  description: >-
+    base_cartografica/Ecosistema_Ucayali_integrado.shp (polygons, WGS 84 / UTM zone 18S; fields ECO_DETALL,
+    ECO_LAYER, SIMBOLO, SUM_SUM_has), Mapa_ecosistemas_final.jpg (map sheet) and
+    Memoria_descriptiva_mapa_ecosistemas_ucayali.pdf (descriptive report, 52 pages).
+  locations:
+  - url: https://ider.regionucayali.gob.pe/data/mapas/1.%20Mapa_Regional_Ecosistemas_Terrestres_de_Ucayali.rar
+  access_method: download
+  kind: vector
+  geometry_type: polygon
+  media_type: application/vnd.rar
+  file_size: 90755879
+- name: IDER Ucayali map catalogue
+  locations:
+  - url: https://ider.regionucayali.gob.pe/index.php/servicios/catalogo-de-mapas
+  access_method: landing_page
+  kind: mixed
+additional_links:
+- rel: describedby
+  url: https://busquedas.elperuano.pe/dispositivo/NL/2181055-1
+  title: Ordenanza Regional N° 006-2023-GRU-CR, which approves the map and its descriptive report (El Peruano)
+- rel: related
+  id: MFL-2026-076
+  title: MINAM national ecosystem map 2018 for Ucayali, from which this regional map was refined
+- rel: related
+  id: MFL-2026-142
+  title: Regional map of degraded areas in the terrestrial ecosystems of Ucayali, approved by the same ordinance
+note: >-
+  The SINIA listing (sinia.minam.gob.pe) gives a scale of 1:2,600,000; the descriptive report states the working
+  scale as 1:50,000. SINIA could not be read on 2026-11-20 (access denied to automated clients).

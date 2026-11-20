@@ -1,0 +1,115 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source PS-001), registered 2026-11-20 from INEI's own pages and files.
+schema_version: 0.2.0
+id: MFL-2026-135
+title: 'National Censuses 2017 (population, housing and Indigenous communities): final results for Ucayali'
+description: >-
+  'Censos Nacionales 2017: XII de Población, VII de Vivienda y III de Comunidades Indígenas', the de facto national
+  census of Peru by the Instituto Nacional de Estadística e Informática (INEI), here the final results for Ucayali
+  department ('Ucayali: Resultados Definitivos de los Censos Nacionales 2017', four volumes), with tables by province
+  and district. Volume I covers general aspects, population, health insurance and education; volume II education,
+  working-age population, religion, marital status and ethnic self-identification; volume III fertility; volume IV
+  fertility and the dwelling and household tables (water source, hours and days of water service, payment for water,
+  sanitation, electric lighting, building materials, tenure, household equipment, ICT, cooking fuel, emigration).
+  Units are people, private dwellings and households. Urban areas were enumerated on 22 October 2017 and rural areas
+  from 23 October to 6 November 2017. The online REDATAM system allows custom tables down to district; a separate
+  directory gives population and dwellings by populated place, without coordinates.
+resource_type: dataset
+language:
+- es
+themes:
+- socio-economic-livelihoods
+keywords:
+- population census
+- housing census
+- basic services
+- drinking water
+- sanitation
+- electricity
+- Ucayali
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -75.9479
+  - -11.4483
+  - -70.4944
+  - -7.262
+  resolution:
+    text: Department, province and district (2017 boundaries; Huipoca and Boquerón were created in 2021)
+temporal:
+  date: '2017'
+  text: Enumeration 22 October to 6 November 2017; final results published in October 2018
+  update_frequency: static
+source_updated: '2019-01'
+license: LicenseRef-source-terms
+license_text: >-
+  No licence stated on INEI's results page, publication or tables (checked on 2026-11-20). Public download, no
+  registration. Tables cite: "Fuente: INEI - Censos Nacionales 2017: XII de Población, VII de Vivienda y III de
+  Comunidades Indígenas."
+access: public
+contact:
+- organization: Instituto Nacional de Estadística e Informática (INEI), Dirección Nacional de Censos y Encuestas
+  email: infoinei@inei.gob.pe
+  url: https://www.inei.gob.pe/
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  authors:
+  - organization: Instituto Nacional de Estadística e Informática (INEI)
+  date: '2018-10'
+  title: 'Ucayali: Resultados Definitivos de los Censos Nacionales 2017'
+  publisher: INEI
+data:
+- name: Tables for Ucayali, volumes I to IV (XLSX)
+  description: 25TOMO_01 (population, health insurance, education), 25TOMO_02 (education, work, religion, ethnicity), 25TOMO_03 (fertility), 25TOMO_04 (fertility, dwellings, households); 1.8-2.6 MB each.
+  locations:
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/cuadros/25TOMO_01.xlsx
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/cuadros/25TOMO_02.xlsx
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/cuadros/25TOMO_03.xlsx
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/cuadros/25TOMO_04.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- name: Publication for Ucayali, volumes I to IV (PDF)
+  locations:
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/25TOMO_01.pdf
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/25TOMO_02.pdf
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/25TOMO_03.pdf
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1554/25TOMO_04.pdf
+  access_method: download
+  kind: document
+  media_type: application/pdf
+- name: REDATAM online query system (custom tables to district)
+  locations:
+  - url: https://censos2017.inei.gob.pe/redatam/
+  access_method: landing_page
+  kind: tabular
+- name: Directory of populated places, Ucayali (XLSX)
+  description: Population by sex, dwellings, altitude and natural region by populated place; no coordinates.
+  locations:
+  - url: https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1541/cuadros/dpto25.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- name: Final results page of the 2017 censuses
+  locations:
+  - url: https://censo2017.inei.gob.pe/resultados-definitivos-de-los-censos-nacionales-2017/
+  access_method: landing_page
+  kind: mixed
+additional_links:
+- rel: describedby
+  url: https://censos2017.inei.gob.pe/pubinei/censos/Cpv2017/Fichacensal2017.pdf
+  title: Technical sheet of the 2017 censuses
+- rel: describedby
+  url: https://censo2017.inei.gob.pe/metodologias/
+  title: Methodology, census quality evaluation and post-census survey
+- rel: related
+  id: MFL-2026-136
+  title: National Censuses 2025, the next census, for Ucayali
+note: >-
+  Public tables and REDATAM go down to district only, on 2017 boundaries: to compare with 2025, add Huipoca and
+  Boquerón back to Padre Abad district.
