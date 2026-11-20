@@ -1,0 +1,82 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source NS-004), registered 2026-11-20 from the SENAMHI pages.
+schema_version: 0.2.0
+id: MFL-2026-139
+title: SENAMHI hydrological station Puente Aguaytía, daily river level
+description: >-
+  Conventional hydrological station 'Puente Aguaytía' (code 231201, category HLG) of the Servicio Nacional de
+  Meteorología e Hidrología del Perú (SENAMHI, Dirección Zonal 10) on the Aguaytía River, Padre Abad district,
+  Ucayali, at 278 m above sea level. River level is read three times a day (07, 13 and 19 h) and received in real
+  time; the public station page shows the daily mean level for the last 30 days and a monthly table from January 2017
+  (behind a robot check). Validated daily or monthly series of level, and of discharge where it exists, are supplied
+  on request through SENAMHI's paid data service (TUSNE).
+resource_type: dataset
+language:
+- es
+themes:
+- water-hydrology
+keywords:
+- river level
+- hydrological station
+- Aguaytía River
+- SENAMHI
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -75.50449
+  - -9.03738
+  - -75.50449
+  - -9.03738
+  resolution:
+    text: One station (point)
+temporal:
+  start_date: '2017-01'
+  end_date: null
+  text: The online viewer goes back to January 2017; the start of the station's record is not stated
+  update_frequency: daily
+license: LicenseRef-source-terms
+license_text: >-
+  No licence stated on the SENAMHI pages; the related open-data entry 'Datos hidrometeorológicos de libre acceso'
+  on datosabiertos.gob.pe says 'License Not Specified'. Validated series are sold through TUSNE (RPE
+  041-2024-SENAMHI/PREJ).
+access: restricted
+access_note: >-
+  The station page shows the last 30 days and monthly tables only, with no download, and the free historical
+  download tool does not include this station. Validated series are requested through SENAMHI's TUSNE form: daily
+  level, conventional station, S/ 87.20 per year, variable and station (2024 prices).
+contact:
+- organization: Servicio Nacional de Meteorología e Hidrología del Perú (SENAMHI)
+  url: https://www.senamhi.gob.pe/
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  authors:
+  - organization: Servicio Nacional de Meteorología e Hidrología del Perú (SENAMHI)
+  title: 'Estación hidrológica Puente Aguaytía (código 231201)'
+  url: https://www.senamhi.gob.pe/mapas/mapa-estaciones-2/map_red_graf.php?cod=231201&estado=REAL&tipo_esta=H&cate=HLG&cod_old=
+data:
+- name: Station page (last 30 days, monthly tables online)
+  locations:
+  - url: https://www.senamhi.gob.pe/mapas/mapa-estaciones-2/map_red_graf.php?cod=231201&estado=REAL&tipo_esta=H&cate=HLG&cod_old=
+  access_method: landing_page
+  kind: tabular
+  access: public
+- name: Validated series on request (TUSNE)
+  locations:
+  - url: https://www.senamhi.gob.pe/?p=solicitud-servicio
+  access_method: request
+  kind: tabular
+additional_links:
+- rel: describedby
+  url: https://www.senamhi.gob.pe/load/file/00701SENA-1780.pdf
+  title: TUSNE prices for hydrological data (RPE 041-2024-SENAMHI/PREJ)
+- rel: related
+  url: https://www.senamhi.gob.pe/?p=monitoreo-hidrologico
+  title: SENAMHI hydrological monitoring
+note: >-
+  SENAMHI also lists San Alejandro (code 250103, Irazola district) and Pucallpa (code 240504) as river stations in
+  Ucayali; they are not part of this record.

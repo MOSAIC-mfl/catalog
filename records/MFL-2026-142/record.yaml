@@ -1,0 +1,105 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source PS-064), registered 2026-11-20 from the original files.
+schema_version: 0.2.0
+id: MFL-2026-142
+title: Regional map of degraded areas in the terrestrial ecosystems of Ucayali
+description: >-
+  'Mapa Regional de Áreas Degradadas en Ecosistemas Terrestres del Departamento de Ucayali', approved by Ordenanza
+  Regional N° 006-2023-GRU-CR. A 30 m raster of degraded areas by 2019, following MINAM's method aligned with UNCCD
+  Land Degradation Neutrality. Three indicators are overlaid: the trend in land productivity (Landsat 5, 7 and 8 NDVI,
+  1989-2019, Mann-Kendall test at 90 % confidence), Amazon forest loss 2000-2019 (PNCBMCC, GEOBOSQUES) and forest
+  fragmentation (MSPA, PNCBMCC). The raster has six values: not degraded; forest fragmentation; loss of land
+  productivity; productivity loss with forest loss; productivity loss with fragmentation; Amazon forest loss. The
+  descriptive report also sorts degraded areas into nine categories by origin and intensity and ranks districts for
+  two services (soil-erosion control, water provision and regulation); those appear only as figures and tables in the
+  report. Produced by the Gobierno Regional de Ucayali (Autoridad Regional Ambiental) with MINAM technical assistance;
+  regional working scale 1:50,000.
+resource_type: dataset
+language:
+- es
+themes:
+- degradation-land-health
+- ecosystem-condition
+keywords:
+- land degradation
+- land degradation neutrality
+- NDVI trend
+- forest loss
+- forest fragmentation
+- Ucayali
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -75.9479
+  - -11.4483
+  - -70.4944
+  - -7.262
+  crs: EPSG:32718
+  resolution:
+    value: 30
+    unit: m
+temporal:
+  start_date: '1989'
+  end_date: '2019'
+  update_frequency: unknown
+source_updated: '2023-07'
+license: LicenseRef-source-terms
+license_text: >-
+  No licence stated: the approving ordinance, the descriptive report and the IDER Ucayali map catalogue (checked on
+  2026-11-20) state none. Free download from IDER Ucayali.
+access: public
+contact:
+- organization: Gobierno Regional de Ucayali, Autoridad Regional Ambiental (ARAU), Dirección de Gestión del Territorio
+  roles:
+  - producer
+  - licensor
+- organization: Gobierno Regional de Ucayali, Infraestructura de Datos Espaciales Regional (IDER Ucayali)
+  url: https://ider.regionucayali.gob.pe/
+  roles:
+  - host
+citation:
+  authors:
+  - organization: Gobierno Regional de Ucayali, Autoridad Regional Ambiental
+  date: '2023'
+  title: Mapa Regional de Áreas Degradadas en Ecosistemas Terrestres del Departamento de Ucayali
+  publisher: Gobierno Regional de Ucayali
+data:
+- name: GeoTIFF, map sheet and descriptive report (RAR archive)
+  description: >-
+    base_cartografica/ad_ucayali.tif (30 m, WGS 84 / UTM zone 18S, with its value table; about 1.2 GB unpacked),
+    Mapa_areas_degradadas_final.jpg (map sheet) and Memoria_descriptiva_mapa_areasdegradadas_ucayali.pdf
+    (descriptive report, 83 pages).
+  locations:
+  - url: https://ider.regionucayali.gob.pe/data/mapas/2.%20Mapa_Regional_Areas_Degradadas_en-ecosistemas_Terrestres_de_Ucayali.rar
+  access_method: download
+  kind: raster
+  media_type: application/vnd.rar
+  file_size: 20033474
+- name: Map sheet (JPG)
+  locations:
+  - url: https://ider.regionucayali.gob.pe/images/servicios/Mapa_Regional_de_Areas_Degradadas_en_Ecosistemas_Terrestres_de_Ucayali.jpg
+  access_method: download
+  kind: document
+  media_type: image/jpeg
+  file_size: 6935493
+- name: IDER Ucayali map catalogue
+  locations:
+  - url: https://ider.regionucayali.gob.pe/index.php/servicios/catalogo-de-mapas
+  access_method: landing_page
+  kind: mixed
+additional_links:
+- rel: describedby
+  url: https://busquedas.elperuano.pe/dispositivo/NL/2181055-1
+  title: Ordenanza Regional N° 006-2023-GRU-CR, which approves the map and its descriptive report (El Peruano)
+- rel: related
+  id: MFL-2026-141
+  title: Regional ecosystem map of Ucayali, approved by the same ordinance
+- rel: related
+  id: MFL-2026-079
+  title: Forest and forest loss by province and district (GEOBOSQUES), one of the inputs
+note: >-
+  The descriptive report gives two accuracies (78 %, kappa 0.6, in its validation section; 60 % in its conclusions)
+  and two totals of degraded area (2,175,983 ha excluding water bodies in the text; 2,285,580 ha on the map sheet and
+  in the raster). The district rankings in the report do not include Huipoca and Boquerón, districts since 2021.

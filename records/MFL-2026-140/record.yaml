@@ -1,0 +1,104 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source NS-019), registered 2026-11-20 from CGSpace and CIP Dataverse.
+schema_version: 0.2.0
+id: MFL-2026-140
+title: Collection of thematic maps for the Pucallpa–Aguaytía agroforestry corridor (CIP, 2025)
+description: >-
+  A collection of 73 spatial layers for the Pucallpa–Aguaytía agroforestry corridor (Padre Abad province and the
+  districts of Nueva Requena, Campo Verde, Manantay and Yarinacocha; 14,064 km²) prepared by the International Potato
+  Center: 48 rasters and 25 shapefiles in nine thematic groups (human footprint, climate change, protected areas,
+  physiography, biomass and forest, ecosystem health and others). Most layers are clips of global or national sources
+  (MapBiomas Perú land cover every five years 1985-2024, TerraClimate 2024 against 1981-2010, the Ecosystem Integrity
+  Index, Hansen/GLAD forest loss 2000-2024, Sentinel-5P CO, NO2, O3 and SO2, and layers from MINAM, INEI, SERNANP,
+  SENAMHI and IBC), at 30-90 m for the rasters. Published as a 35-page report of map figures on CGSpace, a CIP
+  Dataverse dataset that holds the data dictionary, and an Earth Engine viewer.
+resource_type: dataset
+language:
+- en
+themes:
+- land-cover-land-use
+- ecosystem-condition
+- climate
+keywords:
+- thematic maps
+- land cover
+- forest loss
+- ecosystem integrity
+- Pucallpa
+- Aguaytía
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -75.94789
+  - -9.41806
+  - -74.32246
+  - -7.95005
+  resolution:
+    text: Rasters 30-90 m; vectors at the scale of each source
+temporal:
+  start_date: '1985'
+  end_date: '2025'
+  text: Layers from 1985 to 2025, as stated in the abstract
+  update_frequency: unknown
+license: CC-BY-4.0
+access: restricted
+access_note: >-
+  The 73 layer files listed in the data dictionary are not published: the CIP Dataverse dataset holds the dictionary
+  only. Ask the International Potato Center (CIP) for the layers. The report of map figures and the Earth Engine viewer
+  are public.
+contact:
+- organization: International Potato Center (CIP)
+  name: Javier Ochoa
+  orcid: https://orcid.org/0000-0002-3015-9915
+  roles:
+  - producer
+  - licensor
+  - host
+- organization: International Potato Center (CIP)
+  email: cip@cgiar.org
+  roles:
+  - point-of-contact
+citation:
+  text: Ochoa, J. 2025. Collection of thematic maps for the Peru - Pucallpa/Aguaytía agroforestry corridor. International
+    Potato Center. 35 p.
+doi: 10.21223/P3/ZPHD7W
+data:
+- name: CIP Dataverse dataset (data dictionary only)
+  description: '"Dataset for: Collection of land use thematic maps for the Peru multifunctional landscape", published 2026-02-17; holds 01_Data_Dictionary_Peru_map.xlsx (73 layers).'
+  locations:
+  - url: https://data.cipotato.org/dataset.xhtml?persistentId=doi:10.21223/P3/ZPHD7W
+  access_method: landing_page
+  kind: mixed
+- name: Report of map figures (PDF, 35 pages)
+  locations:
+  - url: https://cgspace.cgiar.org/server/api/core/bitstreams/a547e0dc-66c4-4e32-9328-79ee147fea0a/content
+  access_method: download
+  kind: document
+  media_type: application/pdf
+  file_size: 9007672
+  access: public
+- name: Earth Engine viewer
+  locations:
+  - url: https://ee-javierochoacip.projects.earthengine.app/view/mflpclperu
+  access_method: service
+  kind: raster
+  service:
+    type: gee
+  access: public
+related_publications:
+- citation:
+    text: Ochoa, J. 2025. Collection of thematic maps for the Peru - Pucallpa/Aguaytía agroforestry corridor. International
+      Potato Center. 35 p. https://hdl.handle.net/10568/181748
+additional_links:
+- rel: describedby
+  url: https://cgspace.cgiar.org/items/42c70dc9-58c7-49c3-a8b2-d621c370b5e0
+  title: The report on CGSpace (hdl 10568/181748)
+- rel: related
+  id: MFL-2026-076
+  title: MINAM national ecosystem map for Ucayali; the collection's layer EcosystemPCL is a clip of it
+note: >-
+  Most layers re-clip global and national sources that MOSAIC can link at source. The Dataverse metadata lists
+  "Colombia" among its keywords and RTB as funder, while CGSpace gives the CGIAR Trust Fund (MFL). It is not the same
+  work as MFL-2026-055 (crop fields mapped with communities).

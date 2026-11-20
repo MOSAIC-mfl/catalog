@@ -16,6 +16,7 @@ spatial:
   - global
   landscapes:
   - KEN-LVB
+  - PER-PCL
   resolution:
     value: 30
     unit: m
@@ -41,6 +42,9 @@ data:
   access_method: landing_page
   kind: raster
 additional_links:
+- rel: related
+  id: MFL-2026-137
+  title: Tree cover loss statistics for Ucayali and its provinces (Global Nature Watch), computed from this dataset
 - rel: describedby
   url: https://github.com/anaguilarar/mosaic-lake-victoria/blob/main/DATA_REPORT.md
   title: Data report of the MOSAIC map explorer
