@@ -1,15 +1,30 @@
 # MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-000.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+# 2026-11-23: linked to the public boundary release, like the other landscape boundaries (MFL-2026-098 to 105).
 schema_version: 0.2.0
 id: MFL-2026-000
 title: Central India Landscape - Boundary
-description: MFL LL boundary
+description: >-
+  Canonical MOSAIC delineation of the Central India Highlands living landscape (IND-CH), delivered by
+  IWMI and used to define the landscape across the catalogue. Six districts: Jhansi (Uttar Pradesh),
+  Tikamgarh, Chhatarpur, Damoh and Jabalpur (Madhya Pradesh) from a GADM district layer (same line work
+  as GADM 4.1), and Mandla (Madhya Pradesh) from the Survey of India district boundary layer with LGD
+  codes (2021). The delineation was delivered as a thin ring; the published outline was refilled from
+  that line work. Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-10 of
+  MOSAIC-mfl/catalog; a simplified outline is published as boundaries/IND-CH.geojson in
+  MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
 - boundaries-admin-units
 spatial:
   resolution:
-    text: Admin - MFLLs Boundary
+    text: Landscape boundary
+  bbox:
+  - 78.29423
+  - 22.20216
+  - 81.19749
+  - 25.9555
+  crs: EPSG:4326
   geography:
   - IND
   landscapes:
@@ -18,26 +33,49 @@ temporal:
   date: '2025'
   text: '2025'
   update_frequency: static
-license: CC-BY-4.0
-access: non-public
-access_note: Internal
+license: LicenseRef-source-terms
+license_text: Source terms (GADM, https://gadm.org/license.html; Survey of India)
+access: public
 processing_status: processed
 contact:
 - organization: IWMI
   roles:
   - producer
 - name: Sudharsan Maliappan
+  organization: IWMI
   email: s.maliappan@cgiar.org
   roles:
   - point-of-contact
+- organization: GADM
+  url: https://gadm.org
+  roles:
+  - licensor
+- organization: Survey of India
+  roles:
+  - licensor
+- organization: Alliance Bioversity-CIAT
+  roles:
+  - processor
+  - host
+citation:
+  text: 'District boundaries: GADM (gadm.org) and Survey of India.'
 additional_links:
 - rel: license
-  url: https://spdx.org/licenses/CC-BY-4.0.html
+  url: https://gadm.org/license.html
 data:
-- name: Data held by the owner (on request)
-  access_method: request
+- name: Download from github.com
+  locations:
+  - url: >-
+      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-10/IND-CH_Central_India_Highlands_boundary_2026-11-10.zip
+  access_method: download
   kind: vector
-  access: non-public
+  media_type: 'application/zip'
+  file_size: 121 KB
+  geometry_type: polygon
+  feature_count: 1
+  spatial:
+    crs: EPSG:4326
+  description: 'Files: IND-CH_Central_India_Highlands_boundary_2026-11-10.zip'
 created: '2026-07-24'
-updated: '2026-10-22'
-source_updated: '2026'
+updated: '2026-11-23'
+source_updated: '2026-11-10'
