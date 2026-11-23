@@ -36,7 +36,7 @@ map:
   - -73.6
   - -9.5
   zoom: 6.1
-  pitch: 32
+  pitch: 0
   bearing: 0
   min_zoom: 5.5
   max_zoom: 16
@@ -548,7 +548,7 @@ overlays:
   group: Vegetation
   title: Vegetation classes
   kind: style-layers
-  swatch: '#55a05f'
+  swatch: '#44d02f'
   source_ref: veg_classes
   record: mosaic:MFL-2026-128
   before: dim
@@ -564,35 +564,69 @@ overlays:
     source: veg
     paint:
       fill-color:
-      - get
-      - color
+      - match
+      - - get
+        - class_en
+      - Palm swamps (aguajales)
+      - '#48b2c4'
+      - Cloud forest
+      - '#8167ce'
+      - Mature lowland forest
+      - '#176a2c'
+      - Wetland forest
+      - '#1d4181'
+      - Secondary or degraded lowland forest
+      - '#44d02f'
+      - Degraded shrubland or pasture
+      - '#bc8746'
+      - Young vegetation regrowth (purma)
+      - '#d8db89'
+      - - get
+        - color
       fill-opacity: 0.72
   - id: veg-line
     type: line
     source: veg
     paint:
       line-color:
-      - get
-      - color
+      - match
+      - - get
+        - class_en
+      - Palm swamps (aguajales)
+      - '#48b2c4'
+      - Cloud forest
+      - '#8167ce'
+      - Mature lowland forest
+      - '#176a2c'
+      - Wetland forest
+      - '#1d4181'
+      - Secondary or degraded lowland forest
+      - '#44d02f'
+      - Degraded shrubland or pasture
+      - '#bc8746'
+      - Young vegetation regrowth (purma)
+      - '#d8db89'
+      - - get
+        - color
       line-width: 1.2
   legend:
     kind: classes
     title: Vegetation classes (co-produced with local experts)
     classes:
     - name: Palm swamps (aguajales) · Aguajales (3)
-      color: '#5e9ea0'
+      color: '#48b2c4'
     - name: Cloud forest · Bosque de colina alta (4)
-      color: '#2e5d78'
+      color: '#8167ce'
     - name: Mature lowland forest · Bosque de colina baja (12)
-      color: '#1b6b45'
+      color: '#176a2c'
     - name: Wetland forest · Bosque inundado (2)
-      color: '#3f7f93'
+      color: '#1d4181'
     - name: Secondary or degraded lowland forest · Bosque secundario o degradado (216)
-      color: '#55a05f'
+      color: '#44d02f'
     - name: Degraded shrubland or pasture · Pastizales o herbazales degradados (10)
-      color: '#d8c26a'
+      color: '#bc8746'
     - name: Young vegetation regrowth (purma) · Purma (77)
-      color: '#a9c977'
+      color: '#d8db89'
     notes:
     - >-
       Polygon counts are this app's analysis of the CC0 dataset. Class definitions: Cooley et al. (2024),
@@ -861,9 +895,6 @@ overlays:
     - value: 25
       name: Other anthropogenic non-vegetated area · Otra área antrópica sin vegetación
       color: '#db4d4f'
-    - value: 27
-      name: Not observed · No observado
-      color: '#ffffff'
     - value: 30
       name: Mining · Minería
       color: '#9c0027'
@@ -885,6 +916,9 @@ overlays:
     - value: 68
       name: Other natural non-vegetated area · Otra área natural sin vegetación
       color: '#e97a7a'
+    - value: 27
+      name: Not observed · No observado
+      color: '#ffffff'
     source: >-
       30 m · CC BY 4.0 · official palette · cacao has no class of its own (inside 'Mosaico agropecuario')
   inspect:
@@ -1231,7 +1265,7 @@ overlays:
   group: Climate
   title: Temperature
   kind: climate-grid
-  swatch: '#e14c66'
+  swatch: '#872781'
   source_ref: temperature
   record: cdh:chirts-era5-daily
   grid: climate/app/
