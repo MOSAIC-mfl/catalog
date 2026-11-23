@@ -42,8 +42,8 @@ map:
   - 32.6
   - -1.15
   zoom: 6.65
-  pitch: 38
-  bearing: -8
+  pitch: 0
+  bearing: 0
   min_zoom: 6.15
   max_zoom: 13
   max_pitch: 62
@@ -816,7 +816,7 @@ overlays:
   group: Climate
   title: Temperature
   kind: climate-grid
-  swatch: '#e14c66'
+  swatch: '#872781'
   source_ref: temperature
   record: cdh:chirts-era5-daily
   grid: climate/app/
@@ -920,7 +920,7 @@ overlays:
   group: Exposure
   title: Population
   kind: raster-tiles
-  swatch: '#d7301f'
+  swatch: '#fc8d59'
   source_ref: population
   record: mosaic:MFL-2026-122
   asset: tiles/population.pmtiles
