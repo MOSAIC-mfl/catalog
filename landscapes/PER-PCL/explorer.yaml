@@ -871,56 +871,72 @@ overlays:
     - value: 3
       name: Forest · Bosque
       color: '#1f8d49'
+      group: Forest formation · Formación boscosa
     - value: 4
       name: Dry forest · Bosque seco
       color: '#7dc975'
+      group: Forest formation · Formación boscosa
     - value: 6
       name: Flooded forest · Bosque inundable
       color: '#026975'
-    - value: 12
-      name: Herbaceous formation · Formación herbácea
-      color: '#d6bc74'
-    - value: 15
-      name: Pasture (beta) · Pasto (beta)
-      color: '#edde8e'
-    - value: 21
-      name: Mosaic of agriculture and pasture · Mosaico agropecuario
-      color: '#ffefc3'
-    - value: 23
-      name: Beach · Playa
-      color: '#ffa07a'
-    - value: 24
-      name: Urban infrastructure · Infraestructura urbana
-      color: '#d4271e'
-    - value: 25
-      name: Other anthropogenic non-vegetated area · Otra área antrópica sin vegetación
-      color: '#db4d4f'
-    - value: 30
-      name: Mining · Minería
-      color: '#9c0027'
-    - value: 33
-      name: River, lake or ocean · Río, lago u océano
-      color: '#2532e4'
-    - value: 35
-      name: Oil palm · Palma aceitera
-      color: '#9065d0'
-    - value: 40
-      name: Rice (beta) · Arroz (beta)
-      color: '#c71585'
+      group: Forest formation · Formación boscosa
     - value: 51
       name: Lowland flooded grassland · Herbazal inundable de tierras bajas
       color: '#5faf92'
+      group: Natural non-forest formation · Formación natural no boscosa
+    - value: 12
+      name: Herbaceous formation · Formación herbácea
+      color: '#d6bc74'
+      group: Natural non-forest formation · Formación natural no boscosa
     - value: 66
       name: Shrubland and other shrub vegetation · Matorral y otros arbustales
       color: '#a89358'
+      group: Natural non-forest formation · Formación natural no boscosa
+    - value: 21
+      name: Mosaic of agriculture and pasture · Mosaico agropecuario
+      color: '#ffefc3'
+      group: Agricultural area · Área agropecuaria
+    - value: 35
+      name: Oil palm · Palma aceitera
+      color: '#9065d0'
+      group: Agricultural area · Área agropecuaria
+    - value: 40
+      name: Rice (beta) · Arroz (beta)
+      color: '#c71585'
+      group: Agricultural area · Área agropecuaria
+    - value: 15
+      name: Pasture (beta) · Pasto (beta)
+      color: '#edde8e'
+      group: Agricultural area · Área agropecuaria
+    - value: 24
+      name: Urban infrastructure · Infraestructura urbana
+      color: '#d4271e'
+      group: Non-vegetated area · Área sin vegetación
+    - value: 30
+      name: Mining · Minería
+      color: '#9c0027'
+      group: Non-vegetated area · Área sin vegetación
+    - value: 23
+      name: Beach · Playa
+      color: '#ffa07a'
+      group: Non-vegetated area · Área sin vegetación
     - value: 68
       name: Other natural non-vegetated area · Otra área natural sin vegetación
       color: '#e97a7a'
+      group: Non-vegetated area · Área sin vegetación
+    - value: 25
+      name: Other anthropogenic non-vegetated area · Otra área antrópica sin vegetación
+      color: '#db4d4f'
+      group: Non-vegetated area · Área sin vegetación
+    - value: 33
+      name: River, lake or ocean · Río, lago u océano
+      color: '#2532e4'
+      group: Water body · Cuerpo de agua
     - value: 27
       name: Not observed · No observado
       color: '#ffffff'
     source: >-
-      30 m · CC BY 4.0 · official palette · cacao has no class of its own (inside 'Mosaico agropecuario')
+      30 m · CC BY 4.0 · official palette; classes grouped and ordered as in the Collection 4 legend · cacao has no class of its own (inside 'Mosaico agropecuario')
   inspect:
     kind: class-at-point
     asset: query/lulc_stack_30m.tif

@@ -570,6 +570,7 @@ panels:
   value: wse
   unit: m
   decimals: 2
+  decimals_level: 1
   summary:
   - stat: latest
     label: Latest level · {date}
