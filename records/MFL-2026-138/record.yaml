@@ -1,0 +1,103 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source PS-016), registered 2026-11-20 from the original site and files.
+schema_version: 0.2.0
+id: MFL-2026-138
+title: Official Database of Indigenous or Original Peoples (BDPI), Indigenous localities
+description: >-
+  'Base de Datos Oficial de Pueblos Indígenas u Originarios (BDPI)' of Peru's Ministerio de Cultura, the State's
+  official source of socio-demographic, qualitative and geographic information on Indigenous peoples (Ley 29785,
+  Decreto Legislativo 1360). It covers 55 peoples (51 Amazonian, 4 Andean), 48 languages and 9,332 Indigenous
+  localities nationally. The localities table has one row per locality: type (e.g. native community), people,
+  department, province and district (ubigeo), recognition and titling resolutions and dates, whether it is
+  georeferenced, area (ha), approximate population (speakers of an Indigenous language, self-identification, age
+  groups, sex, households), housing gaps from the 2017 census (no water, sewerage or electricity) and nearby services
+  (Tambos, police stations, health facilities, intercultural bilingual schools). Built from INEI censuses and surveys,
+  the community directories of the regional agrarian offices, MINEDU and the ministry's own data. In Ucayali it lists
+  481 localities: 145 in Coronel Portillo and 14 in Padre Abad. The BDPI states that it is not a register and does not
+  create rights.
+resource_type: dataset
+language:
+- es
+themes:
+- socio-economic-livelihoods
+keywords:
+- Indigenous peoples
+- native communities
+- comunidades nativas
+- Shipibo-Konibo
+- Kakataibo
+- Ashaninka
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -82.14
+  - -18.48
+  - -64.13
+  - 0.3
+  resolution:
+    text: Locality (comunidad nativa or other Indigenous locality), with its district ubigeo
+temporal:
+  text: Updated continuously, as the source states; the localities file was last modified in July 2026
+  update_frequency: continual
+source_updated: '2026-07'
+license: LicenseRef-source-terms
+license_text: >-
+  No licence stated on the BDPI site; the ISO metadata on catalogo.cultura.gob.pe marks use constraints as
+  intellectual property rights, with no text. Free download, no registration. The workbook asks to cite
+  http://bdpi.cultura.gob.pe/ as reference.
+access: public
+contact:
+- organization: Ministerio de Cultura del Perú, Viceministerio de Interculturalidad, Dirección General de Derechos de los Pueblos Indígenas
+  email: bdpi@cultura.gob.pe
+  url: https://bdpi.cultura.gob.pe/
+  roles:
+  - producer
+  - licensor
+  - host
+  - point-of-contact
+citation:
+  authors:
+  - organization: Ministerio de Cultura del Perú
+  date: '2026-07'
+  title: Base de Datos Oficial de Pueblos Indígenas u Originarios (BDPI)
+  url: https://bdpi.cultura.gob.pe/
+data:
+- name: Indigenous localities (XLSX)
+  description: One row per locality, 79 columns; no coordinates (a georeferenced yes/no flag and the area only).
+  locations:
+  - url: https://bdpi.cultura.gob.pe/sites/default/files/archivos/paginas_internas/descargas/BDPI%20-%20Localidades%20ind%C3%ADgenas%20u%20originarios_5.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  file_size: 4.79 MB
+- name: Census populated places within Indigenous localities (XLSX)
+  locations:
+  - url: https://bdpi.cultura.gob.pe/sites/default/files/archivos/paginas_internas/descargas/BDPI%20-%20Centros%20Poblados%20ind%C3%ADgenas%20u%20originarios_6.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  file_size: 13.4 MB
+- name: Locality finder (page offering both tables)
+  locations:
+  - url: https://bdpi.cultura.gob.pe/buscador-de-localidades-de-pueblos-indigenas
+  access_method: landing_page
+  kind: tabular
+- name: BDPI interactive map (view only)
+  description: Localities, Indigenous populated places, reserves for peoples in isolation and predominant language; no public GIS download.
+  locations:
+  - url: https://geoportal.cultura.gob.pe/mapa_bdpi/
+  access_method: landing_page
+  kind: vector
+  geometry_type: mixed
+additional_links:
+- rel: describedby
+  url: https://bdpi.cultura.gob.pe/que-es-la-bdpi
+  title: What the BDPI is
+- rel: describedby
+  url: https://catalogo.cultura.gob.pe/geonetwork/srv/api/records/4e7733c7-11d0-4a03-a41d-ca3bb8bc7ef3/formatters/xml
+  title: ISO 19139 metadata of the Indigenous localities layer
+note: >-
+  The downloadable tables have no geometry; the locality polygons and points are shown only in the map viewer. The
+  tables give the number and share of speakers of any Indigenous language, not the language of each locality.

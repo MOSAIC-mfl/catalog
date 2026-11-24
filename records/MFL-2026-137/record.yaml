@@ -1,0 +1,98 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source PS-023), registered 2026-11-20 from Global Nature Watch and the GFW Data API metadata.
+schema_version: 0.2.0
+id: MFL-2026-137
+title: Tree cover loss statistics for Ucayali and its provinces (Global Nature Watch, formerly Global Forest Watch)
+description: >-
+  Forest-change statistics for Ucayali department and its provinces (Atalaya, Coronel Portillo, Padre Abad, Purús) on
+  Global Nature Watch, the platform of the World Resources Institute (WRI) known as Global Forest Watch until
+  September 2026. The dashboards and the downloadable Peru statistics workbook give tree cover extent in 2000 and
+  2010, annual tree cover loss 2001-2025 at canopy thresholds from 0 to 75 %, humid primary forest loss, loss by
+  dominant driver, loss due to fire, natural forest in 2020 and its loss, and carbon stocks, emissions, removals and
+  net flux, by country, department and province (GADM 4.1 boundaries). They are computed from Hansen/UMD Global
+  Forest Change v1.13 (30 m), Turubanova et al. (2018) humid primary forest, the WRI/Google DeepMind drivers (Sims et
+  al. 2025, 1 km), UMD/GLAD loss from fires (Tyukavina et al. 2022), the SBTN Natural Lands Map v1.1 and Harris et
+  al. (2021, updated by Gibbs et al. 2025). Tree cover loss is not deforestation: it includes plantation harvest and
+  secondary forest. In 2001-2025, Padre Abad lost 280,233 ha of tree cover at the 30 % threshold.
+resource_type: dataset
+language:
+- en
+themes:
+- pressures-drivers
+- land-cover-land-use
+keywords:
+- tree cover loss
+- deforestation
+- primary forest
+- drivers of deforestation
+- forest carbon
+- Global Forest Watch
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -75.9479
+  - -11.4483
+  - -70.4944
+  - -7.262
+  resolution:
+    text: Country, department and province statistics (GADM 4.1), computed from 30 m rasters; no district statistics
+temporal:
+  start_date: '2000'
+  end_date: '2025'
+  update_frequency: annual
+source_updated: '2026-04-28'
+license: LicenseRef-source-terms
+license_text: >-
+  No single licence: the Global Nature Watch terms state that "each dataset carries its own license and
+  restrictions". Tree cover loss, drivers, loss from fires and gain are CC BY 4.0 (GFW Data API metadata); the
+  natural forest layer and the statistics workbook state no licence.
+access: public
+contact:
+- organization: World Resources Institute (WRI), Global Nature Watch
+  url: https://globalnaturewatch.org/
+  roles:
+  - producer
+  - licensor
+  - host
+- organization: University of Maryland, Department of Geographical Sciences (GLAD)
+  roles:
+  - producer
+citation:
+  text: Hansen, M. C. et al. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Accessed through Global
+    Nature Watch on 2026-11-20. www.globalnaturewatch.org
+related_publications:
+- doi: 10.1126/science.1244693
+- doi: 10.1088/1748-9326/add606
+- doi: 10.3389/frsen.2022.825190
+- doi: 10.1038/s41558-020-00976-6
+data:
+- name: Peru statistics workbook, country, department and province sheets (XLSX, 2025 edition)
+  description: Sheets for the country, Subnational 1 (department) and Subnational 2 (province), with a ReadMe; version v20260427, covering 2001-2025.
+  locations:
+  - url: https://gfw2-data.s3.amazonaws.com/country-pages/country_stats/download/2025/PER.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  file_size: 1099456
+- name: Dashboards for Ucayali, Coronel Portillo and Padre Abad (charts with CSV download)
+  locations:
+  - url: https://globalnaturewatch.org/dashboards/country/PER/26/
+  - url: https://globalnaturewatch.org/dashboards/country/PER/26/2/
+  - url: https://globalnaturewatch.org/dashboards/country/PER/26/3/
+  access_method: landing_page
+  kind: tabular
+additional_links:
+- rel: related
+  id: MFL-2026-123
+  title: Global Forest Change 2000-2025 v1.13 (Hansen/UMD), the tree cover loss raster behind these statistics
+- rel: describedby
+  url: https://data-api.globalforestwatch.org/dataset/umd_tree_cover_loss
+  title: Tree cover loss metadata on the GFW Data API (version, licence, cautions)
+- rel: license
+  url: https://globalnaturewatch.org/terms/
+  title: Global Nature Watch terms of service
+note: >-
+  Querying the GFW Data API directly needs an API key; the dashboards and the workbook do not. The old address
+  www.globalforestwatch.org/dashboards/country/PER/26/ redirects to Global Nature Watch.

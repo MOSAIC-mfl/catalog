@@ -1,0 +1,68 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source NS-014), registered 2026-11-20 from the DATASS viewer.
+schema_version: 0.2.0
+id: MFL-2026-144
+title: DATASS, rural water supply and sanitation diagnostic system (Peru)
+description: >-
+  'DATASS - Sistema de Diagnóstico sobre Abastecimiento de Agua y Saneamiento en el Ámbito Rural' of Peru's
+  Ministerio de Vivienda, Construcción y Saneamiento (MVCS), approved by RM 063-2017-VIVIENDA. An administrative
+  diagnostic of water and sanitation in rural populated places (up to 2,000 inhabitants), from a questionnaire that
+  regional and local governments apply and keep up to date. The web viewer filters by department, province, district
+  and populated place (10-digit INEI ubigeo) and groups indicators in seven themes: access, infrastructure, water
+  quality, organisational management, cleaning, operation and maintenance and chlorination, economic and financial
+  management, and technical assistance. Each indicator can be viewed as a table and exported to XLSX. For Ucayali,
+  water coverage (indicator 7101) reports 366 populated places and 73.5 % of their people covered.
+resource_type: dataset
+language:
+- es
+themes:
+- socio-economic-livelihoods
+- water-hydrology
+keywords:
+- rural water supply
+- sanitation
+- JASS
+- populated places
+- centros poblados
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -81.34
+  - -18.35
+  - -68.69
+  - -0.04
+  resolution:
+    text: Rural populated place (centro poblado), water system and service operator
+temporal:
+  text: Collected since 2014 and updated continuously by regional and local governments; no reference date is shown
+  update_frequency: continual
+license: LicenseRef-source-terms
+license_text: '"Ministerio de Vivienda, Construcción y Saneamiento © Todos los derechos reservados 2018" (viewer footer). No open licence stated; free consultation and XLSX export without registration.'
+access: public
+contact:
+- organization: Ministerio de Vivienda, Construcción y Saneamiento (MVCS)
+  url: https://datass.vivienda.gob.pe/
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  authors:
+  - organization: Ministerio de Vivienda, Construcción y Saneamiento (MVCS)
+  title: DATASS - Sistema de Diagnóstico sobre Abastecimiento de Agua y Saneamiento en el Ámbito Rural
+  url: https://datass.vivienda.gob.pe/
+data:
+- name: DATASS viewer (tables and XLSX export per indicator and area)
+  locations:
+  - url: https://datass.vivienda.gob.pe/
+  access_method: landing_page
+  kind: tabular
+additional_links:
+- rel: describedby
+  url: https://faolex.fao.org/docs/pdf/per171682.pdf
+  title: RM 063-2017-VIVIENDA, which approves DATASS (FAOLEX copy)
+note: >-
+  On 2026-11-20 only 7 of the viewer's 30 indicators returned data, nationally as well. The site opens in a web
+  browser but refuses automated clients (HTTP 418), so link checkers may report it as broken.

@@ -1,0 +1,94 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source PS-006), registered 2026-11-20 from INEI's microdata portal.
+schema_version: 0.2.0
+id: MFL-2026-143
+title: National Household Survey on Living Conditions and Poverty (ENAHO)
+description: >-
+  'Encuesta Nacional de Hogares sobre Condiciones de Vida y Pobreza (ENAHO)', the continuous household survey of the
+  Instituto Nacional de Estadística e Informática (INEI), run since May 2003 by direct interview. Microdata by module
+  (32 in the 2025 edition): housing, household members, education, health, employment and income, expenditure,
+  agriculture, livestock and forestry, summary variables, social programmes, participation, governance and food
+  insecurity, among others. The sample is probabilistic, area-based, stratified and two-stage, independent in each
+  department, partly a panel; in 2025, 36,594 dwellings in 5,359 clusters, of which 1,178 dwellings in 178 clusters in
+  Ucayali. Estimates are representative each year for the country, urban and rural areas and each department
+  (quarterly for the country, urban and rural areas only); records carry the district code, and module 100 the
+  populated place and its coordinates. Indicators such as monetary poverty must be computed with the survey's
+  expansion factors.
+resource_type: dataset
+language:
+- es
+themes:
+- socio-economic-livelihoods
+keywords:
+- household survey
+- poverty
+- living conditions
+- microdata
+- income
+- expenditure
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -81.34
+  - -18.35
+  - -68.69
+  - -0.04
+  resolution:
+    text: Inference at department level; records located to district and populated place
+temporal:
+  start_date: '2004'
+  end_date: null
+  text: Continuous since May 2003; annual microdata from 2004 to 2025 and quarterly releases (2026 quarters 1-2 on 2026-11-20)
+  update_frequency: annual
+source_updated: '2026-05'
+license: LicenseRef-source-terms
+license_text: >-
+  INEI's microdata portal states no licence. The record of ENAHO 2025 on Peru's national open-data portal
+  (datosabiertos.gob.pe), published by INEI, states "Licencia Open Data Commons Open Database License (ODbL)".
+  Public download, no registration.
+access: public
+contact:
+- organization: Instituto Nacional de Estadística e Informática (INEI), Dirección Nacional de Censos y Encuestas
+  email: administrador@inei.gob.pe
+  url: https://proyectos.inei.gob.pe/microdatos/
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  authors:
+  - organization: Instituto Nacional de Estadística e Informática (INEI)
+  date: '2026'
+  title: Encuesta Nacional de Hogares sobre Condiciones de Vida y Pobreza (ENAHO) 2025, microdatos
+  publisher: INEI
+data:
+- name: INEI microdata portal (choose ENAHO, year and module; SPSS, STATA or CSV)
+  locations:
+  - url: https://proyectos.inei.gob.pe/microdatos/
+  access_method: landing_page
+  kind: tabular
+- name: ENAHO 2025, all modules (ZIP, 371 MB)
+  locations:
+  - url: https://www.inei.gob.pe/media/DATOS_ABIERTOS/ENAHO/DATA/2025.zip
+  access_method: download
+  kind: tabular
+  media_type: application/zip
+  file_size: 371 MB
+- name: ENAHO 2025 on the national open-data portal
+  locations:
+  - url: https://www.datosabiertos.gob.pe/dataset/encuesta-nacional-de-hogares-enaho-2025-instituto-nacional-de-estad%C3%ADstica-e-inform%C3%A1tica-%E2%80%93
+  access_method: landing_page
+  kind: tabular
+additional_links:
+- rel: describedby
+  url: https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/FichaTecnica/1031-Ficha.pdf
+  title: Technical sheet of ENAHO 2025 (sample design, sample size, inference levels)
+- rel: describedby
+  url: https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2025-55/20_Diccionario_2025.pdf
+  title: Data dictionary of ENAHO 2025
+note: >-
+  The 2025 expansion factor (FACTOR07) is based on projections from the 2007 census and may be re-based after the
+  2025 census. Module files follow https://proyectos.inei.gob.pe/iinei/srienaho/descarga/CSV/1031-ModuloNN.zip
+  (also SPSS and STATA).

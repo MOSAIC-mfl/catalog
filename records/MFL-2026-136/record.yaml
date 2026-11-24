@@ -1,0 +1,120 @@
+# MOSAIC record (standard v0.2). A data source of the Peru evidence-to-action mapping (source NS-021), registered 2026-11-20 from INEI's own pages and files.
+schema_version: 0.2.0
+id: MFL-2026-136
+title: 'National Censuses 2025 (population, housing and Indigenous communities): final results by province and district, Ucayali'
+description: >-
+  'Censos Nacionales 2025: XIII de Población, VIII de Vivienda y IV de Comunidades Indígenas', the de jure national
+  census of Peru by the Instituto Nacional de Estadística e Informática (INEI): final results for Ucayali department
+  in 11 workbooks (102 tables) by province and district. Population: demographic indicators (enumerated and omitted
+  population, five-year migration, place of birth), fertility, marital status, identity documents and health
+  insurance, education and ICT use, disability, ethnicity and languages, working-age population. Housing: dwelling
+  characteristics and basic services (water source and distribution, time to fetch water, days and hours of service,
+  sanitation, source of electricity, meter). Household: tenure, cooking fuel, waste disposal, emigration, disability,
+  equipment, ICT and transport. Fieldwork ran from 4 August to 31 October 2025 (reference day 15 September 2025).
+  The tables follow the official boundaries as at 15 July 2026, with Huipoca and Boquerón as districts.
+resource_type: dataset
+language:
+- es
+themes:
+- socio-economic-livelihoods
+keywords:
+- population census
+- housing census
+- basic services
+- drinking water
+- sanitation
+- electricity
+- Ucayali
+spatial:
+  geography:
+  - PER
+  landscapes:
+  - PER-PCL
+  bbox:
+  - -75.9479
+  - -11.4483
+  - -70.4944
+  - -7.262
+  resolution:
+    text: Department, province and district (boundaries as at 15 July 2026)
+temporal:
+  date: '2025'
+  text: Fieldwork 4 August to 31 October 2025, reference day 15 September 2025; final results published from July 2026, files updated on 28 October 2026
+  update_frequency: static
+source_updated: '2026-10-28'
+license: LicenseRef-source-terms
+license_text: >-
+  No licence stated on INEI's 2025 census site or in the workbooks (checked on 2026-11-20). Public download, no
+  registration. Tables cite: "Fuente: Instituto Nacional de Estadística e Informática - Censos Nacionales 2025: XIII
+  de Población, VIII de Vivienda y IV de Comunidades Indígenas."
+access: public
+contact:
+- organization: Instituto Nacional de Estadística e Informática (INEI)
+  email: infoinei@inei.gob.pe
+  url: https://www.inei.gob.pe/
+  roles:
+  - producer
+  - licensor
+  - host
+citation:
+  authors:
+  - organization: Instituto Nacional de Estadística e Informática (INEI)
+  date: '2026'
+  title: 'Censos Nacionales 2025: XIII de Población, VIII de Vivienda y IV de Comunidades Indígenas. Resultados definitivos, Ucayali'
+  publisher: INEI
+data:
+- name: Population tables, Ucayali (7 XLSX)
+  locations:
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/poblacion/Indicadores_demograficos.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/poblacion/Fecundidad.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/poblacion/Estado_civil_identidad_y_seguro_de_salud.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/poblacion/Educacion.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/poblacion/Discapacidad.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/poblacion/Etnicidad.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/poblacion/Poblacion_en_edad_de_trabajar.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- name: Housing tables, Ucayali (2 XLSX)
+  locations:
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/vivienda/Caracteristicas_de_la_vivienda.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/vivienda/Servicios_basicos_de_la_vivienda.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- name: Household tables, Ucayali (2 XLSX)
+  locations:
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/hogar/Caracteristicas_del_hogar.xlsx
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/censos-2025/descarga_datos/tabulados/25/hogar/Equipamiento_del_hogar.xlsx
+  access_method: download
+  kind: tabular
+  media_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- name: Results publication for Ucayali (PDF)
+  locations:
+  - url: https://proyectos.inei.gob.pe/dir-segmentacion-ci/postcensal/prod/adjuntos/publicaciones/CPV%202025%20-%20UCAYALI.pdf
+  access_method: download
+  kind: document
+  media_type: application/pdf
+- name: REDATAM 2025 online query system (custom tables to district)
+  locations:
+  - url: https://redatamcpv2025.inei.gob.pe/
+  access_method: landing_page
+  kind: tabular
+- name: Download page of the statistical tables (choose Ucayali)
+  locations:
+  - url: https://censos2025.inei.gob.pe/resultados/descarga-de-datos/cuadros-estadisticos/tabulados/tabulados-poblacion
+  access_method: landing_page
+  kind: tabular
+additional_links:
+- rel: describedby
+  url: https://censos2025.inei.gob.pe/marco-institucional/documentacion-tecnica
+  title: Technical documentation (questionnaires, manuals, indicator sheets)
+- rel: describedby
+  url: https://censos2025.inei.gob.pe/marco-institucional/aspectos-generales
+  title: General aspects of the 2025 censuses (dates, reference day)
+- rel: related
+  id: MFL-2026-135
+  title: National Censuses 2017, the previous census, for Ucayali
+note: >-
+  The tables have no employment variables. The file host (proyectos.inei.gob.pe) replaced the files on 28 October
+  2026 and may move them: the download page of the census site is the stable entry point.
