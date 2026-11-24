@@ -1,6 +1,7 @@
 # MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-000.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
 # 2026-11-23: linked to the public boundary release, like the other landscape boundaries (MFL-2026-098 to 105).
+# 2026-11-24: the description states what the outline holds of Jabalpur and Tikamgarh (checked against OpenStreetMap).
 schema_version: 0.2.0
 id: MFL-2026-000
 title: Central India Landscape - Boundary
@@ -9,7 +10,9 @@ description: >-
   IWMI and used to define the landscape across the catalogue. Six districts: Jhansi (Uttar Pradesh),
   Tikamgarh, Chhatarpur, Damoh and Jabalpur (Madhya Pradesh) from a GADM district layer (same line work
   as GADM 4.1), and Mandla (Madhya Pradesh) from the Survey of India district boundary layer with LGD
-  codes (2021). The delineation was delivered as a thin ring; the published outline was refilled from
+  codes (2021). The outline is kept as delivered: it draws Jabalpur without its Majholi and Sihora
+  tehsils (about 1,100 km² in the north-east of the district), and Tikamgarh with Niwari, a district
+  of its own since 2018. The delineation was delivered as a thin ring; the published outline was refilled from
   that line work. Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-10 of
   MOSAIC-mfl/catalog; a simplified outline is published as boundaries/IND-CH.geojson in
   MOSAIC-mfl/mosaic-standard.
