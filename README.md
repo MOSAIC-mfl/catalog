@@ -1,6 +1,6 @@
 # MOSAIC catalog
 
-> 132 records in the MOSAIC metadata standard v0.2 and the landscape profiles, published at
+> 142 records in the MOSAIC metadata standard v0.2 and the landscape profiles, published at
 > https://mosaic-mfl.github.io/catalog/ (the STAC catalog of the first pipeline stays, frozen, at
 > https://mosaic-mfl.github.io/catalog/stac/). The first pipeline (schema-1 records, `build_catalog.py`)
 > is in the git history up to 9abbfc6 and in MOSAIC-mfl/mosaic-standard `legacy/`.
