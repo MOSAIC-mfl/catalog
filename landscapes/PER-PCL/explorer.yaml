@@ -21,13 +21,9 @@ data:
     root: site
   - prefix: fonts/
     root: site
-  - prefix: climate/
-    root: site
   - path: tiles/osm_basemap.pmtiles
     root: site
   - path: tiles/terrain.pmtiles
-    root: site
-  - path: tiles/s2_rgb.pmtiles
     root: site
   tiles_version: '1'
   report: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
@@ -69,6 +65,19 @@ map:
       type: geojson
       data:
         asset: vectors/department_mask.geojson
+    frame:
+      # everything outside the Sentinel-2 rectangle (the department bbox): the terrain tiles beyond
+      # the DEM hold stretched edge pixels, so their hillshade is covered there
+      type: geojson
+      data:
+        type: Feature
+        properties: {}
+        geometry:
+          type: Polygon
+          coordinates:
+          - [[-180, -85], [180, -85], [180, 85], [-180, 85], [-180, -85]]
+          - [[-75.948486, -11.448733], [-75.948486, -7.26167], [-70.494118, -7.26167], [-70.494118, -11.448733],
+            [-75.948486, -11.448733]]
     s2:
       type: raster
       url:
@@ -120,12 +129,18 @@ map:
       hillshade-shadow-color: '#3c4148'
       hillshade-highlight-color: '#ffffff'
       hillshade-accent-color: '#5b6672'
+  - id: frame
+    type: fill
+    source: frame
+    paint:
+      fill-color: '#dfe5ea'
+      fill-opacity: 1
   - id: dim
     type: fill
     source: mask
     paint:
-      fill-color: '#dfe5ea'
-      fill-opacity: 1
+      fill-color: '#1c232b'
+      fill-opacity: 0.28
   - id: department-halo
     type: line
     source: department
