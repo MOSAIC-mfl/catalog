@@ -1,5 +1,6 @@
 # MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-101.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+# 2026-11-27: linked to boundary release boundaries-2026-11-27 (same outline; corrected overview map and IND-CH source note).
 schema_version: 0.2.0
 id: MFL-2026-101
 title: LEILA (Southern Kenya Rangelands) living landscape boundary
@@ -7,7 +8,7 @@ description: >-
   Canonical MOSAIC delineation of the LEILA (Southern Kenya Rangelands) living landscape (KEN-LEI), used
   to define the landscape across the catalogue. Source: GADM 4.1, level 1: counties Kajiado (KEN.10_1),
   Kiambu (KEN.13_1), Machakos (KEN.22_1) and Makueni (KEN.23_1), unmodified. Full-detail Shapefile and
-  GeoPackage in the dated release boundaries-2026-10-14 of MOSAIC-mfl/catalog; a simplified outline is
+  GeoPackage in the dated release boundaries-2026-11-27 of MOSAIC-mfl/catalog; a simplified outline is
   published as boundaries/KEN-LEI.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
 themes:
@@ -50,7 +51,7 @@ data:
 - name: Download from github.com
   locations:
   - url: >-
-      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-10-14/KEN-LEI_LEILA_Southern_Kenya_Rangelands_boundary_2026-10-14.zip
+      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-27/KEN-LEI_LEILA_Southern_Kenya_Rangelands_boundary_2026-11-27.zip
   access_method: download
   kind: vector
   media_type: 'application/zip'
@@ -59,7 +60,7 @@ data:
   feature_count: 1
   spatial:
     crs: EPSG:4326
-  description: 'Files: KEN-LEI_LEILA_Southern_Kenya_Rangelands_boundary_2026-10-14.zip'
+  description: 'Files: KEN-LEI_LEILA_Southern_Kenya_Rangelands_boundary_2026-11-27.zip'
   structures:
   - Download from github.com
 structures:
@@ -92,5 +93,5 @@ derived:
 - data[].feature_count
 - data[].geometry_type
 created: '2026-10-21'
-updated: '2026-10-21'
+updated: '2026-11-27'
 source_updated: '2026-10-14'

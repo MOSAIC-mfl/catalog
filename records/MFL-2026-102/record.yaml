@@ -1,5 +1,6 @@
 # MOSAIC record (standard v0.2; v0.1 -> v0.2 by scripts/migrate_v02.py). Migrated from the schema-1 record records/MFL-2026-102.yaml on main by
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
+# 2026-11-27: linked to boundary release boundaries-2026-11-27 (same outline; corrected overview map and IND-CH source note).
 schema_version: 0.2.0
 id: MFL-2026-102
 title: Lake Victoria Basin (Kenya) living landscape boundary
@@ -7,7 +8,7 @@ description: >-
   Canonical MOSAIC delineation of the Lake Victoria Basin (Kenya) living landscape (KEN-LVB), used to
   define the landscape across the catalogue. Source: OCHA COD-AB Kenya (IEBC), admin level 1: counties
   Kericho, Kisumu, Nandi, Siaya and Vihiga, dissolved into one outline (replaced the 4-county GADM outline
-  on 2026-11-10). Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-10 of
+  on 2026-11-10). Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-27 of
   MOSAIC-mfl/catalog; a simplified outline is
   published as boundaries/KEN-LVB.geojson in MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
@@ -52,7 +53,7 @@ data:
 - name: Download from github.com
   locations:
   - url: >-
-      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-10/KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-10.zip
+      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-27/KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-27.zip
   access_method: download
   kind: vector
   media_type: 'application/zip'
@@ -61,7 +62,7 @@ data:
   feature_count: 1
   spatial:
     crs: EPSG:4326
-  description: 'Files: KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-10.zip'
+  description: 'Files: KEN-LVB_Lake_Victoria_Basin_Kenya_boundary_2026-11-27.zip'
   structures:
   - Download from github.com
 structures:
@@ -94,5 +95,5 @@ derived:
 - data[].feature_count
 - data[].geometry_type
 created: '2026-10-21'
-updated: '2026-11-10'
+updated: '2026-11-27'
 source_updated: '2026-11-10'
