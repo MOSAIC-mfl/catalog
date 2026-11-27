@@ -5,9 +5,9 @@ tagline: Seven districts from Bundelkhand to the upper Narmada · terrain, image
   (SPI-3), rivers and surface water
 data:
   roots:
-    hf: https://huggingface.co/datasets/aaguilar90/mosaic-central-highlands/resolve/main/
+    hf: https://huggingface.co/datasets/MOSAIC-CGIAR/mosaic-central-highlands/resolve/main/
   default_root: hf
-  report: https://huggingface.co/datasets/aaguilar90/mosaic-central-highlands/blob/main/DATA_REPORT.md
+  report: https://huggingface.co/datasets/MOSAIC-CGIAR/mosaic-central-highlands/blob/main/DATA_REPORT.md
 map:
   center:
   - 79.7
