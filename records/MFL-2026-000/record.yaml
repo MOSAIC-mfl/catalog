@@ -2,6 +2,7 @@
 # scripts/migrate_schema1.py. Fields the old record did not have are absent: see review/.
 # 2026-11-23: linked to the public boundary release, like the other landscape boundaries (MFL-2026-098 to 105).
 # 2026-11-24: the description states what the outline holds of Jabalpur and Tikamgarh (checked against OpenStreetMap).
+# 2026-11-27: linked to boundary release boundaries-2026-11-27 (same outline; corrected overview map and IND-CH source note).
 schema_version: 0.2.0
 id: MFL-2026-000
 title: Central India Landscape - Boundary
@@ -13,7 +14,7 @@ description: >-
   codes (2021). The outline is kept as delivered: it draws Jabalpur without its Majholi and Sihora
   tehsils (about 1,100 km² in the north-east of the district), and Tikamgarh with Niwari, a district
   of its own since 2018. The delineation was delivered as a thin ring; the published outline was refilled from
-  that line work. Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-10 of
+  that line work. Full-detail Shapefile and GeoPackage in the dated release boundaries-2026-11-27 of
   MOSAIC-mfl/catalog; a simplified outline is published as boundaries/IND-CH.geojson in
   MOSAIC-mfl/mosaic-standard.
 resource_type: dataset
@@ -69,7 +70,7 @@ data:
 - name: Download from github.com
   locations:
   - url: >-
-      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-10/IND-CH_Central_India_Highlands_boundary_2026-11-10.zip
+      https://github.com/MOSAIC-mfl/catalog/releases/download/boundaries-2026-11-27/IND-CH_Central_India_Highlands_boundary_2026-11-27.zip
   access_method: download
   kind: vector
   media_type: 'application/zip'
@@ -78,7 +79,7 @@ data:
   feature_count: 1
   spatial:
     crs: EPSG:4326
-  description: 'Files: IND-CH_Central_India_Highlands_boundary_2026-11-10.zip'
+  description: 'Files: IND-CH_Central_India_Highlands_boundary_2026-11-27.zip'
 created: '2026-07-24'
-updated: '2026-11-23'
+updated: '2026-11-27'
 source_updated: '2026-11-10'
