@@ -542,7 +542,7 @@ overlays:
   kind: climate-grid
   swatch: '#434e6b'
   source_ref: precip
-  grid: climate/app/
+  grid: climate/app_mosaic/
   before: extent-mask
   attribution: CHIRPS v3 (UCSB CHC)
   variables:
@@ -598,7 +598,7 @@ overlays:
   kind: climate-grid
   swatch: '#872781'
   source_ref: temperature
-  grid: climate/app/
+  grid: climate/app_mosaic/
   before: extent-mask
   attribution: CHIRTS-ERA5 (UCSB CHC)
   variables:
@@ -655,7 +655,7 @@ overlays:
   kind: index-grid
   swatch: '#35978f'
   source_ref: spi3
-  grid: climate/app/
+  grid: climate/app_mosaic/
   before: extent-mask
   attribution: SPI-3 from CHIRPS v3
   stack: spi3.tif
@@ -789,3 +789,5 @@ about:
   licence: Content licensed under CC BY 4.0 unless otherwise stated. Each layer below carries its own source, period
     and citation.
   sources: sources.yaml
+story:
+  file: story.yaml

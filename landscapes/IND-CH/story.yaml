@@ -1,0 +1,663 @@
+# Story of the IND-CH explorer
+# From data/meta/story_chapters.json of the Central India Highlands explorer (texts and numbers unchanged).
+# Check: python -m mosaic_catalog --catalog <catalogue> validate-landscapes IND-CH -v
+title: Holding the monsoon
+about: Chapters from the Central India Highlands explorer (data/meta/story_chapters.json). Numbers with source.kind
+  'study' are printed in the cited paper (page recorded); 'app' numbers are the explorer's own analysis (method
+  named; details in the data report).
+map:
+  sources:
+    storyBox:
+      type: geojson
+      data:
+        type: FeatureCollection
+        features:
+        - type: Feature
+          properties: {}
+          geometry:
+            type: Polygon
+            coordinates:
+            - - - 78.32917
+                - 25.39889
+              - - 78.37833
+                - 25.39889
+              - - 78.37833
+                - 25.4525
+              - - 78.32917
+                - 25.4525
+              - - 78.32917
+                - 25.39889
+        - type: Feature
+          properties:
+            label: 'Study area: coordinates as printed (Garg et al. 2020, p.3)'
+          geometry:
+            type: Point
+            coordinates:
+            - 78.35375
+            - 25.4525
+  layers:
+  - id: story-water-fill
+    type: fill
+    source: osm
+    source-layer: water
+    layout:
+      visibility: none
+    filter:
+    - ==
+    - - geometry-type
+    - Polygon
+    paint:
+      fill-color: '#0b4f9e'
+      fill-opacity: 0.9
+  - id: story-rivers-casing
+    type: line
+    source: osm
+    source-layer: water
+    filter:
+    - all
+    - - ==
+      - - geometry-type
+      - LineString
+    - - in
+      - - get
+        - kind
+      - - literal
+        - - river
+          - canal
+    layout:
+      visibility: none
+      line-cap: round
+      line-join: round
+    paint:
+      line-color: '#ffffff'
+      line-opacity: 0.7
+      line-width:
+      - interpolate
+      - - linear
+      - - zoom
+      - 9
+      - 4.2
+      - 13
+      - 7
+  - id: story-rivers-line
+    type: line
+    source: osm
+    source-layer: water
+    filter:
+    - all
+    - - ==
+      - - geometry-type
+      - LineString
+    - - in
+      - - get
+        - kind
+      - - literal
+        - - river
+          - canal
+    layout:
+      visibility: none
+      line-cap: round
+      line-join: round
+    paint:
+      line-color: '#0b4f9e'
+      line-width:
+      - interpolate
+      - - linear
+      - - zoom
+      - 9
+      - 2.4
+      - 13
+      - 4.6
+  - id: story-rivers-label
+    type: symbol
+    source: osm
+    source-layer: water
+    filter:
+    - all
+    - - ==
+      - - get
+        - kind
+      - river
+    - - has
+      - name
+    layout:
+      visibility: none
+      text-field:
+      - coalesce
+      - - get
+        - name:en
+      - - get
+        - name
+      text-font:
+      - Noto Sans Medium
+      text-size: 14
+      text-letter-spacing: 0.05
+      symbol-placement: line
+      symbol-spacing: 260
+      text-padding: 2
+    paint:
+      text-color: '#ffffff'
+      text-halo-color: '#0b4f9e'
+      text-halo-width: 2
+  - id: story-box-halo
+    type: line
+    source: storyBox
+    filter: &id001
+    - ==
+    - - geometry-type
+    - Polygon
+    layout:
+      visibility: none
+    paint:
+      line-color: '#111a22'
+      line-opacity: 0.75
+      line-width: 4.5
+  - id: story-box-line
+    type: line
+    source: storyBox
+    filter: *id001
+    layout:
+      visibility: none
+    paint:
+      line-color: '#ffffff'
+      line-width: 2.2
+      line-dasharray:
+      - 3
+      - 2
+  - id: story-box-label
+    type: symbol
+    source: storyBox
+    filter:
+    - ==
+    - - geometry-type
+    - Point
+    layout:
+      visibility: none
+      text-field:
+      - get
+      - label
+      text-font:
+      - Noto Sans Medium
+      text-size: 12.5
+      text-anchor: bottom
+      text-offset:
+      - 0
+      - -0.7
+      text-max-width: 16
+      text-allow-overlap: true
+      text-ignore-placement: true
+    paint:
+      text-color: '#ffffff'
+      text-halo-color: rgba(17,26,34,0.92)
+      text-halo-width: 1.8
+  highlights:
+    study_box:
+    - story-box-halo
+    - story-box-line
+    - story-box-label
+    rivers:
+    - story-water-fill
+    - story-rivers-casing
+    - story-rivers-line
+    - story-rivers-label
+chapters:
+- id: landscape
+  title: Seven districts, one landscape
+  text: 'From Jhansi on the Bundelkhand plateau to Mandla on the upper Narmada, seven districts depend on the same
+    thing: rain that arrives in a few months and has to last the whole year. Jhansi lies in Uttar Pradesh; Tikamgarh,
+    Niwari, Chhatarpur, Damoh, Jabalpur and Mandla in Madhya Pradesh.'
+  status: ready
+  visual:
+    layers: []
+    camera:
+      lng: 79.73
+      lat: 24.075
+      bounds:
+      - 78.3
+      - 22.2
+      - 81.16
+      - 25.95
+      pitch: 32
+      fill: 0.8
+  numbers:
+  - value: '7'
+    label: districts in two states
+    source:
+      kind: app
+      method: district outlines of geoBoundaries gbOpen IND ADM2
+  - value: 38,590 km²
+    label: area of the seven district outlines together
+    source:
+      kind: app
+      method: sum of the outline areas
+  sources:
+  - 'District outlines: geoBoundaries gbOpen, India ADM2 (Runfola et al. 2020, PLoS ONE 15(4): e0231866), ODbL 1.0.'
+  - 'Imagery: Sentinel-2 mosaic of 2025 (Copernicus Sentinel data). Terrain: Copernicus DEM GLO-30. Details in the
+    data report.'
+- id: rain
+  title: Four months of rain
+  text: 'Nine-tenths of the year''s rain falls between June and September, most of it from July on. In an average
+    year the landscape receives about 1,243 mm, but not evenly: Niwari gets 896 mm, Mandla 1,560 mm.'
+  status: ready
+  visual:
+    layers:
+    - precip
+    time:
+      season: kharif
+      mode: value
+      year: 2010
+    camera:
+      lng: 79.73
+      lat: 24.075
+      bounds:
+      - 78.3
+      - 22.2
+      - 81.16
+      - 25.95
+      pitch: 0
+      fill: 0.8
+    note: 'Map: 2010, a year close to the mean (99 % of the 1991–2020 Jun–Sep rainfall; this app''s analysis).'
+  numbers:
+  - value: 1,243 mm
+    label: mean annual rainfall over the landscape, 1991–2020
+    source:
+      kind: app
+      method: CHIRPS v3, sum of the monthly means
+  - value: 90 %
+    label: of it falls from June to September (79 % from July to September)
+    source:
+      kind: app
+      method: CHIRPS v3, 1991–2020
+  - value: 750 mm
+    label: mean annual rainfall “in the region” (Bundelkhand), with 85 % between July and September. Different source
+      and area from the figures above.
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.2
+  sources:
+  - CHIRPS v3 monthly rainfall (Climate Hazards Center, UC Santa Barbara), 1981–2026; district and landscape means
+    are this app's analysis.
+  - 'Garg, K.K., Singh, R., Anantha, K.H., Singh, A.K., Akuraju, V.R., Barron, J., Dev, I., Tewari, R.K., Wani,
+    S.P., Dhyani, S.K., Dixit, S. (2020). Building climate resilience in degraded agricultural landscapes through
+    water management: A case study of Bundelkhand region, Central India. Journal of Hydrology 591:125592. doi:10.1016/j.jhydrol.2020.125592.'
+- id: wet_dry
+  title: Wet years and dry years
+  text: 'And the monsoon is not reliable. In 2015, and almost as much in 2009, it brought only 70 % of the usual
+    rain; in 1994 and 2013, 142 %. Dry years do not hit everywhere at once: the driest was 2009 in Jhansi, Tikamgarh,
+    Niwari and Chhatarpur, 2015 in Damoh and Jabalpur, and 2002 in Mandla. The drought index below weighs that rain
+    against the heat of the same months.'
+  status: pending
+  placeholder: The map and the charts of this chapter follow when the SPEI-3 layer is added to this profile.
+  visual:
+    layers: []
+    camera:
+      lng: 79.73
+      lat: 24.075
+      bounds:
+      - 78.3
+      - 22.2
+      - 81.16
+      - 25.95
+      pitch: 0
+      fill: 0.8
+  numbers:
+  - value: 70 %
+    label: 'of the mean June–September rainfall fell over the landscape in 2015, the driest monsoon of 1981–2026
+      (776 mm; 2009: 786 mm)'
+    source:
+      kind: app
+      method: CHIRPS v3, % of the 1991–2020 mean
+  - value: 142 %
+    label: 'in 1994, the wettest (1,583 mm; 2013: 1,580 mm)'
+    source:
+      kind: app
+      method: CHIRPS v3, % of the 1991–2020 mean
+  - value: −1.53
+    label: 'SPEI-3 of September 2015 over the landscape, the lowest of the series (1986: −1.52)'
+    source:
+      kind: app
+      method: mean of the cell values; CHIRPS v3 and CHIRTS-ERA5
+  sources:
+  - CHIRPS v3 monthly rainfall (Climate Hazards Center, UC Santa Barbara), 1981–2026; district and landscape means
+    are this app's analysis.
+  - CHIRTS-ERA5 temperature (Climate Hazards Center), used for SPEI — this app's analysis.
+- id: october_water
+  title: Where the water stands in October
+  text: When the rains stop, what is left lies in reservoirs, tanks and rivers. The smallest area of October water
+    followed the dry monsoon of 2007, the largest the wet one of 2019, though Damoh and Mandla do not follow the
+    rain so closely. By March, about half to three-quarters of that water is still there (47–73 % across the landscape).
+    Cloudy Octobers are left blank, and new reservoirs count as water as much as rain does.
+  status: ready
+  visual:
+    layers:
+    - gsw_occurrence
+    camera:
+      lng: 78.85
+      lat: 25.0
+      zoom: 10
+      pitch: 0
+    steps:
+    - label: Whole landscape
+      camera:
+        lng: 79.73
+        lat: 24.075
+        bounds:
+        - 78.3
+        - 22.2
+        - 81.16
+        - 25.95
+        pitch: 0
+        fill: 0.8
+    note: 'Map: how often each 30 m pixel was water over March 1984 – December 2021 (JRC Global Surface Water v1.4,
+      occurrence), opening on the tanks between Jhansi and Tikamgarh; the button shows the whole landscape. It is
+      the whole record, not the October water of the charts; a map of the October water is not in the app yet.'
+  numbers:
+  - value: 312 km²
+    label: 'smallest October water area over the landscape among the years shown: 2007, when June–September rainfall
+      was 80 % of the mean'
+    source:
+      kind: app
+      method: JRC Monthly Water History; years with at least 70 % of the area observed
+  - value: 669 km²
+    label: 'largest: 2019, when June–September rainfall was 137 % of the mean'
+    source:
+      kind: app
+      method: JRC Monthly Water History; years with at least 70 % of the area observed
+  - value: 19 of 31
+    label: Octobers from 1990 to 2020 with enough observations over the landscape to be shown
+    source:
+      kind: app
+      method: 70 % rule, fixed before the results were read
+  - value: 47–73 %
+    label: of the October water over the landscape is still water in March (February in 2 of the 19 years shown);
+      lowest after the monsoon of 2011, highest after 2013
+    source:
+      kind: app
+      method: JRC Monthly Water History; counted on the October water observed again in that month
+  sources:
+  - JRC Global Surface Water v1.4, Monthly Water History (Pekel et al. 2016, Nature 540:418–422), 30 m; areas summed
+    per district — this app's analysis.
+  - CHIRPS v3 monthly rainfall (Climate Hazards Center, UC Santa Barbara), 1981–2026; district and landscape means
+    are this app's analysis.
+- id: winter_crop
+  title: The winter crop
+  text: 'The winter (rabi) crop is sown on the water the monsoon leaves behind. The map and the first chart show
+    how much land is cropped outside the monsoon each year, district by district. The second shows how green that
+    cropland gets each winter since 2001: it dipped after the dry monsoons of 2007 and 2015, but not after every
+    dry year. In Jhansi, cropland grew from 40.8 % of the district in 2000 to 67.9 % in 2020, while fallow land
+    shrank.'
+  status: pending
+  placeholder: The map and the charts of this chapter follow when the IndiaSAT land-cover layer is added to this
+    profile.
+  visual:
+    layers: []
+    camera:
+      lng: 79.73
+      lat: 24.075
+      bounds:
+      - 78.3
+      - 22.2
+      - 81.16
+      - 25.95
+      pitch: 0
+      fill: 0.8
+  numbers:
+  - value: 18,853 km²
+    label: 'of the landscape classed as cropped outside the monsoon (classes 9–11: single non-kharif, double and
+      triple/annual/perennial cropping), 2023–24'
+    source:
+      kind: app
+      method: IndiaSAT LULC v4 class areas, pixels inside the landscape
+  - value: 0.38 · 0.48 vs 0.61
+    label: 'winter greenness of the landscape''s cropland, mean peak NDVI: 2008 and 2016, after the dry monsoons
+      of 2007 and 2015, against 2010 (Landsat 5/7)'
+    source:
+      kind: app
+      method: Landsat peak NDVI 1 January–15 March on the WorldCover 2021 cropland mask
+  - value: 40.8 → 67.9 %
+    label: cropland share of Jhansi district, 2000 to 2020 (47.9 % in 2010); one post-monsoon satellite date per
+      year
+    source:
+      kind: study
+      citation: 'Kumar et al. 2021, Remote Sens. Appl.: Soc. Environ. 23:100579'
+      page: p.5
+  sources:
+  - 'Kumar, Dobriyal, Kale & Pandey (2021). Temporal dynamics change of land use/land cover in Jhansi district.
+    Remote Sensing Applications: Society and Environment 23:100579. doi:10.1016/j.rsase.2021.100579.'
+  - 'Land cover: IndiaSAT LULC v4 (CoRE Stack; CommonsTech Foundation for Participatory Technologies), 10 m, agricultural
+    years 2017–18 to 2023–24; CC BY 4.0 as stated on AIKosh, “Land Use Land Cover (2005-2024)”, https://aikosh.indiaai.gov.in/home/datasets/details/land_use_land_cover_2005_2024.html
+    (accessed 2026-11-25), a page that does not name IndiaSAT or v4; class areas per district are this app''s analysis.'
+  - 'Winter greenness: Landsat Collection 2 Level-2 surface reflectance, Landsat 5, 7, 8 and 9, courtesy of the
+    U.S. Geological Survey; peak NDVI per cropland pixel and district means are this app''s analysis (pipeline/ee/ee_62_story_rabi_ndvi.js).'
+  - 'Cropland mask: ESA WorldCover 10 m 2021 v200, class 40, CC BY 4.0, © ESA WorldCover project 2021 / Contains
+    modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium (Zanaga et al. 2022, doi:10.5281/zenodo.7254221).'
+- id: parasai
+  title: One watershed in Jhansi
+  text: In Parasai-Sindh, a 12.46 km² watershed near Babina, an old haveli, “a traditional rainwater harvesting
+    tank system”, was restored between 2012 and 2016, and check dams and nearly 25,000 m of field bunds were added.
+    Before, more than 80 % of the open wells ran dry soon after the monsoon. After the dry monsoon of 2015, only
+    6 % had dried up by November, against 30 % in a neighbouring watershed without works, and wheat yields and household
+    incomes rose. It is one watershed, and the works came with farming support, so not all of the gain can be credited
+    to the water.
+  status: ready
+  visual:
+    layers: []
+    camera:
+      lng: 78.35375
+      lat: 25.4257
+      zoom: 13
+      pitch: 50
+    show:
+    - study_box
+    note: 'The dashed rectangle is drawn from the coordinates printed in the paper (25°23′56″–25°27′09″ N, 78°19′45″–78°22′42″
+      E; p.3), on the Sentinel-2 image of 2025. It is not a watershed outline: this app has none.'
+  numbers:
+  - value: 12.46 km²
+    label: treated watershed (Parasai-Sindh, Babina block, Jhansi); works between 2012 and 2016
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.3
+  - value: 73,000 m³
+    label: storage of the rejuvenated haveli (“nearly 73,000 m³”); check dams 23,200 m³
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.3
+  - value: 404 / 768 / 631 mm
+    label: 404 mm (2015) and 768 mm (2016), total rainfall (p.9); 631 mm (2017), monsoon rainfall (p.6)
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: pp.6, 9
+  - value: 6 % vs 30 %
+    label: wells dry by November 2015, treated against control; by the end of February 2016, 17 % against 37 %
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.9
+  - value: +2.0 m
+    label: additional pressure head in the treated watershed over the control, on average
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.8
+  - value: 1700 → 2700 kg/ha
+    label: wheat yield before and after, in the treated watershed
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.9
+  - value: 300 → <30 ha
+    label: rabi fallow in the Parasai-Sindh watershed, before and after the works (“about 300 ha”, “less than 30
+      ha”)
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.9
+  - value: 550 → 950 ha
+    label: wheat area in the same watershed, before and after
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.9
+  - value: 400 → 800 → 950 ha
+    label: wheat area in the same watershed in 2012, in 2013 and 2015, and in 2016
+    source:
+      kind: study
+      citation: 'Singh et al. 2021, J. Hydrol.: Reg. Stud. 37:100929'
+      page: p.8
+  - value: US$ 960 → 2700
+    label: household income per year, before and after in the treated watershed; no control figure
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.9
+  sources:
+  - 'Garg, K.K., Singh, R., Anantha, K.H., Singh, A.K., Akuraju, V.R., Barron, J., Dev, I., Tewari, R.K., Wani,
+    S.P., Dhyani, S.K., Dixit, S. (2020). Building climate resilience in degraded agricultural landscapes through
+    water management: A case study of Bundelkhand region, Central India. Journal of Hydrology 591:125592. doi:10.1016/j.jhydrol.2020.125592.'
+  - 'Singh, R., Garg, K.K., Anantha, K.H., Akuraju, V., Dev, I., Dixit, S., Dhyani, S.K. (2021). Building resilient
+    agricultural system through groundwater management interventions in degraded landscapes of Bundelkhand region,
+    Central India. Journal of Hydrology: Regional Studies 37:100929. doi:10.1016/j.ejrh.2021.100929.'
+- id: downstream
+  title: What it costs downstream
+  text: Water kept upstream does not flow on. In years with up to 600 mm of rain, the Parasai-Sindh structures caught
+    more than 90 % of the runoff; in a normal year, nearly 40 %. Across 25 watersheds in India's semi-arid tropics,
+    the same researchers estimate that rainwater harvesting may cut outflow by 30–50 % where 600–800 mm of rain
+    falls, and by less than 30 % in wetter places. No one has measured this downstream of the seven districts.
+  status: ready
+  visual:
+    layers: []
+    camera:
+      lng: 78.72
+      lat: 25.5
+      zoom: 9
+      pitch: 0
+    show:
+    - study_box
+    - rivers
+    steps:
+    - label: Parasai-Sindh box
+      camera:
+        lng: 78.35375
+        lat: 25.4257
+        zoom: 13
+        pitch: 50
+    - label: Rivers north-east of Jhansi
+      camera:
+        lng: 78.72
+        lat: 25.5
+        zoom: 9
+        pitch: 0
+    - label: Betwa towards the Yamuna
+      camera:
+        lng: 79.75
+        lat: 25.6
+        zoom: 9
+        pitch: 0
+    note: 'The layer “Rivers and water bodies (OpenStreetMap)” is switched on for this chapter: rivers and canals
+      as mapped in OpenStreetMap, with the names tagged there. The dashed rectangle is the Parasai-Sindh box of
+      the chapter above. The map shows where the rivers run; it does not trace the water of the watershed, and the
+      app has no flow data.'
+  numbers:
+  - value: '>90 %'
+    label: of the runoff captured by the structures when rainfall was up to 600 mm
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.6
+  - value: ~40 %
+    label: of the runoff harvested in a normal year (700–900 mm, “nearly 40 %”); the authors note the reduction
+      of water downstream
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.10
+  - value: 450–500 mm
+    label: rainfall needed to start runoff and groundwater recharge (“about”)
+    source:
+      kind: study
+      citation: Garg et al. 2020, J. Hydrol. 591:125592
+      page: p.10
+  - value: 30–50 %
+    label: possible reduction of outflow where rainfall is 600–800 mm; less than 30 % above 800 mm (“may reduce”)
+    source:
+      kind: study
+      citation: Garg et al. 2022, Sci. Rep. 12:3882
+      page: p.16
+  sources:
+  - 'Garg, K.K., Singh, R., Anantha, K.H., Singh, A.K., Akuraju, V.R., Barron, J., Dev, I., Tewari, R.K., Wani,
+    S.P., Dhyani, S.K., Dixit, S. (2020). Building climate resilience in degraded agricultural landscapes through
+    water management: A case study of Bundelkhand region, Central India. Journal of Hydrology 591:125592. doi:10.1016/j.jhydrol.2020.125592.'
+  - Garg, K.K., Akuraju, V., Anantha, K.H., Singh, R., Whitbread, A.M., Dixit, S. (2022). Identifying potential
+    zones for rainwater harvesting interventions for sustainable intensification in the semi-arid tropics. Scientific
+    Reports 12:3882. doi:10.1038/s41598-022-07847-4 (CC BY 4.0).
+- id: evidence_stops
+  title: Where the evidence stops
+  text: 'Almost everything measured on the ground comes from Jhansi. In the other districts no one has measured
+    what water harvesting does to wells, crops or rivers, and the rain alone differs widely, from 896 mm a year
+    in Niwari to 1,560 mm in Mandla. The map''s rainfall, drought, water and crop layers cover every district: there
+    the story is still open.'
+  status: ready
+  visual:
+    layers:
+    - precip
+    time:
+      season: annual
+      mode: value
+      year: 2010
+    camera:
+      lng: 80.075
+      lat: 23.81
+      bounds:
+      - 78.99
+      - 22.2
+      - 81.16
+      - 25.42
+      pitch: 0
+      fill: 0.8
+    note: 'Map: rainfall of 2010, a year close to the mean (this app''s analysis). Click any place on the map for
+      its own series.'
+  numbers:
+  - value: 896–1,560 mm
+    label: 'mean annual rainfall of the seven districts, 1991–2020: Niwari the least, Mandla the most'
+    source:
+      kind: app
+      method: CHIRPS v3, district means
+  - value: 1 of 25
+    label: watersheds of the national rainwater-harvesting study lies in the seven districts (Parasai-Sindh, Jhansi)
+    source:
+      kind: study
+      citation: Garg et al. 2022, Sci. Rep. 12:3882
+      page: Table 2, p.6
+  sources:
+  - CHIRPS v3 monthly rainfall (Climate Hazards Center, UC Santa Barbara), 1981–2026; district and landscape means
+    are this app's analysis.
+  - Garg, K.K., Akuraju, V., Anantha, K.H., Singh, R., Whitbread, A.M., Dixit, S. (2022). Identifying potential
+    zones for rainwater harvesting interventions for sustainable intensification in the semi-arid tropics. Scientific
+    Reports 12:3882. doi:10.1038/s41598-022-07847-4 (CC BY 4.0).
+- id: explore
+  title: Explore the layers
+  text: The map is yours from here. Switch on any layer, pick a month or a year, and click a place to see its own
+    series. The Studies tab tells what each paper measured, where, and its limits.
+  status: ready
+  visual:
+    layers:
+    - precip
+    time:
+      season: kharif
+      mode: anomaly
+      year: 2026
+    camera:
+      lng: 79.73
+      lat: 24.075
+      bounds:
+      - 78.3
+      - 22.2
+      - 81.16
+      - 25.95
+      pitch: 32
+      fill: 0.8
+    action: explore
