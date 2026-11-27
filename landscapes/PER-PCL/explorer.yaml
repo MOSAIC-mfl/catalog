@@ -9,6 +9,8 @@ data:
   roots:
     site: https://anaguilarar.github.io/mosaic-ucayali/data/
     hf: https://huggingface.co/datasets/MOSAIC-CGIAR/mosaic-ucayali/resolve/main/
+    # base map tiles, cropped to map.max_bounds: GitHub Pages answers a tile request ~10x faster than HF
+    mosaic: https://mosaic-mfl.github.io/landscape-data/PER-PCL/
   default_root: hf
   routes:
   - prefix: meta/
@@ -23,23 +25,29 @@ data:
     root: site
   - path: tiles/osm_basemap.pmtiles
     root: site
-  tiles_version: '2'
+  - path: tiles/s2_rgb.pmtiles
+    root: mosaic
+  - path: tiles/terrain.pmtiles
+    root: mosaic
+  tiles_version: '3'
   report: https://github.com/anaguilarar/mosaic-ucayali/blob/main/DATA_REPORT.md
 map:
   center:
-  - -73.6
-  - -9.5
-  zoom: 6.1
+  - -73.22
+  - -9.36
+  zoom: 6.0
   pitch: 0
   bearing: 0
-  min_zoom: 5.5
+  min_zoom: 6.0
   max_zoom: 16
   max_pitch: 62
   max_bounds:
-  - - -79.0
-    - -14.3
-  - - -67.4
-    - -4.4
+  # the department with a margin (2 deg east-west, 0.8 deg north-south): the whole department fits on a
+  # wide screen, and the view never leaves the Sentinel-2 and terrain tiles (no gray)
+  - - -77.95
+    - -12.25
+  - - -68.49
+    - -6.46
   sky:
     sky-color: '#c8d4de'
     horizon-color: '#e7ebef'
