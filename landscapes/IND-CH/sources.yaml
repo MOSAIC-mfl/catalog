@@ -1,0 +1,143 @@
+# Sources of the layers of the IND-CH landscape profile (MOSAIC), as stated in the explorer's data/meta/layers.json.
+# Check: python -m mosaic_catalog --catalog <catalogue> validate-landscapes IND-CH -v
+layers:
+- id: s2_rgb
+  title: Satellite imagery (Sentinel-2)
+  group: Base
+  source: 'Sentinel-2 mosaic 2025, bands B4/B3/B2, uint16, 0.00026949° grid (about 27 m east-west and 30 m north-south
+    at 24 N) - Earth Engine export, script to be filed in pipeline/ee/ (ee_59_s2_mosaic_2025.js); what the file
+    shows: DATA_REPORT section 2.3'
+  period: '2025'
+  units: true colour (fixed stretch 0-3000, gamma 2.2)
+  licence: 'Legal notice on the use of Copernicus Sentinel Data and Service Information: free, full and open access;
+    reproduction, distribution, communication to the public and adaptation allowed, with the notice it prescribes
+    (sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)'
+  citation: Contains modified Copernicus Sentinel data 2025
+  attribution: Contains modified Copernicus Sentinel data 2025
+  record: null
+- id: terrain
+  title: Terrain
+  group: Base
+  source: Copernicus DEM GLO-30 (Earth Engine COPERNICUS/DEM/GLO30), exported to dem_central_india_basin_extent.tif
+    (re-export of 2026-11-25; DATA_REPORT section 2.3), terrain-RGB tiles
+  units: m above sea level
+  licence: 'Licence for the use of the Copernicus WorldDEM-30 (COP-DEM-GLO-30-F, "Global 30m Full, Free & Open"):
+    free of charge, worldwide; reproduction, distribution, communication to the public and adaptation allowed with
+    the notices of its Article 6. "The organisations in charge of the Copernicus programme by law or by delegation
+    do not incur any liability for any use of the Copernicus WorldDEM-30". Licence text: docs.sentinel-hub.com/api/latest/static/files/data/dem/resources/license/License-COPDEM-30.pdf'
+  citation: produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018
+    provided under COPERNICUS by the European Union and ESA; all rights reserved
+  caveats: Terrain beyond the DEM extent is synthetic padding for display; elevations are neither shown nor queryable
+    there.
+  attribution: produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018
+    provided under COPERNICUS by the European Union and ESA; all rights reserved
+  record: null
+- id: osm_labels
+  title: Place names
+  group: Base
+  source: OpenStreetMap via the Protomaps daily basemap (build 20261123, schema v4)
+  period: OSM data as of 2026-11-23
+  units: 'labels only: cities, towns, villages, rivers, lakes, protected areas, forests'
+  licence: ODbL 1.0 - (c) OpenStreetMap contributors
+  citation: '(c) OpenStreetMap contributors (openstreetmap.org/copyright). Basemap tiles: Protomaps (protomaps.com).
+    Fonts: Noto Sans (SIL OFL) via protomaps/basemaps-assets.'
+  caveats: 'Volunteered geographic information: coverage and spelling vary; label positions are OSM points, not
+    authoritative gazetteer locations.'
+  record: null
+- id: admin_boundaries
+  title: Districts
+  group: Base
+  source: 'geoBoundaries gbOpen IND ADM2: Jhansi, Tikamgarh, Niwari, Chhatarpur, Damoh, Jabalpur, Mandla'
+  licence: ODbL 1.0
+  citation: 'District boundaries: geoBoundaries (Runfola et al. 2020, PLoS ONE 15(4): e0231866), gbOpen IND ADM2,
+    ODbL 1.0.'
+  caveats: 'Niwari was formed from Tikamgarh district in 2018: earlier studies and statistics count it inside Tikamgarh.
+    Simplified ~90 m for display.'
+  record: null
+- id: precip
+  title: Precipitation (CHIRPS v3)
+  group: Climate
+  source: CHIRPS v3.0 daily (RNL, ERA5-disaggregated), 0.05 deg, via the aaguilar90 Hugging Face zarr mirror of
+    UCSB CHC data
+  period: 1981-01 to 2026-10
+  units: mm
+  licence: CC BY 4.0 ("licensed under a Creative Commons Attribution 4.0 International License"); the same page
+    states that the Climate Hazards Center "has waived all copyright and related or neighboring rights" to CHIRPS3
+    (chc.ucsb.edu/data/chirps3)
+  citation: 'Funk, C., Peterson, P., Harrison, L., Saldivar, R., Landsfeld, M., Pedreros, D., Shukla, S., Fink,
+    A. H., Davenport, F., Peterson, S., Turner, W., Sonnier, A., Budde, M., Tabor, K., Verdin, J., Hauzaree, N.
+    D., Naim, M., Alaso, D., & Husak, G. (2026). The Climate Hazards Center Infrared Precipitation with Stations,
+    Version 3. Sci Data 13, 718 (2026). https://doi.org/10.1038/s41597-026-07096-4. Data: Climate Hazards Center
+    Infrared Precipitation with Stations version 3 (CHIRPS3) Data Repository: https://doi.org/10.15780/G2JQ0P (2025).
+    Data was accessed on 2026-11-24 (aaguilar90 Hugging Face mirror).'
+  caveats: The latest 2-3 CHIRPS months are provisional and may be revised.
+  record: null
+- id: temperature
+  title: Temperature (CHIRTS-ERA5)
+  group: Climate
+  source: CHIRTS-ERA5 daily Tmax/Tmin, 0.05 deg; Tmean = (Tmax+Tmin)/2; via the aaguilar90 Hugging Face zarr mirror
+    of UCSB CHC data
+  period: 1981-01 to 2026-10
+  units: degC
+  licence: CC BY 4.0 ("licensed under a Creative Commons Attribution 4.0 International License"); the same page
+    states that the Climate Hazards Center "has waived all copyright and related or neighboring rights" to CHIRTS-ERA5
+    (chc.ucsb.edu/data/chirts-era5)
+  citation: CHIRTS-ERA5 Data Repository https://doi.org/10.15780/G2F08J (2025). Data was accessed on 2026-11-24
+    (aaguilar90 Hugging Face mirror).
+  record: null
+- id: spi3
+  title: Drought index (SPI-3)
+  group: Climate
+  source: SPI-3 computed from CHIRPS v3.0 monthly totals (gamma fit, Thom 1958; zero-rain mixed distribution), calibration
+    1991-2020
+  period: 1981-03 to 2026-10
+  units: SPI (unitless)
+  licence: 'Derived from CHIRPS v3.0: CC BY 4.0 ("licensed under a Creative Commons Attribution 4.0 International
+    License"); the same page states that the Climate Hazards Center "has waived all copyright and related or neighboring
+    rights" to CHIRPS3 (chc.ucsb.edu/data/chirps3)'
+  citation: 'McKee, Doesken & Kleist (1993), 8th Conf. Applied Climatology; classes: WMO (2012), SPI User Guide,
+    WMO-No. 1090; precipitation: Funk, C., Peterson, P., Harrison, L., Saldivar, R., Landsfeld, M., Pedreros, D.,
+    Shukla, S., Fink, A. H., Davenport, F., Peterson, S., Turner, W., Sonnier, A., Budde, M., Tabor, K., Verdin,
+    J., Hauzaree, N. D., Naim, M., Alaso, D., & Husak, G. (2026). The Climate Hazards Center Infrared Precipitation
+    with Stations, Version 3. Sci Data 13, 718 (2026). https://doi.org/10.1038/s41597-026-07096-4. Data: Climate
+    Hazards Center Infrared Precipitation with Stations version 3 (CHIRPS3) Data Repository: https://doi.org/10.15780/G2JQ0P
+    (2025). Data was accessed on 2026-11-24 (aaguilar90 Hugging Face mirror).'
+  caveats: The latest 2-3 CHIRPS months are provisional; class names follow WMO (2012).
+  record: null
+- id: osm_water
+  title: Rivers and water bodies (OpenStreetMap)
+  group: Water
+  source: 'OpenStreetMap via the Protomaps daily basemap (build 20261123, schema v4), layer ''water'': river and
+    canal lines, water polygons; the same archive as the place names'
+  period: OSM data as of 2026-11-23 (osm_build=20261123)
+  units: rivers and canals (lines), rivers, lakes and reservoirs (areas), river names
+  licence: ODbL 1.0 - (c) OpenStreetMap contributors
+  citation: '(c) OpenStreetMap contributors (openstreetmap.org/copyright). Basemap tiles: Protomaps (protomaps.com).'
+  caveats: 'River lines exist in the extract only from zoom 9; below that only the wide reaches and water bodies
+    (areas) show. Most rivers have no English name in OSM: a river is labelled with name:en where it exists, else
+    with the name as tagged. Volunteered geographic information: coverage varies, and a line says where a river
+    is mapped, not how much water it carries.'
+  attribution: © OpenStreetMap contributors, ODbL 1.0
+  record: null
+- id: surfacewater
+  title: Surface water (JRC Global Surface Water v1.4)
+  group: Water
+  source: JRC Global Surface Water v1.4 (1984-2021), 10 x 10 degree tiles 'occurrence' and 'seasonality' from storage.googleapis.com/global-surface-water/downloads2021/,
+    clipped to the MOSAIC landscape
+  period: 'occurrence: March 1984 - December 2021; seasonality: 2021'
+  units: 'occurrence: % of valid observations with water; seasonality: months with water'
+  licence: '"All data here is produced under the Copernicus Programme and is provided free of charge, without restriction
+    of use. For the full license information see the Copernicus Regulation." (JRC Global Surface Water, global-surface-water.appspot.com/download)'
+  citation: 'Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward, High-resolution mapping of global
+    surface water and its long-term changes. Nature 540, 418-422 (2016). (doi:10.1038/nature20584) Dataset: JRC
+    Global Surface Water v1.4 (2021).'
+  caveats: 'Occurrence is the share of the valid Landsat observations in which the pixel was water over the whole
+    record, giving more weight to the dry season than to the wet one, not a water depth or a single date. Seasonality
+    counts the months of 2021 with water. JRC marks v1.4 as deprecated; its occurrence errors are fixed in v1.5
+    (global-surface-water.appspot.com/download: "The full global surface water datasets V1.5 (V1.4 is deprecated)";
+    "In versions 1.2 to 1.4, the years added after the original release (v1.0) were not processed in a way fully
+    consistent with the original Occurrence calculation, which introduced errors."). The chart in chapter 4 uses
+    v1.4 monthly history from Earth Engine, so the map stays on v1.4 for consistency. Pixels outside the MOSAIC
+    landscape are left out.'
+  attribution: 'Source: EC JRC/Google'
+  record: null
