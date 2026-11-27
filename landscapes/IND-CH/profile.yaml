@@ -1,0 +1,28 @@
+# Page of the IND-CH landscape profile (MOSAIC).
+# Check: python -m mosaic_catalog --catalog <catalogue> validate-landscapes IND-CH -v
+profile: mosaic-landscape-profile@0.1
+landscape: IND-CH
+title: Central India Highlands
+summary: >-
+  Terrain, rainfall, temperature, drought (SPI-3), rivers and surface water across seven districts of the
+  Central India Highlands, from Bundelkhand to the upper Narmada.
+status: draft
+sections:
+- id: explorer
+  kind: map-explorer
+  title: Highlands Explorer
+  source: explorer.yaml
+- id: datasets
+  kind: catalogue-datasets
+  title: Datasets in the catalogue
+- id: data-status
+  kind: data-status
+  title: Data status
+credits:
+- name: Andrés Aguilar
+- name: Santiago Calderon
+- name: Steven Sotelo
+- name: Lizeth Llanos
+origin:
+  repository: https://github.com/MOSAIC-mfl
+  note: First published as a MOSAIC landscape profile.

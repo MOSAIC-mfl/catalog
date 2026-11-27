@@ -1,0 +1,791 @@
+# Map explorer of the IND-CH landscape profile (MOSAIC).
+# Check: python -m mosaic_catalog --catalog <catalogue> validate-landscapes IND-CH -v
+title: Central India Highlands Explorer
+tagline: Seven districts from Bundelkhand to the upper Narmada · terrain, imagery, rainfall, temperature, drought
+  (SPI-3), rivers and surface water
+data:
+  roots:
+    hf: https://huggingface.co/datasets/aaguilar90/mosaic-central-highlands/resolve/main/
+  default_root: hf
+  report: https://huggingface.co/datasets/aaguilar90/mosaic-central-highlands/blob/main/DATA_REPORT.md
+map:
+  center:
+  - 79.7
+  - 24.1
+  zoom: 6.6
+  pitch: 32
+  bearing: 0
+  min_zoom: 5.5
+  max_zoom: 14
+  max_pitch: 62
+  max_bounds:
+  - - 73.8
+    - 18.4
+  - - 85.7
+    - 29.8
+  sky:
+    sky-color: '#c8d4de'
+    horizon-color: '#e7ebef'
+    fog-color: '#e7ebef'
+    sky-horizon-blend: 0.6
+    horizon-fog-blend: 0.7
+  glyphs: fonts/{fontstack}/{range}.pbf
+  terrain:
+    source: dem
+    exaggeration: 1.6
+    min: 1
+    max: 4
+    step: 0.1
+  attribution: Copernicus WorldDEM-30 · Contains modified Copernicus Sentinel data 2025
+  sources:
+    extent:
+      type: geojson
+      data:
+        asset: vectors/extent_mask.geojson
+    s2:
+      type: raster
+      url:
+        pmtiles: tiles/s2_rgb.pmtiles
+      tileSize: 256
+    dem:
+      type: raster-dem
+      url: &id001
+        pmtiles: tiles/terrain.pmtiles
+      tileSize: 256
+      encoding: mapbox
+    demHillshade:
+      type: raster-dem
+      url: *id001
+      tileSize: 256
+      encoding: mapbox
+    districts:
+      type: geojson
+      data:
+        asset: vectors/districts.geojson
+    admLabels:
+      type: geojson
+      data:
+        asset: vectors/admin_labels.geojson
+    osm:
+      type: vector
+      url:
+        pmtiles: tiles/osm_basemap.pmtiles
+      attribution: © OpenStreetMap contributors
+  layers:
+  - id: bg
+    type: background
+    paint:
+      background-color: '#dfe5ea'
+  - id: s2
+    type: raster
+    source: s2
+    paint:
+      raster-resampling: linear
+  - id: hillshade
+    type: hillshade
+    source: demHillshade
+    paint:
+      hillshade-exaggeration: 0.35
+      hillshade-shadow-color: '#3c4148'
+      hillshade-highlight-color: '#ffffff'
+      hillshade-accent-color: '#5b6672'
+  - id: osm-water-fill
+    type: fill
+    source: osm
+    source-layer: water
+    layout:
+      visibility: none
+    filter:
+    - ==
+    - - geometry-type
+    - Polygon
+    paint:
+      fill-color: '#0b4f9e'
+      fill-opacity: 0.9
+  - id: osm-rivers-casing
+    type: line
+    source: osm
+    source-layer: water
+    filter: &id002
+    - all
+    - - ==
+      - - geometry-type
+      - LineString
+    - - in
+      - - get
+        - kind
+      - - literal
+        - - river
+          - canal
+    layout:
+      visibility: none
+      line-cap: round
+      line-join: round
+    paint:
+      line-color: '#ffffff'
+      line-opacity: 0.7
+      line-width:
+      - interpolate
+      - - linear
+      - - zoom
+      - 9
+      - 4.2
+      - 13
+      - 7
+  - id: osm-rivers-line
+    type: line
+    source: osm
+    source-layer: water
+    filter: *id002
+    layout:
+      visibility: none
+      line-cap: round
+      line-join: round
+    paint:
+      line-color: '#0b4f9e'
+      line-width:
+      - interpolate
+      - - linear
+      - - zoom
+      - 9
+      - 2.4
+      - 13
+      - 4.6
+  - id: osm-rivers-label
+    type: symbol
+    source: osm
+    source-layer: water
+    filter:
+    - all
+    - - ==
+      - - get
+        - kind
+      - river
+    - - has
+      - name
+    layout:
+      visibility: none
+      text-field: &id003
+      - coalesce
+      - - get
+        - name:en
+      - - get
+        - name
+      text-font:
+      - Noto Sans Medium
+      text-size: 14
+      text-letter-spacing: 0.05
+      symbol-placement: line
+      symbol-spacing: 260
+      text-padding: 2
+    paint:
+      text-color: '#ffffff'
+      text-halo-color: '#0b4f9e'
+      text-halo-width: 2
+  - id: extent-mask
+    type: fill
+    source: extent
+    paint:
+      fill-color: '#dfe5ea'
+      fill-opacity: 1
+      fill-antialias: false
+  - id: labels-start
+    type: background
+    paint:
+      background-opacity: 0
+  - id: districts-hit
+    type: fill
+    source: districts
+    paint:
+      fill-opacity: 0
+  - id: districts-line
+    type: line
+    source: districts
+    layout:
+      visibility: visible
+    paint:
+      line-color: '#dfe3e6'
+      line-width:
+      - interpolate
+      - - linear
+      - - zoom
+      - 6
+      - 0.8
+      - 11
+      - 1.5
+      line-dasharray:
+      - 3
+      - 2
+      line-opacity: 0.9
+  - id: osm-natural
+    type: symbol
+    source: osm
+    source-layer: pois
+    minzoom: 8
+    filter:
+    - all
+    - - has
+      - name
+    - - in
+      - - get
+        - kind
+      - - literal
+        - - national_park
+          - nature_reserve
+          - protected_area
+          - forest
+    layout:
+      text-field: *id003
+      text-font:
+      - Noto Sans Italic
+      text-size: 11
+      text-padding: 3
+      text-max-width: 8
+    paint:
+      text-color: '#e6f0dc'
+      text-halo-color: rgba(17,26,34,0.88)
+      text-halo-width: 1.5
+  - id: osm-water-river
+    type: symbol
+    source: osm
+    source-layer: water
+    minzoom: 8
+    filter:
+    - all
+    - - has
+      - name
+    - - in
+      - - get
+        - kind
+      - - literal
+        - - river
+          - canal
+          - stream
+    layout:
+      text-field: *id003
+      text-font:
+      - Noto Sans Italic
+      text-size: 11
+      text-padding: 3
+      text-max-width: 8
+      symbol-placement: line
+      symbol-spacing: 400
+    paint:
+      text-color: '#d6eef2'
+      text-halo-color: rgba(17,26,34,0.88)
+      text-halo-width: 1.5
+  - id: osm-water
+    type: symbol
+    source: osm
+    source-layer: water
+    filter:
+    - all
+    - - has
+      - name
+    - - ==
+      - - geometry-type
+      - Point
+    - - in
+      - - get
+        - kind
+      - - literal
+        - - lake
+          - water
+          - bay
+          - reservoir
+    layout:
+      text-field: *id003
+      text-font:
+      - Noto Sans Italic
+      text-size:
+      - interpolate
+      - - linear
+      - - zoom
+      - 6
+      - 12
+      - 10
+      - 14
+      text-padding: 3
+      text-max-width: 8
+    paint:
+      text-color: '#d6eef2'
+      text-halo-color: rgba(17,26,34,0.88)
+      text-halo-width: 1.5
+  - id: osm-village
+    type: symbol
+    source: osm
+    source-layer: places
+    minzoom: 11
+    filter:
+    - all
+    - - has
+      - name
+    - - ==
+      - - get
+        - kind
+      - locality
+    - - in
+      - - get
+        - kind_detail
+      - - literal
+        - - village
+          - hamlet
+    layout:
+      text-field: *id003
+      text-font:
+      - Noto Sans Regular
+      text-size: 11
+      text-padding: 3
+      text-max-width: 8
+      symbol-sort-key: &id004
+      - '-'
+      - 0
+      - - coalesce
+        - - get
+          - population_rank
+        - 0
+    paint: &id005
+      text-color: '#ffffff'
+      text-halo-color: rgba(17,26,34,0.88)
+      text-halo-width: 1.5
+  - id: osm-town
+    type: symbol
+    source: osm
+    source-layer: places
+    minzoom: 7
+    filter:
+    - all
+    - - has
+      - name
+    - - ==
+      - - get
+        - kind
+      - locality
+    - - ==
+      - - get
+        - kind_detail
+      - town
+    layout:
+      text-field: *id003
+      text-font:
+      - Noto Sans Medium
+      text-size:
+      - interpolate
+      - - linear
+      - - zoom
+      - 7
+      - 11
+      - 12
+      - 13
+      text-padding: 3
+      text-max-width: 8
+      symbol-sort-key: *id004
+    paint: *id005
+  - id: osm-city
+    type: symbol
+    source: osm
+    source-layer: places
+    filter:
+    - all
+    - - has
+      - name
+    - - ==
+      - - get
+        - kind
+      - locality
+    - - ==
+      - - get
+        - kind_detail
+      - city
+    layout:
+      text-field: *id003
+      text-font:
+      - Noto Sans Medium
+      text-size:
+      - interpolate
+      - - linear
+      - - zoom
+      - 6
+      - 12
+      - 12
+      - 15
+      text-padding: 3
+      text-max-width: 8
+      symbol-sort-key: *id004
+    paint: *id005
+  - id: osm-country
+    type: symbol
+    source: osm
+    source-layer: places
+    maxzoom: 7
+    filter:
+    - all
+    - - has
+      - name
+    - - ==
+      - - get
+        - kind
+      - country
+    layout:
+      text-field: *id003
+      text-font:
+      - Noto Sans Medium
+      text-size: 13
+      text-padding: 3
+      text-max-width: 8
+      text-transform: uppercase
+      text-letter-spacing: 0.12
+    paint:
+      text-color: '#f3f5f6'
+      text-halo-color: rgba(17,26,34,0.88)
+      text-halo-width: 1.5
+  - id: districts-label
+    type: symbol
+    source: admLabels
+    maxzoom: 11
+    filter:
+    - ==
+    - - get
+      - level
+    - district
+    layout:
+      text-field:
+      - step
+      - - zoom
+      - - get
+        - name
+      - 8
+      - - get
+        - label
+      text-font:
+      - Noto Sans Regular
+      text-size: 11
+      text-letter-spacing: 0.06
+      text-transform: uppercase
+      text-padding: 2
+      text-max-width: 9
+      text-variable-anchor:
+      - center
+      - top
+      - bottom
+      - left
+      - right
+      text-radial-offset: 0.6
+    paint:
+      text-color: '#e4e8eb'
+      text-halo-color: rgba(17,26,34,0.88)
+      text-halo-width: 1.3
+groups:
+- Base
+- Climate
+- Land
+- Water
+- Fire
+toggles:
+- id: place_names
+  group: Base
+  title: Place names
+  swatch: '#ffffff'
+  default: true
+  layers:
+  - osm-natural
+  - osm-water-river
+  - osm-water
+  - osm-village
+  - osm-town
+  - osm-city
+  - osm-country
+  attribution: © OpenStreetMap contributors
+  source_ref: osm_labels
+- id: districts
+  group: Base
+  title: Districts
+  swatch: '#dfe3e6'
+  default: true
+  layers:
+  - districts-line
+  - districts-hit
+  - districts-label
+  attribution: 'District boundaries: geoBoundaries (Runfola et al. 2020), gbOpen IND ADM2, ODbL 1.0'
+  source_ref: admin_boundaries
+- id: osm_water
+  group: Water
+  title: Rivers and water bodies
+  swatch: '#0b4f9e'
+  default: false
+  layers:
+  - osm-water-fill
+  - osm-rivers-casing
+  - osm-rivers-line
+  - osm-rivers-label
+  attribution: © OpenStreetMap contributors
+  source_ref: osm_water
+click:
+  title: Central India Highlands
+  source: Copernicus GLO-30
+  admin:
+    layers:
+    - districts-hit
+    visible_layer: districts-hit
+    name_fields:
+    - district
+    - state
+    iso: IND
+    units:
+      IND:
+      - State
+      - District
+overlays:
+- id: precip
+  group: Climate
+  title: Precipitation
+  kind: climate-grid
+  swatch: '#434e6b'
+  source_ref: precip
+  grid: climate/app/
+  before: extent-mask
+  attribution: CHIRPS v3 (UCSB CHC)
+  variables:
+  - id: precip
+    label: Precip
+    title: Precipitation
+    cells: precip_cells.bin
+  aggregate: total
+  units: mm
+  source: CHIRPS v3.0
+  ramp:
+  - '#fde737'
+  - '#dec957'
+  - '#bbad6c'
+  - '#9b9376'
+  - '#7c7b78'
+  - '#61646f'
+  - '#434e6b'
+  - '#1a386f'
+  - '#00224d'
+  anomaly:
+    kind: ratio
+    units: '% of normal'
+    centre: 100
+    ramp: &id009
+    - '#543005'
+    - '#8a5009'
+    - '#bf812d'
+    - '#dec07b'
+    - '#f6e8c3'
+    - '#f4f4f4'
+    - '#c7eae5'
+    - '#7ecbc0'
+    - '#35978f'
+    - '#00655d'
+    - '#003c30'
+    normals: precip
+  seasons: &id006
+  - annual
+  - kharif
+  - zaid
+  season_labels: &id007
+    annual: Annual
+    kharif: Kharif (Jun–Sep)
+    zaid: Zaid (Mar–May)
+  season_names: &id008
+    annual: annual
+    kharif: kharif season (Jun–Sep)
+    zaid: zaid season (Mar–May)
+- id: temperature
+  group: Climate
+  title: Temperature
+  kind: climate-grid
+  swatch: '#872781'
+  source_ref: temperature
+  grid: climate/app/
+  before: extent-mask
+  attribution: CHIRTS-ERA5 (UCSB CHC)
+  variables:
+  - id: tmean
+    label: Tmean
+    title: Tmean (Tmax+Tmin)/2
+    cells: tmean_cells.bin
+    normals: tmean
+  - id: tmax
+    label: Tmax
+    title: Tmax
+    cells: tmean_cells.bin
+    series_of: tmean
+  - id: tmin
+    label: Tmin
+    title: Tmin
+    cells: tmean_cells.bin
+    series_of: tmean
+  aggregate: mean
+  units: °C
+  source: CHIRTS-ERA5
+  ramp:
+  - '#060519'
+  - '#2a115c'
+  - '#5a157e'
+  - '#872781'
+  - '#b53679'
+  - '#e14c66'
+  - '#f97b5d'
+  - '#feb179'
+  - '#fce6a8'
+  anomaly:
+    kind: difference
+    units: °C vs normal
+    centre: 0
+    ramp:
+    - '#053061'
+    - '#2064aa'
+    - '#4393c3'
+    - '#90c4dd'
+    - '#d1e5f0'
+    - '#f7f6f6'
+    - '#fddbc7'
+    - '#f3a380'
+    - '#d6604d'
+    - '#b0172a'
+    - '#67001f'
+  seasons: *id006
+  season_labels: *id007
+  season_names: *id008
+- id: spi3
+  group: Climate
+  title: Drought (SPI-3)
+  kind: index-grid
+  swatch: '#35978f'
+  source_ref: spi3
+  grid: climate/app/
+  before: extent-mask
+  attribution: SPI-3 from CHIRPS v3
+  stack: spi3.tif
+  cells: spi3_cells.bin
+  qc: spi3_qc.tif
+  scale: 0.01
+  range:
+  - -3
+  - 3
+  ramp: *id009
+  provisional_months: 3
+  basin_series: series/spi3_region.json
+  title_long: SPI-3 — 3-month standardized precipitation
+  short: SPI-3
+  calibration: 1991–2020
+  provisional_note: '{from} to {to}: provisional (latest CHIRPS months, may be revised)'
+  provisional_cell_note: The latest 2–3 CHIRPS months may be revised.
+  axis:
+  - −3 dry
+  - +3 wet
+  classes:
+  - max: -2
+    label: extremely dry
+  - max: -1.5
+    label: severely dry
+  - max: -1
+    label: moderately dry
+  - below: 1
+    label: near normal
+  - below: 1.5
+    label: moderately wet
+  - below: 2
+    label: very wet
+  - label: extremely wet
+  legend_notes:
+  - ≤ −2.0 extremely dry · −1.5 to −1.99 severely dry · −1.0 to −1.49 moderately dry · −0.99 to 0.99 near normal
+    (WMO 2012)
+  source: Gamma fit (Thom), calibration 1991–2020 · CHIRPS v3.0 · 0.05°
+  cell_source: SPI-3 from CHIRPS v3.0 · calibration 1991–2020
+  cell_method: SPI-3 from CHIRPS v3.0 · gamma fit (Thom 1958), zero-rain mixed distribution
+  area_name: region
+- id: gsw_occurrence
+  group: Water
+  title: 'Surface water: occurrence'
+  kind: raster-tiles
+  swatch: '#0000ff'
+  source_ref: surfacewater
+  asset: tiles/gsw_occurrence.pmtiles
+  before: extent-mask
+  attribution: 'Source: EC JRC/Google'
+  paint:
+    raster-resampling: nearest
+  legend:
+    kind: steps
+    title: Surface water occurrence (% of valid observations with water)
+    colors:
+    - '#fbb4c4'
+    - '#e3a0c5'
+    - '#ca8dc7'
+    - '#b279c8'
+    - '#9865ca'
+    - '#724cd7'
+    - '#4c32e4'
+    - '#2619f2'
+    - '#0000ff'
+    labels:
+    - 1 %
+    - 100 %
+    source: 'JRC Global Surface Water v1.4 · March 1984 - December 2021 · not water and no data: not drawn'
+  inspect: &id010
+    kind: combined
+    note: 'Occurrence: share of the valid Landsat observations with water over March 1984 – December 2021 (more
+      weight to the dry season than to the wet one), not a depth or a single date. Seasonality: months with water
+      in 2021. JRC marks v1.4 as deprecated (errors in occurrence fixed in v1.5); kept on v1.4 for consistency with
+      the story chart. Source: EC JRC/Google · Pekel et al. (2016), Nature 540: 418–422.'
+    parts:
+    - kind: value-at-point
+      asset: query/gsw_occurrence.tif
+      title: Surface water at {place}
+      hint: JRC Global Surface Water v1.4 · 30 m
+      bands:
+      - band: 0
+        label: Occurrence, 1984–2021
+        unit: '%'
+        nodata:
+        - 0
+        - 255
+        nodata_text: not water or no data
+    - kind: value-at-point
+      asset: query/gsw_seasonality.tif
+      title: Surface water at {place}
+      bands:
+      - band: 0
+        label: Seasonality, 2021
+        unit: months
+        nodata:
+        - 0
+        - 255
+        nodata_text: not water or no data
+- id: gsw_seasonality
+  group: Water
+  title: 'Surface water: seasonality'
+  kind: raster-tiles
+  swatch: '#0000aa'
+  source_ref: surfacewater
+  asset: tiles/gsw_seasonality.pmtiles
+  before: extent-mask
+  attribution: 'Source: EC JRC/Google'
+  paint:
+    raster-resampling: nearest
+  legend:
+    kind: steps
+    title: Surface water seasonality (months with water in 2021)
+    colors:
+    - '#99d9ea'
+    - '#86bee2'
+    - '#72a3da'
+    - '#5f87d2'
+    - '#4c6cca'
+    - '#3951c2'
+    - '#2636ba'
+    - '#131bb2'
+    - '#0000aa'
+    labels:
+    - 1 month
+    - 12 months
+    source: 'JRC Global Surface Water v1.4 · January - December 2021 · not water and no data: not drawn'
+  inspect: *id010
+about:
+  intro: Part of MOSAIC — the CGIAR Multifunctional Landscapes Science Programme.
+  licence: Content licensed under CC BY 4.0 unless otherwise stated. Each layer below carries its own source, period
+    and citation.
+  sources: sources.yaml
