@@ -24,8 +24,8 @@ layers:
   group: Base
   source: >-
     Copernicus DEM GLO-30 (COPERNICUS/DEM/GLO30 in Earth Engine) resampled to ~60 m over the explorer's
-    whole map extent (MOSAIC export, 2026-11-26); it replaces the 30 m department-extent DEM of the data
-    report
+    map extent (MOSAIC export, 2026-11-26), served to zoom 10 with heights rounded to 1 m; it replaces the
+    30 m department-extent DEM of the data report
   units: m above sea level
   licence: 'Copernicus DEM: free use with attribution'
   citation: ESA (2021). Copernicus DEM GLO-30. Contains modified Copernicus data.
@@ -37,8 +37,8 @@ layers:
   source: >-
     Sentinel-2 L2A mosaic 2025, 30 m (Earth Engine export; script in prep/). Outside the department
     (MOSAIC Earth Engine export, 2026-11-26): 2025 median of cloud-masked scenes, gaps filled with the
-    2023-2025 then the 2020-2025 median; 30 m within the department's bounding box, 60 m beyond it; the sea (DEM at or
-    below 0 m) in one flat colour
+    2023-2025 then the 2020-2025 median; 30 m within the department's bounding box, 60 m beyond it; the
+    sea (DEM at or below 0 m) in one flat colour
   period: 2025 (outside the department, gaps filled from 2020-2025)
   units: true colour (fixed stretch 0-3000, gamma 2.2)
   licence: 'Copernicus Sentinel data: free use with attribution'
